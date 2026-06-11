@@ -76,6 +76,13 @@ input,select,textarea{
 input::-webkit-inner-spin-button{-webkit-appearance:none}
 input:focus,select:focus{border-color:var(--accent)}
 .pfx input{padding-left:28px}.sfx input{padding-right:32px}
+/* FIX: radio/checkbox ต้องไม่โดน global input{width:100%;padding;border} ที่ทำให้ปุ่มยืดเป็นกล่องไปทับ label (เห็นชัดบน iPad) */
+input[type="radio"],input[type="checkbox"]{
+  width:auto !important;min-width:0 !important;flex:none !important;
+  padding:0 !important;margin:0 !important;
+  background:none !important;border:none !important;border-radius:0 !important;
+  -webkit-appearance:auto !important;appearance:auto !important;accent-color:#4f8ef7
+}
 select{cursor:pointer}
 select option{background:var(--surf2)}
 
@@ -184,6 +191,8 @@ hr.div{border:none;border-top:1px solid var(--border);margin:20px 0}
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:999;opacity:0;pointer-events:none;transition:opacity .3s}
 .close-sidebar{display:none;position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--text2);padding:4px 8px}
 @media(max-width:700px){.close-sidebar{display:block}}
+/* FIX: ปุ่ม ☰ + overlay ต้องแสดงบนมือถือ — base .hamburger/.overlay{display:none} ถูกประกาศหลัง @media เดิม จึงทับ media ที่สั่งให้โชว์ ต้องมีกฎปิดท้ายให้เป็นตัวสุดท้ายใน cascade */
+@media(max-width:700px){.hamburger{display:flex}.overlay{display:block}}
 
 /* ── Mobile layout comprehensive fix ── */
 /* Result card values: ป้องกันตัวเลขยาวล้น */
