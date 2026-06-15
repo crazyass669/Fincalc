@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>FinCalc Suite — เครื่องคำนวณการเงิน</title>
 <meta name="theme-color" content="#0b0d13">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://api.frankfurter.app https://open.er-api.com; img-src 'self' data:;">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -587,7 +588,7 @@ select option{background:var(--surf2);color:var(--text)}
   → <b class="pc-ans">ผ่อน ฿17,034/เดือน</b><br><br>
   <div class="pc-tip-ex">ตัวอย่าง 3 — หา Rate</div>
   ลงทุน ฿100k ได้คืน ฿200k ใน 60 งวด<br>
-  → <b class="pc-ans">Rate = 1.16%/เดือน = 13.94%/ปี</b><br><br>
+  → <b class="pc-ans">Rate = 1.16%/เดือน = 13.94%/ปี (Nominal)</b><br><br>
   <div class="pc-tip-ex">⚠️ Sign Convention</div>
   จ่ายออก = ติดลบ (−) | รับเข้า = บวก (+)<br>
   เช่น กู้เงิน PV = +3,000,000 ผ่อน PMT = −17,034<br>
@@ -752,7 +753,8 @@ select option{background:var(--surf2);color:var(--text)}
     <div class="grid2">
       <div class="fg"><label>มูลค่าที่ตราไว้ (Face Value)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="bd-f" placeholder="เช่น 1000"></div></div>
       <div class="fg"><label>อัตราดอกเบี้ยพันธบัตร (%/ปี)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.thaibma.or.th/compositerpt/GovYieldCurve.aspx" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇹🇭 ThaiBMA</a><a href="https://fred.stlouisfed.org/series/DGS10" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(39,201,126,.12);border:1px solid rgba(39,201,126,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇺🇸 US 10Y</a></div><input type="number" id="bd-c" step="0.01" placeholder="เช่น 6"></div>
-      <div class="fg"><label>YTM — ผลตอบแทนที่ต้องการ (%/ปี)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.thaibma.or.th/compositerpt/GovYieldCurve.aspx" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇹🇭 ThaiBMA</a><a href="https://fred.stlouisfed.org/series/DGS10" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(39,201,126,.12);border:1px solid rgba(39,201,126,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇺🇸 US 10Y</a></div><input type="number" id="bd-y" step="0.01" placeholder="เช่น 7"></div>
+      <div class="fg"><label>YTM — ผลตอบแทนที่ต้องการ (%/ปี)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.thaibma.or.th/compositerpt/GovYieldCurve.aspx" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇹🇭 ThaiBMA</a><a href="https://fred.stlouisfed.org/series/DGS10" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(39,201,126,.12);border:1px solid rgba(39,201,126,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇺🇸 US 10Y</a></div><input type="number" id="bd-y" step="0.01" placeholder="เช่น 7" min="0.01"></div>
+      <div style="font-size:.7rem;color:var(--gold);margin-top:-6px;margin-bottom:8px">⚠️ YTM = 0% จะคำนวณเป็นพันธบัตรไม่มีดอกเบี้ย (ได้ Face Value คืน + Coupon รวม)</div>
       <div class="fg"><label>อายุคงเหลือ (ปี)</label><input type="number" id="bd-t" step="0.5" placeholder="เช่น 5"></div>
       <div class="fg"><label>ความถี่จ่ายดอกเบี้ย</label>
         <select id="bd-fr" data-default="1"><option value="1">ปีละครั้ง</option><option value="2" selected>ครึ่งปี</option><option value="4">รายไตรมาส</option></select>
@@ -1605,7 +1607,8 @@ select option{background:var(--surf2);color:var(--text)}
     <div class="grid2">
       <div class="fg"><label>รายได้รวมต่อเดือน</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="ha-inc" placeholder="เช่น 100000"></div></div>
       <div class="fg"><label>หนี้ที่มีอยู่ต่อเดือน</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="ha-debt" placeholder="เช่น 15000"></div></div>
-      <div class="fg"><label>อัตราดอกเบี้ย (%/ปี)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.bot.or.th/en/statistics/interest-rate.html" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🏦 BOT ดอกเบี้ย</a><a href="https://www.savcurv.com/mor-mlr-mrr/" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">📋 MRR/MLR/MOR</a></div><input type="number" id="ha-r" step="0.01" placeholder="เช่น 5.5"></div>
+      <div class="fg"><label>อัตราดอกเบี้ย (%/ปี)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.bot.or.th/en/statistics/interest-rate.html" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🏦 BOT ดอกเบี้ย</a><a href="https://www.savcurv.com/mor-mlr-mrr/" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">📋 MRR/MLR/MOR</a></div><input type="number" id="ha-r" step="0.01" placeholder="เช่น 5.5" min="0.01"></div>
+      <div style="font-size:.7rem;color:var(--gold);margin-top:-6px;margin-bottom:8px">⚠️ ดอกเบี้ย 0% จะคำนวณเป็นวงเงินกู้ = ผ่อน × จำนวนงวด</div>
       <div class="fg"><label>ระยะเวลา (ปี)</label><input type="number" id="ha-y" placeholder="เช่น 30"></div>
       <div class="fg"><label>เงินดาวน์</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="ha-dp" placeholder="เช่น 600000"></div></div>
       <div class="fg"><label>% DTI ที่ยอมรับได้ (%)</label><input type="number" id="ha-dti" step="1" placeholder="เช่น 43"></div>
@@ -1820,7 +1823,7 @@ select option{background:var(--surf2);color:var(--text)}
   </div>
 <div class="pc-tip">
   <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
-  ผ่อนทุก 2 สัปดาห์ = จ่าย 26 งวด/ปี แทน 24 งวด เท่ากับผ่อนเพิ่ม 1 เดือน/ปี ปิดหนี้เร็วขึ้นมาก<br><br>
+  ผ่อนทุก 2 สัปดาห์ = จ่าย 26 งวด/ปี แทน 12 งวด (รายเดือน) เท่ากับผ่อนเพิ่ม 1 เดือน/ปี ปิดหนี้เร็วขึ้นมาก<br><br>
   <div class="pc-tip-ex">ตัวอย่าง 1 — บ้าน ฿3M</div>
   ดอก 5.5% 30 ปี เปลี่ยนเป็นผ่อนทุก 2 สัปดาห์ ฿8,517<br>
   → <b class="pc-ans">ปิดหนี้เร็วขึ้น 5.1 ปี ประหยัดดอก ~฿622k</b>
@@ -1828,6 +1831,8 @@ select option{background:var(--surf2);color:var(--text)}
   <div class="pc-tip-ex">ตัวอย่าง 2 — ทำได้อย่างไร</div>
   เงินเดือนออก 2 ครั้ง/เดือน โอนผ่อนทันที<br>
   → <b class="pc-ans">บางธนาคารไทยรองรับโปรแกรมนี้</b>
+  <div class="pc-tip-ex" style="margin-top:10px">📐 วิธีคำนวณอัตราดอกเบี้ย</div>
+  ใช้สูตร <b>(1 + r/12)^(1/2) − 1</b> แปลงจากดอกเบี้ยรายเดือนเป็นราย 2 สัปดาห์ (แม่นยำกว่า r÷26)
 </div>
 </div>
 </div>
@@ -1915,7 +1920,8 @@ select option{background:var(--surf2);color:var(--text)}
       <div class="fg"><label>ค่าใช้จ่ายต่อเดือน (ปัจจุบัน)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="rt-exp" placeholder="เช่น 50000"></div></div>
       <div class="fg"><label>เงินออมปัจจุบัน</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="rt-cur" placeholder="เช่น 200000"></div></div>
       <div class="fg"><label>ผลตอบแทนก่อนเกษียณ (%/ปี)</label><input type="number" id="rt-gr" step="0.1" placeholder="เช่น 8"></div>
-      <div class="fg"><label>ผลตอบแทนหลังเกษียณ (%/ปี)</label><input type="number" id="rt-dr" step="0.1" placeholder="เช่น 4"></div>
+      <div class="fg"><label>ผลตอบแทนหลังเกษียณ (%/ปี)</label><input type="number" id="rt-dr" step="0.1" placeholder="เช่น 4" min="0.1">
+        <div style="font-size:.7rem;color:var(--gold);margin-top:2px">⚠️ ต้องมากกว่า 0 — ใช้คำนวณ PV ของค่าใช้จ่ายหลังเกษียณ</div></div>
       <div class="fg"><label>เงินเฟ้อ (%/ปี)</label><input type="number" id="rt-inf" step="0.1" placeholder="เช่น 3"></div>
     </div>
     <div class="btn-row"><button class="btn btn-p" onclick="calcRetire()">คำนวณ</button><button class="btn btn-s" onclick="clr('rt')">ล้างค่า</button></div>
@@ -2221,9 +2227,11 @@ select option{background:var(--surf2);color:var(--text)}
     <div class="grid2">
       <div class="fg"><label>ราคาหุ้นปัจจุบัน (S)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="bs-s" step="0.01" placeholder="เช่น 100"></div></div>
       <div class="fg"><label>ราคาใช้สิทธิ์ (K)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="bs-k" step="0.01" placeholder="เช่น 105"></div></div>
-      <div class="fg"><label>เวลาที่เหลือ (ปี)</label><input type="number" id="bs-t" step="0.01" placeholder="เช่น 0.5"></div>
+      <div class="fg"><label>เวลาที่เหลือ (ปี)</label><input type="number" id="bs-t" step="0.01" placeholder="เช่น 0.5" min="0.01">
+        <div style="font-size:.7rem;color:var(--gold);margin-top:2px">⚠️ ต้องมากกว่า 0</div></div>
       <div class="fg"><label>อัตราดอกเบี้ยไร้ความเสี่ยง (%)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.thaibma.or.th/compositerpt/GovYieldCurve.aspx" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇹🇭 ThaiBMA</a><a href="https://fred.stlouisfed.org/series/DGS10" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(39,201,126,.12);border:1px solid rgba(39,201,126,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇺🇸 US 10Y</a></div><input type="number" id="bs-r" step="0.01" placeholder="เช่น 3"></div>
-      <div class="fg"><label>ค่าความผันผวน σ (%)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://fred.stlouisfed.org/series/VIXCLS" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">📊 CBOE VIX</a></div><input type="number" id="bs-v" step="0.1" placeholder="เช่น 25"></div>
+      <div class="fg"><label>ค่าความผันผวน σ (%)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://fred.stlouisfed.org/series/VIXCLS" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">📊 CBOE VIX</a></div><input type="number" id="bs-v" step="0.1" placeholder="เช่น 25" min="0.1">
+        <div style="font-size:.7rem;color:var(--gold);margin-top:2px">⚠️ ต้องมากกว่า 0 — หุ้นที่ไม่มีความผันผวนไม่มีมูลค่า Option</div></div>
     </div>
     <div class="btn-row"><button class="btn btn-p" onclick="calcBS()">คำนวณ</button><button class="btn btn-s" onclick="resetFields('bs')">ล้างค่า</button></div>
     <div class="rbox" id="bs-res"><div class="rgrid">
@@ -2824,7 +2832,7 @@ select option{background:var(--surf2);color:var(--text)}
       YoY Growth = <b class="pc-ans">+27%</b><br><br>
       <div class="pc-tip-ex">ตัวอย่าง MoM</div>
       ยอดขายเดือนก่อน <b>4.2 ล้าน</b> เดือนนี้ <b>3.9 ล้าน</b><br>
-      MoM = <b class="pc-ans" style="color:#ff5470">−7.10%</b>
+      MoM = <b class="pc-ans" style="color:#ff5470">−7.14%</b>
     </div>
   </div>
 
@@ -4341,6 +4349,7 @@ select option{background:var(--surf2);color:var(--text)}
 </div>
 
 <script>
+'use strict';
 /* ─── UTILS ─── */
 const $=id=>document.getElementById(id);
 const fN=(n,d=2)=>isNaN(n)||!isFinite(n)?'—':n.toLocaleString('th-TH',{minimumFractionDigits:d,maximumFractionDigits:d});
@@ -4372,10 +4381,12 @@ function bindNavEvents(){
     el.addEventListener('click', el._clickHandler);
   });
 }
-// ทำงานทันทีและซ้ำหลัง 300ms (รอ DOM render เสร็จบน Safari)
-try{ bindNavEvents(); } catch(e){}
-setTimeout(bindNavEvents, 300);
-setTimeout(bindNavEvents, 1000);
+// ทำงานทันทีและรอ DOM render เสร็จบน Safari (ใช้ flag กัน bind ซ้ำ)
+let _navBound=false;
+function bindNavEventsOnce(){if(_navBound)return;try{bindNavEvents();_navBound=true;}catch(e){}}
+bindNavEventsOnce();
+setTimeout(bindNavEventsOnce,300);
+setTimeout(bindNavEventsOnce,1000);
 
 function toggleSidebar(){
   const sb=document.querySelector('.sidebar'),hb=$('hamburger'),ov=$('overlay');
@@ -4540,7 +4551,7 @@ function tvmSolve(solveFor) {
       ans = annualNom;
       label = 'อัตราดอกเบี้ยต่อปี (Nominal)';
       dispAns = fN(ans, 4) + '%';
-      $('tvm-r').value = fN(rPer * rateFreq * 100, 6); // per period rate annualized
+      $('tvm-r').value = fN(annualNom, 6);
 
     } else if (solveFor === 'NPER') {
       const r = tvmGetPerPeriodRate(rVal, rateFreq, compFreq, isEffective);
@@ -4638,7 +4649,7 @@ function calcCI(){
   let h='<div class="twrap"><div class="tscroll"><table><thead><tr><th>ปี</th><th>ดอกเบี้ยปีนี้</th><th>มูลค่าสิ้นปี</th><th>ฝากสะสม</th><th>ดอกสะสม</th></tr></thead><tbody>';
   rows.forEach((r2,i)=>{
     const prevInt=i>0?rows[i-1].int:0, intYr=r2.int-prevInt;
-    const prevTot=i>0?rows[i-1].tot:p, addYr=r2.tot-prevTot;
+    const prevTot=i>0?rows[i-1].tot:p;
     h+=`<tr><td>${r2.y}</td><td style="color:#27c97e">${fB(intYr)}</td><td>${fB(r2.bal)}</td><td>${fB(r2.tot)}</td><td>${fB(r2.int)}</td></tr>`;
   });
   $('ci-tw').innerHTML='<div class="tbl-section"><button class="tbl-toggle" onclick="toggleTbl(this)"><span class="tbl-arrow">&#9662;</span><span class="tbl-lbl">ซ่อนตาราง</span><span style="color:#4a5268;font-weight:400;margin-left:4px">(การเติบโตรายปี)</span></button><div class="tbl-body">'+h+'</tbody></table></div></div></div></div>';
@@ -4717,7 +4728,7 @@ initCF(true);
 function calcBond(){
   const F=v('bd-f'),c=v('bd-c')/100,ytm=v('bd-y')/100,T=v('bd-t'),fr=vi('bd-fr');
   const r=ytm/fr,n=T*fr,C=F*c/fr;
-  const P=C*(1-Math.pow(1+r,-n))/r+F/Math.pow(1+r,n);
+  const P=r===0?C*n+F:C*(1-Math.pow(1+r,-n))/r+F/Math.pow(1+r,n);
   const pd=P-F;
   let dur=0;
   for(let t=1;t<=n;t++)dur+=t*(C/Math.pow(1+r,t));
@@ -4946,7 +4957,7 @@ function calcLA(){const a=v('la-a'),r=v('la-r')/100,n=v('la-y')*12,mr=r/12,pm=lP
 function calcHA(){
   const inc=v('ha-inc'),debt=v('ha-debt'),r=v('ha-r')/100,y=v('ha-y'),dp=v('ha-dp'),dti=v('ha-dti')/100;
   const maxPmt=inc*dti-debt,n=y*12,mr=r/12;
-  const maxLoan=maxPmt*(1-Math.pow(1+mr,-n))/mr,maxHouse=maxLoan+dp;
+  const maxLoan=mr===0?maxPmt*n:maxPmt*(1-Math.pow(1+mr,-n))/mr,maxHouse=maxLoan+dp;
   $('ha-hp').textContent=fB(maxHouse);$('ha-loan').textContent=fB(maxLoan);$('ha-pmt').textContent=fB(maxPmt);show('ha-res');
 }
 
@@ -5013,12 +5024,12 @@ function calcFvA(){
 function calcBW(){
   const a=v('bw-a'),r=v('bw-r')/100,y=v('bw-y'),pm=lPmt(a,r,y*12),bwPmt=pm/2;
   const mr=r/12,n=y*12,totM=pm*n;
-  let balBW=a,rBW=r/26,periods=0;while(balBW>0&&periods<2000){balBW*=(1+rBW);balBW-=bwPmt;if(balBW<0)balBW=0;periods++;}
+  let balBW=a,rBW=Math.pow(1+r/12,1/2)-1,periods=0;while(balBW>0&&periods<2000){balBW*=(1+rBW);balBW-=bwPmt;if(balBW<0)balBW=0;periods++;}
   const yBW=periods/26,faster=y-yBW,savInt=totM-(bwPmt*periods);
   $('bw-pm').textContent=fB(bwPmt);$('bw-fast').textContent=fN(faster,2)+' ปี';$('bw-sav').textContent=fBig(savInt);show('bw-res');
   // Yearly comparison table
   let h='<div class="twrap" style="margin-top:14px"><div class="tscroll"><table><thead><tr><th>ปี</th><th>คงเหลือ (รายเดือน)</th><th>คงเหลือ (2 สัปดาห์)</th><th>ประหยัดได้</th></tr></thead><tbody>';
-  let balM=a, balB=a, rBW2=r/26;
+  let balM=a, balB=a, rBW2=Math.pow(1+r/12,1/2)-1;
   for(let yr=1;yr<=y;yr++){
     for(let m=1;m<=12;m++){const ip=balM*mr,pp=pm-ip;balM=Math.max(0,balM-pp);}
     for(let bw=1;bw<=26;bw++){balB*=(1+rBW2);balB-=bwPmt;if(balB<0)balB=0;}
@@ -5052,7 +5063,7 @@ function calcRental(){
 function calcRetire(){
   const age=v('rt-age'),ret=v('rt-ret'),life=v('rt-life'),exp=v('rt-exp'),cur=v('rt-cur'),gr=v('rt-gr')/100,dr=v('rt-dr')/100,inf=v('rt-inf')/100;
   const ya=ret-age,yr=life-ret,expR=exp*Math.pow(1+inf,ya),mr=dr/12,n=yr*12,mn=ya*12;
-  const nest=expR*(1-Math.pow(1+mr,-n))/mr,fvC=cur*Math.pow(1+gr/12,mn),rem=Math.max(0,nest-fvC);
+  const nest=mr===0?expR*n:expR*(1-Math.pow(1+mr,-n))/mr,fvC=cur*Math.pow(1+gr/12,mn),rem=Math.max(0,nest-fvC);
   const pm=gr===0?rem/mn:rem*(gr/12)/(Math.pow(1+gr/12,mn)-1);
   $('rt-goal').textContent=fBig(nest);$('rt-save').textContent=fB(pm);$('rt-yrs').textContent=fN(yr,0)+' ปี';show('rt-res');
   // Growth table
@@ -5118,7 +5129,7 @@ function calcWACC(){const ke=v('wc-ke'),we=v('wc-we')/100,kd=v('wc-kd'),wd=v('wc
 
 /* ─── BLACK-SCHOLES ─── */
 function cdf(x){const a1=0.254829592,a2=-0.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=0.3275911,sign=x<0?-1:1,ax=Math.abs(x)/Math.sqrt(2),t=1/(1+p*ax),y2=1-(((((a5*t+a4)*t)+a3)*t+a2)*t+a1)*t*Math.exp(-ax*ax);return 0.5*(1+sign*y2);}
-function calcBS(){const S=v('bs-s'),K=v('bs-k'),T=v('bs-t'),r=v('bs-r')/100,sig=v('bs-v')/100;const d1=(Math.log(S/K)+(r+sig*sig/2)*T)/(sig*Math.sqrt(T)),d2=d1-sig*Math.sqrt(T),call=S*cdf(d1)-K*Math.exp(-r*T)*cdf(d2),put=K*Math.exp(-r*T)*cdf(-d2)-S*cdf(-d1);$('bs-call').textContent=fB(call);$('bs-put').textContent=fB(put);$('bs-d1').textContent=fN(d1,4);$('bs-d2').textContent=fN(d2,4);show('bs-res');}
+function calcBS(){const S=v('bs-s'),K=v('bs-k'),T=v('bs-t'),r=v('bs-r')/100,sig=v('bs-v')/100;if(sig<=0||T<=0){alert('Volatility และ Time to Expiration ต้องมากกว่า 0');return;}const d1=(Math.log(S/K)+(r+sig*sig/2)*T)/(sig*Math.sqrt(T)),d2=d1-sig*Math.sqrt(T),call=S*cdf(d1)-K*Math.exp(-r*T)*cdf(d2),put=K*Math.exp(-r*T)*cdf(-d2)-S*cdf(-d1);$('bs-call').textContent=fB(call);$('bs-put').textContent=fB(put);$('bs-d1').textContent=fN(d1,4);$('bs-d2').textContent=fN(d2,4);show('bs-res');}
 
 /* ─── PIVOT ─── */
 function calcPivot(){
@@ -6096,7 +6107,7 @@ function calcWHT(){
 /* ─── PAYROLL ─── */
 function calcPayroll(){
   const sal=v('pr-sal'), other=v('pr-other')||0;
-  const dedIn=parseFloat($('pr-ded').value)||60000;
+  const _dedRaw=parseFloat($('pr-ded').value);const dedIn=isNaN(_dedRaw)?60000:_dedRaw;
   const status=$('pr-status').value;
   const grossMo=sal+other, grossYr=grossMo*12;
   // SSO: 5% capped at 750/mo
