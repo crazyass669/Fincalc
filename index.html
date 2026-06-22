@@ -328,39 +328,94 @@ select option{background:var(--surf2);color:var(--text)}
   <button class="close-sidebar" onclick="closeSidebar()" aria-label="ปิดเมนู">✕</button>
   <div class="logo">
     <h1>FinCalc Suite <span style="font-size:.75rem;font-weight:400;color:#4a5268;font-family:'Sarabun',sans-serif;letter-spacing:.5px">by Joe</span></h1>
-    <p>เครื่องคำนวณการเงินครบชุด <span style="font-size:.65rem;color:#4a5268">v2.1 — 11 Jun 2026</span></p>
+    <p>เครื่องคำนวณการเงินครบชุด <span style="font-size:.65rem;color:#4a5268">v2.1 — 20 Jun 2026</span></p>
   </div>
   <div class="search-box">
     <input type="text" id="nav-search" placeholder="🔍 ค้นหา calculator..." oninput="filterNav(this.value)">
   </div>
 
   <div class="nav-section">
-    <div class="nav-head">💰 การเงินและการลงทุน · Finance &amp; Investment</div>
+    <div class="nav-head">💰 พื้นฐานการเงิน · Finance Basics</div>
     <div class="nav-item active" data-page="tvm" onclick="nav(this)"><span class="nav-icon">⏱</span>TVM — มูลค่าเงินตามเวลา <span style="color:#4a5268;font-size:.72rem">Time Value of Money</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="currency" onclick="nav(this)"><span class="nav-icon">💱</span>แปลงสกุลเงิน <span style="color:#4a5268;font-size:.72rem">Currency Converter</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="compound" onclick="nav(this)"><span class="nav-icon">📈</span>ดอกเบี้ยทบต้น <span style="color:#4a5268;font-size:.72rem">Compound Interest</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="roi" onclick="nav(this)"><span class="nav-icon">💹</span>ROI — ผลตอบแทนการลงทุน <span style="color:#4a5268;font-size:.72rem">Return on Investment</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="irr" onclick="nav(this)"><span class="nav-icon">🔢</span>IRR / NPV <span style="color:#4a5268;font-size:.72rem">Internal Rate of Return</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="bond" onclick="nav(this)"><span class="nav-icon">📜</span>พันธบัตร <span style="color:#4a5268;font-size:.72rem">Bond Calculator</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="taxequiv" onclick="nav(this)"><span class="nav-icon">📊</span>ผลตอบแทนเทียบภาษี <span style="color:#4a5268;font-size:.72rem">Tax Equivalent Yield</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="rule72" onclick="nav(this)"><span class="nav-icon">✌️</span>กฎ 72 — เงินเพิ่ม 2 เท่า <span style="color:#4a5268;font-size:.72rem">Rule of 72</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="college" onclick="nav(this)"><span class="nav-icon">🎓</span>ออมเพื่อการศึกษา <span style="color:#4a5268;font-size:.72rem">College Savings</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="investincome" onclick="nav(this)"><span class="nav-icon">💼</span>รายได้จากการลงทุน <span style="color:#4a5268;font-size:.72rem">Investment Income</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="mutualfund" onclick="nav(this)"><span class="nav-icon">📂</span>ค่าธรรมเนียมกองทุน <span style="color:#4a5268;font-size:.72rem">Mutual Fund Fee</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="effrate" onclick="nav(this)"><span class="nav-icon">🔁</span>อัตราดอกเบี้ยแท้จริง <span style="color:#4a5268;font-size:.72rem">Effective Annual Rate (EAR)</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="currency" onclick="nav(this)"><span class="nav-icon">💱</span>แปลงสกุลเงิน <span style="color:#4a5268;font-size:.72rem">Currency Converter</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="inflation" onclick="nav(this)"><span class="nav-icon">🎈</span>เงินเฟ้อ <span style="color:#4a5268;font-size:.72rem">Inflation</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="savings" onclick="nav(this)"><span class="nav-icon">🐷</span>เป้าหมายออมเงิน <span style="color:#4a5268;font-size:.72rem">Savings Goal</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="cd" onclick="nav(this)"><span class="nav-icon">🏦</span>เงินฝากประจำ <span style="color:#4a5268;font-size:.72rem">Certificate of Deposit</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="dcf" onclick="nav(this)"><span class="nav-icon">🔭</span>DCF — ประเมินมูลค่ากิจการ <span style="color:#4a5268;font-size:.72rem">Discounted Cash Flow</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="tbill" onclick="nav(this)"><span class="nav-icon">📑</span>พันธบัตรรัฐบาล <span style="color:#4a5268;font-size:.72rem">T-Bill Calculator</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="college" onclick="nav(this)"><span class="nav-icon">🎓</span>ออมเพื่อการศึกษา <span style="color:#4a5268;font-size:.72rem">College Savings</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="mutualfund" onclick="nav(this)"><span class="nav-icon">📂</span>ค่าธรรมเนียมกองทุน <span style="color:#4a5268;font-size:.72rem">Mutual Fund Fee</span></div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-head">📈 ผลตอบแทนการลงทุน · Investment Returns</div>
+    <div class="nav-item" role="button" tabindex="0" data-page="roi" onclick="nav(this)"><span class="nav-icon">💹</span>ROI — ผลตอบแทนการลงทุน <span style="color:#4a5268;font-size:.72rem">Return on Investment</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="irr" onclick="nav(this)"><span class="nav-icon">🔢</span>IRR / NPV <span style="color:#4a5268;font-size:.72rem">Internal Rate of Return</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="hpr" onclick="nav(this)"><span class="nav-icon">📅</span>HPR — ผลตอบแทนช่วงถือ <span style="color:#4a5268;font-size:.72rem">Holding Period Return</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="xirr" onclick="nav(this)"><span class="nav-icon">📈</span>XIRR ผลตอบแทนจริง <span style="color:#4a5268;font-size:.72rem">Extended IRR</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="taxequiv" onclick="nav(this)"><span class="nav-icon">📊</span>ผลตอบแทนเทียบภาษี <span style="color:#4a5268;font-size:.72rem">Tax Equivalent Yield</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="bond" onclick="nav(this)"><span class="nav-icon">📜</span>พันธบัตร <span style="color:#4a5268;font-size:.72rem">Bond Calculator</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="investincome" onclick="nav(this)"><span class="nav-icon">💼</span>รายได้จากการลงทุน <span style="color:#4a5268;font-size:.72rem">Investment Income</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="annuity" onclick="nav(this)"><span class="nav-icon">📆</span>เงินรายงวด <span style="color:#4a5268;font-size:.72rem">Annuity Calculator</span></div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-head">🌴 วางแผนเกษียณ · Retirement</div>
+    <div class="nav-item" role="button" tabindex="0" data-page="retire" onclick="nav(this)"><span class="nav-icon">🌴</span>วางแผนเกษียณ <span style="color:#4a5268;font-size:.72rem">Retirement Planner</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="retirewith" onclick="nav(this)"><span class="nav-icon">🪣</span>แผนถอนเงินหลังเกษียณ <span style="color:#4a5268;font-size:.72rem">Withdrawal Plan</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="retireincome" onclick="nav(this)"><span class="nav-icon">💰</span>รายได้หลังเกษียณ <span style="color:#4a5268;font-size:.72rem">Retirement Income</span></div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-head">🔍 ประเมินมูลค่าหุ้น · Stock Valuation</div>
     <div class="nav-item" role="button" tabindex="0" data-page="finratio" onclick="nav(this)"><span class="nav-icon">📊</span>อัตราส่วนทางการเงิน <span style="color:#4a5268;font-size:.72rem">Financial Ratios</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="dcf" onclick="nav(this)"><span class="nav-icon">🔭</span>DCF — ประเมินมูลค่ากิจการ <span style="color:#4a5268;font-size:.72rem">Discounted Cash Flow</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="dcfsimple" onclick="nav(this)"><span class="nav-icon">📉</span>DCF แบบง่าย (FCF) <span style="color:#4a5268;font-size:.72rem">Simple DCF Valuation</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="dcfmrlike" onclick="nav(this)"><span class="nav-icon">🧮</span>DCF Calculator by mr.likestock <span style="color:#4a5268;font-size:.72rem">DCF Intrinsic Value</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="pevaluation" onclick="nav(this)"><span class="nav-icon">📐</span>ประเมินมูลค่าด้วย P/E <span style="color:#4a5268;font-size:.72rem">P/E Valuation</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="pbvaluation" onclick="nav(this)"><span class="nav-icon">📚</span>ประเมินมูลค่าด้วย P/BV <span style="color:#4a5268;font-size:.72rem">Price/Book Value</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="evebitda" onclick="nav(this)"><span class="nav-icon">🏭</span>ประเมินมูลค่าด้วย EV/EBITDA <span style="color:#4a5268;font-size:.72rem">Enterprise Multiple</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="ownerearnings" onclick="nav(this)"><span class="nav-icon">💰</span>กำไรเจ้าของ (Owner Earnings) <span style="color:#4a5268;font-size:.72rem">Buffett Valuation</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="clubvi" onclick="nav(this)"><span class="nav-icon">🔬</span>สูตร Club VI (Graham) <span style="color:#4a5268;font-size:.72rem">Graham Growth Formula</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="dcfsimple" onclick="nav(this)"><span class="nav-icon">📉</span>DCF แบบง่าย (FCF) <span style="color:#4a5268;font-size:.72rem">Simple DCF Valuation</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="requiredreturn" onclick="nav(this)"><span class="nav-icon">📌</span>ผลตอบแทนที่ต้องการ (EPS/Price) <span style="color:#4a5268;font-size:.72rem">Required Return Check</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="dividendgrowth" onclick="nav(this)"><span class="nav-icon">🌸</span>ประเมินมูลค่าหุ้นปันผล (DDM) <span style="color:#4a5268;font-size:.72rem">Dividend Growth Model</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="petable" onclick="nav(this)"><span class="nav-icon">📋</span>ตารางมูลค่าหุ้น P/E Ratio <span style="color:#4a5268;font-size:.72rem">PE Valuation Table</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="dcfmrlike" onclick="nav(this)"><span class="nav-icon">🧮</span>DCF Calculator by mr.likestock <span style="color:#4a5268;font-size:.72rem">DCF Intrinsic Value</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="requiredreturn" onclick="nav(this)"><span class="nav-icon">📌</span>ผลตอบแทนที่ต้องการ (EPS/Price) <span style="color:#4a5268;font-size:.72rem">Required Return Check</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="peg" onclick="nav(this)"><span class="nav-icon">📐</span>PEG Ratio <span style="color:#4a5268;font-size:.72rem">Price/Earnings to Growth</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="mos" onclick="nav(this)"><span class="nav-icon">🛡️</span>Margin of Safety <span style="color:#4a5268;font-size:.72rem">ส่วนลดความปลอดภัย</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="zscore" onclick="nav(this)"><span class="nav-icon">🏥</span>Altman Z-Score <span style="color:#4a5268;font-size:.72rem">ความเสี่ยงล้มละลาย</span></div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-head">📊 วิเคราะห์หุ้น · Stock Analysis</div>
+    <div class="nav-item" role="button" tabindex="0" data-page="stockreturn" onclick="nav(this)"><span class="nav-icon">📈</span>ผลตอบแทนหุ้น + Capital Gain <span style="color:#4a5268;font-size:.72rem">Stock Return</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="stockcg" onclick="nav(this)"><span class="nav-icon">🌱</span>หุ้นเติบโตคงที่ <span style="color:#4a5268;font-size:.72rem">Constant Growth</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="stockncg" onclick="nav(this)"><span class="nav-icon">🌿</span>หุ้นเติบโตไม่คงที่ <span style="color:#4a5268;font-size:.72rem">Non-Constant Growth</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="capm" onclick="nav(this)"><span class="nav-icon">⚡</span>CAPM <span style="color:#4a5268;font-size:.72rem">Capital Asset Pricing</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="expectedret" onclick="nav(this)"><span class="nav-icon">🎲</span>ผลตอบแทนที่คาดหวัง <span style="color:#4a5268;font-size:.72rem">Expected Return</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="wacc" onclick="nav(this)"><span class="nav-icon">🔧</span>WACC <span style="color:#4a5268;font-size:.72rem">Weighted Avg Cost of Capital</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="blackscholes" onclick="nav(this)"><span class="nav-icon">🎰</span>Black-Scholes Option <span style="color:#4a5268;font-size:.72rem">Options Pricing</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="divtax" onclick="nav(this)"><span class="nav-icon">💎</span>ภาษีเงินปันผล <span style="color:#4a5268;font-size:.72rem">Dividend Tax</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="drip" onclick="nav(this)"><span class="nav-icon">🌱</span>DRIP ปันผลทบต้น <span style="color:#4a5268;font-size:.72rem">Dividend Reinvestment</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="portfolio" onclick="nav(this)"><span class="nav-icon">🗂️</span>จัดสรร &amp; Rebalance พอร์ต <span style="color:#4a5268;font-size:.72rem">Portfolio Rebalancing</span></div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-head">💹 เทรด &amp; Risk · Trading &amp; Risk</div>
+    <div class="nav-item" role="button" tabindex="0" data-page="stockcom" onclick="nav(this)"><span class="nav-icon">💹</span>ค่าคอมฯ SET + Break-even <span style="color:#4a5268;font-size:.72rem">Commission &amp; Break-even</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="dca" onclick="nav(this)"><span class="nav-icon">📉</span>DCA ต้นทุนเฉลี่ย <span style="color:#4a5268;font-size:.72rem">Dollar Cost Averaging</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="possize" onclick="nav(this)"><span class="nav-icon">🎯</span>Position Sizing <span style="color:#4a5268;font-size:.72rem">ขนาดการลงทุน</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="sltp" onclick="nav(this)"><span class="nav-icon">🛑</span>Stop Loss / Take Profit / R:R <span style="color:#4a5268;font-size:.72rem">Risk:Reward</span></div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-head">📐 Technical Analysis · เทคนิคัล</div>
+    <div class="nav-item" role="button" tabindex="0" data-page="rsi" onclick="nav(this)"><span class="nav-icon">📊</span>RSI Calculator <span style="color:#4a5268;font-size:.72rem">Relative Strength Index</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="movavg" onclick="nav(this)"><span class="nav-icon">〰️</span>Moving Average SMA/EMA <span style="color:#4a5268;font-size:.72rem">ค่าเฉลี่ยเคลื่อนที่</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="atr" onclick="nav(this)"><span class="nav-icon">📏</span>ATR ความผันผวน <span style="color:#4a5268;font-size:.72rem">Average True Range</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="pivot" onclick="nav(this)"><span class="nav-icon">🎯</span>Pivot Point <span style="color:#4a5268;font-size:.72rem">Support &amp; Resistance</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="fib" onclick="nav(this)"><span class="nav-icon">🐚</span>Fibonacci Retracement <span style="color:#4a5268;font-size:.72rem">Fibonacci Levels</span></div>
   </div>
 
   <div class="nav-section">
@@ -384,29 +439,6 @@ select option{background:var(--surf2);color:var(--text)}
   </div>
 
   <div class="nav-section">
-    <div class="nav-head">🌴 เกษียณอายุ · Retirement</div>
-    <div class="nav-item" role="button" tabindex="0" data-page="retire" onclick="nav(this)"><span class="nav-icon">🌴</span>วางแผนเกษียณ <span style="color:#4a5268;font-size:.72rem">Retirement Planner</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="retirewith" onclick="nav(this)"><span class="nav-icon">🪣</span>แผนถอนเงินหลังเกษียณ <span style="color:#4a5268;font-size:.72rem">Withdrawal Plan</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="retireincome" onclick="nav(this)"><span class="nav-icon">💰</span>รายได้หลังเกษียณ <span style="color:#4a5268;font-size:.72rem">Retirement Income</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="annuity" onclick="nav(this)"><span class="nav-icon">📆</span>เงินรายงวด <span style="color:#4a5268;font-size:.72rem">Annuity Calculator</span></div>
-  </div>
-
-  <div class="nav-section">
-    <div class="nav-head">📈 หุ้น · Stock Calculators</div>
-    <div class="nav-item" role="button" tabindex="0" data-page="stockreturn" onclick="nav(this)"><span class="nav-icon">📈</span>ผลตอบแทนหุ้น + Capital Gain <span style="color:#4a5268;font-size:.72rem">Stock Return</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="stockcg" onclick="nav(this)"><span class="nav-icon">🌱</span>หุ้นเติบโตคงที่ <span style="color:#4a5268;font-size:.72rem">Constant Growth</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="stockncg" onclick="nav(this)"><span class="nav-icon">🌿</span>หุ้นเติบโตไม่คงที่ <span style="color:#4a5268;font-size:.72rem">Non-Constant Growth</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="capm" onclick="nav(this)"><span class="nav-icon">⚡</span>CAPM <span style="color:#4a5268;font-size:.72rem">Capital Asset Pricing</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="expectedret" onclick="nav(this)"><span class="nav-icon">🎲</span>ผลตอบแทนที่คาดหวัง <span style="color:#4a5268;font-size:.72rem">Expected Return</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="hpr" onclick="nav(this)"><span class="nav-icon">📅</span>HPR — ผลตอบแทนช่วงถือ <span style="color:#4a5268;font-size:.72rem">Holding Period Return</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="wacc" onclick="nav(this)"><span class="nav-icon">🔧</span>WACC <span style="color:#4a5268;font-size:.72rem">Weighted Avg Cost of Capital</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="blackscholes" onclick="nav(this)"><span class="nav-icon">🎰</span>Black-Scholes Option <span style="color:#4a5268;font-size:.72rem">Options Pricing</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="pivot" onclick="nav(this)"><span class="nav-icon">🎯</span>Pivot Point <span style="color:#4a5268;font-size:.72rem">Support &amp; Resistance</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="fib" onclick="nav(this)"><span class="nav-icon">🐚</span>Fibonacci Retracement <span style="color:#4a5268;font-size:.72rem">Fibonacci Levels</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="divtax" onclick="nav(this)"><span class="nav-icon">💎</span>ภาษีเงินปันผล <span style="color:#4a5268;font-size:.72rem">Dividend Tax</span></div>
-  </div>
-
-  <div class="nav-section">
     <div class="nav-head">💳 บัตรเครดิต · Credit Card</div>
     <div class="nav-item" role="button" tabindex="0" data-page="ccpayoff" onclick="nav(this)"><span class="nav-icon">💳</span>ชำระบัตรเครดิต <span style="color:#4a5268;font-size:.72rem">Credit Card Payoff</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="ccmin" onclick="nav(this)"><span class="nav-icon">⚠️</span>ขั้นต่ำบัตรเครดิต <span style="color:#4a5268;font-size:.72rem">Minimum Payment</span></div>
@@ -423,12 +455,8 @@ select option{background:var(--surf2);color:var(--text)}
     <div class="nav-item" role="button" tabindex="0" data-page="tip" onclick="nav(this)"><span class="nav-icon">🍽️</span>ทิปอาหาร <span style="color:#4a5268;font-size:.72rem">Tip Calculator</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="disctax" onclick="nav(this)"><span class="nav-icon">🏷️</span>ส่วนลดและภาษี <span style="color:#4a5268;font-size:.72rem">Discount &amp; Tax</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="percent" onclick="nav(this)"><span class="nav-icon">%</span>เปอร์เซ็นต์ <span style="color:#4a5268;font-size:.72rem">Percentage</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="inflation" onclick="nav(this)"><span class="nav-icon">🎈</span>เงินเฟ้อ <span style="color:#4a5268;font-size:.72rem">Inflation</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="tbill" onclick="nav(this)"><span class="nav-icon">📑</span>พันธบัตรรัฐบาล <span style="color:#4a5268;font-size:.72rem">T-Bill Calculator</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="margin" onclick="nav(this)"><span class="nav-icon">📦</span>กำไรขั้นต้น / Markup <span style="color:#4a5268;font-size:.72rem">Margin &amp; Markup</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="breakeven" onclick="nav(this)"><span class="nav-icon">⚖️</span>จุดคุ้มทุน <span style="color:#4a5268;font-size:.72rem">Break-Even Analysis</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="effrate" onclick="nav(this)"><span class="nav-icon">🔁</span>อัตราดอกเบี้ยแท้จริง <span style="color:#4a5268;font-size:.72rem">Effective Annual Rate (EAR)</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="salary" onclick="nav(this)"><span class="nav-icon">💼</span>เงินเดือน / รายได้ <span style="color:#4a5268;font-size:.72rem">Salary Calculator</span></div>
   </div>
 
   <div class="nav-section">
@@ -439,6 +467,7 @@ select option{background:var(--surf2);color:var(--text)}
     <div class="nav-item" role="button" tabindex="0" data-page="workingcap" onclick="nav(this)"><span class="nav-icon">💧</span>เงินทุนหมุนเวียน <span style="color:#4a5268;font-size:.72rem">Working Capital</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="wht" onclick="nav(this)"><span class="nav-icon">✂️</span>ภาษีหัก ณ ที่จ่าย <span style="color:#4a5268;font-size:.72rem">Withholding Tax</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="payroll" onclick="nav(this)"><span class="nav-icon">💵</span>เงินเดือนสุทธิ / Payroll <span style="color:#4a5268;font-size:.72rem">Payroll Calculator</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="salary" onclick="nav(this)"><span class="nav-icon">💼</span>เงินเดือน / รายได้ <span style="color:#4a5268;font-size:.72rem">Salary Calculator</span></div>
   </div>
 
   <div class="nav-section">
@@ -1175,6 +1204,18 @@ select option{background:var(--surf2);color:var(--text)}
   </div><!-- /panel-2 -->
 
   </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 ตารางมูลค่าหุ้น P/E</div>
+    สร้างตารางมูลค่าหุ้นตามช่วง EPS และ P/E ต่างๆ ช่วยมองภาพรวมว่าถ้ากำไรเป็น X บาท และตลาดให้ P/E เป็น Y เท่า ราคาหุ้นควรเป็นเท่าไหร่<br><br>
+    <b>สูตร</b><br>
+    ราคา = EPS × P/E<br>
+    Market Cap = ราคา × จำนวนหุ้น<br><br>
+    วิธีใช้:<br>
+    กำหนดช่วง EPS (ต่ำ-สูง) และช่วง P/E (ต่ำ-สูง) โปรแกรมจะสร้างตารางทุกจุดตัด<br><br>
+    <div class="pc-tip-ex">ตัวอย่าง</div>
+    EPS = 3 บาท, P/E = 20x → ราคา = ฿60<br>
+    EPS = 5 บาท, P/E = 25x → ราคา = ฿125
+  </div>
 </div>
 
 <!-- ══ DCF MRLIKE ══ -->
@@ -1350,6 +1391,21 @@ select option{background:var(--surf2);color:var(--text)}
   </div>
   </div><!-- /panel-2 -->
 
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 DCF by mr.likestock</div>
+    สูตร DCF ที่ปรับให้เข้าใจง่าย เหมาะสำหรับนักลงทุนรายย่อย โดยใช้ Free Cash Flow ปัจจุบัน คาดการณ์การเติบโต แล้ว Discount กลับมาเป็นมูลค่าปัจจุบัน<br><br>
+    <b>สูตร</b><br>
+    IV = Σ(FCF × (1+g)^t / (1+r)^t) + TV/(1+r)^n<br>
+    TV = FCFn × (1+gTerminal) / (r - gTerminal)<br><br>
+    ปัจจัยสำคัญ:<br>
+    - FCF ปัจจุบัน (Free Cash Flow ต่อหุ้น)<br>
+    - อัตราเติบโต g ช่วง 10 ปี<br>
+    - Discount rate r (= WACC หรือผลตอบแทนที่ต้องการ)<br>
+    - Terminal growth rate (ระยะยาว 2-4%)<br><br>
+    <div class="pc-tip-ex">ตัวอย่าง</div>
+    FCF = 5 บาท, g = 10%, r = 12%, TV growth = 3%<br>
+    → Intrinsic Value ≈ ฿62
   </div>
 </div>
 
@@ -4345,6 +4401,593 @@ select option{background:var(--surf2);color:var(--text)}
   </div>
 </div>
 
+<div class="page" id="page-portfolio">
+  <div class="page-header"><div class="page-title">จัดสรร &amp; Rebalance พอร์ต</div><div class="page-sub">Portfolio Allocation &amp; Rebalancing</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">ตั้งค่าพอร์ต</div>
+    <div class="grid2" style="margin-bottom:12px">
+      <div class="fg">
+        <label>จำนวนหุ้น</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="number" id="pf-count" value="4" min="1" max="20" step="1" style="width:80px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;background:#181c28;border:1px solid #2d3350;border-radius:7px;padding:9px 12px;outline:none">
+          <button class="btn btn-s btn-sm" onclick="pfBuildRows()">สร้างตาราง</button>
+        </div>
+      </div>
+      <div class="fg">
+        <label>Threshold เตือน <span style="color:var(--text3)">ถ้าตัวใดเกิน % นี้</span></label>
+        <div class="iw sfx"><input type="number" id="pf-thresh" value="60" min="1" max="100" step="1" style="color:#dde4f0;-webkit-text-fill-color:#dde4f0;background:#181c28"><span class="isfx">%</span></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 2fr 2fr 1.2fr;gap:6px;margin-bottom:6px;padding:0 2px">
+      <div style="font-size:.76rem;color:#7e8ba3;font-weight:600">ชื่อหุ้น</div>
+      <div style="font-size:.76rem;color:#7e8ba3;font-weight:600;text-align:right">ราคาทุน (฿)</div>
+      <div style="font-size:.76rem;color:#7e8ba3;font-weight:600;text-align:right">มูลค่าปัจจุบัน (฿)</div>
+      <div style="font-size:.76rem;color:#7e8ba3;font-weight:600;text-align:center">Target %</div>
+    </div>
+    <div id="pf-rows" style="margin-bottom:12px"></div>
+    <div class="btn-row">
+      <button class="btn btn-p" onclick="calcPortfolio()">คำนวณ Rebalance</button>
+      <button class="btn btn-s" onclick="pfReset()">ล้างค่า</button>
+    </div>
+    <div class="rbox" id="pf-res" style="display:none">
+      <div id="pf-summary"></div>
+      <div id="pf-tw" style="margin-top:4px"></div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 Portfolio Rebalancing</div>
+    ช่วยบริหารพอร์ตให้สัดส่วนตามที่ต้องการ และเตือนเมื่อหุ้นตัวใดครองพอร์ตเกิน threshold<br><br>
+    <b>วิธีใช้</b><br>
+    1. ใส่จำนวนหุ้น กด "สร้างตาราง"<br>
+    2. ใส่ชื่อ, ราคาทุน (ไม่บังคับ), มูลค่าปัจจุบัน<br>
+    3. ตั้ง Target % (ผลรวมควร = 100%)<br>
+    4. กด "คำนวณ Rebalance"<br><br>
+    <div class="pc-tip-ex">ตัวอย่างจากโจทย์</div>
+    ถือหุ้น 4 ตัว ตัวละ 1 ล้าน = 4 ล้านบาท<br>
+    Target แต่ละตัว = 25%<br>
+    ถ้าหุ้น A ขึ้นจนเป็น 60% ของพอร์ต<br>
+    = มูลค่า <b class="pc-ans">฿4,500,000</b><br>
+    (พอร์ตรวม ฿7,500,000)<br><br>
+    <div class="pc-tip-ex">สูตรมูลค่าที่ถึง T%</div>
+    x / (x + Σตัวอื่น) = T%<br>
+    x = T% × Σตัวอื่น / (1 − T%)<br><br>
+    <div class="pc-tip-ex">สูตร Rebalance</div>
+    ซื้อ/ขาย = มูลค่าปัจจุบัน − (Target% × รวมพอร์ต)
+  </div>
+  </div>
+</div>
+
+<!-- ========== GROUP B: Valuation ========== -->
+
+<div class="page" id="page-peg">
+  <div class="page-header"><div class="page-title">PEG Ratio</div><div class="page-sub">Price/Earnings to Growth Ratio</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">คำนวณ PEG Ratio</div>
+    <div class="grid2">
+      <div class="fg"><label>P/E Ratio <span style="color:var(--text3)">ราคา/กำไร</span></label><input type="number" id="peg-pe" placeholder="เช่น 20" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+      <div class="fg"><label>EPS Growth Rate <span style="color:var(--text3)">% ต่อปี</span></label><div class="iw sfx"><input type="number" id="peg-g" placeholder="เช่น 15" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>EPS <span style="color:var(--text3)">บาทต่อหุ้น (ถ้ามี)</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="peg-eps" placeholder="ไม่บังคับ" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+      <div class="fg"><label>ราคาตลาด <span style="color:var(--text3)">บาท (ถ้ามี)</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="peg-price" placeholder="ไม่บังคับ" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcPEG()">คำนวณ PEG</button><button class="btn btn-s" onclick="resetFields('peg')">ล้างค่า</button></div>
+    <div class="rbox" id="peg-res" style="display:none">
+      <div class="rgrid">
+        <div class="ri"><div class="rl">PEG Ratio</div><div class="rv g" id="peg-ratio">—</div></div>
+        <div class="ri"><div class="rl">การประเมิน</div><div class="rv" id="peg-rating">—</div></div>
+        <div class="ri"><div class="rl">Fair P/E (Lynch)</div><div class="rv a" id="peg-fairpe">—</div></div>
+        <div class="ri" id="peg-fairprice-row" style="display:none"><div class="rl">ราคาที่เหมาะสม</div><div class="rv g" id="peg-fairprice">—</div></div>
+        <div class="ri" id="peg-mos-row" style="display:none"><div class="rl">Margin of Safety</div><div class="rv" id="peg-mos">—</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 PEG Ratio คืออะไร?</div>
+    PEG Ratio = P/E ÷ Growth Rate วัดว่าหุ้นแพงหรือถูกเมื่อเทียบกับการเติบโต<br><br>
+    <b>Peter Lynch's Rule:</b><br>
+    PEG &lt; 0.5 = ถูกมาก 🟢<br>
+    PEG 0.5–1.0 = ถูก 🟡<br>
+    PEG 1.0–2.0 = พอเหมาะ 🟠<br>
+    PEG &gt; 2.0 = แพง 🔴<br><br>
+    <div class="pc-tip-ex">ตัวอย่าง</div>
+    P/E = 20, Growth = 15%/ปี<br>
+    PEG = 20 ÷ 15 = 1.33 (พอเหมาะ)<br><br>
+    Fair P/E = Growth Rate = 15<br>
+    Fair Price = 15 × EPS
+  </div>
+  </div>
+</div>
+
+<div class="page" id="page-mos">
+  <div class="page-header"><div class="page-title">Margin of Safety</div><div class="page-sub">ส่วนลดความปลอดภัย — Safety Margin Calculator</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">คำนวณ Margin of Safety</div>
+    <div class="grid2">
+      <div class="fg"><label>Intrinsic Value <span style="color:var(--text3)">มูลค่าที่แท้จริง ฿</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="mos-iv" placeholder="เช่น 100" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+      <div class="fg"><label>ราคาตลาด <span style="color:var(--text3)">Market Price ฿</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="mos-mkt" placeholder="เช่น 75" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcMOS()">คำนวณ MoS</button><button class="btn btn-s" onclick="resetFields('mos')">ล้างค่า</button></div>
+    <div class="rbox" id="mos-res" style="display:none">
+      <div class="rgrid">
+        <div class="ri"><div class="rl">Margin of Safety</div><div class="rv" id="mos-pct">—</div></div>
+        <div class="ri"><div class="rl">การประเมิน</div><div class="rv" id="mos-rating">—</div></div>
+        <div class="ri"><div class="rl">ราคาซื้อที่ MoS 20%</div><div class="rv a" id="mos-p20">—</div></div>
+        <div class="ri"><div class="rl">ราคาซื้อที่ MoS 30%</div><div class="rv a" id="mos-p30">—</div></div>
+        <div class="ri"><div class="rl">ราคาซื้อที่ MoS 50%</div><div class="rv a" id="mos-p50">—</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 Margin of Safety</div>
+    MoS = (IV − Price) / IV × 100<br><br>
+    หลัก Benjamin Graham: ซื้อหุ้นเมื่อราคาต่ำกว่ามูลค่าที่แท้จริงอย่างมีนัย เพื่อป้องกันความผิดพลาดในการประเมิน<br><br>
+    <b>เกณฑ์:</b><br>
+    MoS &gt; 30% = ปลอดภัยสูง 🟢<br>
+    MoS 15–30% = พอใช้ 🟡<br>
+    MoS 0–15% = ระวัง 🟠<br>
+    MoS &lt; 0% = แพงกว่ามูลค่า 🔴<br><br>
+    <div class="pc-tip-ex">ตัวอย่าง</div>
+    IV = ฿100, ราคาตลาด = ฿70<br>
+    MoS = (100−70)/100 = 30% ✅
+  </div>
+  </div>
+</div>
+
+<div class="page" id="page-zscore">
+  <div class="page-header"><div class="page-title">Altman Z-Score</div><div class="page-sub">วิเคราะห์ความเสี่ยงล้มละลาย — Bankruptcy Risk Analysis</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">ข้อมูลงบการเงิน (หน่วยเดียวกัน เช่น ล้านบาท)</div>
+    <div class="grid2">
+      <div class="fg"><label>Working Capital <span style="color:var(--text3)">สินทรัพย์หมุนเวียน − หนี้หมุนเวียน</span></label><input type="number" id="zs-wc" placeholder="เช่น 500" step="any" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+      <div class="fg"><label>Total Assets <span style="color:var(--text3)">สินทรัพย์รวม</span></label><input type="number" id="zs-ta" placeholder="เช่น 2000" step="any" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+      <div class="fg"><label>Retained Earnings <span style="color:var(--text3)">กำไรสะสม</span></label><input type="number" id="zs-re" placeholder="เช่น 300" step="any" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+      <div class="fg"><label>EBIT <span style="color:var(--text3)">กำไรก่อนดอกเบี้ย+ภาษี</span></label><input type="number" id="zs-ebit" placeholder="เช่น 200" step="any" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+      <div class="fg"><label>Market Cap <span style="color:var(--text3)">มูลค่าตลาดรวม</span></label><input type="number" id="zs-mc" placeholder="เช่น 1500" step="any" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+      <div class="fg"><label>Total Liabilities <span style="color:var(--text3)">หนี้สินรวม</span></label><input type="number" id="zs-tl" placeholder="เช่น 800" step="any" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+      <div class="fg"><label>Revenue / Sales <span style="color:var(--text3)">รายได้รวม</span></label><input type="number" id="zs-rev" placeholder="เช่น 1200" step="any" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcZScore()">คำนวณ Z-Score</button><button class="btn btn-s" onclick="resetFields('zs')">ล้างค่า</button></div>
+    <div class="rbox" id="zs-res" style="display:none">
+      <div class="rgrid">
+        <div class="ri"><div class="rl">Altman Z-Score</div><div class="rv" id="zs-score" style="font-size:1.3rem;font-weight:700">—</div></div>
+        <div class="ri"><div class="rl">Zone / ระดับ</div><div class="rv" id="zs-zone">—</div></div>
+        <div class="ri"><div class="rl">X1 = WC/TA</div><div class="rv a" id="zs-x1">—</div></div>
+        <div class="ri"><div class="rl">X2 = RE/TA</div><div class="rv a" id="zs-x2">—</div></div>
+        <div class="ri"><div class="rl">X3 = EBIT/TA</div><div class="rv a" id="zs-x3">—</div></div>
+        <div class="ri"><div class="rl">X4 = MC/TL</div><div class="rv a" id="zs-x4">—</div></div>
+        <div class="ri"><div class="rl">X5 = Rev/TA</div><div class="rv a" id="zs-x5">—</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 Altman Z-Score (1968)</div>
+    Z = 1.2X1 + 1.4X2 + 3.3X3 + 0.6X4 + 1.0X5<br><br>
+    <b>โซนความเสี่ยง:</b><br>
+    Z &gt; 2.99 = Safe Zone ปลอดภัย 🟢<br>
+    1.81 ≤ Z ≤ 2.99 = Grey Zone เฝ้าระวัง 🟡<br>
+    Z &lt; 1.81 = Distress Zone เสี่ยงล้มละลาย 🔴<br><br>
+    <b>ตัวแปร:</b><br>
+    X1 = Working Capital / Total Assets<br>
+    X2 = Retained Earnings / Total Assets<br>
+    X3 = EBIT / Total Assets<br>
+    X4 = Market Cap / Total Liabilities<br>
+    X5 = Revenue / Total Assets<br><br>
+    <div class="pc-tip-ex">หมายเหตุ</div>
+    สูตรนี้เหมาะกับบริษัทผู้ผลิต (Manufacturing) เป็นหลัก
+  </div>
+  </div>
+</div>
+
+<div class="page" id="page-drip">
+  <div class="page-header"><div class="page-title">DRIP ปันผลทบต้น</div><div class="page-sub">Dividend Reinvestment Plan — การนำปันผลซื้อหุ้นซ้ำ</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">ตั้งค่า DRIP</div>
+    <div class="grid2">
+      <div class="fg"><label>ราคาหุ้นปัจจุบัน <span style="color:var(--text3)">฿</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="drip-price" placeholder="เช่น 50" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+      <div class="fg"><label>จำนวนหุ้นเริ่มต้น <span style="color:var(--text3)">shares</span></label><input type="number" id="drip-shares" placeholder="เช่น 1000" step="1" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+      <div class="fg"><label>Dividend Yield <span style="color:var(--text3)">% ต่อปี</span></label><div class="iw sfx"><input type="number" id="drip-yield" placeholder="เช่น 5" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>Dividend Growth <span style="color:var(--text3)">% ต่อปี</span></label><div class="iw sfx"><input type="number" id="drip-dg" placeholder="เช่น 3" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>ราคาหุ้นเติบโต <span style="color:var(--text3)">% ต่อปี</span></label><div class="iw sfx"><input type="number" id="drip-pg" placeholder="เช่น 5" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>ภาษีปันผล <span style="color:var(--text3)">%</span></label><div class="iw sfx"><input type="number" id="drip-tax" placeholder="10" value="10" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>จำนวนปี <span style="color:var(--text3)">years</span></label><input type="number" id="drip-yrs" placeholder="เช่น 10" step="1" min="1" max="50" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcDRIP()">คำนวณ DRIP</button><button class="btn btn-s" onclick="resetFields('drip')">ล้างค่า</button></div>
+    <div class="rbox" id="drip-res" style="display:none">
+      <div class="rgrid">
+        <div class="ri"><div class="rl">จำนวนหุ้นสุดท้าย</div><div class="rv g" id="drip-finalshares">—</div></div>
+        <div class="ri"><div class="rl">มูลค่าพอร์ตสุดท้าย</div><div class="rv g" id="drip-finalval">—</div></div>
+        <div class="ri"><div class="rl">ปันผลปีสุดท้าย (หลังภาษี)</div><div class="rv a" id="drip-finaldiv">—</div></div>
+        <div class="ri"><div class="rl">ต้นทุนเริ่มต้น</div><div class="rv" id="drip-initval">—</div></div>
+        <div class="ri"><div class="rl">ผลตอบแทนรวม</div><div class="rv g" id="drip-totalret">—</div></div>
+      </div>
+      <div id="drip-tw" style="margin-top:8px"></div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 DRIP — ปันผลทบต้น</div>
+    นำเงินปันผลที่ได้รับกลับไปซื้อหุ้นเพิ่ม ทำให้จำนวนหุ้นและมูลค่าพอร์ตเพิ่มขึ้นแบบทบต้น<br><br>
+    <b>พลังของ Compounding:</b><br>
+    ปันผล → ซื้อหุ้นเพิ่ม → ได้ปันผลมากขึ้น → ซื้อหุ้นเพิ่มอีก<br><br>
+    <div class="pc-tip-ex">ตัวอย่าง</div>
+    ราคา ฿50, หุ้น 1,000 หุ้น<br>
+    Yield 5%, โตปีละ 3%<br>
+    ภาษี 10%, เป็นเวลา 10 ปี<br><br>
+    <b>สมการแต่ละปี:</b><br>
+    ปันผล = หุ้น × ราคา × yield<br>
+    หุ้นใหม่ = ปันผล(หลังภาษี) ÷ ราคา<br>
+    ราคาใหม่ = ราคา × (1 + growth)
+  </div>
+  </div>
+</div>
+
+<!-- ========== GROUP A: เทรด & Risk ========== -->
+
+<div class="page" id="page-stockcom">
+  <div class="page-header"><div class="page-title">ค่าคอมฯ SET + Break-even</div><div class="page-sub">Commission Calculator & Break-even Price</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">ข้อมูลการซื้อหุ้น</div>
+    <div class="grid2">
+      <div class="fg"><label>ราคาต่อหุ้น <span style="color:var(--text3)">฿</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="sc-price" placeholder="เช่น 100" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+      <div class="fg"><label>จำนวนหุ้น <span style="color:var(--text3)">shares</span></label><input type="number" id="sc-qty" placeholder="เช่น 500" step="1" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+      <div class="fg"><label>อัตราค่าคอม <span style="color:var(--text3)">%</span></label><div class="iw sfx"><input type="number" id="sc-comm" placeholder="0.15" value="0.15" step="0.001" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>VAT <span style="color:var(--text3)">%</span></label><div class="iw sfx"><input type="number" id="sc-vat" placeholder="7" value="7" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"><span class="isfx">%</span></div></div>
+      <div class="fg" style="grid-column:1/-1"><label>ราคาตลาดปัจจุบัน <span style="color:var(--text3)">฿ (ไม่บังคับ เพื่อดูกำไร/ขาดทุน)</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="sc-mkt" placeholder="ราคาตลาดล่าสุด" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcStockCom()">คำนวณ</button><button class="btn btn-s" onclick="resetFields('sc')">ล้างค่า</button></div>
+    <div class="rbox" id="sc-res" style="display:none">
+      <div class="rgrid">
+        <div class="ri"><div class="rl">มูลค่าซื้อ</div><div class="rv a" id="sc-buyval">—</div></div>
+        <div class="ri"><div class="rl">ค่าคอมฯ ซื้อ (รวม VAT)</div><div class="rv o" id="sc-commamt">—</div></div>
+        <div class="ri"><div class="rl">ต้นทุนรวม</div><div class="rv" id="sc-totalcost">—</div></div>
+        <div class="ri"><div class="rl">ต้นทุนต่อหุ้น</div><div class="rv" id="sc-costpershare">—</div></div>
+        <div class="ri"><div class="rl">ราคา Break-even</div><div class="rv g" id="sc-breakeven">—</div></div>
+        <div class="ri" id="sc-pl-row" style="display:none"><div class="rl">กำไร / ขาดทุน (฿)</div><div class="rv" id="sc-pl">—</div></div>
+        <div class="ri" id="sc-plpct-row" style="display:none"><div class="rl">กำไร / ขาดทุน (%)</div><div class="rv" id="sc-plpct">—</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 ค่าคอมฯ SET</div>
+    ซื้อ: ต้นทุน = ราคาซื้อ + ค่าคอม×(1+VAT)<br>
+    ขาย: รับสุทธิ = ราคาขาย − ค่าคอม×(1+VAT)<br><br>
+    <b>Break-even</b> = ราคาขายขั้นต่ำเพื่อไม่ขาดทุน (ครอบคลุมต้นทุน + ค่าคอมขาย)<br><br>
+    <div class="pc-tip-ex">ตัวอย่าง</div>
+    ซื้อ 500 หุ้น ราคา ฿100<br>
+    คอม 0.15% + VAT 7%<br>
+    มูลค่าซื้อ = ฿50,000<br>
+    ค่าคอม = 50,000 × 0.15% × 1.07 = ฿80.25<br>
+    ต้นทุนรวม = ฿50,080.25<br>
+    Break-even ≈ ฿100.32/หุ้น
+  </div>
+  </div>
+</div>
+
+<div class="page" id="page-dca">
+  <div class="page-header"><div class="page-title">DCA ต้นทุนเฉลี่ย</div><div class="page-sub">Dollar Cost Averaging — คำนวณต้นทุนเฉลี่ยการซื้อหลายครั้ง</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">รายการซื้อ</div>
+    <div class="grid2" style="margin-bottom:10px">
+      <div class="fg">
+        <label>โหมดการใส่ข้อมูล</label>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-s btn-sm rb on" id="dca-mode-shares" onclick="dcaSetMode('shares',this)">จำนวนหุ้น</button>
+          <button class="btn btn-s btn-sm rb" id="dca-mode-amt" onclick="dcaSetMode('amt',this)">จำนวนเงิน</button>
+        </div>
+      </div>
+      <div class="fg">
+        <label>จำนวนรายการ</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="number" id="dca-count" value="3" min="1" max="30" step="1" style="width:70px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;background:#181c28;border:1px solid #2d3350;border-radius:7px;padding:8px 10px;outline:none">
+          <button class="btn btn-s btn-sm" onclick="dcaBuildRows()">สร้างตาราง</button>
+        </div>
+      </div>
+    </div>
+    <div id="dca-header" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px;padding:0 2px">
+      <div style="font-size:.76rem;color:#7e8ba3;font-weight:600">ราคา/หุ้น (฿)</div>
+      <div style="font-size:.76rem;color:#7e8ba3;font-weight:600;text-align:right" id="dca-col2-hdr">จำนวนหุ้น</div>
+      <div style="font-size:.76rem;color:#7e8ba3;font-weight:600;text-align:right">ต้นทุน (฿)</div>
+    </div>
+    <div id="dca-rows" style="margin-bottom:12px"></div>
+    <div class="fg" style="margin-bottom:10px"><label>ราคาตลาดปัจจุบัน <span style="color:var(--text3)">฿</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="dca-mkt" placeholder="ราคาตลาดล่าสุด" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcDCA()">คำนวณ DCA</button><button class="btn btn-s" onclick="dcaReset()">ล้างค่า</button></div>
+    <div class="rbox" id="dca-res" style="display:none">
+      <div class="rgrid">
+        <div class="ri"><div class="rl">จำนวนหุ้นรวม</div><div class="rv a" id="dca-totalshares">—</div></div>
+        <div class="ri"><div class="rl">ต้นทุนรวม</div><div class="rv" id="dca-totalcost">—</div></div>
+        <div class="ri"><div class="rl">ต้นทุนเฉลี่ย / หุ้น</div><div class="rv g" id="dca-avgcost">—</div></div>
+        <div class="ri"><div class="rl">มูลค่าปัจจุบัน</div><div class="rv a" id="dca-curval">—</div></div>
+        <div class="ri"><div class="rl">กำไร / ขาดทุน (฿)</div><div class="rv" id="dca-pl">—</div></div>
+        <div class="ri"><div class="rl">กำไร / ขาดทุน (%)</div><div class="rv" id="dca-plpct">—</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 DCA — Dollar Cost Averaging</div>
+    ลงทุนสม่ำเสมอโดยไม่สนใจราคา ช่วยลดผลกระทบความผันผวน<br><br>
+    <b>สูตร:</b><br>
+    ต้นทุนเฉลี่ย = ต้นทุนรวม ÷ หุ้นรวม<br><br>
+    <b>โหมดจำนวนหุ้น:</b><br>
+    ซื้อหุ้นเท่ากันทุกครั้ง<br><br>
+    <b>โหมดจำนวนเงิน:</b><br>
+    ใช้เงินเท่ากันทุกครั้ง (ได้หุ้นต่างกัน)<br><br>
+    <div class="pc-tip-ex">ตัวอย่าง</div>
+    ซื้อ 3 ครั้ง: ฿10, ฿8, ฿12<br>
+    ครั้งละ ฿10,000<br>
+    หุ้น: 1000, 1250, 833 = 3083 หุ้น<br>
+    ต้นทุน = ฿30,000<br>
+    เฉลี่ย = 30,000÷3,083 = ฿9.73/หุ้น
+  </div>
+  </div>
+</div>
+
+<div class="page" id="page-possize">
+  <div class="page-header"><div class="page-title">Position Sizing</div><div class="page-sub">คำนวณขนาดการลงทุนที่เหมาะสมตามความเสี่ยง</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">ข้อมูลพอร์ตและการซื้อขาย</div>
+    <div class="grid2">
+      <div class="fg"><label>มูลค่าพอร์ตรวม <span style="color:var(--text3)">฿</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="ps-port" placeholder="เช่น 1000000" step="1" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+      <div class="fg"><label>% ความเสี่ยงต่อ Trade <span style="color:var(--text3)">Max Risk %</span></label><div class="iw sfx"><input type="number" id="ps-risk" placeholder="เช่น 2" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>ราคาซื้อ (Entry) <span style="color:var(--text3)">฿</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="ps-entry" placeholder="เช่น 100" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+      <div class="fg"><label>ราคา Stop Loss <span style="color:var(--text3)">฿</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="ps-sl" placeholder="เช่น 95" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+      <div class="fg"><label>ค่าคอม <span style="color:var(--text3)">% (ทั้งซื้อและขาย)</span></label><div class="iw sfx"><input type="number" id="ps-comm" placeholder="0.15" value="0.15" step="0.001" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"><span class="isfx">%</span></div></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcPosSize()">คำนวณ Position</button><button class="btn btn-s" onclick="resetFields('ps')">ล้างค่า</button></div>
+    <div class="rbox" id="ps-res" style="display:none">
+      <div class="rgrid">
+        <div class="ri"><div class="rl">เงินที่ยอมเสียสูงสุด</div><div class="rv r" id="ps-maxloss">—</div></div>
+        <div class="ri"><div class="rl">จำนวนหุ้นที่ควรซื้อ</div><div class="rv g" id="ps-shares">—</div></div>
+        <div class="ri"><div class="rl">มูลค่าการซื้อ</div><div class="rv a" id="ps-invest">—</div></div>
+        <div class="ri"><div class="rl">% พอร์ตที่ใช้</div><div class="rv o" id="ps-portpct">—</div></div>
+        <div class="ri"><div class="rl">ขาดทุนจริงหาก SL hit (รวมคอม)</div><div class="rv r" id="ps-realloss">—</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 Position Sizing</div>
+    วิธี 2% Rule: อย่าเสียเกิน 2% ของพอร์ตต่อ 1 trade<br><br>
+    <b>สูตร:</b><br>
+    Max Loss = พอร์ต × Risk%<br>
+    Risk/หุ้น = Entry − Stop Loss<br>
+    จำนวนหุ้น = Max Loss ÷ Risk/หุ้น<br><br>
+    <div class="pc-tip-ex">ตัวอย่าง</div>
+    พอร์ต ฿1,000,000, Risk 2%<br>
+    Entry ฿100, SL ฿95<br>
+    Max Loss = ฿20,000<br>
+    Risk/หุ้น = ฿5<br>
+    หุ้น = 20,000÷5 = 4,000 หุ้น<br>
+    ลงทุน = ฿400,000 (40% พอร์ต)
+  </div>
+  </div>
+</div>
+
+<div class="page" id="page-sltp">
+  <div class="page-header"><div class="page-title">Stop Loss / Take Profit / R:R</div><div class="page-sub">Risk:Reward Ratio Calculator</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">ข้อมูลการเทรด</div>
+    <div class="grid2">
+      <div class="fg"><label>ราคาซื้อ (Entry) <span style="color:var(--text3)">฿</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="st-entry" placeholder="เช่น 100" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+      <div class="fg"><label>Stop Loss <span style="color:var(--text3)">฿</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="st-sl" placeholder="เช่น 95" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+      <div class="fg"><label>Take Profit <span style="color:var(--text3)">฿</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="st-tp" placeholder="เช่น 110" step="0.01" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px 8px 26px;outline:none;width:100%;box-sizing:border-box"></div></div>
+      <div class="fg"><label>จำนวนหุ้น <span style="color:var(--text3)">ไม่บังคับ</span></label><input type="number" id="st-qty" placeholder="เช่น 1000" step="1" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+      <div class="fg"><label>ค่าคอม <span style="color:var(--text3)">%</span></label><div class="iw sfx"><input type="number" id="st-comm" placeholder="0.15" value="0.15" step="0.001" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"><span class="isfx">%</span></div></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcSLTP()">คำนวณ R:R</button><button class="btn btn-s" onclick="resetFields('st')">ล้างค่า</button></div>
+    <div class="rbox" id="st-res" style="display:none">
+      <div class="rgrid">
+        <div class="ri"><div class="rl">Risk / หุ้น</div><div class="rv r" id="st-risk">—</div></div>
+        <div class="ri"><div class="rl">Reward / หุ้น</div><div class="rv g" id="st-reward">—</div></div>
+        <div class="ri"><div class="rl">R:R Ratio</div><div class="rv" id="st-rr" style="font-size:1.2rem;font-weight:700">—</div></div>
+        <div class="ri"><div class="rl">SL% จากราคาซื้อ</div><div class="rv r" id="st-slpct">—</div></div>
+        <div class="ri"><div class="rl">TP% จากราคาซื้อ</div><div class="rv g" id="st-tppct">—</div></div>
+        <div class="ri"><div class="rl">Win Rate ขั้นต่ำ (Breakeven)</div><div class="rv o" id="st-winbe">—</div></div>
+        <div class="ri" id="st-totalrisk-row" style="display:none"><div class="rl">ขาดทุนสูงสุด (รวมหุ้น)</div><div class="rv r" id="st-totalrisk">—</div></div>
+        <div class="ri" id="st-totalrew-row" style="display:none"><div class="rl">กำไรเป้าหมาย (รวมหุ้น)</div><div class="rv g" id="st-totalrew">—</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 R:R Ratio</div>
+    R:R = Reward ÷ Risk<br>
+    = (TP−Entry) ÷ (Entry−SL)<br><br>
+    <b>แนะนำ:</b> R:R ≥ 2:1 (ชนะ 1 ครั้ง = แพ้ 2 ครั้ง)<br><br>
+    <b>Win Rate ขั้นต่ำ:</b><br>
+    = 1 ÷ (1 + R:R) × 100%<br>
+    R:R 1:1 → ต้องชนะ &gt; 50%<br>
+    R:R 2:1 → ต้องชนะ &gt; 33%<br>
+    R:R 3:1 → ต้องชนะ &gt; 25%<br><br>
+    <div class="pc-tip-ex">ตัวอย่าง</div>
+    Entry ฿100, SL ฿95, TP ฿115<br>
+    Risk = ฿5, Reward = ฿15<br>
+    R:R = 3:1 ✅
+  </div>
+  </div>
+</div>
+
+<div class="page" id="page-xirr">
+  <div class="page-header"><div class="page-title">XIRR ผลตอบแทนจริง</div><div class="page-sub">Extended Internal Rate of Return — ผลตอบแทนต่อปีที่แท้จริง</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">กระแสเงินสด (ลบ = จ่ายออก, บวก = รับเข้า)</div>
+    <div class="grid2" style="margin-bottom:10px">
+      <div class="fg">
+        <label>จำนวนรายการ</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="number" id="xirr-count" value="3" min="2" max="50" step="1" style="width:70px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;background:#181c28;border:1px solid #2d3350;border-radius:7px;padding:8px 10px;outline:none">
+          <button class="btn btn-s btn-sm" onclick="xirrBuildRows()">สร้างตาราง</button>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px;padding:0 2px">
+      <div style="font-size:.76rem;color:#7e8ba3;font-weight:600">วันที่ (YYYY-MM-DD)</div>
+      <div style="font-size:.76rem;color:#7e8ba3;font-weight:600;text-align:right">จำนวนเงิน (฿)</div>
+    </div>
+    <div id="xirr-rows" style="margin-bottom:12px"></div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcXIRR()">คำนวณ XIRR</button><button class="btn btn-s" onclick="xirrReset()">ล้างค่า</button></div>
+    <div class="rbox" id="xirr-res" style="display:none">
+      <div class="rgrid">
+        <div class="ri"><div class="rl">XIRR ผลตอบแทนต่อปี</div><div class="rv g" id="xirr-rate" style="font-size:1.4rem;font-weight:700">—</div></div>
+        <div class="ri"><div class="rl">การแปลผล</div><div class="rv a" id="xirr-interp">—</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 XIRR คืออะไร?</div>
+    XIRR คำนวณผลตอบแทนต่อปีที่แท้จริง เมื่อการลงทุนไม่ได้เกิดขึ้นพร้อมกัน<br><br>
+    <b>วิธีใส่ข้อมูล:</b><br>
+    💸 จ่ายซื้อหุ้น → ใส่ <b>ติดลบ</b><br>
+    💰 รับปันผล/ขาย → ใส่ <b>บวก</b><br><br>
+    <b>สูตร:</b><br>
+    Σ CF / (1+r)^(d/365) = 0<br>
+    แก้หา r ด้วย Bisection Method<br><br>
+    <div class="pc-tip-ex">ตัวอย่าง</div>
+    01/01/2023: −฿100,000 (ซื้อ)<br>
+    01/07/2023: +฿3,000 (ปันผล)<br>
+    01/01/2024: +฿115,000 (ขาย)<br>
+    XIRR ≈ 18% ต่อปี
+  </div>
+  </div>
+</div>
+
+<!-- ========== GROUP C: Technical Analysis ========== -->
+
+<div class="page" id="page-rsi">
+  <div class="page-header"><div class="page-title">RSI Calculator</div><div class="page-sub">Relative Strength Index — ดัชนีความแข็งแกร่งสัมพัทธ์</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">ข้อมูลราคา</div>
+    <div class="grid2" style="margin-bottom:10px">
+      <div class="fg"><label>Period <span style="color:var(--text3)">ช่วงเวลา (default 14)</span></label><input type="number" id="rsi-period" value="14" min="2" max="50" step="1" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+    </div>
+    <div class="fg" style="margin-bottom:10px">
+      <label>ราคาปิด <span style="color:var(--text3)">ใส่ราคาทีละบรรทัด (เก่าสุด→ล่าสุด) ต้องการอย่างน้อย period+1 ราคา</span></label>
+      <textarea id="rsi-prices" placeholder="เช่น&#10;44.34&#10;44.09&#10;44.15&#10;43.61&#10;44.33&#10;..." style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box;resize:vertical;min-height:120px;-webkit-text-fill-color:#dde4f0"></textarea>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcRSI()">คำนวณ RSI</button><button class="btn btn-s" onclick="rsiReset()">ล้างค่า</button></div>
+    <div class="rbox" id="rsi-res" style="display:none">
+      <div class="rgrid">
+        <div class="ri"><div class="rl">RSI (ล่าสุด)</div><div class="rv" id="rsi-val" style="font-size:1.4rem;font-weight:700">—</div></div>
+        <div class="ri"><div class="rl">สัญญาณ</div><div class="rv" id="rsi-signal">—</div></div>
+        <div class="ri"><div class="rl">ราคาล่าสุด</div><div class="rv a" id="rsi-lastprice">—</div></div>
+        <div class="ri"><div class="rl">จำนวนราคาที่ใช้</div><div class="rv" id="rsi-count">—</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 RSI (Wilder's RSI)</div>
+    RSI = 100 − 100/(1+RS)<br>
+    RS = Avg Gain / Avg Loss<br><br>
+    <b>การแปลผล:</b><br>
+    RSI &gt; 70 = Overbought (แพงเกิน) 🔴<br>
+    RSI 30–70 = Neutral (สมดุล) 🟡<br>
+    RSI &lt; 30 = Oversold (ถูกเกิน) 🟢<br><br>
+    <b>Wilder Smoothing:</b><br>
+    ค่าแรก = avg ธรรมดา<br>
+    ค่าต่อไป = (prev×(n-1)+ค่าใหม่)/n<br><br>
+    <div class="pc-tip-ex">ต้องการข้อมูล</div>
+    period 14 → ต้องการ 15+ ราคา<br>
+    (14 changes สำหรับ avg แรก)
+  </div>
+  </div>
+</div>
+
+<div class="page" id="page-movavg">
+  <div class="page-header"><div class="page-title">Moving Average SMA/EMA</div><div class="page-sub">ค่าเฉลี่ยเคลื่อนที่ — Simple & Exponential Moving Average</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">ตั้งค่า Periods</div>
+    <div class="grid2" style="margin-bottom:10px">
+      <div class="fg"><label>Period 1 <span style="color:var(--text3)">Short</span></label><input type="number" id="ma-p1" value="20" min="2" max="500" step="1" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+      <div class="fg"><label>Period 2 <span style="color:var(--text3)">Medium</span></label><input type="number" id="ma-p2" value="50" min="2" max="500" step="1" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+      <div class="fg"><label>Period 3 <span style="color:var(--text3)">Long</span></label><input type="number" id="ma-p3" value="200" min="2" max="500" step="1" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+    </div>
+    <div class="fg" style="margin-bottom:10px">
+      <label>ราคาปิด <span style="color:var(--text3)">ใส่ราคาทีละบรรทัด (เก่าสุด→ล่าสุด)</span></label>
+      <textarea id="ma-prices" placeholder="เช่น&#10;100.50&#10;101.20&#10;99.80&#10;102.30&#10;..." style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box;resize:vertical;min-height:120px;-webkit-text-fill-color:#dde4f0"></textarea>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcMovAvg()">คำนวณ MA</button><button class="btn btn-s" onclick="maReset()">ล้างค่า</button></div>
+    <div class="rbox" id="ma-res" style="display:none">
+      <div class="rgrid">
+        <div class="ri"><div class="rl">ราคาปัจจุบัน</div><div class="rv a" id="ma-current">—</div></div>
+        <div class="ri"><div class="rl">SMA P1</div><div class="rv" id="ma-sma1">—</div></div>
+        <div class="ri"><div class="rl">SMA P2</div><div class="rv" id="ma-sma2">—</div></div>
+        <div class="ri"><div class="rl">SMA P3</div><div class="rv" id="ma-sma3">—</div></div>
+        <div class="ri"><div class="rl">EMA P1</div><div class="rv" id="ma-ema1">—</div></div>
+        <div class="ri"><div class="rl">EMA P2</div><div class="rv" id="ma-ema2">—</div></div>
+        <div class="ri"><div class="rl">สัญญาณ vs SMA P1</div><div class="rv" id="ma-sig1">—</div></div>
+        <div class="ri"><div class="rl">สัญญาณ vs SMA P2</div><div class="rv" id="ma-sig2">—</div></div>
+        <div class="ri"><div class="rl">สัญญาณ vs SMA P3</div><div class="rv" id="ma-sig3">—</div></div>
+        <div class="ri"><div class="rl">Cross Signal (P2/P3)</div><div class="rv" id="ma-cross">—</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 SMA vs EMA</div>
+    <b>SMA</b> = ค่าเฉลี่ยง่าย (ทุก period มีน้ำหนักเท่ากัน)<br><br>
+    <b>EMA</b> = ค่าเฉลี่ยถ่วงน้ำหนัก (ราคาล่าสุดมีน้ำหนักมากกว่า)<br>
+    k = 2/(period+1)<br>
+    EMA = price×k + EMA_prev×(1-k)<br><br>
+    <b>Golden Cross</b> 🟡: MA ระยะสั้นตัด MA ระยะยาวขึ้น → สัญญาณขาขึ้น<br>
+    <b>Death Cross</b> ☠️: MA ระยะสั้นตัด MA ระยะยาวลง → สัญญาณขาลง<br><br>
+    <div class="pc-tip-ex">สัญญาณราคา vs MA</div>
+    ราคา &gt; MA = Bullish 📈<br>
+    ราคา &lt; MA = Bearish 📉
+  </div>
+  </div>
+</div>
+
+<div class="page" id="page-atr">
+  <div class="page-header"><div class="page-title">ATR ความผันผวน</div><div class="page-sub">Average True Range — วัดความผันผวนของราคา</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">ข้อมูลราคา OHLC</div>
+    <div class="grid2" style="margin-bottom:10px">
+      <div class="fg"><label>Period <span style="color:var(--text3)">default 14</span></label><input type="number" id="atr-period" value="14" min="1" max="50" step="1" style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box"></div>
+    </div>
+    <div style="font-size:.8rem;color:#7e8ba3;margin-bottom:6px">ใส่ข้อมูล High, Low, Close ทีละแถว คั่นด้วยจุลภาค (เก่าสุด→ล่าสุด)</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:4px;padding:0 2px">
+      <div style="font-size:.76rem;color:#7e8ba3;font-weight:600">High (฿)</div>
+      <div style="font-size:.76rem;color:#7e8ba3;font-weight:600;text-align:center">Low (฿)</div>
+      <div style="font-size:.76rem;color:#7e8ba3;font-weight:600;text-align:right">Close (฿)</div>
+    </div>
+    <textarea id="atr-data" placeholder="เช่น&#10;48.70,47.79,48.16&#10;48.72,48.14,48.61&#10;48.90,48.39,48.75&#10;..." style="background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;font-family:'Sarabun',sans-serif;font-size:.83rem;padding:8px 10px;outline:none;width:100%;box-sizing:border-box;resize:vertical;min-height:130px;-webkit-text-fill-color:#dde4f0;margin-bottom:10px"></textarea>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcATR()">คำนวณ ATR</button><button class="btn btn-s" onclick="atrReset()">ล้างค่า</button></div>
+    <div class="rbox" id="atr-res" style="display:none">
+      <div class="rgrid">
+        <div class="ri"><div class="rl">ATR (฿)</div><div class="rv o" id="atr-val" style="font-size:1.3rem;font-weight:700">—</div></div>
+        <div class="ri"><div class="rl">ATR% ของราคาปัจจุบัน</div><div class="rv o" id="atr-pct">—</div></div>
+        <div class="ri"><div class="rl">ราคาปัจจุบัน (Close)</div><div class="rv a" id="atr-close">—</div></div>
+        <div class="ri"><div class="rl">SL แนะนำ 1×ATR</div><div class="rv r" id="atr-sl1">—</div></div>
+        <div class="ri"><div class="rl">SL แนะนำ 1.5×ATR</div><div class="rv r" id="atr-sl15">—</div></div>
+        <div class="ri"><div class="rl">SL แนะนำ 2×ATR</div><div class="rv r" id="atr-sl2">—</div></div>
+        <div class="ri"><div class="rl">Support (1×ATR ล่าง)</div><div class="rv" id="atr-sup">—</div></div>
+        <div class="ri"><div class="rl">Resistance (1×ATR บน)</div><div class="rv" id="atr-res-val">—</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">💡 Average True Range</div>
+    TR = max(High−Low, |High−prevClose|, |Low−prevClose|)<br>
+    ATR = Wilder average ของ TR<br><br>
+    <b>การใช้งาน:</b><br>
+    • Stop Loss: ตั้ง 1.5–2×ATR ใต้ราคาซื้อ<br>
+    • ยิ่ง ATR สูง = ความผันผวนสูง<br>
+    • ใช้ปรับ Position Size ตามความผันผวน<br><br>
+    <div class="pc-tip-ex">รูปแบบข้อมูล</div>
+    แต่ละแถว: High,Low,Close<br>
+    เช่น: 105.5,103.2,104.8<br>
+    ต้องการ period+1 แถว ขึ้นไป
+  </div>
+  </div>
+</div>
+
 </main>
 </div>
 
@@ -4519,7 +5162,7 @@ function tvmSolve(solveFor) {
     if (solveFor === 'PV') {
       const r = tvmGetPerPeriodRate(rVal, rateFreq, compFreq, isEffective);
       // Convert n to payment periods
-      const n = nVal * (nFreq / rateFreq);
+      const n = nVal * (rateFreq / nFreq);
       ans = pv_(r, n, pmtVal ?? 0, fvVal ?? 0, mode);
       label = 'มูลค่าปัจจุบัน (PV)';
       dispAns = fB(ans);
@@ -4527,7 +5170,7 @@ function tvmSolve(solveFor) {
 
     } else if (solveFor === 'FV') {
       const r = tvmGetPerPeriodRate(rVal, rateFreq, compFreq, isEffective);
-      const n = nVal * (nFreq / rateFreq);
+      const n = nVal * (rateFreq / nFreq);
       ans = fv_(r, n, pmtVal ?? 0, pvVal ?? 0, mode);
       label = 'มูลค่าอนาคต (FV)';
       dispAns = fB(ans);
@@ -4535,14 +5178,14 @@ function tvmSolve(solveFor) {
 
     } else if (solveFor === 'PMT') {
       const r = tvmGetPerPeriodRate(rVal, rateFreq, compFreq, isEffective);
-      const n = nVal * (nFreq / rateFreq);
+      const n = nVal * (rateFreq / nFreq);
       ans = pmt_(r, n, pvVal ?? 0, fvVal ?? 0, mode);
       label = 'ชำระต่องวด (PMT)';
       dispAns = fB(ans);
       $('tvm-pmt').value = ans.toFixed(4);
 
     } else if (solveFor === 'RATE') {
-      const n = nVal * (nFreq / rateFreq);
+      const n = nVal * (rateFreq / nFreq);
       const rPer = findR(n, pmtVal ?? 0, pvVal ?? 0, fvVal ?? 0, mode);
       // Convert back to annual nominal rate
       let annualNom;
@@ -4556,7 +5199,7 @@ function tvmSolve(solveFor) {
     } else if (solveFor === 'NPER') {
       const r = tvmGetPerPeriodRate(rVal, rateFreq, compFreq, isEffective);
       const nPer = nper_(r, pmtVal ?? 0, pvVal ?? 0, fvVal ?? 0, mode);
-      const nInUserUnit = nPer * (rateFreq / nFreq);
+      const nInUserUnit = nPer * (nFreq / rateFreq);
       ans = nInUserUnit;
       label = 'จำนวนงวด (N)';
       const freqLabel = {1:'ปี',2:'ครึ่งปี',4:'ไตรมาส',12:'เดือน',24:'ครึ่งเดือน',26:'สองสัปดาห์',52:'สัปดาห์',365:'วัน'}[nFreq]||'งวด';
@@ -4753,8 +5396,11 @@ function calcR72(){
 /* ─── COLLEGE ─── */
 function calcCollege(){
   const cost=v('col-c'),sv=v('col-s'),yrs=v('col-y'),dur=v('col-d'),inf=v('col-inf')/100,ret=v('col-r')/100;
-  let goal=0;for(let i=yrs;i<yrs+dur;i++)goal+=cost*Math.pow(1+inf,i)/Math.pow(1+ret/12,i*12);
-  const n=yrs*12,mr=ret/12,fvSv=sv*Math.pow(1+mr,n),rem=Math.max(0,goal-fvSv);
+  const n=yrs*12,mr=ret/12;
+  // goal = PV ณ วันเปิดเทอม (ไม่ใช่วันนี้) — ลดทอนค่าเล่าเรียนแต่ละปีกลับมาที่จุดเริ่มต้นมหาวิทยาลัย
+  let goal=0;for(let i=0;i<dur;i++)goal+=cost*Math.pow(1+inf,yrs+i)/Math.pow(1+mr,i*12);
+  // fvSv = เงินออมปัจจุบันที่โตถึงวันเปิดเทอม — อยู่บนฐานเวลาเดียวกับ goal
+  const fvSv=sv*Math.pow(1+mr,n),rem=Math.max(0,goal-fvSv);
   const pm=mr===0?rem/n:rem*mr/(Math.pow(1+mr,n)-1);
   $('col-goal').textContent=fBig(goal);$('col-pmt').textContent=fB(pm);show('col-res');
 }
@@ -5024,12 +5670,12 @@ function calcFvA(){
 function calcBW(){
   const a=v('bw-a'),r=v('bw-r')/100,y=v('bw-y'),pm=lPmt(a,r,y*12),bwPmt=pm/2;
   const mr=r/12,n=y*12,totM=pm*n;
-  let balBW=a,rBW=Math.pow(1+r/12,1/2)-1,periods=0;while(balBW>0&&periods<2000){balBW*=(1+rBW);balBW-=bwPmt;if(balBW<0)balBW=0;periods++;}
+  let balBW=a,rBW=Math.pow(1+r,1/26)-1,periods=0;while(balBW>0&&periods<2000){balBW*=(1+rBW);balBW-=bwPmt;if(balBW<0)balBW=0;periods++;}
   const yBW=periods/26,faster=y-yBW,savInt=totM-(bwPmt*periods);
   $('bw-pm').textContent=fB(bwPmt);$('bw-fast').textContent=fN(faster,2)+' ปี';$('bw-sav').textContent=fBig(savInt);show('bw-res');
   // Yearly comparison table
   let h='<div class="twrap" style="margin-top:14px"><div class="tscroll"><table><thead><tr><th>ปี</th><th>คงเหลือ (รายเดือน)</th><th>คงเหลือ (2 สัปดาห์)</th><th>ประหยัดได้</th></tr></thead><tbody>';
-  let balM=a, balB=a, rBW2=Math.pow(1+r/12,1/2)-1;
+  let balM=a, balB=a, rBW2=Math.pow(1+r,1/26)-1;
   for(let yr=1;yr<=y;yr++){
     for(let m=1;m<=12;m++){const ip=balM*mr,pp=pm-ip;balM=Math.max(0,balM-pp);}
     for(let bw=1;bw<=26;bw++){balB*=(1+rBW2);balB-=bwPmt;if(balB<0)balB=0;}
@@ -6429,6 +7075,535 @@ function resetDCFMrLike(){
   document.getElementById('ml-terminal-cf').textContent='—';
   ['ml-pv10','ml-tv','ml-total-pv','ml-equity','ml-intrinsic'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent='—';});
 }
+
+/* ─── PORTFOLIO REBALANCING ─── */
+function pfBuildRows(){
+  const n=parseInt($('pf-count').value)||4;
+  const container=$('pf-rows');
+  const oldRows=[...container.querySelectorAll('.pf-row')];
+  const existing=oldRows.map(r=>({
+    name:r.querySelector('.pf-name').value,
+    cost:r.querySelector('.pf-cost').value,
+    val:r.querySelector('.pf-val').value,
+    tgt:r.querySelector('.pf-tgt').value
+  }));
+  container.innerHTML='';
+  const defTgt=(100/n).toFixed(2);
+  for(let i=0;i<n;i++){
+    const p=existing[i]||{};
+    const row=document.createElement('div');
+    row.className='pf-row';
+    row.style.cssText='display:grid;grid-template-columns:2fr 2fr 2fr 1.2fr;gap:6px;margin-bottom:8px;align-items:center';
+    const iBase='background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:"Sarabun",sans-serif;font-size:.83rem;outline:none;box-sizing:border-box';
+    const tgtVal=p.tgt!==undefined&&p.tgt!==''?parseFloat(p.tgt):parseFloat(defTgt);
+    row.innerHTML=
+      `<input type="text" class="pf-name" placeholder="หุ้น ${i+1}" value="${p.name||''}" style="${iBase};padding:8px 10px;width:100%">`
+      +`<div class="iw pfx" style="margin:0;width:100%"><span class="ipfx">฿</span><input type="number" class="pf-cost" placeholder="0" step="any" value="${p.cost||''}" style="${iBase};padding:8px 10px 8px 26px;width:100%"></div>`
+      +`<div class="iw pfx" style="margin:0;width:100%"><span class="ipfx">฿</span><input type="number" class="pf-val" placeholder="0" step="any" value="${p.val||''}" style="${iBase};padding:8px 10px 8px 26px;width:100%"></div>`
+      +`<div style="display:flex;align-items:center;gap:3px;min-width:0"><input type="number" class="pf-tgt" placeholder="${defTgt}" step="0.01" min="0" max="100" value="${tgtVal}" style="${iBase};padding:8px 6px;width:100%;min-width:0;text-align:center"><span style="color:var(--text3);font-size:.8rem;white-space:nowrap;flex-shrink:0">%</span></div>`;
+    container.appendChild(row);
+  }
+}
+function pfReset(){
+  $('pf-count').value=4;$('pf-thresh').value=60;
+  pfBuildRows();hide('pf-res');
+}
+function calcPortfolio(){
+  const thresh=parseFloat($('pf-thresh').value)||60;
+  const rows=[...document.querySelectorAll('.pf-row')];
+  if(!rows.length){alert('กรุณากด "สร้างตาราง" ก่อนครับ');return;}
+  const stocks=rows.map((r,i)=>({
+    name:r.querySelector('.pf-name').value||`หุ้น ${i+1}`,
+    cost:parseFloat(r.querySelector('.pf-cost').value)||0,
+    val:parseFloat(r.querySelector('.pf-val').value)||0,
+    tgt:parseFloat(r.querySelector('.pf-tgt').value)||(100/rows.length)
+  }));
+  if(stocks.every(s=>s.val===0)){alert('กรุณาใส่มูลค่าปัจจุบันอย่างน้อย 1 รายการ');return;}
+  const total=stocks.reduce((a,s)=>a+s.val,0);
+  if(total<=0){alert('มูลค่ารวมต้องมากกว่า 0');return;}
+  const tgtSum=stocks.reduce((a,s)=>a+s.tgt,0);
+  const thDec=thresh/100;
+  stocks.forEach(s=>{
+    s.pct=s.val/total*100;
+    s.tgtAmt=s.tgt/100*total;
+    s.diff=s.val-s.tgtAmt;
+    s.pl=s.cost>0?s.val-s.cost:null;
+    s.plPct=s.cost>0?(s.val-s.cost)/s.cost*100:null;
+    const others=total-s.val;
+    s.valAtThresh=thDec<1?thDec*others/(1-thDec):Infinity;
+    s.overThresh=s.pct>=thresh;
+  });
+  const overCount=stocks.filter(s=>s.overThresh).length;
+  let sumHtml=`<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+    <div class="ri" style="flex:1;min-width:120px"><div class="rl">พอร์ตรวม</div><div class="rv a">${fBig(total)}</div></div>
+    <div class="ri" style="flex:1;min-width:100px"><div class="rl">จำนวนหุ้น</div><div class="rv">${stocks.length} ตัว</div></div>
+    <div class="ri" style="flex:1;min-width:140px"><div class="rl">เกิน Threshold ${fN(thresh,0)}%</div><div class="rv ${overCount>0?'r':'g'}">${overCount>0?overCount+' ตัว ⚠️':'ไม่มี ✓'}</div></div>
+  </div>`;
+  if(Math.abs(tgtSum-100)>0.1)sumHtml+=`<div style="background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.35);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:.82rem;color:#f5a623">⚠️ Target % รวม ${fN(tgtSum,2)}% (ควรเท่ากับ 100%)</div>`;
+  if(overCount>0){const names=stocks.filter(s=>s.overThresh).map(s=>s.name).join(', ');sumHtml+=`<div style="background:rgba(255,84,112,.12);border:1px solid rgba(255,84,112,.4);border-radius:10px;padding:12px 16px;margin-bottom:12px;font-size:.84rem">🔴 <b>เกิน Threshold ${thresh}%:</b> ${names} — ควรพิจารณา Rebalance</div>`;}
+  let h='<div class="twrap"><div class="tscroll"><table><thead><tr>'
+    +'<th>หุ้น</th><th style="text-align:right">มูลค่าปัจจุบัน</th><th style="text-align:right">สัดส่วน %</th>'
+    +'<th style="text-align:right">Target %</th><th style="text-align:right">ซื้อ / ขาย</th>'
+    +'<th style="text-align:right">ถึง Thresh ที่</th><th style="text-align:right">P&amp;L</th></tr></thead><tbody>';
+  stocks.forEach(s=>{
+    const pctSt=s.overThresh?'color:#ff5470;font-weight:700':'';
+    const diffStr=Math.abs(s.diff)<0.01?'—':s.diff>0
+      ?`<span style="color:#ff5470">ขาย ${fBig(s.diff)}</span>`
+      :`<span style="color:#27c97e">ซื้อ ${fBig(-s.diff)}</span>`;
+    const thStr=s.overThresh?'<span style="color:#ff5470">🔴 เกินแล้ว</span>':(isFinite(s.valAtThresh)?fBig(s.valAtThresh):'—');
+    const plStr=s.pl!==null?`<span style="${s.pl>=0?'color:#27c97e':'color:#ff5470'}">${s.pl>=0?'+':''}${fBig(s.pl)}<br><small>${s.plPct>=0?'+':''}${fN(s.plPct,2)}%</small></span>`:'—';
+    h+=`<tr><td style="font-weight:600">${s.overThresh?'🔴 ':''}${s.name}</td><td style="text-align:right">${fBig(s.val)}</td>`
+      +`<td style="text-align:right;${pctSt}">${fN(s.pct,2)}%</td><td style="text-align:right;color:#4f8ef7">${fN(s.tgt,2)}%</td>`
+      +`<td style="text-align:right">${diffStr}</td><td style="text-align:right">${thStr}</td><td style="text-align:right">${plStr}</td></tr>`;
+  });
+  h+='</tbody></table></div></div>';
+  $('pf-summary').innerHTML=sumHtml;
+  $('pf-tw').innerHTML='<div class="tbl-section"><button class="tbl-toggle" onclick="toggleTbl(this)"><span class="tbl-arrow">&#9662;</span><span class="tbl-lbl">ตารางพอร์ต & Rebalance</span></button><div class="tbl-body">'+h+'</div></div>';
+  show('pf-res');
+}
+setTimeout(()=>{if($('pf-rows')&&!$('pf-rows').children.length)pfBuildRows();},900);
+
+// ============================================================
+// GROUP B: Valuation Calculators
+// ============================================================
+
+// --- PEG Ratio ---
+function calcPEG(){
+  const pe=v('peg-pe'),g=v('peg-g'),eps=v('peg-eps'),price=v('peg-price');
+  if(!pe||!g){alert('กรุณาใส่ P/E และ Growth Rate');return;}
+  const peg=pe/g;
+  let rating,cls;
+  if(peg<0.5){rating='ถูกมาก 🟢 (PEG < 0.5)';cls='g';}
+  else if(peg<1){rating='ถูก 🟡 (PEG 0.5–1.0)';cls='g';}
+  else if(peg<2){rating='พอเหมาะ 🟠 (PEG 1.0–2.0)';cls='o';}
+  else{rating='แพง 🔴 (PEG > 2.0)';cls='r';}
+  $('peg-ratio').textContent=fN(peg,2);
+  $('peg-ratio').className='rv '+cls;
+  $('peg-rating').textContent=rating;
+  $('peg-fairpe').textContent=fN(g,2);
+  if(eps>0){
+    const fairPrice=g*eps;
+    $('peg-fairprice').textContent=fB(fairPrice);
+    $('peg-fairprice-row').style.display='';
+    if(price>0){
+      const mos=(fairPrice-price)/fairPrice*100;
+      $('peg-mos').textContent=fP(mos);
+      $('peg-mos').className='rv '+(mos>0?'g':'r');
+      $('peg-mos-row').style.display='';
+    } else $('peg-mos-row').style.display='none';
+  } else {$('peg-fairprice-row').style.display='none';$('peg-mos-row').style.display='none';}
+  show('peg-res');
+}
+
+// --- Margin of Safety ---
+function calcMOS(){
+  const iv=v('mos-iv'),mkt=v('mos-mkt');
+  if(!iv||!mkt){alert('กรุณาใส่ Intrinsic Value และราคาตลาด');return;}
+  const mos=(iv-mkt)/iv*100;
+  let rating,cls;
+  if(mos>30){rating='ปลอดภัยสูง 🟢 ควรซื้อ';cls='g';}
+  else if(mos>15){rating='พอใช้ 🟡 ระวัง';cls='o';}
+  else if(mos>0){rating='MoS น้อย 🟠 เสี่ยง';cls='o';}
+  else{rating='แพงกว่ามูลค่า 🔴 ไม่ควรซื้อ';cls='r';}
+  $('mos-pct').textContent=fP(mos);
+  $('mos-pct').className='rv '+cls;
+  $('mos-rating').textContent=rating;
+  $('mos-p20').textContent=fB(iv*0.80);
+  $('mos-p30').textContent=fB(iv*0.70);
+  $('mos-p50').textContent=fB(iv*0.50);
+  show('mos-res');
+}
+
+// --- Altman Z-Score ---
+function calcZScore(){
+  const wc=v('zs-wc'),ta=v('zs-ta'),re=v('zs-re'),ebit=v('zs-ebit'),mc=v('zs-mc'),tl=v('zs-tl'),rev=v('zs-rev');
+  if(!ta){alert('กรุณาใส่ Total Assets');return;}
+  const x1=wc/ta,x2=re/ta,x3=ebit/ta,x4=tl>0?mc/tl:0,x5=rev/ta;
+  const z=1.2*x1+1.4*x2+3.3*x3+0.6*x4+1.0*x5;
+  let zone,cls;
+  if(z>2.99){zone='Safe Zone ✅ ปลอดภัย (Z > 2.99)';cls='g';}
+  else if(z>=1.81){zone='Grey Zone ⚠️ เฝ้าระวัง (1.81–2.99)';cls='o';}
+  else{zone='Distress Zone 🔴 เสี่ยงล้มละลาย (Z < 1.81)';cls='r';}
+  $('zs-score').textContent=fN(z,3);
+  $('zs-score').className='rv '+cls;
+  $('zs-zone').textContent=zone;
+  $('zs-x1').textContent=fN(x1,4);
+  $('zs-x2').textContent=fN(x2,4);
+  $('zs-x3').textContent=fN(x3,4);
+  $('zs-x4').textContent=fN(x4,4);
+  $('zs-x5').textContent=fN(x5,4);
+  show('zs-res');
+}
+
+// --- DRIP ---
+function calcDRIP(){
+  const price=v('drip-price'),shares=v('drip-shares'),yld=v('drip-yield'),dg=v('drip-dg'),pg=v('drip-pg'),tax=v('drip-tax'),yrs=parseInt($('drip-yrs').value)||0;
+  if(!price||!shares||!yld||!yrs){alert('กรุณาใส่ข้อมูลให้ครบ');return;}
+  let sh=shares,pr=price;
+  const initVal=shares*price;
+  let rows='<tr><th>ปี</th><th>จำนวนหุ้น</th><th>ราคา (฿)</th><th>ปันผลรับ (฿)</th><th>มูลค่าพอร์ต (฿)</th></tr>';
+  let lastDiv=0;
+  for(let y=1;y<=yrs;y++){
+    const divPS=pr*(yld/100)*Math.pow(1+dg/100,y-1);
+    const divRaw=sh*divPS;
+    const divAfterTax=divRaw*(1-tax/100);
+    const newSh=divAfterTax/pr;
+    sh+=newSh;
+    pr=pr*Math.pow(1+pg/100,1);
+    lastDiv=divAfterTax;
+    rows+=`<tr><td>${y}</td><td>${fN(sh,2)}</td><td>${fN(pr,2)}</td><td>${fN(divAfterTax,2)}</td><td>${fBig(sh*pr)}</td></tr>`;
+  }
+  const finalVal=sh*pr;
+  const totalRet=(finalVal-initVal)/initVal*100;
+  $('drip-finalshares').textContent=fN(sh,2)+' หุ้น';
+  $('drip-finalval').textContent=fBig(finalVal);
+  $('drip-finaldiv').textContent=fBig(lastDiv)+'/ปี';
+  $('drip-initval').textContent=fBig(initVal);
+  $('drip-totalret').textContent=fP(totalRet);
+  $('drip-tw').innerHTML='<div class="tbl-section"><button class="tbl-toggle" onclick="toggleTbl(this)"><span class="tbl-arrow">&#9662;</span><span class="tbl-lbl">ตารางรายปี</span></button><div class="tbl-body"><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.78rem"><thead style="color:#7e8ba3">'+rows+'</thead><tbody id="drip-tbody"></tbody></table></div></div></div>';
+  show('drip-res');
+}
+
+// ============================================================
+// GROUP A: Trading & Risk Calculators
+// ============================================================
+
+// --- Stock Commission & Break-even ---
+function calcStockCom(){
+  const price=v('sc-price'),qty=v('sc-qty'),comm=v('sc-comm'),vat=v('sc-vat'),mkt=v('sc-mkt');
+  if(!price||!qty){alert('กรุณาใส่ราคาและจำนวนหุ้น');return;}
+  const commFactor=(comm/100)*(1+vat/100);
+  const buyVal=price*qty;
+  const commAmt=buyVal*commFactor;
+  const totalCost=buyVal+commAmt;
+  const costPS=totalCost/qty;
+  const breakEven=totalCost/(qty*(1-commFactor));
+  $('sc-buyval').textContent=fBig(buyVal);
+  $('sc-commamt').textContent=fB(commAmt);
+  $('sc-totalcost').textContent=fBig(totalCost);
+  $('sc-costpershare').textContent=fB(costPS);
+  $('sc-breakeven').textContent=fB(breakEven);
+  if(mkt>0){
+    const sellVal=mkt*qty;
+    const commSell=sellVal*commFactor;
+    const netSell=sellVal-commSell;
+    const pl=netSell-totalCost;
+    const plPct=pl/totalCost*100;
+    $('sc-pl').textContent=(pl>=0?'+':'')+fBig(pl);
+    $('sc-pl').className='rv '+(pl>=0?'g':'r');
+    $('sc-plpct').textContent=(plPct>=0?'+':'')+fP(plPct);
+    $('sc-plpct').className='rv '+(plPct>=0?'g':'r');
+    $('sc-pl-row').style.display='';
+    $('sc-plpct-row').style.display='';
+  } else {
+    $('sc-pl-row').style.display='none';
+    $('sc-plpct-row').style.display='none';
+  }
+  show('sc-res');
+}
+
+// --- DCA ---
+let dcaMode='shares';
+function dcaSetMode(mode,btn){
+  dcaMode=mode;
+  document.querySelectorAll('#page-dca .rb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  $('dca-col2-hdr').textContent=mode==='shares'?'จำนวนหุ้น':'จำนวนเงิน (฿)';
+  dcaBuildRows();
+}
+function dcaBuildRows(){
+  const n=parseInt($('dca-count').value)||3;
+  const container=$('dca-rows');
+  const iBase='background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:"Sarabun",sans-serif;font-size:.83rem;outline:none;box-sizing:border-box;width:100%';
+  container.innerHTML='';
+  for(let i=0;i<n;i++){
+    const row=document.createElement('div');
+    row.style.cssText='display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:7px;align-items:center';
+    row.innerHTML=`<div class="iw pfx" style="margin:0"><span class="ipfx">฿</span><input type="number" class="dca-price" placeholder="ราคา" step="any" style="${iBase};padding:8px 10px 8px 26px"></div>`
+      +`<input type="number" class="dca-col2" placeholder="${dcaMode==='shares'?'หุ้น':'เงิน'}" step="any" style="${iBase};padding:8px 10px;text-align:right">`
+      +`<div class="dca-cost" style="font-size:.8rem;color:#7e8ba3;text-align:right;padding-right:4px">—</div>`;
+    container.appendChild(row);
+  }
+  // live cost update
+  container.querySelectorAll('.dca-price,.dca-col2').forEach(inp=>{
+    inp.addEventListener('input',()=>{
+      container.querySelectorAll('[style*="grid"]').forEach(r=>{
+        const p=parseFloat(r.querySelector('.dca-price').value)||0;
+        const c=parseFloat(r.querySelector('.dca-col2').value)||0;
+        const cost=dcaMode==='shares'?p*c:c;
+        r.querySelector('.dca-cost').textContent=cost>0?'฿'+fN(cost,2):'—';
+      });
+    });
+  });
+}
+function calcDCA(){
+  const mkt=v('dca-mkt');
+  const rows=[...($('dca-rows').querySelectorAll('[style*="grid"]'))];
+  let totalShares=0,totalCost=0;
+  for(const r of rows){
+    const p=parseFloat(r.querySelector('.dca-price').value)||0;
+    const c=parseFloat(r.querySelector('.dca-col2').value)||0;
+    if(!p)continue;
+    const qty=dcaMode==='shares'?c:c/p;
+    totalShares+=qty;
+    totalCost+=dcaMode==='shares'?p*c:c;
+  }
+  if(!totalShares){alert('กรุณาใส่ข้อมูลอย่างน้อย 1 แถว');return;}
+  const avgCost=totalCost/totalShares;
+  $('dca-totalshares').textContent=fN(totalShares,4)+' หุ้น';
+  $('dca-totalcost').textContent=fBig(totalCost);
+  $('dca-avgcost').textContent=fB(avgCost);
+  if(mkt>0){
+    const curVal=totalShares*mkt;
+    const pl=curVal-totalCost;
+    const plPct=pl/totalCost*100;
+    $('dca-curval').textContent=fBig(curVal);
+    $('dca-pl').textContent=(pl>=0?'+':'')+fBig(pl);
+    $('dca-pl').className='rv '+(pl>=0?'g':'r');
+    $('dca-plpct').textContent=(plPct>=0?'+':'')+fP(plPct);
+    $('dca-plpct').className='rv '+(plPct>=0?'g':'r');
+  } else {
+    $('dca-curval').textContent='(ไม่ได้ใส่ราคาตลาด)';
+    $('dca-pl').textContent='—';$('dca-plpct').textContent='—';
+  }
+  show('dca-res');
+}
+function dcaReset(){
+  $('dca-rows').innerHTML='';
+  const r=$('dca-res');if(r)r.style.display='none';
+  const mkt=$('dca-mkt');if(mkt)mkt.value='';
+}
+setTimeout(()=>{if($('dca-rows')&&!$('dca-rows').children.length)dcaBuildRows();},950);
+
+// --- Position Sizing ---
+function calcPosSize(){
+  const port=v('ps-port'),risk=v('ps-risk'),entry=v('ps-entry'),sl=v('ps-sl'),comm=v('ps-comm');
+  if(!port||!risk||!entry||!sl){alert('กรุณาใส่ข้อมูลให้ครบ');return;}
+  if(sl>=entry){alert('Stop Loss ต้องต่ำกว่าราคาซื้อ');return;}
+  const maxLoss=port*(risk/100);
+  const commFactor=(comm/100)*1.07*2;
+  const riskPS=entry-sl;
+  const effectiveRisk=riskPS+entry*commFactor;
+  const shares=Math.floor(maxLoss/effectiveRisk);
+  const investAmt=shares*entry;
+  const portPct=investAmt/port*100;
+  const commBuy=investAmt*(comm/100)*1.07;
+  const commSell=sl*shares*(comm/100)*1.07;
+  const realLoss=(entry-sl)*shares+commBuy+commSell;
+  $('ps-maxloss').textContent=fBig(maxLoss);
+  $('ps-shares').textContent=fN(shares,0)+' หุ้น';
+  $('ps-invest').textContent=fBig(investAmt);
+  $('ps-portpct').textContent=fP(portPct);
+  $('ps-realloss').textContent=fBig(realLoss);
+  show('ps-res');
+}
+
+// --- Stop Loss / Take Profit / R:R ---
+function calcSLTP(){
+  const entry=v('st-entry'),sl=v('st-sl'),tp=v('st-tp'),qty=v('st-qty'),comm=v('st-comm');
+  if(!entry||!sl||!tp){alert('กรุณาใส่ Entry, SL และ TP');return;}
+  if(sl>=entry){alert('Stop Loss ต้องต่ำกว่าราคาซื้อ');return;}
+  if(tp<=entry){alert('Take Profit ต้องสูงกว่าราคาซื้อ');return;}
+  const risk=entry-sl,reward=tp-entry;
+  const rr=reward/risk;
+  const slPct=(entry-sl)/entry*100;
+  const tpPct=(tp-entry)/entry*100;
+  const winBE=1/(1+rr)*100;
+  let rrClass='o';
+  if(rr>=2)rrClass='g';else if(rr<1)rrClass='r';
+  $('st-risk').textContent=fB(risk);
+  $('st-reward').textContent=fB(reward);
+  $('st-rr').textContent='1 : '+fN(rr,2);
+  $('st-rr').className='rv '+rrClass;
+  $('st-slpct').textContent=fP(slPct);
+  $('st-tppct').textContent=fP(tpPct);
+  $('st-winbe').textContent=fP(winBE);
+  if(qty>0){
+    const commF=(comm/100)*1.07;
+    const totalRisk=(risk+entry*commF+sl*commF)*qty;
+    const totalRew=(reward-entry*commF-tp*commF)*qty;
+    $('st-totalrisk').textContent=fBig(totalRisk);
+    $('st-totalrew').textContent=fBig(totalRew);
+    $('st-totalrisk-row').style.display='';
+    $('st-totalrew-row').style.display='';
+  } else {
+    $('st-totalrisk-row').style.display='none';
+    $('st-totalrew-row').style.display='none';
+  }
+  show('st-res');
+}
+
+// --- XIRR ---
+function xirrBuildRows(){
+  const n=parseInt($('xirr-count').value)||3;
+  const container=$('xirr-rows');
+  const iBase='background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:"Sarabun",sans-serif;font-size:.83rem;outline:none;box-sizing:border-box;width:100%';
+  container.innerHTML='';
+  const today=new Date();
+  for(let i=0;i<n;i++){
+    const d=new Date(today);d.setMonth(d.getMonth()-Math.max(0,n-1-i)*3);
+    const ds=d.toISOString().slice(0,10);
+    const row=document.createElement('div');
+    row.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:7px;align-items:center';
+    row.innerHTML=`<input type="date" class="xirr-date" value="${ds}" style="${iBase};padding:8px 10px">`
+      +`<div class="iw pfx" style="margin:0"><span class="ipfx">฿</span><input type="number" class="xirr-cf" placeholder="${i===0?'-100000':'กระแสเงิน'}" step="any" style="${iBase};padding:8px 10px 8px 26px"></div>`;
+    container.appendChild(row);
+  }
+}
+function xirrNPV(cfs,dates,r){
+  const t0=dates[0].getTime();
+  return cfs.reduce((s,cf,i)=>{
+    const d=(dates[i].getTime()-t0)/(1000*60*60*24*365);
+    return s+cf/Math.pow(1+r,d);
+  },0);
+}
+function calcXIRR(){
+  const rows=[...($('xirr-rows').querySelectorAll('[style*="grid"]'))];
+  const cfs=[],dates=[];
+  for(const r of rows){
+    const dt=r.querySelector('.xirr-date').value;
+    const cf=parseFloat(r.querySelector('.xirr-cf').value);
+    if(!dt||isNaN(cf))continue;
+    dates.push(new Date(dt));
+    cfs.push(cf);
+  }
+  if(cfs.length<2){alert('ต้องการอย่างน้อย 2 รายการ');return;}
+  const hasNeg=cfs.some(c=>c<0),hasPos=cfs.some(c=>c>0);
+  if(!hasNeg||!hasPos){alert('ต้องมีทั้งจ่ายออก(ลบ)และรับเข้า(บวก)');return;}
+  // bisection
+  let lo=-0.999,hi=10,mid,npv,iter=0;
+  while(iter++<200){
+    mid=(lo+hi)/2;
+    npv=xirrNPV(cfs,dates,mid);
+    if(Math.abs(npv)<0.01)break;
+    if(xirrNPV(cfs,dates,lo)*npv<0)hi=mid;else lo=mid;
+  }
+  const rate=mid*100;
+  $('xirr-rate').textContent=fP(rate);
+  $('xirr-rate').className='rv '+(rate>=0?'g':'r');
+  let interp;
+  if(rate>15)interp='ผลตอบแทนดีมาก 🟢 (>15%/ปี)';
+  else if(rate>8)interp='ผลตอบแทนดี 🟡 (8–15%/ปี)';
+  else if(rate>0)interp='ผลตอบแทนต่ำ 🟠 (<8%/ปี)';
+  else interp='ขาดทุน 🔴';
+  $('xirr-interp').textContent=interp;
+  show('xirr-res');
+}
+function xirrReset(){
+  $('xirr-rows').innerHTML='';
+  const r=$('xirr-res');if(r)r.style.display='none';
+}
+setTimeout(()=>{if($('xirr-rows')&&!$('xirr-rows').children.length)xirrBuildRows();},960);
+
+// ============================================================
+// GROUP C: Technical Analysis Calculators
+// ============================================================
+
+// --- RSI ---
+function calcRSI(){
+  const period=parseInt($('rsi-period').value)||14;
+  const raw=$('rsi-prices').value.trim().split(/[\n,\s]+/).map(Number).filter(n=>!isNaN(n)&&n>0);
+  if(raw.length<period+1){alert(`ต้องการอย่างน้อย ${period+1} ราคา (มี ${raw.length})`);return;}
+  const changes=[];
+  for(let i=1;i<raw.length;i++)changes.push(raw[i]-raw[i-1]);
+  const gains=changes.map(c=>c>0?c:0);
+  const losses=changes.map(c=>c<0?-c:0);
+  let avgG=gains.slice(0,period).reduce((a,b)=>a+b,0)/period;
+  let avgL=losses.slice(0,period).reduce((a,b)=>a+b,0)/period;
+  for(let i=period;i<gains.length;i++){
+    avgG=(avgG*(period-1)+gains[i])/period;
+    avgL=(avgL*(period-1)+losses[i])/period;
+  }
+  const rs=avgL===0?Infinity:avgG/avgL;
+  const rsi=avgL===0?100:100-100/(1+rs);
+  let signal,cls;
+  if(rsi>70){signal='Overbought 🔴 ซื้อมากเกิน — พิจารณาขาย';cls='r';}
+  else if(rsi<30){signal='Oversold 🟢 ขายมากเกิน — พิจารณาซื้อ';cls='g';}
+  else{signal='Neutral 🟡 ช่วงสมดุล';cls='o';}
+  $('rsi-val').textContent=fN(rsi,2);
+  $('rsi-val').className='rv '+cls;
+  $('rsi-signal').textContent=signal;
+  $('rsi-lastprice').textContent=fB(raw[raw.length-1]);
+  $('rsi-count').textContent=raw.length+' ราคา';
+  show('rsi-res');
+}
+function rsiReset(){$('rsi-prices').value='';const r=$('rsi-res');if(r)r.style.display='none';}
+
+// --- Moving Average ---
+function calcMovAvg(){
+  const p1=parseInt($('ma-p1').value)||20;
+  const p2=parseInt($('ma-p2').value)||50;
+  const p3=parseInt($('ma-p3').value)||200;
+  const raw=$('ma-prices').value.trim().split(/[\n,\s]+/).map(Number).filter(n=>!isNaN(n)&&n>0);
+  if(raw.length<2){alert('ต้องการราคาอย่างน้อย 2 ค่า');return;}
+  const cur=raw[raw.length-1];
+  function sma(arr,n){
+    if(arr.length<n)return null;
+    return arr.slice(-n).reduce((a,b)=>a+b,0)/n;
+  }
+  function ema(arr,n){
+    if(arr.length<n)return null;
+    const k=2/(n+1);
+    let e=arr.slice(0,n).reduce((a,b)=>a+b,0)/n;
+    for(let i=n;i<arr.length;i++)e=arr[i]*k+e*(1-k);
+    return e;
+  }
+  const s1=sma(raw,p1),s2=sma(raw,p2),s3=sma(raw,p3);
+  const e1=ema(raw,p1),e2=ema(raw,p2);
+  function sig(val,label){if(val===null)return `ข้อมูลไม่พอ (<${label})`;return cur>val?'📈 Bullish (ราคา > MA)':'📉 Bearish (ราคา < MA)';}
+  function sigCls(val){if(val===null)return '';return cur>val?'g':'r';}
+  function fmt(val,n){if(val===null)return`ข้อมูลไม่พอ (ต้องการ ${n} ราคา)`;return fB(val);}
+  $('ma-current').textContent=fB(cur);
+  $('ma-sma1').textContent=fmt(s1,p1);
+  $('ma-sma2').textContent=fmt(s2,p2);
+  $('ma-sma3').textContent=fmt(s3,p3);
+  $('ma-ema1').textContent=fmt(e1,p1);
+  $('ma-ema2').textContent=fmt(e2,p2);
+  const s1el=$('ma-sig1');s1el.textContent=sig(s1,'SMA'+p1);s1el.className='rv '+(s1?sigCls(s1):'');
+  const s2el=$('ma-sig2');s2el.textContent=sig(s2,'SMA'+p2);s2el.className='rv '+(s2?sigCls(s2):'');
+  const s3el=$('ma-sig3');s3el.textContent=sig(s3,'SMA'+p3);s3el.className='rv '+(s3?sigCls(s3):'');
+  let cross='ข้อมูลไม่พอ',crossCls='';
+  if(s2!==null&&s3!==null){
+    if(s2>s3){cross='✨ Golden Cross — MA'+p2+' > MA'+p3+' (สัญญาณขาขึ้น)';crossCls='g';}
+    else if(s2<s3){cross='☠️ Death Cross — MA'+p2+' < MA'+p3+' (สัญญาณขาลง)';crossCls='r';}
+    else{cross='MA'+p2+' = MA'+p3+' (Crossover กำลังเกิดขึ้น)';crossCls='o';}
+  }
+  const cel=$('ma-cross');cel.textContent=cross;cel.className='rv '+crossCls;
+  show('ma-res');
+}
+function maReset(){$('ma-prices').value='';const r=$('ma-res');if(r)r.style.display='none';}
+
+// --- ATR ---
+function calcATR(){
+  const period=parseInt($('atr-period').value)||14;
+  const lines=$('atr-data').value.trim().split('\n').map(l=>l.trim()).filter(l=>l);
+  const bars=[];
+  for(const l of lines){
+    const p=l.split(',').map(Number);
+    if(p.length>=3&&!p.some(isNaN))bars.push({h:p[0],lo:p[1],c:p[2]});
+  }
+  if(bars.length<period+1){alert(`ต้องการอย่างน้อย ${period+1} แถว (มี ${bars.length})`);return;}
+  const trs=[];
+  for(let i=1;i<bars.length;i++){
+    const b=bars[i],prev=bars[i-1];
+    const tr=Math.max(b.h-b.lo,Math.abs(b.h-prev.c),Math.abs(b.lo-prev.c));
+    trs.push(tr);
+  }
+  let atr=trs.slice(0,period).reduce((a,b)=>a+b,0)/period;
+  for(let i=period;i<trs.length;i++)atr=(atr*(period-1)+trs[i])/period;
+  const close=bars[bars.length-1].c;
+  const atrPct=atr/close*100;
+  $('atr-val').textContent=fB(atr);
+  $('atr-pct').textContent=fP(atrPct);
+  $('atr-close').textContent=fB(close);
+  $('atr-sl1').textContent=fB(close-atr)+' (−1×ATR)';
+  $('atr-sl15').textContent=fB(close-atr*1.5)+' (−1.5×ATR)';
+  $('atr-sl2').textContent=fB(close-atr*2)+' (−2×ATR)';
+  $('atr-sup').textContent=fB(close-atr);
+  $('atr-res-val').textContent=fB(close+atr);
+  show('atr-res');
+}
+function atrReset(){$('atr-data').value='';const r=$('atr-res');if(r)r.style.display='none';}
 
 </script>
 </body>
