@@ -339,7 +339,7 @@ select option{background:var(--surf2);color:var(--text)}
   <button class="close-sidebar" onclick="closeSidebar()" aria-label="ปิดเมนู">✕</button>
   <div class="logo">
     <h1>FinCalc Suite <span style="font-size:.75rem;font-weight:400;color:#4a5268;font-family:'Sarabun',sans-serif;letter-spacing:.5px">by Joe</span></h1>
-    <p>เครื่องคำนวณการเงินครบชุด <span style="font-size:.65rem;color:#4a5268">v2.2 — 9 Oct 2026</span></p>
+    <p>เครื่องคำนวณการเงินครบชุด <span style="font-size:.65rem;color:#4a5268">v2.3 — 10 Oct 2026</span></p>
   </div>
   <div class="search-box">
     <input type="text" id="nav-search" placeholder="🔍 ค้นหา calculator..." oninput="filterNav(this.value)">
@@ -793,24 +793,29 @@ select option{background:var(--surf2);color:var(--text)}
     <div class="grid2">
       <div class="fg"><label>มูลค่าที่ตราไว้ (Face Value)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="bd-f" placeholder="เช่น 1000"></div></div>
       <div class="fg"><label>อัตราดอกเบี้ยพันธบัตร (%/ปี)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.thaibma.or.th/compositerpt/GovYieldCurve.aspx" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇹🇭 ThaiBMA</a><a href="https://fred.stlouisfed.org/series/DGS10" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(39,201,126,.12);border:1px solid rgba(39,201,126,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇺🇸 US 10Y</a></div><input type="number" id="bd-c" step="0.01" placeholder="เช่น 6"></div>
-      <div class="fg"><label>YTM — ผลตอบแทนที่ต้องการ (%/ปี)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.thaibma.or.th/compositerpt/GovYieldCurve.aspx" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇹🇭 ThaiBMA</a><a href="https://fred.stlouisfed.org/series/DGS10" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(39,201,126,.12);border:1px solid rgba(39,201,126,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇺🇸 US 10Y</a></div><input type="number" id="bd-y" step="0.01" placeholder="เช่น 7" min="0"></div>
-      <div style="font-size:.7rem;color:var(--gold);margin-top:-6px;margin-bottom:8px">⚠️ YTM = 0% คือไม่คิดลดมูลค่าเงินตามเวลา ราคา = Face Value + ดอกเบี้ยรวมตลอดอายุ</div>
-      <div class="fg"><label>อายุคงเหลือ (ปี) — อายุ × ความถี่ ต้องเป็นจำนวนเต็ม (เช่น จ่ายครึ่งปี: 5, 5.5, 6)</label><input type="number" id="bd-t" step="any" placeholder="เช่น 5"></div>
+      <div class="fg"><label>YTM — ผลตอบแทนที่ต้องการ (%/ปี)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.thaibma.or.th/compositerpt/GovYieldCurve.aspx" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇹🇭 ThaiBMA</a><a href="https://fred.stlouisfed.org/series/DGS10" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(39,201,126,.12);border:1px solid rgba(39,201,126,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇺🇸 US 10Y</a></div><input type="number" id="bd-y" step="0.01" placeholder="เช่น 7"></div>
+      <div style="font-size:.7rem;color:var(--gold);margin-top:-6px;margin-bottom:8px">⚠️ YTM = 0% คือไม่คิดลดมูลค่าเงินตามเวลา ราคา = Face Value + ดอกเบี้ยรวมตลอดอายุ · YTM ติดลบได้ (ราคาจะสูงกว่า Face Value) แต่อัตราต่องวดต้องมากกว่า −100%</div>
+      <div class="fg"><label>อายุคงเหลือ (ปี) นับจากวันจ่ายดอกเบี้ยล่าสุด — อายุ × ความถี่ ต้องเป็นจำนวนเต็ม (เช่น จ่ายครึ่งปี: 5, 5.5, 6)</label><input type="number" id="bd-t" step="any" placeholder="เช่น 5"></div>
       <div class="fg"><label>ความถี่จ่ายดอกเบี้ย</label>
         <select id="bd-fr" data-default="1"><option value="1">ปีละครั้ง</option><option value="2" selected>ครึ่งปี</option><option value="4">รายไตรมาส</option></select>
       </div>
+      <div class="fg"><label>ซื้อหลังจ่ายดอกเบี้ยล่าสุดกี่วัน <span style="color:#4a5268">ว่าง = ซื้อวันจ่ายดอกเบี้ย</span></label><input type="number" id="bd-dcs" step="any" placeholder="เช่น 61"></div>
+      <div class="fg"><label>จำนวนวันในงวดดอกเบี้ยนั้น <span style="color:#4a5268">ต้องกรอกคู่กับช่องก่อนหน้า · ประมาณ 365 ÷ ความถี่ (ครึ่งปี ≈ 181)</span></label><input type="number" id="bd-e" step="any" placeholder="เช่น 181"></div>
     </div>
     <div class="btn-row"><button class="btn btn-p" onclick="calcBond()">คำนวณ</button><button class="btn btn-s" onclick="clr('bd');hide('bond-res')">ล้างค่า</button></div>
     <div class="rbox" id="bond-res"><div class="rgrid">
-      <div class="ri"><div class="rl">ราคาพันธบัตร</div><div class="rv a" id="bd-p">—</div></div>
-      <div class="ri"><div class="rl">Premium/Discount</div><div class="rv" id="bd-pd">—</div></div>
+      <div class="ri"><div class="rl" id="bd-plbl">ราคาพันธบัตร</div><div class="rv a" id="bd-p">—</div></div>
+      <div class="ri" id="bd-airow" style="display:none"><div class="rl">ดอกเบี้ยค้างรับ (Accrued)</div><div class="rv o" id="bd-ai">—</div></div>
+      <div class="ri" id="bd-cleanrow" style="display:none"><div class="rl">ราคาสะอาด (Clean Price)</div><div class="rv g" id="bd-clean">—</div></div>
+      <div class="ri"><div class="rl" id="bd-pdlbl">Premium/Discount</div><div class="rv" id="bd-pd">—</div></div>
       <div class="ri"><div class="rl">Macaulay Duration</div><div class="rv" id="bd-md">—</div></div>
       <div class="ri"><div class="rl">Modified Duration</div><div class="rv" id="bd-mdd">—</div></div>
     </div></div>
   </div>
 <div class="pc-tip">
   <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
-  คำนวณราคาพันธบัตรจาก YTM ที่คุณกำหนด และ Duration เพื่อวัดความเสี่ยงดอกเบี้ย — ราคาคิด ณ วันที่เหลืออายุเป็นจำนวนงวดดอกเบี้ยเต็ม (ไม่มีดอกเบี้ยค้างรับ)<br><br>
+  คำนวณราคาพันธบัตรจาก YTM ที่คุณกำหนด และ Duration เพื่อวัดความเสี่ยงดอกเบี้ย — ถ้าเว้นช่อง "ซื้อหลังจ่ายดอกเบี้ยล่าสุดกี่วัน" ไว้ ราคาคิด ณ วันจ่ายดอกเบี้ย (ไม่มีดอกเบี้ยค้างรับ) ; ถ้ากรอกคู่วัน จะได้ Dirty / Accrued / Clean Price<br>
+  <span style="color:var(--text3)">Dirty = มูลค่าปัจจุบันด้วยเลขชี้กำลังเศษงวด · Accrued = ดอกเบี้ยงวด × (วันที่ผ่านไป ÷ วันในงวด) · Clean = Dirty − Accrued · ผู้ใช้นับวันเอง และดอกเบี้ยค้างรับคิดตามสัดส่วนวันในงวด (ไม่ใช่ actual/365 ของปี) — ThaiBMA ระบุว่าตลาดไทยใช้ actual/365 แต่ยังไม่ได้ตรวจสูตรเต็ม จึงอย่าถือว่าตรงกับราคาที่ ThaiBMA ประกาศ</span><br><br>
   <div class="pc-tip-ex">ตัวอย่าง 1 — พันธบัตรรัฐบาล</div>
   Face ฿1,000 Coupon 6% YTM 7% อายุ 5 ปี จ่ายครึ่งปี<br>
   → <b class="pc-ans">ราคา ฿958.42 (Discount ฿41.58)</b>
@@ -821,6 +826,12 @@ select option{background:var(--surf2);color:var(--text)}
   <div class="pc-tip-ex">📌 Modified Duration คือตัวที่ใช้วัดความเสี่ยง</div>
   Modified = Macaulay ÷ (1 + YTM/freq) = 4.23 ปี<br>
   ราคาเปลี่ยน ≈ −Modified × Δrate = −4.23% × 1% = −4.23%<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 3 — ซื้อกลางงวด (Clean / Dirty)</div>
+  Bond เดิม ซื้อหลังจ่ายดอกเบี้ยล่าสุด 61 วัน ในงวดที่ยาว 181 วัน<br>
+  → <b class="pc-ans">Dirty ฿969.59 = Clean ฿959.48 + ดอกเบี้ยค้างรับ ฿10.11 (Discount ฿40.52 เทียบ Clean)</b><br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 4 — YTM ติดลบ</div>
+  Face ฿1,000 Coupon 1% YTM −0.5% อายุ 5 ปี จ่ายปีละครั้ง<br>
+  → <b class="pc-ans">ราคา ฿1,076.14 (Premium ฿76.14)</b><br><br>
   <div class="pc-tip-ex">📌 กฎเหล็กของพันธบัตร</div>
   YTM &gt; Coupon → ราคา &lt; Face Value (Discount)<br>
   YTM &lt; Coupon → ราคา &gt; Face Value (Premium)<br>
@@ -848,7 +859,7 @@ select option{background:var(--surf2);color:var(--text)}
   <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
   เปรียบเทียบพันธบัตรยกเว้นภาษี vs พันธบัตรปกติ — ต้องแปลงเป็นฐานเดียวกันก่อน<br><br>
   <div class="pc-tip-ex">ตัวอย่าง 1 — ผู้เสียภาษี 30%</div>
-  พันธบัตรเทศบาล 3.5% (ยกเว้นภาษี)<br>
+  พันธบัตร/ตราสารที่ยกเว้นภาษี ให้ผลตอบแทน 3.5%<br>
   → <b class="pc-ans">เทียบเท่า 5.00% พันธบัตรปกติ</b>
   <br><br>
   <div class="pc-tip-ex">ตัวอย่าง 2 — ผู้เสียภาษี 15%</div>
@@ -912,7 +923,8 @@ select option{background:var(--surf2);color:var(--text)}
   </div>
 <div class="pc-tip">
   <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
-  วางแผนการออมเพื่อค่าเล่าเรียนบุตร — ต้องคำนึงเงินเฟ้อค่าเรียนที่มักสูงกว่า CPI<br><br>
+  วางแผนการออมเพื่อค่าเล่าเรียนบุตร — ต้องคำนึงเงินเฟ้อค่าเรียนที่มักสูงกว่า CPI<br>
+  <span style="color:var(--text3)">สมมติฝากทุกสิ้นเดือน ทบต้นรายเดือนที่ ผลตอบแทน÷12 และจ่ายค่าเล่าเรียนต้นปีการศึกษาแต่ละปี</span><br><br>
   <div class="pc-tip-ex">ตัวอย่าง 1 — มหาวิทยาลัยเอกชน</div>
   ค่าเรียน ฿200k/ปี เงินเฟ้อ 5% เริ่มใช้ใน 15 ปี เรียน 4 ปี<br>
   → <b class="pc-ans">ออมเดือนละ ~฿4,591 (ผล 8%/ปี)</b>
@@ -1011,7 +1023,8 @@ select option{background:var(--surf2);color:var(--text)}
   </div>
 <div class="pc-tip">
   <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
-  คำนวณว่าต้องออมเดือนละเท่าไหร่ถึงถึงเป้าหมายได้ทันกำหนด<br><br>
+  คำนวณว่าต้องออมเดือนละเท่าไหร่ถึงถึงเป้าหมายได้ทันกำหนด<br>
+  <span style="color:var(--text3)">สมมติฝากทุกสิ้นเดือน (ฝากครั้งแรกสิ้นเดือนที่ 1) และทบต้นรายเดือนที่ ผลตอบแทน÷12</span><br><br>
   <div class="pc-tip-ex">ตัวอย่าง 1 — เป้า ฿1 ล้าน</div>
   มีทุน ฿50k ตั้งใจออม 10 ปี ผล 7%/ปี<br>
   → <b class="pc-ans">ออมเดือนละ ฿5,197</b>
@@ -1035,12 +1048,15 @@ select option{background:var(--surf2);color:var(--text)}
       <div class="fg"><label>เงินฝากเริ่มต้น</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="cd-p" placeholder="เช่น 500000"></div></div>
       <div class="fg"><label>อัตราดอกเบี้ย (%/ปี)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.bot.or.th/en/statistics/interest-rate.html" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🏦 BOT ดอกเบี้ย</a><a href="https://www.savcurv.com/mor-mlr-mrr/" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">📋 MRR/MLR/MOR</a></div><input type="number" id="cd-r" step="0.01" placeholder="เช่น 3.5"></div>
       <div class="fg"><label>ระยะเวลา (เดือน)</label><input type="number" id="cd-m" placeholder="เช่น 24"></div>
-      <div class="fg"><label>ทบต้น</label>
+      <div class="fg"><label>วิธีคิดดอกเบี้ย</label>
+        <select id="cd-mode" data-default="0" onchange="cdModeSync()"><option value="c" selected>ทบต้น (ต่อฝากซ้ำ/ทบดอกเข้าต้น)</option><option value="s">ดอกเบี้ยอย่างง่าย (จ่ายเมื่อครบกำหนด ; คิดเดือน÷12)</option></select>
+      </div>
+      <div class="fg"><label>ทบต้น <span style="color:#4a5268">(ใช้เฉพาะโหมดทบต้น)</span></label>
         <select id="cd-n" data-default="0"><option value="1" selected>ปีละครั้ง</option><option value="4">รายไตรมาส</option><option value="12">รายเดือน</option></select>
       </div>
       <div class="fg"><label>อัตราภาษีดอกเบี้ย (%)</label><input type="number" id="cd-t" step="0.1" placeholder="เช่น 15"></div>
     </div>
-    <div class="btn-row"><button class="btn btn-p" onclick="calcCD()">คำนวณ</button><button class="btn btn-s" onclick="resetFields('cd')">ล้างค่า</button></div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcCD()">คำนวณ</button><button class="btn btn-s" onclick="resetFields('cd');cdModeSync()">ล้างค่า</button></div>
     <div class="rbox" id="cd-res"><div class="rgrid">
       <div class="ri"><div class="rl">มูลค่าสุดท้าย</div><div class="rv g" id="cd-fv">—</div></div>
       <div class="ri"><div class="rl">ดอกเบี้ยก่อนภาษี</div><div class="rv a" id="cd-int">—</div></div>
@@ -1057,6 +1073,11 @@ select option{background:var(--surf2);color:var(--text)}
   <div class="pc-tip-ex">ตัวอย่าง 2 — เปรียบเทียบ</div>
   ดอก 3.5% vs กองทุนตลาดเงิน 4.20%<br>
   → <b class="pc-ans">หลังภาษีต่างกันเพียง ฿6k/ปี ต่อ ฿500k</b><br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 3 — ดอกเบี้ยอย่างง่าย</div>
+  เงินต้น ฿500k ดอก 3.5%/ปี ฝาก 24 เดือน จ่ายดอกเมื่อครบกำหนด ภาษี 15%<br>
+  → <b class="pc-ans">ดอกเบี้ยหลังภาษี ฿29,750 ได้รับ ฿529,750</b><br>
+  <span style="color:var(--text3)">เงินฝากประจำทั่วไปคิดดอก = เงินต้น × อัตรา × วันจริง/365 ; ทบต้นเกิดเมื่อต่อฝากซ้ำหรือทบดอกเข้าต้น<br>
+  โปรแกรมนี้คิดเป็น <b>เดือน ÷ 12 โดยประมาณ</b> จึงอาจต่างจากใบแจ้งธนาคารเล็กน้อย (เช่น ฿500k, 1.5%, 3 เดือน: ธนาคาร 92 วัน ≈ ฿1,890 ; โปรแกรม ฿1,875)</span><br><br>
   <div class="pc-tip-ex">⚠️ ถอนก่อนกำหนด</div>
   มักเสียดอกเบี้ย 50–100% ของดอกที่ได้รับ<br>
   บางธนาคารเสียค่าปรับเพิ่มเติม — ควรอ่านสัญญาก่อน
@@ -2108,9 +2129,12 @@ select option{background:var(--surf2);color:var(--text)}
   <div class="pc-row">
 <div class="card pc-calc" style="margin:0">
     <div class="grid2">
-      <div class="fg"><label>จำนวนเงินต่อเดือน</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="an-pmt" placeholder="เช่น 10000"></div></div>
-      <div class="fg"><label>อัตราดอกเบี้ยต่อปี (%) — ทบต้นรายเดือน</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.bot.or.th/en/statistics/interest-rate.html" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🏦 BOT ดอกเบี้ย</a><a href="https://www.savcurv.com/mor-mlr-mrr/" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">📋 MRR/MLR/MOR</a></div><input type="number" id="an-r" step="0.01" placeholder="เช่น 5"></div>
-      <div class="fg"><label>จำนวนงวด (เดือน)</label><input type="number" id="an-n" placeholder="เช่น 120"></div>
+      <div class="fg"><label>จำนวนเงินต่องวด</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="an-pmt" placeholder="เช่น 10000"></div></div>
+      <div class="fg"><label>ความถี่ของงวด</label>
+        <select id="an-f" data-default="3"><option value="1">รายปี</option><option value="2">ราย 6 เดือน</option><option value="4">รายไตรมาส</option><option value="12" selected>รายเดือน</option></select>
+      </div>
+      <div class="fg"><label>อัตราดอกเบี้ยต่อปี (%) — ทบต้นตามความถี่ของงวด</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.bot.or.th/en/statistics/interest-rate.html" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🏦 BOT ดอกเบี้ย</a><a href="https://www.savcurv.com/mor-mlr-mrr/" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">📋 MRR/MLR/MOR</a></div><input type="number" id="an-r" step="0.01" placeholder="เช่น 5"></div>
+      <div class="fg"><label>จำนวนงวด (ตามความถี่ที่เลือก)</label><input type="number" id="an-n" placeholder="เช่น 120"></div>
       <div class="fg"><label>ประเภท</label>
         <div class="rg" id="an-type"><div class="rb on" data-v="0" onclick="rsel(this,'an-type')">Ordinary (ปลายงวด)</div><div class="rb" data-v="1" onclick="rsel(this,'an-type')">Annuity Due (ต้นงวด)</div></div>
       </div>
@@ -2132,6 +2156,10 @@ select option{background:var(--surf2);color:var(--text)}
   <div class="pc-tip-ex">ตัวอย่าง 2 — ออมเป้าหมาย</div>
   ออม ฿10k/เดือน 120 งวด ดอก 5%<br>
   → <b class="pc-ans">FV = ฿1,552,823 (แสดงบนหน้าจอเป็น ฿1.55ล้าน) เมื่อครบ 10 ปี</b>
+  <br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 3 — รับเงินรายปี</div>
+  ได้ ฿120k/ปี 10 งวด (เลือกรายปี) ดอก 5%/ปี<br>
+  → <b class="pc-ans">PV = ฿926,608 (จ่ายปลายงวด)</b> · ถ้าจ่ายต้นงวด เช่น ค่าเช่า เลือก Annuity Due → ฿972,939
 </div>
 </div>
 </div>
@@ -2613,13 +2641,16 @@ select option{background:var(--surf2);color:var(--text)}
   <div class="pc-row">
 <div class="card pc-calc" style="margin:0">
     <div class="grid2">
-      <div class="fg"><label>ราคาเดิม (ก่อนบวก VAT)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="dtx-p" step="0.01" placeholder="เช่น 1000"></div></div>
+      <div class="fg"><label>ราคาเดิม</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="dtx-p" step="0.01" placeholder="เช่น 1000"></div></div>
+      <div class="fg"><label>ราคาที่กรอกเป็นแบบ</label>
+        <select id="dtx-m" data-default="0"><option value="ex" selected>ยังไม่รวม VAT (บวก VAT เพิ่ม)</option><option value="in">รวม VAT แล้ว (ถอด VAT ออก)</option></select>
+      </div>
       <div class="fg"><label>ส่วนลด (%)</label><input type="number" id="dtx-d" step="0.1" placeholder="เช่น 15"></div>
       <div class="fg"><label>ภาษี / VAT (%)</label><input type="number" id="dtx-t" step="0.1" placeholder="เช่น 7"></div>
     </div>
     <div class="btn-row"><button class="btn btn-p" onclick="calcDTax()">คำนวณ</button><button class="btn btn-s" onclick="resetFields('dtx')">ล้างค่า</button></div>
     <div class="rbox" id="dtx-res"><div class="rgrid">
-      <div class="ri"><div class="rl">ราคาหลังส่วนลด</div><div class="rv g" id="dtx-disc">—</div></div>
+      <div class="ri"><div class="rl">ราคาหลังส่วนลด (ก่อน VAT)</div><div class="rv g" id="dtx-disc">—</div></div>
       <div class="ri"><div class="rl">VAT</div><div class="rv r" id="dtx-vat">—</div></div>
       <div class="ri"><div class="rl">ราคาสุทธิ</div><div class="rv a" id="dtx-final">—</div></div>
     </div></div>
@@ -2632,8 +2663,9 @@ select option{background:var(--surf2);color:var(--text)}
   → <b class="pc-ans">หลังลด ฿850 + VAT ฿59.50 = ฿909.50</b>
   <br><br>
   <div class="pc-tip-ex">ตัวอย่าง 2 — ซื้อของหน้าร้าน</div>
-  ราคาป้าย ฿590 (รวม VAT แล้ว) ลด 20% → กรอก VAT = 0 เพื่อไม่ให้บวก VAT ซ้ำ<br>
-  → <b class="pc-ans">ราคาสุดท้าย ฿472</b>
+  ราคาป้าย ฿590 (รวม VAT แล้ว) ลด 20% → เลือก "รวม VAT แล้ว" กรอก VAT 7%<br>
+  → <b class="pc-ans">ราคาสุดท้าย ฿472.00 (ก่อน VAT ฿441.12 + VAT ฿30.88)</b><br>
+  <span style="color:var(--text3)">โหมดรวม VAT ใช้ VAT = ราคารวม × 7/107 ปัดเป็นสตางค์ ตามคำสั่งกรมสรรพากร ป.86/2542</span>
 </div>
 </div>
 </div>
@@ -3114,31 +3146,38 @@ select option{background:var(--surf2);color:var(--text)}
 
 <!-- ══ T-BILL ══ -->
 <div class="page" id="page-tbill">
-  <div class="page-header"><div class="page-title">พันธบัตรรัฐบาล T-Bill</div><div class="page-sub">US Treasury Bill / ตั๋วเงินคลัง</div></div>
+  <div class="page-header"><div class="page-title">พันธบัตรรัฐบาล T-Bill</div><div class="page-sub">Treasury Bill / ตั๋วเงินคลัง — แบบ US (ค่าเริ่มต้น) หรือแบบไทย Act/365 (ข้อสมมติ)</div></div>
   <div class="pc-row">
 <div class="card pc-calc" style="margin:0">
     <div class="grid2">
       <div class="fg"><label>มูลค่าที่ตราไว้ (Face Value)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="tb-fv" placeholder="เช่น 1000000"></div></div>
-      <div class="fg"><label>Discount Rate (%/ปี)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.thaibma.or.th/compositerpt/GovYieldCurve.aspx" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇹🇭 ThaiBMA พันธบัตรไทย</a><a href="https://fred.stlouisfed.org/series/DTB3" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(39,201,126,.12);border:1px solid rgba(39,201,126,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇺🇸 Fed T-Bill</a></div><input type="number" id="tb-dr" step="0.01" placeholder="เช่น 4.5"></div>
+      <div class="fg"><label>วิธีคิด <span style="color:#4a5268">Convention</span></label>
+        <select id="tb-basis" data-default="0" onchange="tbSync()"><option value="us" selected>แบบ US Treasury (Discount ÷ 360, BEY ÷ 365)</option><option value="th">แบบไทย Act/365 — ข้อสมมติ (ใช้อัตราเป็น Simple Yield)</option></select>
+      </div>
+      <div class="fg"><label id="tb-drlbl">Discount Rate (%/ปี)</label><div style="display:flex;align-items:center;gap:5px;margin-top:-6px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:.71rem;color:var(--text3);white-space:nowrap">📎 อ้างอิง:</span><a href="https://www.thaibma.or.th/compositerpt/GovYieldCurve.aspx" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇹🇭 ThaiBMA พันธบัตรไทย</a><a href="https://fred.stlouisfed.org/series/DTB3" target="_blank" style="display:inline-flex;align-items:center;gap:3px;background:rgba(39,201,126,.12);border:1px solid rgba(39,201,126,.35);border-radius:20px;padding:2px 9px;font-size:.72rem;color:var(--accent);text-decoration:none;white-space:nowrap;font-weight:600">🇺🇸 Fed T-Bill</a></div><input type="number" id="tb-dr" step="0.01" placeholder="เช่น 4.5"></div>
       <div class="fg"><label>จำนวนวัน</label><input type="number" id="tb-d" placeholder="เช่น 91"></div>
     </div>
-    <div class="btn-row"><button class="btn btn-p" onclick="calcTBill()">คำนวณ</button><button class="btn btn-s" onclick="resetFields('tb')">ล้างค่า</button></div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcTBill()">คำนวณ</button><button class="btn btn-s" onclick="resetFields('tb');tbSync()">ล้างค่า</button></div>
     <div class="rbox" id="tb-res"><div class="rgrid">
       <div class="ri"><div class="rl">ราคาซื้อ</div><div class="rv a" id="tb-p">—</div></div>
       <div class="ri"><div class="rl">ส่วนลด (Discount)</div><div class="rv o" id="tb-dis">—</div></div>
-      <div class="ri"><div class="rl">ผลตอบแทนเทียบเท่าพันธบัตร (BEY)</div><div class="rv g" id="tb-bey">—</div></div>
+      <div class="ri"><div class="rl" id="tb-beylbl">ผลตอบแทนเทียบเท่าพันธบัตร (BEY)</div><div class="rv g" id="tb-bey">—</div></div>
     </div><div id="tb-note" style="font-size:.78rem;color:#7e8ba3;margin-top:8px"></div></div>
   </div>
 <div class="pc-tip">
   <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
-  คำนวณราคาซื้อตั๋วเงินคลัง และผลตอบแทนเทียบเท่าพันธบัตร (BEY) ที่เปรียบได้กับพันธบัตรดอกเบี้ยรายปี (Discount ÷ 360 วัน, BEY ÷ 365 วัน แบบ US Treasury)<br><br>
+  คำนวณราคาซื้อตั๋วเงินคลัง — โหมดเริ่มต้นแบบ US Treasury: ผลตอบแทนเทียบเท่าพันธบัตร (BEY) เปรียบได้กับพันธบัตรดอกเบี้ยรายปี (Discount ÷ 360 วัน, BEY ÷ 365 วัน) ; โหมด "แบบไทย Act/365" (ข้อสมมติ) ใช้อัตราเป็น Simple Yield ฐาน 365 วัน ไม่มี BEY<br><br>
   <div class="pc-tip-ex">ตัวอย่าง 1 — T-Bill 91 วัน</div>
   Face ฿1,000,000 Discount Rate 4.5%<br>
   → <b class="pc-ans">ซื้อที่ ฿988,625 กำไร ฿11,375 BEY = 4.615%</b>
   <br><br>
   <div class="pc-tip-ex">ตัวอย่าง 2 — เปรียบกับเงินฝาก</div>
   ดอกฝาก 3.5% vs T-Bill BEY 4.6%<br>
-  → <b class="pc-ans">T-Bill ให้ผลตอบแทนดีกว่าและมีความเสี่ยงต่ำมาก</b>
+  → <b class="pc-ans">T-Bill ให้ผลตอบแทนดีกว่าและมีความเสี่ยงต่ำมาก</b><br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 3 — แบบไทย Act/365 (ข้อสมมติ)</div>
+  Face ฿1,000,000 Simple Yield 2.0% 91 วัน ราคา = Face ÷ (1 + y × 91/365)<br>
+  → <b class="pc-ans">ซื้อที่ ฿995,038.44 กำไร ฿4,961.56</b> (แบบ US ที่ Discount 2% ได้ ฿994,944.44)<br>
+  <span style="color:var(--text3)">ตลาดไทยใช้ฐาน Act/365 และผลตอบแทนอย่างง่าย แต่ยังไม่ได้ตรวจสูตรเฉพาะของตั๋วเงินคลังจากเอกสารทางการ — เทียบกับผลประมูลก่อนใช้จริง</span>
 </div>
 </div>
 </div>
@@ -3189,7 +3228,9 @@ select option{background:var(--surf2);color:var(--text)}
       <div class="ri"><div class="rl">จุดคุ้มทุน (หน่วย)</div><div class="rv a" id="be-u">—</div></div>
       <div class="ri"><div class="rl">จุดคุ้มทุน (฿)</div><div class="rv o" id="be-b">—</div></div>
       <div class="ri"><div class="rl">Contribution Margin</div><div class="rv" id="be-cm">—</div></div>
+      <div class="ri"><div class="rl">CM Ratio (CM ÷ ราคาขาย)</div><div class="rv" id="be-cmr">—</div></div>
       <div class="ri"><div class="rl">กำไร/ขาดทุน</div><div class="rv" id="be-pl">—</div></div>
+      <div class="ri"><div class="rl">Margin of Safety</div><div class="rv" id="be-mos">—</div></div>
     </div></div>
   </div>
 <div class="pc-tip">
@@ -3201,7 +3242,8 @@ select option{background:var(--surf2);color:var(--text)}
   <br><br>
   <div class="pc-tip-ex">ตัวอย่าง 2 — เพิ่มยอดขาย</div>
   ขาย 700 แก้ว/เดือน<br>
-  → <b class="pc-ans">กำไร (700-500) × (150-50) = ฿20,000/เดือน</b>
+  → <b class="pc-ans">กำไร (700-500) × (150-50) = ฿20,000/เดือน</b><br>
+  CM Ratio = 100 ÷ 150 = 66.67% · Margin of Safety = (700−500) ÷ 700 = <b class="pc-ans">28.57%</b> (ยอดขายลดได้อีก ฿30,000 ก่อนถึงจุดคุ้มทุน)
 </div>
 </div>
 </div>
@@ -3638,12 +3680,13 @@ select option{background:var(--surf2);color:var(--text)}
       <div class="fg"><label>บุตรคนที่ 2+ ที่เกิดตั้งแต่ปี 2561 (คน) <span style="color:#4a5268">+30,000/คน</span></label><input type="number" id="pr-child61" min="0" step="1" placeholder="เช่น 1"></div>
       <div class="fg"><label>ลดหย่อนอื่น ๆ (บาท/ปี) <span style="color:#4a5268">ประกัน, RMF/SSF, ดอกเบี้ยบ้าน ฯลฯ</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="pr-extra" placeholder="เช่น 50000"></div></div>
       <div class="fg"><label>เพดานลดหย่อนประกันสังคม (บาท/ปี) <span style="color:#4a5268">ว่าง = 9,000 · 0 = ไม่ลดหย่อน</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="pr-ssocap" min="0" value="9000" placeholder="9000"></div></div>
+      <div class="fg"><label>ปีที่ใช้กำหนดเพดานค่าจ้างประกันสังคม <span style="color:#4a5268">พ.ศ. หรือ ค.ศ. · ว่าง = ปีปัจจุบันของเครื่อง</span></label><input type="number" id="pr-year" step="1" placeholder="เช่น 2572"></div>
     </div>
     <div class="btn-row"><button class="btn btn-p" onclick="calcPayroll()">คำนวณ</button><button class="btn btn-s" onclick="resetFields('pr')">ล้างค่า</button></div>
     <div class="rbox" id="pr-res">
       <div class="rgrid">
         <div class="ri"><div class="rl">รายได้รวม/ปี</div><div class="rv" id="pr-gross">—</div></div>
-        <div class="ri"><div class="rl">ประกันสังคม/ปี</div><div class="rv r" id="pr-sso">—</div></div>
+        <div class="ri"><div class="rl">ประกันสังคม/ปี <span id="pr-ssonote" style="color:#4a5268;font-weight:400"></span></div><div class="rv r" id="pr-sso">—</div></div>
         <div class="ri"><div class="rl">ภาษีเงินได้/ปี</div><div class="rv r" id="pr-tax">—</div></div>
         <div class="ri"><div class="rl">เงินเดือนสุทธิ/เดือน</div><div class="rv g" id="pr-net">—</div></div>
         <div class="ri"><div class="rl">Tax Rate (Effective)</div><div class="rv o" id="pr-etr">—</div></div>
@@ -3664,7 +3707,8 @@ select option{background:var(--surf2);color:var(--text)}
     <div class="pc-tip-ex">ประกันสังคม</div>
     5% ของค่าจ้าง ฐานต่ำสุด ฿1,650 สูงสุด ฿875/เดือน (เพดานค่าจ้าง ฿17,500 ตั้งแต่ 1 ม.ค. 2569)<br>
     ปรับเป็น ฿20,000 (พ.ศ. 2572) และ ฿23,000 (พ.ศ. 2575) — ตรวจประกาศ สปส. อีกครั้ง<br>
-    โปรแกรมเลือกเพดานตามปีปัจจุบันของเครื่อง และปัดเงินสมทบเป็นบาทเต็ม/เดือน<br><br>
+    เลือกเพดานตามช่อง "ปีที่ใช้กำหนดเพดาน" (ว่าง = ปีปัจจุบันของเครื่อง ; ก่อน พ.ศ. 2569 ใช้ ฿15,000) และปัดเงินสมทบเป็นบาทเต็ม/เดือน<br>
+    ช่องปีมีผลเฉพาะเพดานประกันสังคม — ขั้นภาษีและค่าลดหย่อนเป็นของปัจจุบัน<br><br>
   <div class="pc-tip-ex">ตัวอย่าง: เงินเดือน ฿50,000 โสด</div>
   รายได้/ปี = ฿600,000<br>
   SSO จ่ายจริง ฿10,500 (ลดหย่อนภาษีได้ไม่เกิน ฿9,000) + ค่าใช้จ่าย ฿100,000 + ลดหย่อน ฿60,000<br>
@@ -3829,7 +3873,8 @@ select option{background:var(--surf2);color:var(--text)}
   <div class="pc-tip">
     <div class="pc-tip-title">💡 เกณฑ์ Deal Margin</div>
     <b>Gross Margin</b> = (ราคาขาย − ส่วนลด − COGS) ÷ (ราคาขาย − ส่วนลด)<br><br>
-    <b>Net Margin</b> = (ราคาขาย − ต้นทุนทั้งหมด) ÷ ราคาขาย<br><br>
+    <b>Net Margin</b> = (ราคาขาย − ส่วนลด − COGS − ค่าขาย − Overhead − คอมมิชชั่น) ÷ (ราคาขาย − ส่วนลด)<br>
+    <span style="color:var(--text3)">ตัวหารเป็นรายได้สุทธิหลังส่วนลด เหมือน Gross Margin ; ถ้าส่วนลดเท่ากับราคาขาย ไม่มีรายได้สุทธิ จึงแสดง —</span><br><br>
     <div class="pc-tip-ex">เป้าหมาย</div>
     GM ≥ 50% = <b class="pc-ans">ดีมาก</b> (Software/Service)<br>
     GM ≥ 30% = <b class="pc-ans">พอใช้</b><br>
@@ -3853,15 +3898,17 @@ select option{background:var(--surf2);color:var(--text)}
       <div class="fg"><label>ลดความเสี่ยง/ปรับ (คิดเป็นเงิน) <span style="color:#4a5268">Risk Reduction Value</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="cr-risk" placeholder="เช่น 100000"></div></div>
       <div class="fg"><label>เงินลงทุนของลูกค้า <span style="color:#4a5268">Customer Investment</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="cr-inv" placeholder="ราคาขาย + ค่า Implementation"></div></div>
       <div class="fg"><label>ระยะเวลาประเมิน (ปี) <span style="color:#4a5268">Evaluation Horizon (yrs)</span></label><input type="number" id="cr-yrs" placeholder="เช่น 3" min="1"></div>
+      <div class="fg"><label>กำไรส่วนเพิ่มจากรายได้เพิ่ม (%) <span style="color:#4a5268">ว่าง = 100% (นับรายได้เต็มจำนวนเป็นประโยชน์)</span></label><div class="iw sfx"><input type="number" id="cr-revm" step="0.1" placeholder="เช่น 20"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>อัตราคิดลด (%/ปี) <span style="color:#4a5268">ว่าง = ไม่คิดลด · ถ้ากรอกมากกว่า 0 ระยะเวลาต้องเป็นปีเต็ม</span></label><div class="iw sfx"><input type="number" id="cr-disc" step="0.1" placeholder="เช่น 10"><span class="isfx">%</span></div></div>
     </div>
     <div class="btn-row"><button class="btn btn-p" onclick="calcCustROI()">คำนวณ ROI</button><button class="btn btn-s" onclick="resetFields('cr')">ล้างค่า</button></div>
     <div class="rbox" id="cr-res">
       <div class="rgrid">
         <div class="ri"><div class="rl">ผลประโยชน์รวม/ปี</div><div class="rv g" id="cr-totbenefit">—</div></div>
-        <div class="ri"><div class="rl">ROI (1 ปี)</div><div class="rv g" id="cr-roi1">—</div></div>
-        <div class="ri"><div class="rl">ROI (ตลอดระยะ)</div><div class="rv a" id="cr-roitot">—</div></div>
-        <div class="ri"><div class="rl">Payback Period</div><div class="rv o" id="cr-payback">—</div></div>
-        <div class="ri"><div class="rl">มูลค่าสุทธิรวม (ไม่คิดลด)</div><div class="rv c" id="cr-npv">—</div></div>
+        <div class="ri"><div class="rl" id="cr-roi1lbl">ROI (1 ปี)</div><div class="rv g" id="cr-roi1">—</div></div>
+        <div class="ri"><div class="rl" id="cr-roitotlbl">ROI (ตลอดระยะ)</div><div class="rv a" id="cr-roitot">—</div></div>
+        <div class="ri"><div class="rl" id="cr-pblbl">Payback Period</div><div class="rv o" id="cr-payback">—</div></div>
+        <div class="ri"><div class="rl" id="cr-npvlbl">มูลค่าสุทธิรวม (ไม่คิดลด)</div><div class="rv c" id="cr-npv">—</div></div>
       </div>
     </div>
   </div>
@@ -3873,7 +3920,11 @@ select option{background:var(--surf2);color:var(--text)}
     ประหยัดต้นทุน ฿500K + รายได้เพิ่ม ฿1M/ปี<br>
     ROI <b class="pc-ans">200%</b> ใน 1 ปี<br>
     คืนทุนใน <b class="pc-ans">4.0 เดือน</b>"<br><br>
-    ตัวเลขชัดเจน = ปิดดีลง่ายขึ้น!
+    ตัวเลขชัดเจน = ปิดดีลง่ายขึ้น!<br><br>
+    <div class="pc-tip-ex">แบบระมัดระวัง — ใช้กำไรส่วนเพิ่มและคิดลด</div>
+    ลงทุน ฿500K ประหยัด ฿500K/ปี + รายได้เพิ่ม ฿1M/ปี ที่มีกำไรส่วนเพิ่ม 20% · 3 ปี · คิดลด 10%<br>
+    → ผลประโยชน์ <b class="pc-ans">฿700,000/ปี</b> · ROI 3 ปี (คิดลด) <b class="pc-ans">248.16%</b> · NPV <b class="pc-ans">฿1,240,796</b> · คืนทุน (คิดลด) <b class="pc-ans">9.43 เดือน</b><br>
+    <span style="color:var(--text3)">เมื่อกรอกอัตราคิดลด ROI ทั้งสองช่องเป็นค่าคิดลด (ไม่คิดลด ROI 3 ปี = 320%) และถือว่าผลประโยชน์เข้าปลายปี ; เว้น 2 ช่องใหม่ไว้ = นับรายได้เต็ม 100% และไม่คิดลด (เหมือนเดิม)</span>
   </div>
   </div>
 </div>
@@ -3887,10 +3938,16 @@ select option{background:var(--surf2);color:var(--text)}
     <div class="grid2">
       <div class="fg"><label>ราคาสินค้า/บริการ <span style="color:#4a5268">Product/Service Price</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="iq-price" placeholder="เช่น 300000"></div></div>
       <div class="fg"><label>เงินดาวน์ <span style="color:#4a5268">Down Payment</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="iq-down" placeholder="เช่น 60000"></div></div>
-      <div class="fg"><label>ดอกเบี้ยต่อปี (%) <span style="color:#4a5268">Annual Interest Rate</span></label><div class="iw sfx"><input type="number" id="iq-rate" placeholder="เช่น 7.5" step="0.1"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>วิธีคิดดอกเบี้ย <span style="color:#4a5268">Interest Method</span></label>
+        <select id="iq-mode" data-default="0"><option value="red" selected>ลดต้นลดดอก (Effective / Reducing Balance)</option><option value="flat">Flat Rate (ดอกเบี้ยคิดจากเงินต้นเต็มตลอดสัญญา)</option></select>
+      </div>
+      <div class="fg"><label>ดอกเบี้ยต่อปี (%) <span style="color:#4a5268">Annual Interest Rate (ต่อปี ตามวิธีที่เลือก — Flat ต่อเดือนให้คูณ 12)</span></label><div class="iw sfx"><input type="number" id="iq-rate" placeholder="เช่น 7.5" step="0.1"><span class="isfx">%</span></div></div>
       <div class="fg"><label>จำนวนงวด (เดือน) <span style="color:#4a5268">Term (months)</span></label><input type="number" id="iq-term" placeholder="เช่น 24" min="1"></div>
       <div class="fg"><label>VAT สินค้า (%) <span style="color:#4a5268">VAT on Product</span></label><div class="iw sfx"><input type="number" id="iq-vat" placeholder="เช่น 7 (ว่าง = 0)" step="0.5"><span class="isfx">%</span></div></div>
       <div class="fg"><label>ค่าธรรมเนียมอื่น <span style="color:#4a5268">Other Fees (one-time)</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="iq-fee" placeholder="เช่น 1500"></div></div>
+      <div class="fg"><label>การปัดเศษค่างวด <span style="color:#4a5268">Rounding</span></label>
+        <select id="iq-rnd" data-default="0"><option value="0" selected>ไม่ปัด (ค่าเริ่มต้น)</option><option value="1">ปัดเป็นสตางค์ ให้งวดสุดท้ายรับส่วนต่าง — ข้อสมมติ</option></select>
+      </div>
     </div>
     <div class="btn-row"><button class="btn btn-p" onclick="calcInstallQuote()">คำนวณใบเสนอราคา</button><button class="btn btn-s" onclick="resetFields('iq')">ล้างค่า</button></div>
     <div class="rbox" id="iq-res">
@@ -3898,9 +3955,12 @@ select option{background:var(--surf2);color:var(--text)}
         <div class="ri"><div class="rl">ยอดกู้สุทธิ</div><div class="rv" id="iq-principal">—</div></div>
         <div class="ri"><div class="rl">ผ่อนต่อเดือน</div><div class="rv g" id="iq-pmt">—</div></div>
         <div class="ri"><div class="rl">ดอกเบี้ยรวม</div><div class="rv r" id="iq-totint">—</div></div>
+        <div class="ri" id="iq-effrow" style="display:none"><div class="rl">อัตราที่แท้จริง (Effective) ของ Flat นี้ — ไม่รวมค่าธรรมเนียมอื่น</div><div class="rv a" id="iq-eff">—</div></div>
         <div class="ri"><div class="rl">จ่ายทั้งหมด</div><div class="rv o" id="iq-totpay">—</div></div>
         <div class="ri"><div class="rl">จ่ายวันแรก (Down+Fee)</div><div class="rv a" id="iq-firstday">—</div></div>
+        <div class="ri" id="iq-lastrow" style="display:none"><div class="rl">งวดสุดท้าย (รับส่วนต่างจากการปัด)</div><div class="rv" id="iq-last">—</div></div>
       </div>
+      <div id="iq-note" style="font-size:.78rem;color:#7e8ba3;margin-top:8px"></div>
       <div id="iq-tw"></div>
     </div>
   </div>
@@ -3916,8 +3976,11 @@ select option{background:var(--surf2);color:var(--text)}
     เทียบกับต้นทุนที่ลูกค้าเคยจ่าย<br>
     "เพิ่มแค่วันละ ≈ ฿391 ก็ได้ของแล้ว!" (฿11,745÷30วัน)<br><br>
   <div class="pc-tip-ex">⚠️ Effective vs Flat Rate</div>
-  อัตราที่ใส่คือ Effective Rate (Reducing Balance)<br>
-  Flat Rate จะ<b>ต่ำกว่า</b>ตัวเลขนี้ แต่ดอกจริงที่จ่ายเท่ากัน
+  ค่าเริ่มต้นคือ Effective Rate (ลดต้นลดดอก — ดอกเบี้ยคิดจากเงินต้นคงเหลือ)<br>
+  เลือก "Flat Rate" ถ้าใบเสนอระบุอัตราแบบคงที่: ค่างวด = (ยอดกู้ + ยอดกู้ × อัตรา × ปี) ÷ งวด<br>
+  ตัวอย่าง: กู้ ฿261,000 Flat 4%/ปี 24 เดือน → ผ่อน <b class="pc-ans">฿11,745.00/เดือน</b> ≈ Effective 7.5% (ช่อง "อัตราที่แท้จริง" จะคำนวณให้)<br>
+  <b>ปัดสตางค์ (ข้อสมมติ):</b> ตัวอย่างลดต้นลดดอก 7.5% (กู้ ฿261,000 24 เดือน) เลือก "ปัดเป็นสตางค์" → ผ่อน ฿11,744.89 งวดที่ 1–23 และงวดสุดท้าย ฿11,744.98 รับส่วนต่าง (ไม่ได้อ้างอิงเอกสารทางการ สัญญาจริงอาจต่างกัน)<br>
+  <span style="color:var(--text3)">ธปท. ให้ประมาณ Effective ≈ Flat × 1.8 ; ค่าจริงขึ้นกับอัตราและจำนวนงวด (Flat 1–15%, 12–60 งวด ราว 1.65–1.95 เท่า) จึงคำนวณด้วย IRR ให้ ; Flat ต่อเดือนให้คูณ 12 ก่อนกรอก</span>
   </div>
   </div>
 </div>
@@ -5565,26 +5628,40 @@ initCF(true);
 /* ─── BOND ─── */
 function calcBond(){
   const F=v('bd-f'),c=v('bd-c')/100,ytm=v('bd-y')/100,T=v('bd-t'),fr=vi('bd-fr');
+  // งวดแรกไม่เต็ม (Stub): ซื้อหลังจ่ายดอกเบี้ยล่าสุด dcs วัน ในงวดที่ยาว e วัน (กรอกคู่กัน ว่างทั้งคู่ = ซื้อวันจ่ายดอกเบี้ย ผลเดิม)
+  const dcsIn=v('bd-dcs'),eIn=v('bd-e'),stub=!isBlank('bd-dcs')||!isBlank('bd-e');
   const bad=firstErr([
     [!(F>0),'กรุณากรอกมูลค่าที่ตราไว้ให้มากกว่า 0'],
     [isBlank('bd-c'),'กรุณากรอกอัตราดอกเบี้ยพันธบัตร (กรอก 0 ถ้าไม่มีดอกเบี้ย)'],
     [c<0,'อัตราดอกเบี้ยพันธบัตรต้องไม่ติดลบ'],
     [isBlank('bd-y'),'กรุณากรอก YTM (กรอก 0 ได้)'],
-    [ytm<0,'YTM ต้องไม่ติดลบ'],
+    [!(1+ytm/fr>0),'YTM ต่ำเกินไป — อัตราต่องวด (YTM ÷ ความถี่จ่ายดอกเบี้ย) ต้องมากกว่า −100%'],
     [!(T>0),'กรุณากรอกอายุคงเหลือให้มากกว่า 0 ปี'],
     [T>100,'อายุคงเหลือต้องไม่เกิน 100 ปี'],
-    [Math.abs(T*fr-Math.round(T*fr))>1e-9,'อายุคงเหลือ × ความถี่จ่ายดอกเบี้ย ต้องเป็นจำนวนงวดเต็ม (เช่น จ่ายปีละครั้ง ใช้อายุเป็นปีเต็ม ; จ่ายครึ่งปี ใช้ผลคูณของ 0.5)']
+    [Math.abs(T*fr-Math.round(T*fr))>1e-9,'อายุคงเหลือ × ความถี่จ่ายดอกเบี้ย ต้องเป็นจำนวนงวดเต็ม (เช่น จ่ายปีละครั้ง ใช้อายุเป็นปีเต็ม ; จ่ายครึ่งปี ใช้ผลคูณของ 0.5)'],
+    [isBlank('bd-dcs')!==isBlank('bd-e'),'กรอกจำนวนวันหลังจ่ายดอกเบี้ยล่าสุดและจำนวนวันในงวดให้ครบทั้งสองช่อง (หรือเว้นว่างทั้งคู่)'],
+    [stub&&dcsIn<0,'จำนวนวันหลังจ่ายดอกเบี้ยล่าสุดต้องไม่ติดลบ'],
+    [stub&&!(eIn>0),'จำนวนวันในงวดดอกเบี้ยต้องมากกว่า 0'],
+    [stub&&dcsIn>=eIn,'จำนวนวันหลังจ่ายดอกเบี้ยล่าสุดต้องน้อยกว่าจำนวนวันในงวด (ถ้าซื้อวันจ่ายดอกเบี้ย ให้เว้นว่างทั้งสองช่อง)'],
+    [stub&&(eIn<0.9*365/fr||eIn>1.1*365/fr),'จำนวนวันในงวดไม่สอดคล้องกับความถี่จ่ายดอกเบี้ย (ควรอยู่ราว '+Math.ceil(0.9*365/fr)+'–'+Math.floor(1.1*365/fr)+' วัน) — ตรวจว่ากรอกถูกช่อง']
   ]);
   if(bad){vfail('bond-res',bad);return;}
   const r=ytm/fr,n=Math.round(T*fr),C=F*c/fr;
-  const P=r===0?C*n+F:C*(1-Math.pow(1+r,-n))/r+F/Math.pow(1+r,n);
-  const pd=P-F;
+  const w=stub?dcsIn/eIn:0;                       // สัดส่วนของงวดปัจจุบันที่ผ่านไปแล้ว
+  const P0=r===0?C*n+F:C*(1-Math.pow(1+r,-n))/r+F/Math.pow(1+r,n);   // ราคา ณ วันจ่ายดอกเบี้ยล่าสุด
+  const P=P0*Math.pow(1+r,w);                     // Dirty/Gross = ราคาที่จ่ายจริง ; w = 0 -> Math.pow = 1 พอดี ผลเดิมไม่เปลี่ยน
+  const AI=C*w, clean=P-AI;                       // ดอกเบี้ยค้างรับ = ดอกเบี้ยงวด × w ; Clean = Dirty − AI
+  const pd=clean-F;
   let dur=0;
-  for(let t=1;t<=n;t++)dur+=t*(C/Math.pow(1+r,t));
-  dur+=n*(F/Math.pow(1+r,n));dur/=P;
+  for(let t=1;t<=n;t++)dur+=(t-w)*(C/Math.pow(1+r,t-w));
+  dur+=(n-w)*(F/Math.pow(1+r,n-w));dur/=P;
   const mac=dur/fr,mod=mac/(1+ytm/fr);
-  if(!isFinite(P)||!isFinite(mac)){vfail('bond-res',LOAN_BIG_MSG);return;}
+  if(!isFinite(P)||!isFinite(mac)||!isFinite(clean)){vfail('bond-res',LOAN_BIG_MSG);return;}
   const par=Math.abs(pd)<0.005;
+  $('bd-plbl').textContent=stub?'ราคาที่จ่ายจริง (Dirty/Gross)':'ราคาพันธบัตร';
+  $('bd-pdlbl').textContent=stub?'Premium/Discount (เทียบ Clean Price)':'Premium/Discount';
+  $('bd-airow').style.display=stub?'':'none';$('bd-cleanrow').style.display=stub?'':'none';
+  if(stub){$('bd-ai').textContent=fB(AI);$('bd-clean').textContent=fB(clean);}
   $('bd-p').textContent=fB(P);
   $('bd-pd').innerHTML=fB(Math.abs(pd))+' <span class="badge '+(par?'bb':pd>0?'bg':'br')+'">'+(par?'Par':pd>0?'Premium':'Discount')+'</span>';
   $('bd-md').textContent=fN(mac,4)+' ปี';$('bd-mdd').textContent=fN(mod,4)+' ปี';show('bond-res');
@@ -5723,20 +5800,24 @@ function calcSav(){
 }
 
 /* ─── CD ─── */
+// โหมดดอกเบี้ยอย่างง่ายไม่ใช้ความถี่ทบต้น : ปิดช่องทบต้นเพื่อไม่ให้ดูเหมือนมีผล
+function cdModeSync(){$('cd-n').disabled=$('cd-mode').value==='s';}
+cdModeSync(); // ซิงก์สถานะช่องทบต้นตอนโหลด (กรณีเบราว์เซอร์คืนค่าฟอร์มเดิม)
 function calcCD(){
   const p=v('cd-p'),r=v('cd-r')/100,mo=v('cd-m'),n=vi('cd-n'),t=v('cd-t')/100,yrs=mo/12;
+  const simple=$('cd-mode').value==='s'; // ดอกเบี้ยอย่างง่าย = เงินต้น × อัตรา × ปี (ธนาคารไทยคิดวันจริง/365 ; ที่นี่ประมาณด้วยเดือน/12)
   const bad=firstErr([
     [!(p>0),'กรุณากรอกเงินฝากเริ่มต้นให้มากกว่า 0'],
     [isBlank('cd-r'),'กรุณากรอกอัตราดอกเบี้ย (กรอก 0 ได้)'],
     [r<0,'อัตราดอกเบี้ยต้องไม่ติดลบ'],
     [!(mo>=1),'กรุณากรอกระยะเวลาอย่างน้อย 1 เดือน'],
     [mo>1200,'ระยะเวลาต้องไม่เกิน 1,200 เดือน (100 ปี)'],
-    [!(n>=1),'กรุณาเลือกความถี่การทบต้น'],
+    [!simple&&!(n>=1),'กรุณาเลือกความถี่การทบต้น'],
     [isBlank('cd-t'),'กรุณากรอกอัตราภาษีดอกเบี้ย (กรอก 0 ถ้าไม่เสียภาษี)'],
     [t<0||t>1,'อัตราภาษีต้องอยู่ในช่วง 0 – 100%']
   ]);
   if(bad){vfail('cd-res',bad);return;}
-  const int=p*Math.expm1(n*yrs*Math.log1p(r/n)),netInt=int*(1-t); // int = FV − p (รูปแบบเสถียรเมื่ออัตราเล็ก)
+  const int=simple?p*r*yrs:p*Math.expm1(n*yrs*Math.log1p(r/n)),netInt=int*(1-t); // int = FV − p (ทบต้น: รูปแบบเสถียรเมื่ออัตราเล็ก)
   if(!isFinite(int)){vfail('cd-res',LOAN_BIG_MSG);return;}
   $('cd-fv').textContent=fB(p+netInt);$('cd-int').textContent=fB(int);$('cd-net').textContent=fB(netInt);show('cd-res');
 }
@@ -6210,13 +6291,14 @@ function calcRI(){const div=v('ri2-div')/12,pen=v('ri2-pen'),rent=v('ri2-rent'),
 
 /* ─── ANNUITY ─── */
 function calcAnnuity(){
-  const pm=v('an-pmt'),r=v('an-r')/100/12,n=v('an-n'),t=parseInt(rval('an-type'));
+  const f=parseInt($('an-f').value)||12; // งวดต่อปี (อัตราต่องวด = อัตราต่อปี ÷ f, ทบต้นทุกงวด)
+  const pm=v('an-pmt'),r=v('an-r')/100/f,n=v('an-n'),t=parseInt(rval('an-type'));
   const bad=firstErr([
-    [!(pm>0),'กรุณากรอกจำนวนเงินต่อเดือนให้มากกว่า 0'],
+    [!(pm>0),'กรุณากรอกจำนวนเงินต่องวดให้มากกว่า 0'],
     [isBlank('an-r'),'กรุณากรอกอัตราดอกเบี้ยต่อปี (กรอก 0 ได้)'],
     [r<0,'อัตราดอกเบี้ยต้องไม่ติดลบ'],
-    [!(n>=1)||n!==Math.floor(n),'จำนวนงวด (เดือน) ต้องเป็นจำนวนเต็มตั้งแต่ 1 ขึ้นไป'],
-    [n>1200,'จำนวนงวดต้องไม่เกิน 1,200 เดือน (100 ปี)'],
+    [!(n>=1)||n!==Math.floor(n),'จำนวนงวดต้องเป็นจำนวนเต็มตั้งแต่ 1 ขึ้นไป'],
+    [n>100*f,'จำนวนงวดต้องไม่เกิน '+(100*f).toLocaleString('en-US')+' งวด (100 ปี)'],
     [isNaN(t),'กรุณาเลือกประเภท (ปลายงวด/ต้นงวด)']
   ]);
   if(bad){vfail('an-res',bad);return;}
@@ -6492,7 +6574,16 @@ function calcDTax(){
     [isBlank('dtx-d'),'กรุณากรอกส่วนลด (%) (กรอก 0 ได้)'],[d<0||d>1,'ส่วนลดต้องอยู่ระหว่าง 0–100%'],
     [isBlank('dtx-t'),'กรุณากรอกภาษี / VAT (%) (กรอก 0 ได้)'],[t<0,'ภาษี / VAT ต้องไม่ติดลบ']]);
   if(bad){vfail('dtx-res',bad);return;}
-  const disc=p*(1-d),vat=disc*t,final=disc+vat;
+  let disc,vat,final;
+  if($('dtx-m').value==='in'){
+    // ราคาที่กรอกรวม VAT แล้ว: ส่วนลดคิดบนราคารวม ; VAT = ราคารวม × t/(1+t) (7/107) ปัดเป็นสตางค์ (คำสั่งกรมสรรพากร ป.86/2542)
+    // ปัดราคาหลังลดและ VAT เป็นสตางค์ (ครึ่งปัดขึ้น) เพื่อให้ ก่อน VAT + VAT = ราคาสุทธิ ตรงกันพอดี
+    final=Math.round(p*(1-d)*100+1e-9)/100;
+    vat=Math.round(final*t/(1+t)*100+1e-9)/100;
+    disc=Math.round((final-vat)*100)/100;
+  }else{
+    disc=p*(1-d);vat=disc*t;final=disc+vat;
+  }
   if(!isFinite(final)){vfail('dtx-res',PB_BIG);return;}
   $('dtx-disc').textContent=fB(disc);$('dtx-vat').textContent=fB(vat);$('dtx-final').textContent=fB(final);show('dtx-res');}
 
@@ -6671,17 +6762,34 @@ function calcInf(){
 }
 
 /* ─── T-BILL ─── */
+// ป้ายช่องอัตราตามวิธีคิดที่เลือก (เรียกตอนเปลี่ยนวิธีคิดและตอนกดล้างค่า)
+function tbSync(){
+  const th=$('tb-basis').value==='th';
+  $('tb-drlbl').textContent=th?'Simple Yield (%/ปี, Act/365)':'Discount Rate (%/ปี)';
+}
+tbSync(); // เบราว์เซอร์บางตัวคืนค่าฟอร์มเดิมตอนโหลดซ้ำ : ซิงก์ป้ายให้ตรงกับตัวเลือกที่ค้างอยู่
 function calcTBill(){
+  const th=$('tb-basis').value==='th'; // แบบไทย = ข้อสมมติ : อัตราที่กรอกคือ Simple Yield ฐาน Act/365 ราคา = FV ÷ (1 + y × วัน/365)
   const fv=v('tb-fv'),dr=v('tb-dr')/100,d=v('tb-d');
   const bad=firstErr([
     [!(fv>0),'กรุณากรอกมูลค่าที่ตราไว้ให้มากกว่า 0'],
-    [isBlank('tb-dr'),'กรุณากรอก Discount Rate (กรอก 0 ได้)'],
-    [dr<0,'Discount Rate ต้องไม่ติดลบ'],
+    [isBlank('tb-dr'),th?'กรุณากรอก Simple Yield (กรอก 0 ได้)':'กรุณากรอก Discount Rate (กรอก 0 ได้)'],
+    [dr<0,th?'Simple Yield ต้องไม่ติดลบ':'Discount Rate ต้องไม่ติดลบ'],
     [!Number.isInteger(d)||d<1,'จำนวนวันต้องเป็นจำนวนเต็มตั้งแต่ 1 วันขึ้นไป'],
     [d>365,'จำนวนวันต้องไม่เกิน 365 วัน'],
-    [dr*d/360>=1,'Discount Rate สูงเกินไปเมื่อเทียบกับจำนวนวัน (ราคาซื้อต้องมากกว่า 0)']
+    [!th&&dr*d/360>=1,'Discount Rate สูงเกินไปเมื่อเทียบกับจำนวนวัน (ราคาซื้อต้องมากกว่า 0)']
   ]);
   if(bad){vfail('tb-res',bad);return;}
+  if(th){
+    const p=fv/(1+dr*d/365),dis=fv-p,yld=dis/p*365/d*100;
+    if(![p,dis,yld].every(isFinite)||!(p>0)){vfail('tb-res',PB_BIG);return;}
+    $('tb-p').textContent=fB(p);$('tb-dis').textContent=fB(dis);
+    $('tb-beylbl').textContent='ผลตอบแทนอย่างง่าย (Simple Yield, Act/365)';
+    $('tb-bey').textContent=fN(yld,3)+'%';
+    $('tb-note').textContent='ข้อสมมติ: ตลาดไทยใช้ฐาน Act/365 และผลตอบแทนอย่างง่าย (ThaiBMA) แต่ยังไม่ได้ตรวจสูตรเฉพาะของตั๋วเงินคลังจากเอกสารทางการ — เทียบกับผลประมูล/ใบยืนยันก่อนใช้จริง';
+    show('tb-res');return;
+  }
+  $('tb-beylbl').textContent='ผลตอบแทนเทียบเท่าพันธบัตร (BEY)';
   const p=fv*(1-dr*d/360),dis=fv-p;
   // BEY: อายุ ≤ 182 วัน = (FV−P)/P × 365/d ; อายุ > 182 วัน ใช้สูตรกำลังสองของ US Treasury (คิดดอกเบี้ยทบครึ่งปี)
   //   a·y² + b·y + c = 0 ; a = d/730 − 0.25, b = d/365, c = (P−FV)/P ; y = −2c / (b + √(b²−4ac)) (รูปแบบเสถียรเมื่อ a ≈ 0)
@@ -6719,13 +6827,22 @@ function calcBE(){
     [!actBlank&&act<0,'จำนวนหน่วยที่ขายจริงต้องไม่ติดลบ']]);
   if(bad){vfail('be-res',bad);return;}
   const cmR=Math.round(cm*1e8)/1e8; // ตัด noise ของการลบทศนิยม (เช่น 0.35-0.1) ก่อนหาร ไม่งั้นหน่วยที่ลงตัวพอดีถูกปัดขึ้นเกิน 1
-  const u=fc/cmR,b=u*p,pl=actBlank?null:act*cm-fc;
+  const plRaw=actBlank?null:act*cm-fc, pl=plRaw!==null&&Math.abs(plRaw)<=1e-9*Math.max(1,fc)?0:plRaw; // noise ของทศนิยมที่จุดคุ้มทุนพอดี ไม่ให้ขึ้น -฿0.00 สีแดง
+  const u=fc/cmR,b=u*p;
   if(![u,b,cm].every(isFinite)||(pl!==null&&!isFinite(pl))){vfail('be-res',PB_BIG);return;}
   // หน่วยคุ้มทุนต้องปัดขึ้น (ขายต่ำกว่านั้นยังขาดทุน) ; ถ้าไม่ลงตัวแสดงค่าจริงกำกับ
   const tol=4*Number.EPSILON*Math.max(1,u),uc=Math.ceil(u-tol); // ความคลาดเคลื่อนของการหาร (~4 ulp สัมพัทธ์กับ u)
   $('be-u').textContent=fN(uc,0)+' หน่วย'+(uc-u>tol?' (ปัดขึ้นจาก '+fN(u,beDec(u))+')':'');
   $('be-b').textContent=fB(b)+(uc-u>tol?' (ไม่ปัดหน่วย)':'');$('be-cm').textContent=fB(cm)+'/หน่วย';
   if(pl!==null){$('be-pl').textContent=fB(pl);$('be-pl').className='rv '+(pl>=0?'g':'r');}else{$('be-pl').textContent='—';$('be-pl').className='rv';}
+  $('be-cmr').textContent=fP(cm/p*100);
+  // Margin of Safety = (ยอดขายจริง − ยอดขายคุ้มทุน) ÷ ยอดขายจริง ; ใช้หน่วยคุ้มทุนที่ยังไม่ปัด ; ต้องมียอดขายจริง > 0
+  if(!actBlank&&act>0&&isFinite(act*p)){
+    let mosU=act-u;if(Math.abs(mosU)<=tol)mosU=0; // ตัด noise ของการหาร (ขายพอดีจุดคุ้มทุน) ด้วย tol เดียวกับหน่วยคุ้มทุน
+    const mos=mosU/act*100;
+    $('be-mos').textContent=fP(mos)+' ('+fB(mosU*p)+')'+(mos<0?' — ขายต่ำกว่าจุดคุ้มทุน':'');
+    $('be-mos').className='rv '+(mos>=0?'g':'r');
+  }else{$('be-mos').textContent='—';$('be-mos').className='rv';}
   show('be-res');
 }
 
@@ -7828,13 +7945,16 @@ function calcPayroll(){
   // เพดานลดหย่อนประกันสังคม: ว่าง = ค่าเริ่มต้นของช่อง (defaultValue ใน HTML), 0 = ไม่ให้ลดหย่อน
   const _sc=parseFloat($('pr-ssocap').value), ssoCapIn=isNaN(_sc)?(parseFloat($('pr-ssocap').defaultValue)||0):_sc;
   if(ssoCapIn<0){vfail('pr-res','เพดานลดหย่อนประกันสังคมต้องไม่ติดลบ');return;}
+  // ปีที่ใช้เลือกเพดานค่าจ้าง สปส.: ว่าง = ปีปัจจุบันของเครื่อง ; รับ พ.ศ. (>= 2400) หรือ ค.ศ.
+  const _yrRaw=parseFloat($('pr-year').value), _yrCE=isNaN(_yrRaw)?NaN:(_yrRaw>=2400?_yrRaw-543:_yrRaw);
+  if(!isNaN(_yrRaw)&&(!Number.isInteger(_yrRaw)||_yrCE<2014||_yrCE>2100)){vfail('pr-res','ปีต้องเป็นจำนวนเต็ม ในช่วง พ.ศ. 2557–2643 (ค.ศ. 2014–2100) หรือเว้นว่างเพื่อใช้ปีปัจจุบัน');return;}
   if(sal<0||other<0||dedIn<0||extraDed<0||v('pr-child')<0||v('pr-child61')<0){vfail('pr-res','กรุณากรอกจำนวนเงิน/จำนวนบุตรไม่ติดลบ');return;}
   if(!(sal+other>0)){vfail('pr-res','กรุณากรอกเงินเดือน');return;}
   if(nChild61>Math.max(0,nChild-1)){vfail('pr-res','จำนวนบุตรที่เกิดตั้งแต่ปี 2561 (คนที่ 2 ขึ้นไป) ต้องไม่เกินจำนวนบุตรลบ 1');return;}
   const grossMo=sal+other, grossYr=grossMo*12;
   // SSO (ม.33): 5% ของค่าจ้าง ฐานต่ำสุด 1,650 เพดาน 17,500 (875/เดือน) ตั้งแต่ 1 ม.ค. 2569;
   // 20,000 (1,000) ตั้งแต่ พ.ศ. 2572 (ค.ศ. 2029); 23,000 (1,150) ตั้งแต่ พ.ศ. 2575 (ค.ศ. 2032) — ตรวจกับประกาศ สปส. ก่อนใช้ปีหน้า
-  const _y=new Date().getFullYear();
+  const _y=isNaN(_yrCE)?new Date().getFullYear():_yrCE;
   const ssoCap=_y>=2032?23000:_y>=2029?20000:_y>=2026?17500:15000;
   // ปัดเงินสมทบรายเดือนเป็นบาทเต็ม (ฐานต่ำสุด 1,650 → 83 บาท) — ตรวจกับ สปส.
   const ssoMo=grossMo>0?Math.round(Math.min(Math.max(grossMo,1650),ssoCap)*0.05):0, ssoYr=ssoMo*12;
@@ -7859,6 +7979,7 @@ function calcPayroll(){
   const netMo=netYr/12;
   const etr=grossYr?taxYr/grossYr*100:0;
   $('pr-gross').textContent=fB(grossYr); $('pr-sso').textContent=fB(ssoYr);
+  $('pr-ssonote').textContent='(เพดานค่าจ้าง ฿'+fN(ssoCap,0)+' ปี '+(_y+543)+')'; // บอกปีและเพดานที่ใช้ ; ภาษีส่วนอื่นใช้กฎปัจจุบัน
   $('pr-tax').textContent=fB(taxYr); $('pr-net').textContent=fB(netMo);
   $('pr-etr').textContent=fP(etr); $('pr-taxable').textContent=fB(taxable);
   show('pr-res');
@@ -7983,11 +8104,11 @@ function calcDealPnL(){
   if(bad){vfail('dpnl-res',bad);return;}
   const effRev=rev-disc;
   const gp=effRev-cogs, gm=effRev>0?gp/effRev*100:NaN;   // ส่วนลด = ราคาขาย (รายได้สุทธิ 0) -> Gross Margin ไม่นิยาม (แสดง —)
-  const tc=cogs+sc+oh+disc+comm, np=Math.round((rev-tc)*100)/100, nm=np/rev*100;   // ปัดเป็นสตางค์ กัน float residue (เช่น 0.3−0.1−0.2) ทำให้เท่าทุนถูกมองเป็นขาดทุน
+  const tc=cogs+sc+oh+disc+comm, np=Math.round((rev-tc)*100)/100, nm=effRev>0?np/effRev*100:NaN;   // ปัดเป็นสตางค์ กัน float residue (เช่น 0.3−0.1−0.2) ทำให้เท่าทุนถูกมองเป็นขาดทุน ; Net Margin หารรายได้สุทธิหลังส่วนลด (IFRS 15) เหมือน Gross Margin ; ส่วนลด = ราคาขาย -> ไม่นิยาม (แสดง —)
   $('dpnl-gp').textContent=fB(gp); $('dpnl-gp').className='rv '+(gp>=0?'g':'r');
   $('dpnl-gm').textContent=fP(gm); $('dpnl-gm').className='rv '+(isNaN(gm)?'':gm>=50?'g':gm>=30?'o':'r');
   $('dpnl-np').textContent=fB(np); $('dpnl-np').className='rv '+(np>=0?'g':'r');
-  $('dpnl-nm').textContent=fP(nm); $('dpnl-nm').className='rv '+(nm>=20?'g':nm>=10?'o':'r');
+  $('dpnl-nm').textContent=fP(nm); $('dpnl-nm').className='rv '+(isNaN(nm)?'':nm>=20?'g':nm>=10?'o':'r');
   $('dpnl-tc').textContent=fB(tc);
   $('dpnl-status').innerHTML=np>0?'<span class="badge bg">✅ กำไร</span>':np<0?'<span class="badge br">❌ ขาดทุน</span>':'<span class="badge bo">⚖️ เท่าทุน</span>';
   show('dpnl-res');
@@ -7996,24 +8117,45 @@ function calcDealPnL(){
 /* ─── CUSTOMER ROI ─── */
 function calcCustROI(){
   const save=v('cr-save'), rev=v('cr-rev'), eff=v('cr-eff'), risk=v('cr-risk');
-  const inv=v('cr-inv'), yrs=v('cr-yrs');
+  const inv=v('cr-inv'), yrs=v('cr-yrs'), revm=v('cr-revm'), dr=v('cr-disc')/100;
   const bad=firstErr([
     [[save,rev,eff,risk].some(x=>x<0),'ผลประโยชน์แต่ละรายการต้องไม่ติดลบ'],
     [!(inv>0),'กรุณากรอกเงินลงทุนของลูกค้าให้มากกว่า 0'],
     [isBlank('cr-yrs'),'กรุณากรอกระยะเวลาประเมิน (ปี)'],
-    [!(yrs>=1)||yrs>100,'ระยะเวลาประเมินต้องอยู่ระหว่าง 1–100 ปี']
+    [!(yrs>=1)||yrs>100,'ระยะเวลาประเมินต้องอยู่ระหว่าง 1–100 ปี'],
+    [!isBlank('cr-revm')&&(revm<0||revm>100),'กำไรส่วนเพิ่มต้องอยู่ระหว่าง 0–100% (เว้นว่าง = 100%)'],
+    [!isBlank('cr-disc')&&(dr<0||dr>1),'อัตราคิดลดต้องอยู่ระหว่าง 0–100% (เว้นว่าง = ไม่คิดลด)'],
+    [dr>0&&!Number.isInteger(yrs),'เมื่อกำหนดอัตราคิดลด ระยะเวลาประเมินต้องเป็นจำนวนเต็มปี']
   ]);
   if(bad){vfail('cr-res',bad);return;}
-  const totBenefit=save+rev+eff+risk;
-  const roi1=(totBenefit-inv)/inv*100;
-  const roiTot=(totBenefit*yrs-inv)/inv*100;
-  const payback=totBenefit>0?inv/totBenefit:NaN;
-  const npv=totBenefit*yrs-inv;
+  // ผลประโยชน์รวม/ปี : รายได้เพิ่มนับเฉพาะกำไรส่วนเพิ่ม (เว้นว่าง = 100%) ; คิดลดแบบ annuity ปลายปี (NPV = Σ CF/(1+r)^t − เงินลงทุน)
+  const totBenefit=save+rev*(isBlank('cr-revm')?1:revm/100)+eff+risk;
+  const af=dr>0?-Math.expm1(-yrs*Math.log1p(dr))/dr:yrs;   // ตัวคูณมูลค่าปัจจุบันของผลประโยชน์ตลอดระยะเวลา (ไม่คิดลด = จำนวนปี)
+  const pv1=dr>0?totBenefit/(1+dr):totBenefit;             // ผลประโยชน์ปีที่ 1 (คิดลด)
+  const roi1=(pv1-inv)/inv*100;
+  const roiTot=(totBenefit*af-inv)/inv*100;
+  // Payback : ไม่คิดลด = เงินลงทุน ÷ ผลประโยชน์/ปี ; คิดลด = ผลประโยชน์ปลายปีแต่ละปีคิดลดสะสม แล้วเทียบสัดส่วนในปีที่คืนทุน (สอดคล้องกับ NPV) ; ไม่คืนทุนถ้า เงินลงทุน×r ≥ B
+  let payback=NaN;
+  if(totBenefit>0){
+    if(!(dr>0))payback=inv/totBenefit;
+    else if(inv*dr<totBenefit){
+      const k=Math.max(1,Math.ceil(-Math.log1p(-inv*dr/totBenefit)/Math.log1p(dr)-1e-9));      // ปีแรกที่ผลประโยชน์คิดลดสะสม >= เงินลงทุน
+      const cumPrev=k>1?totBenefit*(-Math.expm1(-(k-1)*Math.log1p(dr)))/dr:0, cfK=totBenefit/Math.pow(1+dr,k);
+      payback=(k-1)+(inv-cumPrev)/cfK;
+    }
+  }
+  const npv=totBenefit*af-inv;
+  if(![totBenefit,roi1,roiTot,npv].every(isFinite)){vfail('cr-res',PB_BIG);return;}
   $('cr-totbenefit').textContent=fB(totBenefit)+'/ปี';
   $('cr-roi1').textContent=fP(roi1); $('cr-roi1').className='rv '+(roi1>=100?'g':roi1>=0?'o':'r');
   $('cr-roitot').textContent=fP(roiTot); $('cr-roitot').className='rv '+(roiTot>=200?'g':roiTot>=0?'o':'r');
-  $('cr-payback').textContent=isFinite(payback)?fN(payback,2)+' ปี ('+fN(payback*12,2)+' เดือน)':'ไม่คืนทุน (ไม่มีผลประโยชน์)';
+  $('cr-payback').textContent=isFinite(payback)?fN(payback,2)+' ปี ('+fN(payback*12,2)+' เดือน)'+(dr>0&&payback>yrs?' — เกินระยะประเมิน':''):(totBenefit>0?'ไม่คืนทุน (ผลประโยชน์หลังคิดลดไม่พอคืนเงินลงทุน)':'ไม่คืนทุน (ไม่มีผลประโยชน์)');
   $('cr-npv').textContent=fB(npv); $('cr-npv').className='rv '+(npv>=0?'g':'r');
+  const drTxt=parseFloat((dr*100).toFixed(4))+'%';
+  $('cr-npvlbl').textContent=dr>0?'NPV (คิดลด '+drTxt+'/ปี)':'มูลค่าสุทธิรวม (ไม่คิดลด)';
+  $('cr-pblbl').textContent=dr>0?'Payback Period (คิดลด)':'Payback Period';
+  $('cr-roi1lbl').textContent=dr>0?'ROI (1 ปี, คิดลด)':'ROI (1 ปี)';
+  $('cr-roitotlbl').textContent=dr>0?'ROI (ตลอดระยะ, คิดลด)':'ROI (ตลอดระยะ)';
   show('cr-res');
 }
 
@@ -8035,14 +8177,46 @@ function calcInstallQuote(){
     [le,le]
   ]);
   if(bad){vfail('iq-res',bad);return;}
-  const pmt=lPmt(principal,rateA,term);
+  // Flat: ดอกเบี้ยรวม = ยอดกู้ × อัตรา × ปี ; ค่างวด = (ยอดกู้ + ดอกเบี้ยรวม) ÷ งวด (ธปท.) | ลดต้นลดดอก: สูตรผ่อนชำระมาตรฐาน
+  const flat=$('iq-mode').value==='flat';
+  const pmt=flat?(principal+principal*rateA*term/12)/term:lPmt(principal,rateA,term);
   if(!isFinite(pmt)){vfail('iq-res',LOAN_BIG_MSG);return;}
   const rate=rateA/12;
-  const totPay=pmt*term+down+fee, totInt=pmt*term-principal;
+  // ตัวเลือกเสริม (ข้อสมมติ ไม่ได้อ้างอิงเอกสารทางการ): ปัดค่างวด/ดอกเบี้ยเป็นสตางค์ (ครึ่งปัดขึ้น) แล้วให้งวดสุดท้ายรับส่วนต่าง
+  const rnd=$('iq-rnd').value==='1', r2=x=>Math.round(x*100+1e-9)/100;
+  let rows=null;
+  if(rnd){
+    rows=[];
+    const pay=r2(pmt);
+    if(!(pay>=0.01)){vfail('iq-res','ค่างวดต่ำกว่า 1 สตางค์ ไม่สามารถปัดเศษได้ — เลือก "ไม่ปัด"');return;}
+    let b=principal;
+    if(flat){
+      const I=r2(principal*rateA*term/12), it=r2(I/term), pay1=r2((principal+I)/term);
+      for(let i=1;i<=term;i++){
+        const last=i===term, intP=last?r2(I-it*(term-1)):it, payI=last?r2(principal+I-pay1*(term-1)):pay1, prin=r2(payI-intP);
+        b=last?0:r2(b-prin);rows.push([payI,intP,prin,b]);
+      }
+    }else{
+      for(let i=1;i<=term;i++){
+        const last=i===term, intP=r2(b*rate), prin=last?b:r2(pay-intP), payI=last?r2(b+intP):pay;
+        b=last?0:r2(b-prin);rows.push([payI,intP,prin,b]);
+      }
+    }
+    const lastPay=rows[term-1][0];
+    if(!(lastPay>0)||!rows.every(x=>x.every(isFinite))){vfail('iq-res','ผลการปัดเศษผิดปกติ (งวดสุดท้ายไม่เป็นบวก) — เลือก "ไม่ปัด"');return;}
+  }
+  const pmtShow=rnd?rows[0][0]:pmt;
+  const totInt=rnd?rows.reduce((s,x)=>s+x[1],0):pmt*term-principal;
+  const totPay=(rnd?rows.reduce((s,x)=>s+x[0],0):pmt*term)+down+fee;
   const firstDay=down+fee;
+  $('iq-lastrow').style.display=rnd?'':'none';
+  if(rnd)$('iq-last').textContent=fB(rows[term-1][0]);
+  $('iq-note').textContent=rnd?'ข้อสมมติ: ปัดค่างวดและดอกเบี้ยแต่ละงวดเป็นสตางค์ (ครึ่งปัดขึ้น) และให้งวดสุดท้ายรับส่วนต่าง — ไม่ได้อ้างอิงเอกสารทางการ สัญญาจริงของผู้ให้กู้อาจต่างกัน'+(flat?' ; อัตราที่แท้จริงของ Flat คำนวณจากค่างวดก่อนปัด':''):'';
   $('iq-principal').textContent=fB(principal);
-  $('iq-pmt').textContent=fB(pmt);
+  $('iq-pmt').textContent=fB(pmtShow);
   $('iq-totint').textContent=fB(totInt);
+  $('iq-effrow').style.display=flat?'':'none';
+  if(flat){const rm=solveMonthlyRate(principal,pmt,term);$('iq-eff').textContent=rm===null?'—':fN(rm*12*100,2)+'% ต่อปี';} // นอมินัล (อัตรารายเดือน × 12) เทียบได้กับช่องอัตราโหมดลดต้นลดดอก
   $('iq-totpay').textContent=fB(totPay);
   $('iq-firstday').textContent=fB(firstDay);
   // Amortization table (first 360 rows max)
@@ -8050,13 +8224,14 @@ function calcInstallQuote(){
   let bal=principal;
   const maxRows=Math.min(term,360);
   for(let i=1;i<=maxRows;i++){
-    const intPart=bal*rate, prinPart=pmt-intPart;
+    if(rnd){const x=rows[i-1];h+=`<tr><td>${i}</td><td>${fB(x[0])}</td><td>${fB(x[1])}</td><td>${fB(x[2])}</td><td>${fB(x[3])}</td></tr>`;continue;}
+    const intPart=flat?totInt/term:bal*rate, prinPart=flat?principal/term:pmt-intPart; // Flat: แบ่งต้น/ดอกเท่ากันทุกงวด
     bal=Math.max(0,bal-prinPart);
     h+=`<tr><td>${i}</td><td>${fB(pmt)}</td><td>${fB(intPart)}</td><td>${fB(prinPart)}</td><td>${fB(Math.max(0,bal))}</td></tr>`;
   }
   if(term>360) h+=`<tr><td colspan="5" style="text-align:center;color:#4a5268;font-size:.74rem">แสดง 360 งวดแรก จากทั้งหมด ${term} งวด</td></tr>`;
   h+='</tbody></table></div></div>';
-  $('iq-tw').innerHTML='<div class="tbl-section"><button class="tbl-toggle" onclick="toggleTbl(this)"><span class="tbl-arrow">&#9662;</span><span class="tbl-lbl">ซ่อนตาราง</span><span style="color:#4a5268;font-weight:400;margin-left:4px">(Amortization)</span></button><div class="tbl-body">'+h+'</div></div>';
+  $('iq-tw').innerHTML='<div class="tbl-section"><button class="tbl-toggle" onclick="toggleTbl(this)"><span class="tbl-arrow">&#9662;</span><span class="tbl-lbl">ซ่อนตาราง</span><span style="color:#4a5268;font-weight:400;margin-left:4px">('+(flat?'Flat — แบ่งต้น/ดอกเท่ากันทุกงวด':'Amortization')+')</span></button><div class="tbl-body">'+h+'</div></div>';
   show('iq-res');
 }
 
