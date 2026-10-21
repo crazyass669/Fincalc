@@ -375,6 +375,7 @@ select option{background:var(--surf2);color:var(--text)}
   <div class="nav-section">
     <div class="nav-head">🌴 วางแผนเกษียณ · Retirement</div>
     <div class="nav-item" role="button" tabindex="0" data-page="retire" onclick="nav(this)"><span class="nav-icon">🌴</span>วางแผนเกษียณ <span style="color:#4a5268;font-size:.72rem">Retirement Planner</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="savplan" onclick="nav(this)"><span class="nav-icon">🪙</span>ตารางออมเงินเตรียมเกษียณ <span style="color:#4a5268;font-size:.72rem">Savings Projection</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="retirewith" onclick="nav(this)"><span class="nav-icon">🪣</span>แผนถอนเงินหลังเกษียณ <span style="color:#4a5268;font-size:.72rem">Withdrawal Plan</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="retireincome" onclick="nav(this)"><span class="nav-icon">💰</span>รายได้หลังเกษียณ <span style="color:#4a5268;font-size:.72rem">Retirement Income</span></div>
   </div>
@@ -2051,6 +2052,50 @@ select option{background:var(--surf2);color:var(--text)}
   ไม่รวมบำนาญ/เงินได้อื่นหลังเกษียณ (ดูหน้า "รายได้หลังเกษียณ")
 </div>
 </div>
+</div>
+
+<!-- ══ SAVINGS PLAN ══ -->
+<div class="page" id="page-savplan">
+  <div class="page-header"><div class="page-title">ตารางออมเงินเตรียมเกษียณ</div><div class="page-sub">เงินเดือนโตรายปี + โบนัส → เงินสะสมตามอายุ (Savings Projection)</div></div>
+  <div class="pc-row">
+<div class="card pc-calc" style="margin:0">
+    <div class="grid2">
+      <div class="fg"><label>อายุที่เริ่มออมเงิน</label><input type="number" id="sjp-age" step="1" placeholder="เช่น 30"></div>
+      <div class="fg"><label>อายุสิ้นอายุขัย <span style="color:var(--text3)">(ตารางจบที่อายุนี้)</span></label><input type="number" id="sjp-end" step="1" placeholder="เช่น 90"></div>
+      <div class="fg"><label>เงินเดือนเริ่มต้น (ต่อเดือน)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="sjp-sal" placeholder="เช่น 25000"></div></div>
+      <div class="fg"><label>เงินเดือนเพิ่มขึ้น (%/ปี)</label><input type="number" id="sjp-sg" step="any" placeholder="เช่น 2"></div>
+      <div class="fg"><label>ออมจากเงินเดือน (%)</label><input type="number" id="sjp-sr" step="any" placeholder="เช่น 10"></div>
+      <div class="fg"><label>โบนัส (กี่เดือนของเงินเดือน)</label><input type="number" id="sjp-bm" step="any" placeholder="เช่น 2 (ไม่มี = 0)"></div>
+      <div class="fg"><label>ออมจากโบนัส (%)</label><input type="number" id="sjp-br" step="any" placeholder="เช่น 50"></div>
+      <div class="fg"><label>เงินก้อนตั้งต้น</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="sjp-init" placeholder="เช่น 500000 (ไม่มี = 0)"></div></div>
+      <div class="fg"><label>ผลตอบแทนที่คาดว่าจะทำได้ (%/ปี)</label><input type="number" id="sjp-r" step="any" placeholder="เช่น 8"></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcSavPlan()">สร้างตาราง</button><button class="btn btn-s" onclick="clr('sjp')">ล้างค่า</button></div>
+    <div class="rbox" id="sjp-res"><div class="rgrid">
+      <div class="ri"><div class="rl" id="sjp-fvl">เงินสะสมสิ้นปีสุดท้าย</div><div class="rv g" id="sjp-fv">—</div></div>
+      <div class="ri"><div class="rl">เงินออมรวม (รวมเงินก้อนตั้งต้น)</div><div class="rv" id="sjp-tot">—</div></div>
+      <div class="ri"><div class="rl">ผลตอบแทนรวม</div><div class="rv o" id="sjp-gain">—</div></div>
+      <div class="ri"><div class="rl">ออมนาน</div><div class="rv a" id="sjp-yrs">—</div></div>
+    </div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  ดูว่าถ้าออมทุกปีตั้งแต่อายุที่เริ่มออมจนถึงอายุสิ้นอายุขัย เงินจะสะสมเป็นเท่าไหร่ในแต่ละอายุ — เงินเดือนเพิ่มขึ้นทุกปี ออมจากเงินเดือนและโบนัสคนละสัดส่วน<br>
+  <span style="color:var(--text3)">1 แถว = 1 ปีที่อายุนั้น (แถวสุดท้ายคืออายุสิ้นอายุขัย ยังออมในปีนั้นด้วย) · เงินเดือนปีแรก = ที่กรอก ปีถัดไปคูณ (1 + %เพิ่ม) · โบนัส = เงินเดือนปีนั้น × จำนวนเดือน · เงินออมปีละครั้ง เข้าปลายปี (ไม่ได้ผลตอบแทนในปีที่ออม) · ผลตอบแทน = เงินต้นงวด × %ต่อปี ทบต้นปีละครั้ง · ไม่หักเงินเฟ้อ ภาษี และค่าธรรมเนียม ตัวเลขเป็นเงินบาทตามราคาในอนาคต (ไม่ใช่มูลค่าเงินวันนี้)</span><br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 1 — ออมตั้งแต่อายุ 21</div>
+  เงินเดือน ฿25,000 เพิ่ม 2%/ปี ออม 10% โบนัส 2 เดือน ออม 50% ตั้งต้น ฿500,000 ผล 10%/ปี<br>
+  ตารางตั้งแต่อายุ 21 ถึง 60 (40 ปี)<br>
+  → <b class="pc-ans">สิ้นอายุ 60 สะสม ~฿52.23 ล้าน (ออมจริงรวมเงินตั้งต้น ฿3.82 ล้าน ผลตอบแทน ฿48.41 ล้าน)</b>
+  <br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 2 — เริ่มอายุ 30 ไม่มีเงินตั้งต้น ตารางถึงอายุ 90</div>
+  เงินเดือน ฿25,000 เพิ่ม 2%/ปี ออม 10% โบนัส 2 เดือน ออม 50% ผล 10%/ปี<br>
+  → <b class="pc-ans">สิ้นอายุ 90 (61 ปี) สะสม ~฿227.96 ล้าน (ออมจริงรวม ฿6.45 ล้าน)</b>
+  <br><br>
+  <div class="pc-tip-ex">💡 ผลตอบแทนอ้างอิง</div>
+  ไม่ควรตั้งสูงเกินไป — เทียบดัชนีตลาด: S&amp;P 500 เฉลี่ย ~10%/ปี · พอร์ตหุ้น 60 : ตราสารหนี้ 40 เฉลี่ย ~8%/ปี (ตัวเลขในอดีต ไม่ใช่การรับประกันอนาคต)
+</div>
+</div>
+<div id="sjp-tw"></div>
 </div>
 
 <!-- ══ RETIRE WITHDRAW ══ -->
@@ -6248,6 +6293,46 @@ function calcRetire(){
   h+='</tbody></table></div></div>';
   if(!$('rt-tw')){const d=document.createElement('div');d.id='rt-tw';$('rt-res').appendChild(d);}
   $('rt-tw').innerHTML='<div class="tbl-section"><button class="tbl-toggle" onclick="toggleTbl(this)"><span class="tbl-arrow">&#9662;</span><span class="tbl-lbl">ซ่อนตาราง</span><span style="color:#4a5268;font-weight:400;margin-left:4px">(การสะสมรายปี)</span></button><div class="tbl-body">'+h+'</div></div>';
+}
+
+/* ─── SAVINGS PLAN (ตารางออมรายปี: เงินเดือนโต + โบนัส) ─── */
+// 1 แถว = 1 ปีที่อายุนั้น (เริ่มออม..สิ้นอายุขัย รวมทั้งสองปลาย) ; ออมปลายปี ; ผลตอบแทน = เงินต้นงวด × r (ทบต้นปีละครั้ง)
+function calcSavPlan(){
+  const age=v('sjp-age'),end=v('sjp-end'),sal=v('sjp-sal'),sg=v('sjp-sg')/100,sr=v('sjp-sr'),bm=v('sjp-bm'),br=v('sjp-br'),init=v('sjp-init'),r=v('sjp-r')/100;
+  $('sjp-tw').innerHTML='';
+  const bad=firstErr([
+    [isBlank('sjp-age'),'กรุณากรอกอายุที่เริ่มออมเงิน'],[isBlank('sjp-end'),'กรุณากรอกอายุสิ้นอายุขัย'],
+    [isBlank('sjp-sal'),'กรุณากรอกเงินเดือนเริ่มต้น'],[isBlank('sjp-sg'),'กรุณากรอกเงินเดือนเพิ่มขึ้น (กรอก 0 ถ้าไม่เพิ่ม)'],
+    [isBlank('sjp-sr'),'กรุณากรอก % ออมจากเงินเดือน'],[isBlank('sjp-bm'),'กรุณากรอกจำนวนเดือนโบนัส (กรอก 0 ถ้าไม่มี)'],
+    [isBlank('sjp-br'),'กรุณากรอก % ออมจากโบนัส (กรอก 0 ถ้าไม่ออม)'],[isBlank('sjp-init'),'กรุณากรอกเงินก้อนตั้งต้น (กรอก 0 ถ้าไม่มี)'],
+    [isBlank('sjp-r'),'กรุณากรอกผลตอบแทน (กรอก 0 ถ้าไม่มี)'],
+    [!Number.isInteger(age)||!Number.isInteger(end),'อายุต้องเป็นจำนวนเต็ม (ปี)'],
+    [age<0,'อายุที่เริ่มออมต้องไม่ติดลบ'],
+    [end<=age,'อายุสิ้นอายุขัยต้องมากกว่าอายุที่เริ่มออม'],
+    [end>150,'อายุสิ้นอายุขัยต้องไม่เกิน 150 ปี'],
+    [!(sal>0),'เงินเดือนต้องมากกว่า 0'],
+    [sg<=-1||r<=-1,'เงินเดือนที่เพิ่มขึ้นและผลตอบแทนต้องมากกว่า -100% (ติดลบได้)'],
+    [sr<0||sr>100||br<0||br>100,'% ออมต้องอยู่ระหว่าง 0–100'],
+    [bm<0,'จำนวนเดือนโบนัสต้องไม่ติดลบ'],[init<0,'เงินก้อนตั้งต้นต้องไม่ติดลบ']]);
+  if(bad){vfail('sjp-res',bad);return;}
+  const n=end-age+1;
+  let sl=sal,bal=init,tot=init;const rows=[];
+  for(let i=0;i<n;i++){
+    if(i>0)sl*=1+sg;
+    const bonus=sl*bm,save=sl*12*sr/100+bonus*br/100,gain=bal*r,fin=bal+gain+save;
+    rows.push({y:i+1,a:age+i,sl,bonus,save,open:bal,gain,fin});
+    tot+=save;bal=fin;
+  }
+  if(!isFinite(bal)||!isFinite(tot)||rows.some(x=>!isFinite(x.fin)||!isFinite(x.sl))){vfail('sjp-res',LOAN_BIG_MSG);return;}
+  $('sjp-fvl').textContent='เงินสะสมสิ้นปีสุดท้าย (อายุ '+end+')';
+  $('sjp-fv').textContent=fBig(bal);$('sjp-tot').textContent=fBig(tot);$('sjp-gain').textContent=fBig(bal-tot);
+  $('sjp-yrs').textContent=n+' ปี (อายุ '+age+'–'+end+')';show('sjp-res');
+  const pc=x=>fN(x,Number.isInteger(x)?0:2)+'%';
+  let h='<div class="twrap"><div class="tscroll"><table><thead><tr><th>ปีที่</th><th>อายุ</th><th>เงินเดือน</th><th>% ออม<br>เงินเดือน</th><th>โบนัส</th><th>% ออม<br>โบนัส</th><th>รวมเงินออม</th><th>เงินต้นงวด</th><th>ผลตอบแทน</th><th>เงินสะสม<br>สิ้นปี</th></tr></thead><tbody>';
+  rows.forEach(x=>{
+    h+=`<tr><td>${x.y}</td><td>${x.a}</td><td>${fN(x.sl,0)}</td><td>${pc(sr)}</td><td>${fN(x.bonus,0)}</td><td>${pc(br)}</td><td>${fN(x.save,0)}</td><td>${fN(x.open,0)}</td><td style="color:#27c97e">${fN(x.gain,0)}</td><td>${fN(x.fin,0)}</td></tr>`;
+  });
+  $('sjp-tw').innerHTML='<div class="tbl-section"><button class="tbl-toggle" onclick="toggleTbl(this)"><span class="tbl-arrow">&#9662;</span><span class="tbl-lbl">ซ่อนตาราง</span><span style="color:#4a5268;font-weight:400;margin-left:4px">(เงินสะสมรายปีตามอายุ)</span></button><div class="tbl-body">'+h+'</tbody></table></div></div></div></div>';
 }
 
 /* ─── RETIRE WITHDRAW ─── */
