@@ -347,6 +347,16 @@ select option{background:var(--surf2);color:var(--text)}
   </div>
 
   <div class="nav-section">
+    <div class="nav-head">🧮 ทั่วไป · Miscellaneous</div>
+    <div class="nav-item" role="button" tabindex="0" data-page="tip" onclick="nav(this)"><span class="nav-icon">🍽️</span>ทิปอาหาร <span style="color:#4a5268;font-size:.72rem">Tip Calculator</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="disctax" onclick="nav(this)"><span class="nav-icon">🏷️</span>ส่วนลดและภาษี <span style="color:#4a5268;font-size:.72rem">Discount &amp; Tax</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="percent" onclick="nav(this)"><span class="nav-icon">%</span>เปอร์เซ็นต์ <span style="color:#4a5268;font-size:.72rem">Percentage</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="unitconv" onclick="nav(this)"><span class="nav-icon">📏</span>แปลงหน่วย <span style="color:#4a5268;font-size:.72rem">Unit Converter · กก./ปอนด์ · ไร่ · °C</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="margin" onclick="nav(this)"><span class="nav-icon">📦</span>กำไรขั้นต้น / Markup <span style="color:#4a5268;font-size:.72rem">Margin &amp; Markup</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="breakeven" onclick="nav(this)"><span class="nav-icon">⚖️</span>จุดคุ้มทุน <span style="color:#4a5268;font-size:.72rem">Break-Even Analysis</span></div>
+  </div>
+
+  <div class="nav-section">
     <div class="nav-head">💰 พื้นฐานการเงิน · Finance Basics</div>
     <div class="nav-item active" data-page="tvm" onclick="nav(this)"><span class="nav-icon">⏱</span>TVM — มูลค่าเงินตามเวลา <span style="color:#4a5268;font-size:.72rem">Time Value of Money</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="compound" onclick="nav(this)"><span class="nav-icon">📈</span>ดอกเบี้ยทบต้น <span style="color:#4a5268;font-size:.72rem">Compound Interest</span></div>
@@ -474,15 +484,6 @@ select option{background:var(--surf2);color:var(--text)}
     <div class="nav-head">🚗 รถยนต์ · Auto Loan &amp; Lease</div>
     <div class="nav-item" role="button" tabindex="0" data-page="autoloan" onclick="nav(this)"><span class="nav-icon">🚗</span>สินเชื่อรถยนต์ <span style="color:#4a5268;font-size:.72rem">Auto Loan</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="autolease" onclick="nav(this)"><span class="nav-icon">🔑</span>เช่ารถยนต์ <span style="color:#4a5268;font-size:.72rem">Auto Lease</span></div>
-  </div>
-
-  <div class="nav-section">
-    <div class="nav-head">🧮 ทั่วไป · Miscellaneous</div>
-    <div class="nav-item" role="button" tabindex="0" data-page="tip" onclick="nav(this)"><span class="nav-icon">🍽️</span>ทิปอาหาร <span style="color:#4a5268;font-size:.72rem">Tip Calculator</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="disctax" onclick="nav(this)"><span class="nav-icon">🏷️</span>ส่วนลดและภาษี <span style="color:#4a5268;font-size:.72rem">Discount &amp; Tax</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="percent" onclick="nav(this)"><span class="nav-icon">%</span>เปอร์เซ็นต์ <span style="color:#4a5268;font-size:.72rem">Percentage</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="margin" onclick="nav(this)"><span class="nav-icon">📦</span>กำไรขั้นต้น / Markup <span style="color:#4a5268;font-size:.72rem">Margin &amp; Markup</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="breakeven" onclick="nav(this)"><span class="nav-icon">⚖️</span>จุดคุ้มทุน <span style="color:#4a5268;font-size:.72rem">Break-Even Analysis</span></div>
   </div>
 
   <div class="nav-section">
@@ -3214,6 +3215,27 @@ select option{background:var(--surf2);color:var(--text)}
 </div>
 
 <!-- ══ TIP ══ -->
+<div class="page" id="page-unitconv">
+  <div class="page-header"><div class="page-title">แปลงหน่วย</div><div class="page-sub">Unit Converter — 13 ประเภท รวมหน่วยไทย (ไร่ งาน ตารางวา · บาททองคำ · วา ศอก · ถัง)</div></div>
+  <div class="card">
+    <div class="rg" id="uc-cats" style="margin-bottom:18px"></div>
+    <div class="fg"><label>ค่าที่ต้องการแปลง</label><input type="number" id="uc-val" value="1" step="any" oninput="ucCalc()"></div>
+    <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap">
+      <div class="fg" style="flex:1;min-width:150px;margin:0"><label>จากหน่วย</label><select id="uc-from" onchange="ucCalc()"></select></div>
+      <button class="btn btn-s" type="button" onclick="ucSwap()" title="สลับหน่วย" aria-label="สลับหน่วย" style="margin-bottom:0">⇄</button>
+      <div class="fg" style="flex:1;min-width:150px;margin:0"><label>เป็นหน่วย</label><select id="uc-to" onchange="ucCalc()"></select></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-s" type="button" onclick="ucReset()">ล้างค่า</button><button class="btn btn-s" type="button" id="uc-copy" onclick="ucCopy()">📋 คัดลอกผล</button></div>
+    <div id="uc-err" style="display:none;color:var(--red);font-size:.85rem;margin-top:12px" role="alert"></div>
+    <div class="rbox" style="display:block"><div class="rgrid">
+      <div class="ri"><div class="rl">ผลลัพธ์</div><div class="rv a" id="uc-out">—</div></div>
+    </div>
+    <div id="uc-eq" style="text-align:center;color:var(--text2);font-size:.85rem;margin-top:10px"></div></div>
+    <div id="uc-note" style="color:var(--text3);font-size:.78rem;margin-top:14px;line-height:1.6"></div>
+    <div id="uc-tw"></div>
+  </div>
+</div>
+
 <div class="page" id="page-tip">
   <div class="page-header"><div class="page-title">คำนวณทิป</div><div class="page-sub">Tip Calculator</div></div>
   <div class="pc-row">
@@ -10657,6 +10679,135 @@ function calcRw(){
   $('rwy-cut').textContent=burn<=0?'ไม่ต้องลด (กระแสเงินสดเป็นบวก)':(burn<=tn+1e-9?'ถึงเป้าแล้ว':'ลดเงินสดสุทธิที่เผาลง '+fB(burn-tn)+'/เดือน (หรือเพิ่มรายรับ) จึงจะอยู่ได้ '+fN(tg,0)+' เดือน');
   show('rwy-res');
 }
+
+/* ─── แปลงหน่วย (Unit Converter) · เพิ่ม 2026-11-23 ─── */
+// ตารางหน่วย: [id, ชื่อ, ตัวคูณเป็นหน่วยฐานของประเภท | {to,from} (ไม่เป็นเชิงเส้น), สัญลักษณ์]
+// ตัวคูณทั้งหมดเป็นค่านิยามที่แน่นอน (ปอนด์ = 0.45359237 กก., ฟุต = 0.3048 ม. ฯลฯ) ไม่ใช้ค่าปัดเศษ
+// เดือน/ปี (เวลา) เป็นค่าเฉลี่ย (30.4375 / 365.25 วัน) ไม่ตรงปฏิทินจริง
+/*UC-CORE-BEGIN*/
+const UC=[
+ {id:'wt',ic:'⚖️',nm:'น้ำหนัก',def:['kg','lb'],note:'ทองคำแท่ง 1 บาท = 15.244 ก. · ทองรูปพรรณ 1 บาท = 15.16 ก. · 1 สลึง = ¼ บาท (ตามน้ำหนักที่สมาคมค้าทองคำใช้ — ก่อนซื้อขายจริงควรยืนยันกับร้านทอง) · 1 กะรัต = 200 มก.',units:[
+  ['kg','กิโลกรัม',1,'กก.'],['g','กรัม',0.001,'ก.'],['mg','มิลลิกรัม',0.000001,'มก.'],['t','ตัน (เมตริก)',1000,'ตัน'],
+  ['lb','ปอนด์',0.45359237,'lb'],['oz','ออนซ์',0.028349523125,'oz'],['ozt','ทรอยออนซ์ (ทอง/เงิน)',0.0311034768,'oz t'],['ct','กะรัต',0.0002,'ct'],
+  ['bahtg','บาท (ทองคำแท่ง)',0.015244,'บาทแท่ง'],['bahtj','บาท (ทองรูปพรรณ)',0.01516,'บาทรูปพรรณ'],
+  ['slg','สลึง (ทองคำแท่ง)',0.003811,'สลึงแท่ง'],['slj','สลึง (ทองรูปพรรณ)',0.00379,'สลึงรูปพรรณ']]},
+ {id:'len',ic:'📏',nm:'ความยาว',def:['ft','m'],note:'1 วา = 2 ม. = 4 ศอก · 1 ศอก = 0.5 ม. · 1 เส้น = 20 วา = 40 ม. · 1 ไมล์ = 5,280 ฟุต',units:[
+  ['m','เมตร',1,'ม.'],['cm','เซนติเมตร',0.01,'ซม.'],['mm','มิลลิเมตร',0.001,'มม.'],['km','กิโลเมตร',1000,'กม.'],
+  ['in','นิ้ว',0.0254,'นิ้ว'],['ft','ฟุต',0.3048,'ฟุต'],['yd','หลา (สากล)',0.9144,'หลา'],['mi','ไมล์',1609.344,'ไมล์'],['nmi','ไมล์ทะเล',1852,'nmi'],
+  ['wa','วา',2,'วา'],['sok','ศอก',0.5,'ศอก'],['sen','เส้น',40,'เส้น']]},
+ {id:'area',ic:'🗺️',nm:'พื้นที่',def:['rai','sqm'],note:'1 ไร่ = 4 งาน = 400 ตารางวา = 1,600 ตร.ม. · 1 งาน = 100 ตารางวา = 400 ตร.ม. · 1 ตารางวา = 4 ตร.ม. · 1 เฮกตาร์ = 6.25 ไร่',units:[
+  ['sqm','ตารางเมตร',1,'ตร.ม.'],['sqcm','ตารางเซนติเมตร',0.0001,'ตร.ซม.'],['sqkm','ตารางกิโลเมตร',1000000,'ตร.กม.'],['ha','เฮกตาร์',10000,'ha'],
+  ['sqft','ตารางฟุต',0.09290304,'ตร.ฟุต'],['sqin','ตารางนิ้ว',0.00064516,'ตร.นิ้ว'],['sqyd','ตารางหลา',0.83612736,'ตร.หลา'],['ac','เอเคอร์',4046.8564224,'เอเคอร์'],['sqmi','ตารางไมล์',2589988.110336,'ตร.ไมล์'],
+  ['rai','ไร่',1600,'ไร่'],['ngan','งาน',400,'งาน'],['sqwa','ตารางวา',4,'ตร.ว.']]},
+ {id:'vol',ic:'🧪',nm:'ปริมาตร',def:['L','galus'],note:'แกลลอน US (3.785 ล.) ไม่เท่ากับแกลลอน UK (4.546 ล.) · บาร์เรลน้ำมัน = 42 แกลลอน US · ถัง = 20 ลิตร · ถ้วย/ออนซ์ของเหลว เป็นแบบ US',units:[
+  ['L','ลิตร',1,'ล.'],['mL','มิลลิลิตร',0.001,'มล.'],['m3','ลูกบาศก์เมตร',1000,'ลบ.ม.'],
+  ['galus','แกลลอน (US)',3.785411784,'gal US'],['galuk','แกลลอน (UK)',4.54609,'gal UK'],['qtus','ควอร์ต (US)',0.946352946,'qt'],['ptus','ไพนต์ (US)',0.473176473,'pt'],
+  ['cupus','ถ้วย (US)',0.2365882365,'ถ้วย US'],['floz','ออนซ์ของเหลว (US)',0.0295735295625,'fl oz'],['bbl','บาร์เรลน้ำมัน',158.987294928,'bbl'],['thang','ถัง',20,'ถัง']]},
+ {id:'temp',ic:'🌡️',nm:'อุณหภูมิ',def:['C','F'],neg:1,sig:10,minBase:-273.15,note:'ต่ำกว่าศูนย์สัมบูรณ์ (−273.15 °C) แปลงไม่ได้ · °F = °C × 9/5 + 32',units:[
+  ['C','องศาเซลเซียส',{to:v=>v,from:b=>b},'°C'],
+  ['F','องศาฟาเรนไฮต์',{to:v=>(v-32)*5/9,from:b=>b*9/5+32},'°F'],
+  ['K','เคลวิน',{to:v=>v-273.15,from:b=>b+273.15},'K']]},
+ {id:'spd',ic:'🚀',nm:'ความเร็ว',def:['kmh','mph'],note:'1 นอต = 1 ไมล์ทะเล/ชม. = 1.852 กม./ชม.',units:[
+  ['ms','เมตร/วินาที',1,'ม./วิ'],['kmh','กิโลเมตร/ชั่วโมง',1000/3600,'กม./ชม.'],['mph','ไมล์/ชั่วโมง',0.44704,'mph'],['kn','นอต',1852/3600,'นอต'],['fps','ฟุต/วินาที',0.3048,'ft/s']]},
+ {id:'data',ic:'💾',nm:'ข้อมูล',def:['GB','MB'],note:'KB/MB/GB/TB = 1,000 (แบบผู้ผลิตฮาร์ดดิสก์) · KiB/MiB/GiB/TiB = 1,024 (แบบที่ระบบปฏิบัติการมักแสดง) · 1 ไบต์ = 8 บิต',units:[
+  ['bit','บิต',0.125,'bit'],['B','ไบต์',1,'B'],['KB','กิโลไบต์ (1,000)',1000,'KB'],['MB','เมกะไบต์ (1,000²)',1e6,'MB'],['GB','กิกะไบต์ (1,000³)',1e9,'GB'],['TB','เทระไบต์ (1,000⁴)',1e12,'TB'],
+  ['KiB','กิบิไบต์ (1,024)',1024,'KiB'],['MiB','เมบิไบต์ (1,024²)',1048576,'MiB'],['GiB','จิบิไบต์ (1,024³)',1073741824,'GiB'],['TiB','เทบิไบต์ (1,024⁴)',1099511627776,'TiB']]},
+ {id:'time',ic:'⏱️',nm:'เวลา',def:['h','min'],note:'เดือน = 30.4375 วัน และ ปี = 365.25 วัน เป็นค่าเฉลี่ย ไม่ตรงปฏิทินจริง (เดือนจริงมี 28–31 วัน)',units:[
+  ['ms','มิลลิวินาที',0.001,'มิลลิวินาที'],['s','วินาที',1,'วินาที'],['min','นาที',60,'นาที'],['h','ชั่วโมง',3600,'ชม.'],['d','วัน',86400,'วัน'],['wk','สัปดาห์',604800,'สัปดาห์'],['mo','เดือน (เฉลี่ย)',2629800,'เดือน'],['yr','ปี (เฉลี่ย)',31557600,'ปี']]},
+ {id:'eng',ic:'⚡',nm:'พลังงาน',def:['kWh','kcal'],note:'kWh = “หน่วย” ในบิลค่าไฟ · kcal = แคลอรี่ในอาหาร (1 kcal = 4,184 J) · BTU แบบ IT (1,055.056 J)',units:[
+  ['J','จูล',1,'J'],['kJ','กิโลจูล',1000,'kJ'],['MJ','เมกะจูล',1e6,'MJ'],['cal','แคลอรี่ (เล็ก)',4.184,'cal'],['kcal','กิโลแคลอรี่',4184,'kcal'],['Wh','วัตต์-ชั่วโมง',3600,'Wh'],['kWh','กิโลวัตต์-ชั่วโมง (หน่วยไฟ)',3600000,'kWh'],['BTU','บีทียู',1055.05585262,'BTU']]},
+ {id:'pow',ic:'🔌',nm:'กำลัง',def:['kW','hp'],note:'BTU/ชม. ใช้บอกขนาดแอร์ · แรงม้า (hp) = แบบอังกฤษ 745.7 W · PS = แรงม้าเมตริก 735.5 W (รถยนต์ยุโรป/ญี่ปุ่นมักใช้ PS)',units:[
+  ['W','วัตต์',1,'W'],['kW','กิโลวัตต์',1000,'kW'],['hp','แรงม้า (hp)',745.6998715822702,'hp'],['ps','แรงม้าเมตริก (PS)',735.49875,'PS'],['btuh','บีทียู/ชั่วโมง (แอร์)',1055.05585262/3600,'BTU/ชม.']]},
+ {id:'prs',ic:'🛞',nm:'ความดัน',def:['psi','bar'],note:'ลมยาง: psi (อเมริกา/ญี่ปุ่น) · bar/kPa (ยุโรป) · กก./ตร.ซม. (kgf/cm²) เป็นหน่วยเดิมที่ปั๊มลมไทยหลายแห่งยังใช้ · 1 atm = 101,325 Pa',units:[
+  ['Pa','ปาสกาล',1,'Pa'],['kPa','กิโลปาสกาล',1000,'kPa'],['MPa','เมกะปาสกาล',1e6,'MPa'],['bar','บาร์',100000,'bar'],['psi','psi',0.45359237*9.80665/(0.0254*0.0254),'psi'],['atm','บรรยากาศมาตรฐาน',101325,'atm'],['mmHg','มิลลิเมตรปรอท',133.322387415,'mmHg'],['kgf','กก./ตร.ซม. (kgf/cm²)',98066.5,'kgf/cm²']]},
+ {id:'fuel',ic:'⛽',nm:'อัตราสิ้นเปลือง',def:['kmL','l100'],pos:1,note:'กม./ลิตร ยิ่งมากยิ่งประหยัด แต่ ลิตร/100 กม. ยิ่งน้อยยิ่งประหยัด (เป็นค่ากลับกัน) · mpg ใช้แกลลอนต่างกัน: US 3.785 ล. / UK 4.546 ล. · ค่าต้องมากกว่า 0',units:[
+  ['kmL','กม./ลิตร',1,'กม./ล.'],
+  ['l100','ลิตร/100 กม.',{to:v=>100/v,from:b=>100/b},'ล./100กม.'],
+  ['mpgus','ไมล์/แกลลอน (US)',1.609344/3.785411784,'mpg US'],['mpguk','ไมล์/แกลลอน (UK)',1.609344/4.54609,'mpg UK']]},
+ {id:'ang',ic:'📐',nm:'มุม',def:['deg','rad'],note:'1 รอบ = 360° = 2π เรเดียน = 400 เกรด',units:[
+  ['deg','องศา',Math.PI/180,'°'],['rad','เรเดียน',1,'rad'],['grad','เกรด (gon)',Math.PI/200,'gon'],['turn','รอบ',2*Math.PI,'รอบ']]}
+];
+function ucCat(cid){return UC.find(c=>c.id===cid);}
+function ucUnit(cat,uid){return cat.units.find(u=>u[0]===uid);}
+// แปลง v (หน่วย fid) เป็นหน่วย tid ในประเภท cid ; คืน {val} หรือ {err}
+function ucConvert(cid,fid,tid,v){
+  const cat=ucCat(cid),fu=cat&&ucUnit(cat,fid),tu=cat&&ucUnit(cat,tid);
+  if(!fu||!tu)return{err:'ไม่พบหน่วย'};
+  if(typeof v!=='number'||!isFinite(v))return{err:'กรุณากรอกตัวเลข'};
+  if(cat.pos&&!(v>0))return{err:'ค่าต้องมากกว่า 0'};
+  if(!cat.neg&&!cat.pos&&v<0)return{err:'ประเภทนี้ใช้ค่าติดลบไม่ได้'};
+  const f=fu[2],t=tu[2];
+  const b=typeof f==='number'?v*f:f.to(v);
+  if(!isFinite(b))return{err:'ตัวเลขใหญ่หรือเล็กเกินไป'};
+  if(cat.minBase!==undefined&&b<cat.minBase-1e-9)return{err:'ต่ำกว่าศูนย์สัมบูรณ์ ไม่มีอุณหภูมินี้'};
+  const r=typeof t==='number'?b/t:t.from(b);
+  if(!isFinite(r))return{err:'ตัวเลขใหญ่หรือเล็กเกินไป'};
+  return{val:r};
+}
+// จัดรูปตัวเลข: 14 หลักนัยสำคัญ (พอแสดงจำนวนเต็ม 13 หลักอย่าง 1 TiB = 1,099,511,627,776 ครบ) ตัดเศษลอยตัว (12.000000000000002 → 12)
+// อุณหภูมิใช้ 10 หลัก (cat.sig) เพราะสูตรบวก 32/273.15 มีเศษลอยตัวใหญ่ขึ้นเมื่อค่าใกล้ศูนย์ ; ใหญ่/เล็กมากใช้รูปแบบ e
+function ucFmt(x,sig){
+  if(typeof x!=='number'||!isFinite(x))return'—';
+  const r=Number(x.toPrecision(sig||14));
+  if(r===0)return'0';
+  const a=Math.abs(r);
+  if(a>=1e15||a<1e-6)return String(r.toExponential()).replace('e+','e');
+  return r.toLocaleString('th-TH',{maximumFractionDigits:20});
+}
+function ucPlain(x,sig){const r=Number(x.toPrecision(sig||14));return r===0?'0':String(r);}
+/*UC-CORE-END*/
+
+/*UC-DOM-BEGIN*/
+let ucCur='wt',ucLast=null;
+function ucLbl(u){return u[1]===u[3]?u[1]:u[1]+' ('+u[3]+')';}
+function ucInit(){
+  const box=$('uc-cats');
+  box.innerHTML=UC.map(c=>'<div class="rb'+(c.id===ucCur?' on':'')+'" data-c="'+c.id+'" onclick="ucSetCat(\''+c.id+'\')">'+c.ic+' '+c.nm+'</div>').join('');
+  ucSetCat(ucCur);
+}
+function ucSetCat(cid){
+  const cat=ucCat(cid);if(!cat)return;
+  ucCur=cid;
+  document.querySelectorAll('#uc-cats .rb').forEach(e=>e.classList.toggle('on',e.dataset.c===cid));
+  const opts=cat.units.map(u=>'<option value="'+u[0]+'">'+ucLbl(u)+'</option>').join('');
+  $('uc-from').innerHTML=opts;$('uc-to').innerHTML=opts;
+  $('uc-from').value=cat.def[0];$('uc-to').value=cat.def[1];
+  $('uc-note').textContent=cat.note;
+  ucCalc();
+}
+function ucSwap(){const a=$('uc-from').value;$('uc-from').value=$('uc-to').value;$('uc-to').value=a;ucCalc();}
+function ucPick(uid){$('uc-to').value=uid;ucCalc();}
+function ucReset(){$('uc-val').value='1';ucSetCat(ucCur);}
+function ucCalc(){
+  const cat=ucCat(ucCur),raw=$('uc-val').value,err=$('uc-err'),out=$('uc-out'),eq=$('uc-eq'),tw=$('uc-tw');
+  ucLast=null;$('uc-copy').textContent='📋 คัดลอกผล';
+  const fail=m=>{err.textContent=m;err.style.display=m?'block':'none';out.textContent='—';eq.textContent='';tw.innerHTML='';};
+  if(raw===''||raw==null){fail('กรอกตัวเลขที่ต้องการแปลง');return;}
+  const v=Number(raw),fid=$('uc-from').value,tid=$('uc-to').value;
+  const res=ucConvert(ucCur,fid,tid,v);
+  if(res.err){fail(res.err);return;}
+  err.style.display='none';
+  const fu=ucUnit(cat,fid),tu=ucUnit(cat,tid);
+  const sg=cat.sig;
+  out.textContent=ucFmt(res.val,sg)+' '+tu[3];
+  eq.textContent=ucFmt(v,sg)+' '+fu[3]+' = '+ucFmt(res.val,sg)+' '+tu[3];
+  ucLast=ucPlain(res.val,sg);
+  let h='<div class="twrap" style="margin-top:14px"><div class="tscroll"><table><thead><tr><th>หน่วย</th><th>ค่าเท่ากับ</th></tr></thead><tbody>';
+  cat.units.forEach(u=>{
+    const r=ucConvert(ucCur,fid,u[0],v);
+    const st=u[0]===tid?' style="font-weight:700;color:var(--accent);cursor:pointer"':u[0]===fid?' style="color:var(--text3);cursor:pointer"':' style="cursor:pointer"';
+    h+='<tr'+st+' onclick="ucPick(\''+u[0]+'\')"><td>'+ucLbl(u)+(u[0]===fid?' · ต้นทาง':'')+'</td><td>'+(r.err?'—':ucFmt(r.val,sg))+'</td></tr>';
+  });
+  h+='</tbody></table></div></div>';
+  tw.innerHTML=h;
+}
+function ucCopy(){
+  if(ucLast==null)return;
+  const b=$('uc-copy'),done=()=>{b.textContent='✓ คัดลอกแล้ว';};
+  try{navigator.clipboard.writeText(ucLast).then(done,()=>{b.textContent='คัดลอกไม่ได้';});}catch(e){b.textContent='คัดลอกไม่ได้';}
+}
+/*UC-DOM-END*/
+ucInit();
 
 // เบราว์เซอร์อาจคืนค่า select เดิมหลังรีโหลด — ปรับการซ่อน/แสดงช่องให้ตรงกับ select ตอนโหลดหน้า
 dscrMode();ueMode();
