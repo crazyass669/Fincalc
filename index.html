@@ -412,6 +412,7 @@ select option{background:var(--surf2);color:var(--text)}
     <div class="nav-item" role="button" tabindex="0" data-page="divtax" onclick="nav(this)"><span class="nav-icon">💎</span>ภาษีเงินปันผล <span style="color:#4a5268;font-size:.72rem">Dividend Tax</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="drip" onclick="nav(this)"><span class="nav-icon">🌱</span>DRIP ปันผลทบต้น <span style="color:#4a5268;font-size:.72rem">Dividend Reinvestment</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="portfolio" onclick="nav(this)"><span class="nav-icon">🗂️</span>จัดสรร &amp; Rebalance พอร์ต <span style="color:#4a5268;font-size:.72rem">Portfolio Rebalancing</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="pwi" onclick="nav(this)"><span class="nav-icon">🔮</span>ผลตอบแทนพอร์ต What-if <span style="color:#4a5268;font-size:.72rem">Portfolio Growth Scenario</span></div>
   </div>
 
   <div class="nav-section">
@@ -4621,6 +4622,66 @@ select option{background:var(--surf2);color:var(--text)}
   </div>
 </div>
 
+<!-- ══ PORTFOLIO WHAT-IF GROWTH ══ -->
+<div class="page" id="page-pwi">
+  <div class="page-header"><div class="page-title">ผลตอบแทนพอร์ต What-if</div><div class="page-sub">ถ้าหุ้นแต่ละตัวโต/ลดตามที่คิด พอร์ตรวมจะโตเท่าไหร่ (Portfolio Growth Scenario)</div></div>
+  <div class="pc-row">
+  <div class="card pc-calc" style="margin:0">
+    <div class="card-title">ตั้งค่าพอร์ต</div>
+    <div class="grid2" style="margin-bottom:12px">
+      <div class="fg">
+        <label>จำนวนหุ้นที่ถือ</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="number" id="pwi-count" value="3" min="1" max="30" step="1" style="width:80px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;background:#181c28;border:1px solid #2d3350;border-radius:7px;padding:9px 12px;outline:none">
+          <button class="btn btn-s btn-sm" onclick="pwiBuildRows()">สร้างตาราง</button>
+        </div>
+      </div>
+      <div class="fg">
+        <label>มูลค่าพอร์ตรวมก่อนเปลี่ยนราคา <span style="color:var(--text3)">(ไม่บังคับ · แถวจำนวนหุ้น+ราคาซื้อ นับที่ราคาซื้อ)</span></label>
+        <div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="pwi-total" step="any" placeholder="เช่น 1000000" style="color:#dde4f0;-webkit-text-fill-color:#dde4f0;background:#181c28"></div>
+      </div>
+      <div class="fg">
+        <label>เป้าหมายพอร์ตโต (%) <span style="color:var(--text3)">(ไม่บังคับ · ใช้คู่กับ 🎯 ในแถวหุ้น)</span></label>
+        <div class="iw sfx"><input type="number" id="pwi-target" autocomplete="off" step="any" placeholder="เช่น 50" style="color:#dde4f0;-webkit-text-fill-color:#dde4f0;background:#181c28"><span class="isfx">%</span></div>
+      </div>
+    </div>
+    <div id="pwi-rows" style="margin-bottom:12px"></div>
+    <div class="btn-row">
+      <button class="btn btn-p" onclick="calcPwi()">คำนวณ</button>
+      <button class="btn btn-s" onclick="pwiReset()">ล้างค่า</button>
+    </div>
+    <div class="rbox" id="pwi-res" style="display:none">
+      <div id="pwi-summary"></div>
+      <div id="pwi-tw" style="margin-top:4px"></div>
+    </div>
+  </div>
+  <div class="pc-tip">
+    <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+    ดูว่า "ถ้าหุ้นแต่ละตัวขึ้น/ลงเท่านี้ พอร์ตรวมจะโต (หรือลด) กี่ %" — ไม่ต้องกรอกครบทุกช่อง เลือกกรอกเฉพาะที่รู้<br>
+    <span style="color:var(--text3)">แต่ละแถวต้องรู้ 2 อย่าง: (1) ตัวนี้หนักแค่ไหนในพอร์ต = กรอก <b>สัดส่วน %</b> หรือกรอก <b>จำนวนหุ้น + ราคาซื้อ</b> · (2) ราคาจะเปลี่ยนเท่าไหร่ = กรอก <b>% เปลี่ยนแปลง</b> หรือ <b>ราคาปัจจุบัน</b> (คู่กับราคาซื้อ) · ถ้ากรอกทั้ง % เปลี่ยนแปลงและราคาปัจจุบัน ใช้ % เปลี่ยนแปลง (นับจากฐานเดิม คือราคาซื้อ/ราคาก่อนเปลี่ยน ไม่ใช่จากราคาปัจจุบัน) · แถวที่กรอกจำนวนหุ้น + ราคาซื้อ คิดน้ำหนักด้วยมูลค่าที่ราคาซื้อ (ไม่ใช่ราคาปัจจุบัน) · ถ้ากรอกทั้งสัดส่วน % และจำนวนหุ้น ใช้สัดส่วน % · แถวที่ไม่มีข้อมูลราคาถือว่าราคาไม่เปลี่ยน · สัดส่วน % รวมไม่ถึง 100 ส่วนที่เหลือ (เช่น เงินสด) ถือว่าไม่เปลี่ยน · ถ้าผสมแถวที่กรอกสัดส่วน % กับแถวที่กรอกจำนวนหุ้น ต้องกรอกมูลค่าพอร์ตรวมด้วย · ไม่รวมค่าคอมมิชชัน ภาษี และเงินปันผล</span><br><br>
+    <div class="pc-tip-ex">โต 200% = ราคาเป็น 3 เท่า</div>
+    โต 200% ใส่ 200 · ลดลง 30% ใส่ -30 · ราคาเหลือ 0 ใส่ -100<br><br>
+    <div class="pc-tip-ex">ตัวอย่าง 1 — กรอกสัดส่วน</div>
+    A สัดส่วน 50% ราคาโต 5% · B สัดส่วน 25% ราคาโต 200% · C สัดส่วน 25% ราคาลดลง 30%<br>
+    → <b class="pc-ans">พอร์ตโต +45.00%</b> (50×1.05 + 25×3 + 25×0.7 = 145 จาก 100)<br><br>
+    <div class="pc-tip-ex">ตัวอย่าง 2 — กรอกจำนวนหุ้นและราคา</div>
+    A 100 หุ้น ซื้อ ฿50 ราคาตอนนี้ ฿60 · B 200 หุ้น ซื้อ ฿20 ถ้าโต 200%<br>
+    → <b class="pc-ans">พอร์ตโต +100.00%</b> (ทุน ฿9,000 เป็น ฿18,000)<br><br>
+    <div class="pc-tip-ex">เทียบ 3 สถานการณ์ (กรณีแย่ / กลาง / ดี)</div>
+    ช่อง "ราคาเปลี่ยน % (กลาง)" คือกรณีกลาง · ถ้าอยากเทียบ ใส่ "กรณีแย่" และ/หรือ "กรณีดี" ของหุ้นที่ต่างจากกรณีกลาง — ช่องที่เว้นว่างใช้ค่ากรณีกลาง · น้ำหนักในพอร์ตใช้ชุดเดียวกันทุกกรณี<br>
+    ตัวอย่างข้อ 1 เพิ่ม: A แย่ -10 ดี 20 · B แย่ -50 ดี 300 · C แย่ -60 ดี 0<br>
+    → <b class="pc-ans">แย่ -32.50% · กลาง +45.00% · ดี +85.00%</b><br><br>
+    <div class="pc-tip-ex">🎯 ต้องโตเท่าไหร่ถึงได้เป้า</div>
+    กรอก "เป้าหมายพอร์ตโต %" แล้วติ๊ก 🎯 ที่หุ้นหนึ่งตัว — ระบบหาว่าตัวนั้นต้องโต/ลดกี่ % ให้พอร์ตรวมถึงเป้า เมื่อหุ้นตัวอื่นเป็นตามกรณีกลาง · ตัวที่ติ๊ก 🎯 ไม่ใช้ % เปลี่ยน/ราคาปัจจุบัน/กรณีแย่-ดี ที่กรอกไว้ และผลทั้งหน้า (การ์ดสรุป ตาราง) แสดงตามค่าที่หาได้ · เป้าหมายใช้กับกรณีกลางเท่านั้น<br>
+    ตัวอย่างข้อ 1: เป้าพอร์ต +50% ติ๊ก 🎯 ที่ B (A +5%, C -30% ตามเดิม)<br>
+    → <b class="pc-ans">B ต้องโต +220.00%</b> (50×1.05 + 25×3.2 + 25×0.7 = 150 จาก 100)<br><br>
+    <div class="pc-tip-ex">สูตร</div>
+    โตรวม % = Σ (สัดส่วนเดิม × % เปลี่ยนของตัวนั้น) · ส่วนที่ดึงพอร์ต = สัดส่วนเดิม × % เปลี่ยน<br>
+    % ที่ตัว k ต้องเป็น = (เป้า × ฐานรวม − Σ ส่วนกำไรของตัวอื่น) ÷ ฐานของตัว k
+  </div>
+  </div>
+</div>
+
 <!-- ========== GROUP B: Valuation ========== -->
 
 <div class="page" id="page-peg">
@@ -8585,6 +8646,227 @@ setTimeout(()=>{
     pfBuildRows();
   }
 },900);
+
+/* ─── PORTFOLIO WHAT-IF GROWTH ─── */
+/* PWI-START */
+// rows: [{name,w,sh,bp,cp,g,g2,g3}] ค่าเป็น number หรือ null (ว่าง) ; g = กรณีกลาง, g2 = กรณีแย่, g3 = กรณีดี (% เปลี่ยนแปลง)
+// P = มูลค่าพอร์ตรวมก่อนเปลี่ยนราคา (number|null)
+// opts = {target: เป้าหมายพอร์ตโต % (number|null), solve: ดัชนีแถวที่จะหาย้อนกลับ (-1 = ไม่เลือก)}
+// คืน {err} หรือ {unitBaht,T,items,other,gain,newTotal,growth,notes,scen,solve}
+function pwiCompute(rows,P,opts){
+  const nz=x=>x!==null&&x!==undefined;
+  opts=opts||{};
+  const target=nz(opts.target)?opts.target:null;
+  const solveIdx=(target!==null&&Number.isInteger(opts.solve)&&opts.solve>=0)?opts.solve:-1;
+  const items=[],notes=[];
+  if(nz(P)&&!(P>0))return {err:'มูลค่าพอร์ตรวมต้องมากกว่า 0 (หรือเว้นว่างไว้)'};
+  if(target!==null){
+    if(!isFinite(target)||target<-100)return {err:'เป้าหมายพอร์ตโต % ต้องไม่น้อยกว่า -100'};
+    if(solveIdx<0)return {err:'กรอกเป้าหมายพอร์ตแล้ว — กรุณาเลือกหุ้นตัวที่จะให้หาว่าต้องโตเท่าไหร่ (ติ๊ก 🎯 ในแถวนั้น)'};
+  }
+  for(let i=0;i<rows.length;i++){
+    const r=rows[i],nm=r.name||('หุ้น '+(i+1));
+    if(![r.w,r.sh,r.bp,r.cp,r.g,r.g2,r.g3].some(nz))continue; // แถวว่างทั้งแถว ข้ามเงียบ ๆ
+    if(nz(r.w)&&(r.w<0||r.w>100))return {err:nm+': สัดส่วน % ต้องอยู่ระหว่าง 0–100'};
+    if(nz(r.sh)&&!(r.sh>0))return {err:nm+': จำนวนหุ้นต้องมากกว่า 0'};
+    if(nz(r.bp)&&!(r.bp>0))return {err:nm+': ราคาซื้อต้องมากกว่า 0'};
+    if(nz(r.cp)&&r.cp<0)return {err:nm+': ราคาปัจจุบันต้องไม่ติดลบ'};
+    if(i!==solveIdx&&nz(r.g)&&r.g<-100)return {err:nm+': % เปลี่ยนแปลงต้องไม่น้อยกว่า -100 (ราคาลดลงสุดคือเหลือ 0)'};
+    if(i!==solveIdx&&nz(r.g2)&&r.g2<-100)return {err:nm+': % กรณีแย่ต้องไม่น้อยกว่า -100'};
+    if(i!==solveIdx&&nz(r.g3)&&r.g3<-100)return {err:nm+': % กรณีดีต้องไม่น้อยกว่า -100'};
+    let kind='';
+    if(nz(r.w))kind='w';else if(nz(r.sh)&&nz(r.bp))kind='amt';
+    else{notes.push(nm+': ไม่มีสัดส่วน % หรือ (จำนวนหุ้น + ราคาซื้อ) — ข้ามแถวนี้ไม่นำมาคำนวณ');continue;}
+    let ret=0,src='';
+    if(i===solveIdx){src='🎯';} // ค่าของแถวนี้ถูกแทนด้วยค่าที่หาได้ด้านล่าง
+    else if(nz(r.g)){
+      ret=r.g/100;src='%';
+      if(nz(r.cp))notes.push(nm+': กรอกทั้งราคาปัจจุบันและ % เปลี่ยนแปลง — ใช้ % เปลี่ยนแปลง (นับจากฐานเดิมของแถวนี้ ไม่ใช่จากราคาปัจจุบัน)');
+    }else if(nz(r.bp)&&nz(r.cp)){ret=r.cp/r.bp-1;src='ราคา';}
+    else notes.push(nm+': ไม่มี % เปลี่ยนแปลง หรือราคาปัจจุบัน (คู่กับราคาซื้อ) — ถือว่าราคาไม่เปลี่ยน (กรณีกลาง)');
+    items.push({idx:i,name:nm,kind,w:r.w,sh:r.sh,bp:r.bp,ret,src,a:0,contrib:0,newVal:0,
+      alt:i===solveIdx?{bad:null,good:null}:{bad:nz(r.g2)?r.g2/100:null,good:nz(r.g3)?r.g3/100:null}});
+  }
+  if(!items.length)return {err:'กรุณากรอกอย่างน้อย 1 แถวที่มีสัดส่วน % หรือ (จำนวนหุ้น + ราคาซื้อ)'};
+  if(solveIdx>=0&&!items.some(x=>x.idx===solveIdx))return {err:'หุ้นที่เลือกให้หาย้อนกลับต้องมีสัดส่วน % หรือ (จำนวนหุ้น + ราคาซื้อ)'};
+  const hasW=items.some(x=>x.kind==='w'),hasAmt=items.some(x=>x.kind==='amt');
+  let T,unitBaht;
+  if(nz(P)){T=P;unitBaht=true;}
+  else if(!hasAmt){T=100;unitBaht=false;}
+  else if(!hasW){T=items.reduce((s,x)=>s+x.sh*x.bp,0);unitBaht=true;}
+  else return {err:'มีทั้งแถวที่กรอกสัดส่วน % และแถวที่กรอกจำนวนหุ้น + ราคาซื้อ — กรุณากรอก "มูลค่าพอร์ตรวมก่อนเปลี่ยนราคา" ด้วย เพื่อให้เทียบกันได้'};
+  items.forEach(x=>{x.a=x.kind==='w'?(nz(P)?x.w/100*P:x.w):x.sh*x.bp;});
+  const sumA=items.reduce((s,x)=>s+x.a,0);
+  if(!isFinite(sumA)||!isFinite(T)||!(T>0))return {err:'ค่าที่กรอกใหญ่เกินกว่าจะคำนวณได้'};
+  if(sumA>T*(1+1e-9)){
+    return {err:nz(P)?'มูลค่ารวมของหุ้นที่กรอก ('+fN(sumA,2)+' ฿) เกินมูลค่าพอร์ตรวม ('+fN(P,2)+' ฿)'
+      :'สัดส่วน % รวมกันเป็น '+fN(sumA,2)+'% เกิน 100%'};
+  }
+  let other=T-sumA;if(other<T*1e-9)other=0; // เศษปัดลอยตัว ไม่ใช่เงินสดจริง
+  // คำนวณย้อนกลับ: หา % ที่แถวที่เลือกต้องเป็น เพื่อให้พอร์ตโตตามเป้า (ตัวอื่นเป็นตามกรณีกลาง)
+  // แล้วใส่ค่านั้นลงแถวนี้ ผลรวม/ตารางทั้งหน้าจึงสอดคล้องกับเป้า (ถ้าเป็นไปไม่ได้ ใช้ -100% = ต่ำสุดที่ทำได้)
+  let solve=null;
+  if(solveIdx>=0){
+    const k=items.find(x=>x.idx===solveIdx);
+    if(!(k.a>0))return {err:k.name+': สัดส่วน/มูลค่าเป็น 0 — หาย้อนกลับไม่ได้'};
+    let others=0;
+    items.forEach(x=>{if(x!==k)others+=x.a*x.ret;});
+    const r=(target/100*T-others)/k.a;
+    if(!isFinite(r))return {err:'ค่าที่กรอกใหญ่เกินกว่าจะคำนวณได้'};
+    const possible=r>=-1-1e-9;
+    solve={name:k.name,target,r,possible,price:(possible&&nz(k.bp))?k.bp*(1+Math.max(r,-1)):null,bp:nz(k.bp)?k.bp:null};
+    k.ret=possible?Math.max(r,-1):-1;
+  }
+  let gain=0;
+  items.forEach(x=>{
+    x.contrib=x.a*x.ret/T*100;
+    x.newVal=x.a*(1+x.ret);
+    gain+=x.a*x.ret;
+  });
+  let newTotal=T+gain;const growth=gain/T*100;
+  if(Math.abs(newTotal)<=T*1e-12)newTotal=0; // ลดครบ -100% ทุกตัว: กันเศษลอยตัว (เช่น 3.7e-9) แทน 0
+  if(!isFinite(newTotal)||!isFinite(growth))return {err:'ค่าที่กรอกใหญ่เกินกว่าจะคำนวณได้'};
+  // สถานการณ์แย่/ดี: แถวที่เว้นว่างใช้ % ของกรณีกลาง ; น้ำหนักเดิมชุดเดียวกัน
+  const scen={};
+  ['bad','good'].forEach(key=>{
+    if(!items.some(x=>x.alt[key]!==null))return;
+    let g=0;
+    const rets=items.map(x=>{const rr=x.alt[key]!==null?x.alt[key]:x.ret;g+=x.a*rr;return rr;});
+    scen[key]={rets,gain:g,growth:g/T*100,newTotal:Math.abs(T+g)<=T*1e-12?0:T+g};
+  });
+  for(const k in scen)if(!isFinite(scen[k].growth))return {err:'ค่าที่กรอกใหญ่เกินกว่าจะคำนวณได้'};
+  return {unitBaht,T,items,other,gain,newTotal,growth,notes,scen,solve};
+}
+/* PWI-END */
+function pwiBuildRows(){
+  const nRaw=$('pwi-count').value.trim(),n=Number(nRaw);
+  if(nRaw===''||!Number.isInteger(n)||n<1||n>30){alert('จำนวนหุ้นต้องเป็นจำนวนเต็ม 1–30');return;}
+  const container=$('pwi-rows');
+  const F=['name','w','sh','bp','cp','g','g2','g3'];
+  const existing=[...container.querySelectorAll('.pwi-row')].map(r=>{const o={};F.forEach(k=>{o[k]=r.querySelector('.pwi-'+k).value;});o.solve=r.querySelector('.pwi-solve').checked;return o;});
+  container.innerHTML='';
+  hide('pwi-res');$('pwi-summary').innerHTML='';$('pwi-tw').innerHTML=''; // โครงแถวเปลี่ยน ผลเก่าไม่ตรงอีกต่อไป
+  const iBase='background:#181c28;border:1px solid #2d3350;border-radius:7px;color:#dde4f0;-webkit-text-fill-color:#dde4f0;font-family:Sarabun,sans-serif;font-size:.83rem;outline:none;box-sizing:border-box';
+  const lb='font-size:.72rem;color:#7e8ba3;margin-bottom:3px;white-space:nowrap';
+  const cell=(k,lbl,ph)=>`<div style="min-width:0"><div style="${lb}">${lbl}</div><input type="number" class="pwi-${k}" placeholder="${ph}" step="any" style="${iBase};padding:8px 8px;width:100%"></div>`;
+  for(let i=0;i<n;i++){
+    const p=existing[i]||{};
+    const row=document.createElement('div');
+    row.className='pwi-row';
+    row.style.cssText='border:1px solid #2d3350;border-radius:10px;padding:10px;margin-bottom:10px';
+    row.innerHTML=
+      `<div style="${lb}">หุ้นตัวที่ ${i+1}</div>`
+      +`<input type="text" class="pwi-name" placeholder="ชื่อหุ้น (ไม่บังคับ)" style="${iBase};padding:8px 10px;width:100%;margin-bottom:8px">`
+      +`<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px">`
+      +cell('w','สัดส่วนพอร์ต (%)','เช่น 50')
+      +cell('sh','จำนวนหุ้น','เช่น 100')
+      +cell('bp','ราคาซื้อ (฿)','เช่น 50')
+      +cell('cp','ราคาปัจจุบัน (฿)','เช่น 60')
+      +cell('g','ราคาเปลี่ยน % (กลาง)','เช่น 200 / -30')
+      +cell('g2','กรณีแย่ (%)','ไม่บังคับ')
+      +cell('g3','กรณีดี (%)','ไม่บังคับ')
+      +`</div>`
+      +`<label style="display:flex;gap:6px;align-items:center;margin-top:8px;font-size:.76rem;color:#7e8ba3;cursor:pointer"><input type="radio" name="pwi-solve" class="pwi-solve"> 🎯 หาว่าตัวนี้ต้องโตเท่าไหร่ (ต้องกรอก "เป้าหมายพอร์ต" ด้านบน)</label>`;
+    F.forEach(k=>{row.querySelector('.pwi-'+k).value=p[k]||'';}); // ตั้งผ่าน property กันอักขระพิเศษในชื่อ
+    row.querySelector('.pwi-solve').checked=!!p.solve;
+    container.appendChild(row);
+  }
+}
+function pwiReset(){
+  $('pwi-count').value=3;$('pwi-total').value='';$('pwi-target').value='';
+  $('pwi-rows').innerHTML=''; // pwiBuildRows คัดลอกค่าเดิมกลับมา จึงต้องเคลียร์แถวก่อน
+  $('pwi-summary').innerHTML='';$('pwi-tw').innerHTML='';
+  pwiBuildRows();hide('pwi-res');
+}
+function calcPwi(){
+  const fail=msg=>{vfail('pwi-res',msg);$('pwi-summary').innerHTML='';$('pwi-tw').innerHTML='';};
+  const rowEls=[...document.querySelectorAll('.pwi-row')];
+  if(!rowEls.length){fail('กรุณากด "สร้างตาราง" ก่อนครับ');return;}
+  const rd=(el,lbl)=>{ // ช่องว่าง = null ; พิมพ์ผิด (เช่น 12e) = error ไม่ตีเป็นช่องว่าง
+    if(p9Bad(el))return {err:lbl+' ต้องเป็นตัวเลข'};
+    const s=el.value.trim();if(s==='')return {v:null};
+    const x=Number(s);return isFinite(x)?{v:x}:{err:lbl+' ต้องเป็นตัวเลข'};
+  };
+  let err='';
+  const pr=rd($('pwi-total'),'มูลค่าพอร์ตรวม');if(pr.err)err=pr.err;
+  const tr=rd($('pwi-target'),'เป้าหมายพอร์ตโต %');if(tr.err&&!err)err=tr.err;
+  const LBL={w:'สัดส่วนพอร์ต',sh:'จำนวนหุ้น',bp:'ราคาซื้อ',cp:'ราคาปัจจุบัน',g:'% เปลี่ยนแปลง',g2:'% กรณีแย่',g3:'% กรณีดี'};
+  const rows=rowEls.map((r,i)=>{
+    const o={name:r.querySelector('.pwi-name').value.trim()};
+    const nm=o.name||('หุ้น '+(i+1));
+    Object.keys(LBL).forEach(k=>{
+      const q=rd(r.querySelector('.pwi-'+k),nm+': '+LBL[k]);
+      if(q.err){if(!err)err=q.err;o[k]=null;}else o[k]=q.v;
+    });
+    return o;
+  });
+  if(err){fail(err);return;}
+  const R=pwiCompute(rows,pr.v,{target:tr.v,solve:rowEls.findIndex(r=>r.querySelector('.pwi-solve').checked)});
+  if(R.err){fail(R.err);return;}
+  const U=R.unitBaht,fv=x=>U?fBig(x):fN(x,2);
+  const sgn=x=>Number(x.toFixed(2))>0?'+':''; // เครื่องหมาย/สีตามค่าที่ปัดแล้ว กัน "+0.00%"
+  const sg=x=>sgn(x)+fN(x,2);
+  const rg=Number(R.growth.toFixed(2)),cls=rg>0?'g':(rg<0?'r':'');
+  let sum=`<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+    <div class="ri" style="flex:1;min-width:150px"><div class="rl">พอร์ตโตรวม${R.scen.bad||R.scen.good?' (กรณีกลาง)':''}</div><div class="rv ${cls}">${sg(R.growth)}%</div></div>
+    <div class="ri" style="flex:1;min-width:150px"><div class="rl">${U?'มูลค่าพอร์ต ก่อน → หลัง':'พอร์ตสมมติ ก่อน → หลัง'}</div><div class="rv a" style="font-size:1.05rem">${fv(R.T)} → ${fv(R.newTotal)}</div></div>
+    <div class="ri" style="flex:1;min-width:130px"><div class="rl">${U?'กำไร/ขาดทุน':'ส่วนต่าง (จุด)'}</div><div class="rv ${cls}">${sgn(R.gain)}${fv(R.gain)}</div></div>
+  </div>`;
+  if(R.solve){
+    const s=R.solve;
+    if(s.possible){
+      const pr2=s.price!==null?` (ราคา ฿${fN(s.bp,2)} → ฿${fN(s.price,2)})`:'';
+      sum+=`<div style="background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.4);border-radius:10px;padding:12px 16px;margin-bottom:12px;font-size:.88rem">🎯 ให้พอร์ตโต <b>${sg(s.target)}%</b> → <b>${escH(s.name)}</b> ต้อง${s.r>=0?'โต':'ลด'} <b>${s.r>=0?sg(s.r*100):fN(Math.abs(s.r*100),2)}%</b>${pr2}<br><span style="font-size:.76rem;color:var(--text3)">เมื่อหุ้นตัวอื่นเป็นตามกรณีกลางที่กรอกไว้ ผลและตารางด้านล่างแสดงตามค่านี้ (ค่าที่กรอกของตัวนี้ไม่ถูกนำมาใช้)</span></div>`;
+    }else{
+      sum+=`<div style="background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.35);border-radius:10px;padding:12px 16px;margin-bottom:12px;font-size:.86rem;color:#f5a623">🎯 เป้าหมายพอร์ตโต ${sg(s.target)}% ต่ำกว่าที่เป็นไปได้ — แม้ <b>${escH(s.name)}</b> เหลือ 0 (-100%) พอร์ตก็ยังโตเกินเป้า เพราะส่วนที่เหลือของพอร์ต (หุ้นตัวอื่นตามกรณีกลาง รวมถึงส่วนที่ไม่ได้กรอก/เงินสดที่ราคาไม่เปลี่ยน) ทำให้พอร์ตโตเกินเป้าอยู่แล้ว ตารางด้านล่างแสดงที่ตัวนี้ -100%</div>`;
+    }
+  }
+  if(!U)sum+=`<div style="font-size:.78rem;color:var(--text3);margin-bottom:10px">กรอกเป็นสัดส่วน % จึงแสดงพอร์ตเป็นค่าสมมติ = 100 (ใส่ "มูลค่าพอร์ตรวม" ถ้าอยากเห็นเป็นบาท)</div>`;
+  if(R.other>0)sum+=`<div style="font-size:.78rem;color:var(--text3);margin-bottom:10px">สัดส่วนรวมของหุ้นที่กรอกไม่ถึง 100% — ส่วนที่เหลือ ${fv(R.other)} (เช่น เงินสด/สินทรัพย์อื่น) ถือว่าไม่เปลี่ยน</div>`;
+  if(R.notes.length)sum+=`<div style="background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.35);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:.82rem;color:#f5a623">⚠️ ${R.notes.map(escH).join('<br>⚠️ ')}</div>`;
+  const nt=R.newTotal;
+  const wPct=v=>nt>0?fN(v/nt*100,2)+'%':'—';
+  const pc=x=>`<span style="color:${Number(x.toFixed(2))>0?'#27c97e':(Number(x.toFixed(2))<0?'#ff5470':'inherit')}">${sg(x)}</span>`;
+  let h='';
+  if(R.scen.bad||R.scen.good){ // ตารางเทียบสถานการณ์ (น้ำหนักเดิมชุดเดียวกัน)
+    const cols=[];
+    if(R.scen.bad)cols.push(['กรณีแย่',R.scen.bad,'bad']);
+    cols.push(['กรณีกลาง',{rets:R.items.map(x=>x.ret),gain:R.gain,growth:R.growth,newTotal:R.newTotal},'mid']);
+    if(R.scen.good)cols.push(['กรณีดี',R.scen.good,'good']);
+    h+='<div class="twrap" style="margin-bottom:12px"><div class="tscroll"><table><thead><tr><th>เทียบสถานการณ์</th>'+cols.map(c=>`<th style="text-align:right">${c[0]}</th>`).join('')+'</tr></thead><tbody>';
+    R.items.forEach((x,i)=>{
+      h+=`<tr><td style="font-weight:600">${escH(x.name)} <span style="color:var(--text3);font-weight:400">(${fN(x.a/R.T*100,2)}%)</span></td>`
+        +cols.map(c=>{
+          const own=c[2]==='mid'||x.alt[c[2]]!==null;
+          const val=c[1].rets[i]*100;
+          return `<td style="text-align:right;${own?'':'opacity:.55'}">${pc(val)}%${own?'':'<small> =กลาง</small>'}</td>`;
+        }).join('')+'</tr>';
+    });
+    h+='<tr style="font-weight:700"><td>พอร์ตโตรวม</td>'+cols.map(c=>`<td style="text-align:right">${pc(c[1].growth)}%</td>`).join('')+'</tr>';
+    h+=`<tr><td>${U?'มูลค่าพอร์ตหลังเปลี่ยน':'พอร์ตสมมติหลังเปลี่ยน'}</td>`+cols.map(c=>`<td style="text-align:right">${fv(c[1].newTotal)}</td>`).join('')+'</tr>';
+    h+='</tbody></table></div></div>';
+  }
+  h+='<div class="twrap"><div class="tscroll"><table><thead><tr>'
+    +'<th>หุ้น (กรณีกลาง)</th><th style="text-align:right">สัดส่วนเดิม</th><th style="text-align:right">ราคาเปลี่ยน</th>'
+    +'<th style="text-align:right">มูลค่าใหม่</th><th style="text-align:right">สัดส่วนใหม่</th><th style="text-align:right">ดึงพอร์ต (จุด %)</th></tr></thead><tbody>';
+  R.items.forEach(x=>{
+    h+=`<tr><td style="font-weight:600">${escH(x.name)}</td><td style="text-align:right">${fN(x.a/R.T*100,2)}%</td>`
+      +`<td style="text-align:right">${pc(x.ret*100)}%</td><td style="text-align:right">${fv(x.newVal)}</td>`
+      +`<td style="text-align:right">${wPct(x.newVal)}</td><td style="text-align:right">${pc(x.contrib)}</td></tr>`;
+  });
+  if(R.other>0)h+=`<tr><td style="color:var(--text3)">ส่วนที่เหลือ (ไม่เปลี่ยน)</td><td style="text-align:right">${fN(R.other/R.T*100,2)}%</td><td style="text-align:right">0.00%</td><td style="text-align:right">${fv(R.other)}</td><td style="text-align:right">${wPct(R.other)}</td><td style="text-align:right">0.00</td></tr>`;
+  h+=`<tr style="font-weight:700"><td>รวม</td><td style="text-align:right">100.00%</td><td style="text-align:right">${pc(R.growth)}%</td><td style="text-align:right">${fv(nt)}</td><td style="text-align:right">${nt>0?'100.00%':'—'}</td><td style="text-align:right">${pc(R.growth)}</td></tr>`;
+  h+='</tbody></table></div></div>';
+  $('pwi-summary').innerHTML=sum;
+  $('pwi-tw').innerHTML=h;
+  show('pwi-res');
+}
+function pwiInit(){ // เบราว์เซอร์อาจคืนค่าฟอร์มเดิมที่ผิด/ต่างจากจำนวนแถว — ปรับเงียบ ๆ ไม่เด้ง alert ตอนโหลดหน้า
+  const c=$('pwi-count'),n=Number(c.value);
+  if(c.value.trim()===''||!Number.isInteger(n)||n<1||n>30)c.value=3;
+  if($('pwi-rows').children.length!==Number(c.value))pwiBuildRows();
+}
+pwiInit();setTimeout(pwiInit,900);
 
 // ============================================================
 // GROUP B: Valuation Calculators
