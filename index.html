@@ -181,6 +181,11 @@ hr.div{border:none;border-top:1px solid var(--border);margin:20px 0}
   .btn{padding:10px 18px;font-size:.85rem}
   .twrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
   table{min-width:480px}
+  /* ตารางแปลงหน่วยมีแค่ 2 คอลัมน์ — ให้พอดีจอมือถือ ไม่ต้องเลื่อนข้าง */
+  table.uctbl{min-width:0}
+  table.uctbl th,table.uctbl td{padding:8px 9px}
+  table.uctbl td:first-child{word-break:break-word}
+  table.uctbl td:last-child{white-space:nowrap}
   .hamburger{display:flex}
   .overlay{display:block}
   .overlay.open{opacity:1;pointer-events:all}
@@ -10792,7 +10797,7 @@ function ucCalc(){
   out.textContent=ucFmt(res.val,sg)+' '+tu[3];
   eq.textContent=ucFmt(v,sg)+' '+fu[3]+' = '+ucFmt(res.val,sg)+' '+tu[3];
   ucLast=ucPlain(res.val,sg);
-  let h='<div class="twrap" style="margin-top:14px"><div class="tscroll"><table><thead><tr><th>หน่วย</th><th>ค่าเท่ากับ</th></tr></thead><tbody>';
+  let h='<div class="twrap" style="margin-top:14px"><div class="tscroll"><table class="uctbl"><thead><tr><th>หน่วย</th><th>ค่าเท่ากับ</th></tr></thead><tbody>';
   cat.units.forEach(u=>{
     const r=ucConvert(ucCur,fid,u[0],v);
     const st=u[0]===tid?' style="font-weight:700;color:var(--accent);cursor:pointer"':u[0]===fid?' style="color:var(--text3);cursor:pointer"':' style="cursor:pointer"';
