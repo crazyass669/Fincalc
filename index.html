@@ -330,6 +330,26 @@ select option{background:var(--surf2);color:var(--text)}
 
 /* ── Bond Reference Links ── */
 .bond-links a:hover{opacity:.8;transform:translateY(-1px);transition:all .15s}
+/* EVERYDAY (ชีวิตประจำวัน) */
+.dl-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:0 8px;align-items:end;padding:12px 12px 2px;border:1px solid var(--border);border-radius:8px;margin-bottom:10px;background:var(--surf2)}
+.dl-row .dl-w2{grid-column:span 2}
+.dl-row2{padding:12px 12px 10px;border:1px solid var(--border);border-radius:8px;margin-bottom:10px;background:var(--surf2)}
+.dl-line{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}
+.dl-line .fg{margin-bottom:10px}
+.dl-grow{flex:1;min-width:130px}
+.dl-x{padding:8px 12px;white-space:nowrap}
+.dl-x2{padding:6px 10px}
+.dl-pr{display:flex;gap:6px;margin-bottom:8px}
+.dl-people{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:0 10px;margin-bottom:6px}
+.dl-chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.dl-cl{font-size:.74rem;color:var(--text3)}
+.dl-chip{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border:1px solid var(--border2);border-radius:14px;font-size:.78rem;color:var(--text2);cursor:pointer;background:var(--surf)}
+.dl-all{padding:3px 10px;font-size:.74rem;width:auto !important;flex:none}
+.pc-row.dl-wide{grid-template-columns:1fr}
+tr.dl-best td{color:var(--green);font-weight:700}
+.dl-scroll{max-height:360px;overflow:auto}
+.dl-note{color:var(--text3);font-size:.78rem;line-height:1.6;margin-top:12px}
+.dcal-sec{display:none}.dcal-sec.on{display:block}
 </style>
 </head>
 <body>
@@ -353,12 +373,27 @@ select option{background:var(--surf2);color:var(--text)}
 
   <div class="nav-section">
     <div class="nav-head">🧮 ทั่วไป · Miscellaneous</div>
-    <div class="nav-item" role="button" tabindex="0" data-page="tip" onclick="nav(this)"><span class="nav-icon">🍽️</span>ทิปอาหาร <span style="color:#4a5268;font-size:.72rem">Tip Calculator</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="disctax" onclick="nav(this)"><span class="nav-icon">🏷️</span>ส่วนลดและภาษี <span style="color:#4a5268;font-size:.72rem">Discount &amp; Tax</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="margin" onclick="nav(this)"><span class="nav-icon">📦</span>กำไรขั้นต้น / Markup <span style="color:#4a5268;font-size:.72rem">Margin &amp; Markup</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="percent" onclick="nav(this)"><span class="nav-icon">%</span>เปอร์เซ็นต์ <span style="color:#4a5268;font-size:.72rem">Percentage</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="unitconv" onclick="nav(this)"><span class="nav-icon">📏</span>แปลงหน่วย <span style="color:#4a5268;font-size:.72rem">Unit Converter · กก./ปอนด์ · ไร่ · °C</span></div>
-    <div class="nav-item" role="button" tabindex="0" data-page="margin" onclick="nav(this)"><span class="nav-icon">📦</span>กำไรขั้นต้น / Markup <span style="color:#4a5268;font-size:.72rem">Margin &amp; Markup</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="splitbill" onclick="nav(this)"><span class="nav-icon">🍻</span>หารค่าอาหาร <span style="color:#4a5268;font-size:.72rem">Split Bill · คนดื่ม / ไม่ดื่ม · หารบิล</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="breakeven" onclick="nav(this)"><span class="nav-icon">⚖️</span>จุดคุ้มทุน <span style="color:#4a5268;font-size:.72rem">Break-Even Analysis</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="disctax" onclick="nav(this)"><span class="nav-icon">🏷️</span>ส่วนลดและภาษี <span style="color:#4a5268;font-size:.72rem">Discount &amp; Tax</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="tip" onclick="nav(this)"><span class="nav-icon">🍽️</span>ทิปอาหาร <span style="color:#4a5268;font-size:.72rem">Tip Calculator</span></div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-head">🛒 ใช้บ่อยในชีวิตประจำวัน · Everyday</div>
+    <div class="nav-item" role="button" tabindex="0" data-page="unitprice" onclick="nav(this)"><span class="nav-icon">🛒</span>เปรียบเทียบราคาต่อหน่วย <span style="color:#4a5268;font-size:.72rem">Unit Price · ห่อไหนถูกกว่า</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="promo" onclick="nav(this)"><span class="nav-icon">🎁</span>โปรโมชั่นคุ้มไหม <span style="color:#4a5268;font-size:.72rem">Promo · แถม · ลด % · ชิ้นที่ 2</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="instpay" onclick="nav(this)"><span class="nav-icon">💳</span>ผ่อนหรือจ่ายสด <span style="color:#4a5268;font-size:.72rem">Installment vs Cash · ผ่อน 0% · ผ่อนมีดอก</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="datecalc" onclick="nav(this)"><span class="nav-icon">📅</span>นับวัน / อายุ <span style="color:#4a5268;font-size:.72rem">Date · อีกกี่วัน · วันทำการ · บวกลบวัน</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="itembill" onclick="nav(this)"><span class="nav-icon">🧾</span>หารบิลแบบรายการ <span style="color:#4a5268;font-size:.72rem">Split by Item · ใครสั่งอะไร</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="tripsettle" onclick="nav(this)"><span class="nav-icon">🧳</span>สรุปทริป: ใครจ่ายใคร <span style="color:#4a5268;font-size:.72rem">Trip Settle-Up · โอนให้ใคร</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="fuelcost" onclick="nav(this)"><span class="nav-icon">⛽</span>ค่าน้ำมัน / ค่าเดินทาง <span style="color:#4a5268;font-size:.72rem">Trip Fuel Cost · อัตราสิ้นเปลือง</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="costuse" onclick="nav(this)"><span class="nav-icon">💎</span>ของแพงคุ้มไหม <span style="color:#4a5268;font-size:.72rem">Cost per Use · ต้องใช้กี่ครั้งถึงคุ้ม</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="latte" onclick="nav(this)"><span class="nav-icon">☕</span>รายจ่ายเล็ก ๆ ต่อวัน → ต่อปี <span style="color:#4a5268;font-size:.72rem">Latte Factor · กาแฟ ขนม</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="savechal" onclick="nav(this)"><span class="nav-icon">🪙</span>ออมเงินแบบท้าทาย <span style="color:#4a5268;font-size:.72rem">Saving Challenge · 52 สัปดาห์</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="elcost" onclick="nav(this)"><span class="nav-icon">💡</span>ค่าไฟเครื่องใช้ไฟฟ้า / โซลาร์เซลล์ <span style="color:#4a5268;font-size:.72rem">Electricity &amp; Solar · คืนทุนกี่ปี</span></div>
   </div>
 
   <div class="nav-section">
@@ -489,6 +524,7 @@ select option{background:var(--surf2);color:var(--text)}
     <div class="nav-head">🚗 รถยนต์ · Auto Loan &amp; Lease</div>
     <div class="nav-item" role="button" tabindex="0" data-page="autoloan" onclick="nav(this)"><span class="nav-icon">🚗</span>สินเชื่อรถยนต์ <span style="color:#4a5268;font-size:.72rem">Auto Loan</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="autolease" onclick="nav(this)"><span class="nav-icon">🔑</span>เช่ารถยนต์ <span style="color:#4a5268;font-size:.72rem">Auto Lease</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="evcar" onclick="nav(this)"><span class="nav-icon">🔋</span>รถ EV กับรถน้ำมัน <span style="color:#4a5268;font-size:.72rem">EV vs Gasoline · ต้นทุนรวม · จุดคุ้มทุน กม./ปี</span></div>
   </div>
 
   <div class="nav-section">
@@ -508,6 +544,8 @@ select option{background:var(--surf2);color:var(--text)}
     <div class="nav-item" role="button" tabindex="0" data-page="dupont" onclick="nav(this)"><span class="nav-icon">🧬</span>DuPont แยก ROE <span style="color:#4a5268;font-size:.72rem">DuPont Analysis</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="unitecon" onclick="nav(this)"><span class="nav-icon">🧲</span>LTV / CAC <span style="color:#4a5268;font-size:.72rem">Unit Economics</span></div>
     <div class="nav-item" role="button" tabindex="0" data-page="runway" onclick="nav(this)"><span class="nav-icon">🛫</span>Cash Runway <span style="color:#4a5268;font-size:.72rem">Burn Rate</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="platform" onclick="nav(this)"><span class="nav-icon">🛍️</span>ตั้งราคาขายบนแพลตฟอร์ม <span style="color:#4a5268;font-size:.72rem">Marketplace Pricing · Shopee · Lazada · TikTok · ค่าธรรมเนียม · VAT</span></div>
+    <div class="nav-item" role="button" tabindex="0" data-page="eoq" onclick="nav(this)"><span class="nav-icon">📦</span>จุดสั่งซื้อสต็อก EOQ <span style="color:#4a5268;font-size:.72rem">Reorder Point · สั่งครั้งละเท่าไร · สต็อกสำรอง</span></div>
   </div>
 
   <div class="nav-section">
@@ -3267,6 +3305,604 @@ select option{background:var(--surf2);color:var(--text)}
   <div class="pc-tip-ex">ตัวอย่าง 2 — ร้านดี ทิปมาก</div>
   บิล ฿3,500 ทิป 15% คน 6 คน<br>
   → <b class="pc-ans">ทิป ฿525 หัวละ ฿670.83</b>
+</div>
+</div>
+</div>
+
+<!-- ══ PLATFORM PRICING ══ -->
+<div class="page" id="page-platform">
+  <div class="page-header"><div class="page-title">ตั้งราคาขายบนแพลตฟอร์ม</div><div class="page-sub">Marketplace Pricing — ใส่ต้นทุน ค่าธรรมเนียม และกำไรที่ต้องการ แล้วหาราคาขายที่ไม่ขาดทุน</div></div>
+  <div class="pc-row dl-wide">
+<div class="card pc-calc" style="margin:0">
+    <div class="grid2">
+      <div class="fg"><label>ต้นทุนสินค้าต่อชิ้น</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="plt-c" step="0.01" min="0" placeholder="เช่น 100"></div></div>
+      <div class="fg"><label>บรรจุภัณฑ์/ต้นทุนอื่นต่อชิ้น <span style="color:var(--text3);font-size:.78rem">ว่าง = 0</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="plt-pk" step="0.01" min="0" placeholder="เช่น 5"></div></div>
+      <div class="fg"><label>ค่าส่งที่ร้านออกเอง (ต่อออเดอร์) <span style="color:var(--text3);font-size:.78rem">ว่าง = 0</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="plt-sh" step="0.01" min="0" placeholder="ส่งฟรี ร้านจ่ายเท่าไร"></div></div>
+      <div class="fg"><label>ค่าธรรมเนียมคงที่ (ต่อออเดอร์) <span style="color:var(--text3);font-size:.78rem">ว่าง = 0</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="plt-fx" step="0.01" min="0" placeholder="ถ้าแพลตฟอร์มคิดเป็นบาท"></div></div>
+      <div class="fg"><label>ค่าคอมมิชชั่น (% ของราคาขาย)</label><div class="iw sfx"><input type="number" id="plt-com" step="0.01" min="0" placeholder="ตามที่แพลตฟอร์มแจ้ง (0 = ไม่มี)"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>ค่าธุรกรรม/ชำระเงิน (% ของราคาขาย)</label><div class="iw sfx"><input type="number" id="plt-pay" step="0.01" min="0" placeholder="ตามที่แพลตฟอร์มแจ้ง (0 = ไม่มี)"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>ค่าโฆษณา/โปรแกรมอื่น (% ของราคาขาย) <span style="color:var(--text3);font-size:.78rem">ว่าง = 0</span></label><div class="iw sfx"><input type="number" id="plt-ads" step="0.01" min="0" placeholder="เช่น ค่าโฆษณา คูปองร้าน"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>VAT</label>
+        <select id="plt-v" data-default="0"><option value="0" selected>ไม่จด VAT</option><option value="7">จด VAT — ราคาขายรวม VAT 7% แล้ว</option></select>
+      </div>
+      <div class="fg"><label>กำหนดกำไรที่ต้องการเป็น</label>
+        <select id="plt-gm" data-default="0" onchange="pltMode()"><option value="amt" selected>บาทต่อชิ้น</option><option value="margin">% ของราคาขาย (margin)</option><option value="markup">% ของต้นทุนสินค้า (markup)</option></select>
+      </div>
+      <div class="fg"><label id="plt-gl">กำไรที่ต้องการ (฿ ต่อชิ้น)</label><input type="number" id="plt-g" step="0.01" min="0" placeholder="เช่น 30 (0 = แค่เท่าทุน)"></div>
+      <div class="fg"><label>ปัดราคาขายขึ้นเป็น</label>
+        <select id="plt-r" data-default="0"><option value="1" selected>สตางค์ (ไม่ปัดเป็นบาท)</option><option value="100">บาท</option><option value="500">5 บาท</option><option value="1000">10 บาท</option><option value="e9">เลขลงท้าย 9 (59, 99, 129 …)</option></select>
+      </div>
+      <div class="fg"><label>ราคาที่ตั้งไว้แล้ว <span style="color:var(--text3);font-size:.78rem">ไม่บังคับ — ใส่เพื่อดูกำไรจริงที่ราคานี้</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="plt-p" step="0.01" min="0" placeholder="เช่น 199"></div></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcPLT()">คำนวณราคาขาย</button><button class="btn btn-s" type="button" onclick="pltReset()">ล้างค่า</button></div>
+    <div class="rbox" id="plt-res"><div class="rgrid">
+      <div class="ri"><div class="rl">ราคาขายแนะนำ</div><div class="rv g" id="plt-pr">—</div></div>
+      <div class="ri"><div class="rl">กำไรต่อชิ้นที่ราคานี้</div><div class="rv a" id="plt-pf">—</div></div>
+      <div class="ri"><div class="rl">กำไร % ของราคาขาย / ของต้นทุน</div><div class="rv o" id="plt-mg">—</div></div>
+      <div class="ri"><div class="rl">ราคาเท่าทุน (ต่ำกว่านี้ขาดทุน)</div><div class="rv r" id="plt-be">—</div></div>
+    </div>
+    <div id="plt-note" style="margin-top:12px;font-size:.84rem;color:var(--text);line-height:1.7"></div>
+    <div id="plt-tw"></div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  ขายของผ่านแพลตฟอร์ม (Shopee, Lazada, TikTok Shop ฯลฯ) ที่หักค่าคอมมิชชั่นและค่าธุรกรรมเป็น % ของราคาขาย — เครื่องนี้ย้อนจากกำไรที่อยากได้ไปหา "ราคาขายที่ต้องตั้ง" ให้ ไม่ใช่เอาต้นทุนมาบวกกำไรตรง ๆ (เพราะค่าธรรมเนียมโตตามราคาขายด้วย)<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 1 — ไม่จด VAT</div>
+  ต้นทุน ฿100 + บรรจุภัณฑ์ ฿5 · คอมมิชชั่น 5% + ธุรกรรม 3% · อยากได้กำไร ฿30 ต่อชิ้น<br>
+  → <b class="pc-ans">ตั้งราคา ฿146.74 · กำไร ฿30.00 (20.44% ของราคาขาย) · ราคาเท่าทุน ฿114.14</b>
+  <br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 2 — จด VAT, ค่าส่งร้านออก, ปัดลงท้าย 9</div>
+  ต้นทุน ฿100 + ฿5 · ค่าส่ง ฿20 + ค่าธรรมเนียมคงที่ ฿3 · คอมมิชชั่น 6% + ธุรกรรม 3% + โฆษณา 2% · VAT 7% · อยากได้ margin 20% ของราคาขาย<br>
+  → <b class="pc-ans">ตั้งราคา ฿209 · กำไร ฿44.34 (21.21%) · ถ้าตั้ง ฿199 กำไรเหลือ ฿36.09</b><br><br>
+  <span style="color:var(--text3)">วิธีคิด: กำไร = ราคา ÷ (1+VAT) − ราคา × (ค่าธรรมเนียมรวม %) − ต้นทุนทั้งหมด → แก้สมการหาราคาจากกำไรที่ต้องการ แล้วปัดราคา<b>ขึ้น</b>เสมอ (กำไรจริงจึงไม่ต่ำกว่าเป้า) · margin = กำไร ÷ ราคาขายที่ลูกค้าจ่าย · markup = กำไร ÷ ต้นทุนสินค้า (ไม่รวมบรรจุภัณฑ์/ค่าส่ง)</span><br><br>
+  <div class="pc-tip-ex">⚠️ หมายเหตุ</div>
+  <span style="color:var(--text3)">• เครื่องนี้ <b>ไม่มีอัตราค่าธรรมเนียมของแพลตฟอร์มใดอยู่ในตัว</b> (เปลี่ยนบ่อยและต่างกันตามหมวด/ประเภทร้าน) ต้องกรอก % เองตามที่แพลตฟอร์มแจ้ง ถ้าค่าธรรมเนียมแยก VAT ให้บวกเข้าไปเอง (เช่น 5% + VAT 7% ≈ 5.35%)<br>
+  • ค่าธรรมเนียมทั้งหมดคิดบนราคาที่ลูกค้าจ่าย · คิดต่อ 1 ชิ้นต่อ 1 ออเดอร์ (ถ้าขายเป็นชุด ให้ใส่ต้นทุนทั้งชุด)<br>
+  • ถ้าจด VAT ให้ใส่ต้นทุนเป็นราคาที่ไม่รวมภาษีซื้อที่ขอเครดิตได้ · ไม่รวมภาษีเงินได้ ค่าคืนสินค้า/ตีกลับ และส่วนลดที่ลูกค้าได้ในแต่ละแคมเปญ (ถ้าจะลดราคา ให้ดูข้อความ "ลดราคาลงได้อีกไม่เกิน …%" ใต้ตัวเลขผลลัพธ์)</span>
+</div>
+</div>
+</div>
+
+<!-- ══ ELECTRICITY / SOLAR ══ -->
+<div class="page" id="page-elcost">
+  <div class="page-header"><div class="page-title">ค่าไฟเครื่องใช้ไฟฟ้า + โซลาร์เซลล์คุ้มไหม</div><div class="page-sub">Electricity Cost &amp; Solar Payback — เครื่องไหนกินไฟเท่าไร · ติดโซลาร์กี่ปีคืนทุน</div></div>
+  <div class="pc-row dl-wide">
+<div class="card pc-calc" style="margin:0">
+    <div class="fg"><label>จะคำนวณอะไร</label>
+      <select id="elc-m" data-default="0" onchange="elcSync()"><option value="a" selected>ค่าไฟของเครื่องใช้ไฟฟ้า (เครื่องไหนกินไฟเท่าไร)</option><option value="b">ติดโซลาร์เซลล์คุ้มไหม (คืนทุนกี่ปี)</option></select>
+    </div>
+    <div id="elc-sa">
+      <div class="fg"><label>ค่าไฟเฉลี่ยต่อหน่วย (฿/kWh)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="elc-rate" step="0.01" min="0" placeholder="เช่น 4.5"></div><span class="sub">ดูจากบิลจริง: ยอดที่ต้องจ่าย ÷ จำนวนหน่วยที่ใช้ — ได้ค่าเฉลี่ยที่รวมค่า Ft และ VAT แล้ว</span></div>
+      <div class="fg"><label>เครื่องใช้ไฟฟ้า (กรอกได้สูงสุด 6 รายการ — แถวที่เว้นว่างจะไม่นับ)</label>
+<div class="dl-row"><div class="fg dl-w2"><label>เครื่องที่ 1</label><input type="text" id="elc-n0" maxlength="40" placeholder="เช่น แอร์ 12,000 BTU"></div><div class="fg"><label>วัตต์</label><input type="number" id="elc-w0" step="any" min="0" placeholder="เช่น 1200"></div><div class="fg"><label>ชม./วัน</label><input type="number" id="elc-h0" step="any" min="0" max="24" placeholder="เช่น 8"></div><div class="fg"><label>จำนวนเครื่อง</label><input type="number" id="elc-q0" step="1" min="1" value="1"></div><div class="fg"><label>วัน/เดือน</label><input type="number" id="elc-d0" step="any" min="0" max="31" value="30"></div></div>
+<div class="dl-row"><div class="fg dl-w2"><label>เครื่องที่ 2</label><input type="text" id="elc-n1" maxlength="40" placeholder="เช่น ตู้เย็น"></div><div class="fg"><label>วัตต์</label><input type="number" id="elc-w1" step="any" min="0" placeholder="เช่น 100"></div><div class="fg"><label>ชม./วัน</label><input type="number" id="elc-h1" step="any" min="0" max="24" placeholder="เช่น 24"></div><div class="fg"><label>จำนวนเครื่อง</label><input type="number" id="elc-q1" step="1" min="1" value="1"></div><div class="fg"><label>วัน/เดือน</label><input type="number" id="elc-d1" step="any" min="0" max="31" value="30"></div></div>
+<div class="dl-row"><div class="fg dl-w2"><label>เครื่องที่ 3</label><input type="text" id="elc-n2" maxlength="40" placeholder="เช่น ทีวี"></div><div class="fg"><label>วัตต์</label><input type="number" id="elc-w2" step="any" min="0" placeholder="เช่น 80"></div><div class="fg"><label>ชม./วัน</label><input type="number" id="elc-h2" step="any" min="0" max="24" placeholder="เช่น 5"></div><div class="fg"><label>จำนวนเครื่อง</label><input type="number" id="elc-q2" step="1" min="1" value="1"></div><div class="fg"><label>วัน/เดือน</label><input type="number" id="elc-d2" step="any" min="0" max="31" value="30"></div></div>
+<div class="dl-row"><div class="fg dl-w2"><label>เครื่องที่ 4</label><input type="text" id="elc-n3" maxlength="40" placeholder=""></div><div class="fg"><label>วัตต์</label><input type="number" id="elc-w3" step="any" min="0" placeholder=""></div><div class="fg"><label>ชม./วัน</label><input type="number" id="elc-h3" step="any" min="0" max="24" placeholder=""></div><div class="fg"><label>จำนวนเครื่อง</label><input type="number" id="elc-q3" step="1" min="1" value="1"></div><div class="fg"><label>วัน/เดือน</label><input type="number" id="elc-d3" step="any" min="0" max="31" value="30"></div></div>
+<div class="dl-row"><div class="fg dl-w2"><label>เครื่องที่ 5</label><input type="text" id="elc-n4" maxlength="40" placeholder=""></div><div class="fg"><label>วัตต์</label><input type="number" id="elc-w4" step="any" min="0" placeholder=""></div><div class="fg"><label>ชม./วัน</label><input type="number" id="elc-h4" step="any" min="0" max="24" placeholder=""></div><div class="fg"><label>จำนวนเครื่อง</label><input type="number" id="elc-q4" step="1" min="1" value="1"></div><div class="fg"><label>วัน/เดือน</label><input type="number" id="elc-d4" step="any" min="0" max="31" value="30"></div></div>
+<div class="dl-row"><div class="fg dl-w2"><label>เครื่องที่ 6</label><input type="text" id="elc-n5" maxlength="40" placeholder=""></div><div class="fg"><label>วัตต์</label><input type="number" id="elc-w5" step="any" min="0" placeholder=""></div><div class="fg"><label>ชม./วัน</label><input type="number" id="elc-h5" step="any" min="0" max="24" placeholder=""></div><div class="fg"><label>จำนวนเครื่อง</label><input type="number" id="elc-q5" step="1" min="1" value="1"></div><div class="fg"><label>วัน/เดือน</label><input type="number" id="elc-d5" step="any" min="0" max="31" value="30"></div></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcELA()">คำนวณค่าไฟ</button><button class="btn btn-s" type="button" onclick="elcReset()">ล้างค่า</button></div>
+      <div class="rbox" id="elc-resa"><div class="rgrid">
+        <div class="ri"><div class="rl">ใช้ไฟรวมต่อเดือน</div><div class="rv" id="elc-ta">—</div></div>
+        <div class="ri"><div class="rl">ค่าไฟรวมต่อเดือน</div><div class="rv a" id="elc-tm">—</div></div>
+        <div class="ri"><div class="rl">ค่าไฟรวมต่อปี</div><div class="rv o" id="elc-ty">—</div></div>
+        <div class="ri"><div class="rl">เครื่องที่กินไฟมากที่สุด</div><div class="rv r" id="elc-tt">—</div></div>
+      </div><div id="elc-twa"></div></div>
+    </div>
+    <div id="elc-sb">
+      <div class="grid2">
+        <div class="fg"><label>ขนาดระบบ (kWp)</label><input type="number" id="elc-kwp" step="any" min="0" placeholder="เช่น 5"></div>
+        <div class="fg"><label>ค่าติดตั้งรวม</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="elc-cost" step="0.01" min="0" placeholder="เช่น 150000"></div></div>
+        <div class="fg"><label>ผลผลิตต่อ kWp ต่อปี (kWh) <span style="color:var(--text3);font-size:.78rem">ค่าประมาณ — ถามผู้ติดตั้ง</span></label><input type="number" id="elc-yld" step="any" min="0" placeholder="" value="1400"></div>
+        <div class="fg"><label>ใช้ไฟจากโซลาร์เองกี่ % ของที่ผลิต <span style="color:var(--text3);font-size:.78rem">ที่เหลือขายคืน/ทิ้ง</span></label><div class="iw sfx"><input type="number" id="elc-self" step="any" min="0" placeholder="" value="70"><span class="isfx">%</span></div></div>
+        <div class="fg"><label>ค่าไฟที่ประหยัดได้ต่อหน่วย (฿/kWh)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="elc-r2" step="0.01" min="0" placeholder="เช่น 4.5"></div></div>
+        <div class="fg"><label>ราคารับซื้อส่วนเกิน (฿/kWh) <span style="color:var(--text3);font-size:.78rem">0 = ไม่ได้ขายคืน</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="elc-sell" step="0.01" min="0" placeholder="" value="0"></div></div>
+        <div class="fg"><label>แผงเสื่อมประสิทธิภาพต่อปี</label><div class="iw sfx"><input type="number" id="elc-deg" step="any" min="0" placeholder="" value="0.5"><span class="isfx">%</span></div></div>
+        <div class="fg"><label>ค่าไฟขึ้นต่อปี <span style="color:var(--text3);font-size:.78rem">0 = ไม่ขึ้น</span></label><div class="iw sfx"><input type="number" id="elc-esc" step="any" min="0" placeholder="" value="0"><span class="isfx">%</span></div></div>
+        <div class="fg"><label>ค่าบำรุงรักษาต่อปี <span style="color:var(--text3);font-size:.78rem">0 = ไม่มี</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="elc-mnt" step="0.01" min="0" placeholder="" value="0"></div></div>
+        <div class="fg"><label>อายุใช้งานที่นับ (ปี)</label><input type="number" id="elc-life" step="1" min="0" placeholder="" value="25"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcELS()">คำนวณการคืนทุน</button><button class="btn btn-s" type="button" onclick="elcReset()">ล้างค่า</button></div>
+      <div class="rbox" id="elc-resb"><div class="rgrid">
+        <div class="ri"><div class="rl">คืนทุนใน</div><div class="rv g" id="elc-pay">—</div></div>
+        <div class="ri"><div class="rl">ประหยัดสุทธิปีแรก</div><div class="rv a" id="elc-f1">—</div></div>
+        <div class="ri"><div class="rl">กำไรสุทธิตลอดอายุ (หลังหักค่าติดตั้ง)</div><div class="rv o" id="elc-gain">—</div></div>
+        <div class="ri"><div class="rl">ต้นทุนไฟโซลาร์ตลอดอายุ</div><div class="rv" id="elc-lc">—</div></div>
+      </div><div id="elc-twb"></div></div>
+    </div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  <b>ค่าไฟเครื่องใช้ไฟฟ้า</b> — อยากรู้ว่าแอร์ ตู้เย็น หรือเครื่องทำน้ำอุ่นกินไฟเดือนละเท่าไร ดูกำลังไฟ (วัตต์) จากป้ายเครื่อง แล้วกรอกชั่วโมงที่ใช้จริง<br>
+  <b>โซลาร์เซลล์</b> — ประเมินว่าค่าติดตั้งจะคืนทุนกี่ปี จากค่าไฟที่ประหยัดได้บวกเงินขายไฟคืน (ถ้ามี) หักค่าบำรุงรักษา<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 1 — ค่าไฟ ฿4.5/หน่วย</div>
+  แอร์ 1,200 วัตต์ ใช้ 8 ชม./วัน · ตู้เย็น 100 วัตต์ เปิดตลอด 24 ชม. (ทั้งคู่ 30 วัน/เดือน)<br>
+  → <b class="pc-ans">แอร์ 288 หน่วย ฿1,296/เดือน · ตู้เย็น 72 หน่วย ฿324/เดือน · รวม ฿1,620/เดือน (฿19,440/ปี)</b>
+  <br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 2 — โซลาร์ 5 kWp ค่าติดตั้ง ฿150,000</div>
+  ผลผลิต 1,400 kWh/kWp/ปี · ใช้เอง 70% · ค่าไฟ ฿4.5 · รับซื้อส่วนเกิน ฿2.2 · เสื่อม 0.5%/ปี · บำรุงรักษา ฿1,000/ปี · 25 ปี<br>
+  → <b class="pc-ans">ประหยัดสุทธิปีแรก ฿25,670 · คืนทุนใน 5.9 ปี (~71 เดือน) · กำไรสุทธิตลอดอายุ ฿453,237 · ต้นทุนไฟโซลาร์ ฿1.06/หน่วย</b><br><br>
+  <span style="color:var(--text3)">วิธีคิด: หน่วย/เดือน = วัตต์ × จำนวนเครื่อง × ชม./วัน × วัน/เดือน ÷ 1,000 · โซลาร์: ปีที่ t ผลิต = kWp × ผลผลิต × (1−เสื่อม)^(t−1) · ประหยัด = ผลิต × (ใช้เอง% × ค่าไฟ + ส่วนที่เหลือ × ราคารับซื้อ) − ค่าบำรุงรักษา · คืนทุน = ปีที่ผลสะสมถึงค่าติดตั้ง (สอดแทรกเป็นเศษปี)</span><br><br>
+  <div class="pc-tip-ex">⚠️ หมายเหตุ</div>
+  <span style="color:var(--text3)">• เครื่องนี้ <b>ไม่มีอัตราค่าไฟของ กฟน./กฟภ. อยู่ในตัว</b> (อัตราก้าวหน้า + ค่า Ft เปลี่ยนตามช่วง) ให้กรอกค่าเฉลี่ยจากบิลเอง<br>
+  • ค่าผลผลิต 1,400 kWh/kWp/ปี เป็นค่าตั้งต้นโดยประมาณ ผลจริงขึ้นกับทิศ มุมเอียง เงาบัง และพื้นที่ — ใช้ตัวเลขจากใบเสนอราคาของผู้ติดตั้ง<br>
+  • ไม่รวมค่าเปลี่ยนอินเวอร์เตอร์กลางอายุ (ใส่เฉลี่ยรวมไว้ใน "ค่าบำรุงรักษาต่อปี"), ภาษี, ดอกเบี้ยเงินกู้ หรือเงินที่เสียโอกาสถ้าเอาไปลงทุนอย่างอื่น · เครื่องใช้ไฟฟ้าที่ไม่ได้กินไฟคงที่ (ตู้เย็น แอร์อินเวอร์เตอร์) ให้ใส่ชั่วโมงเทียบเท่าที่กินไฟเต็มกำลังเอง</span>
+</div>
+</div>
+</div>
+
+<!-- ══ EV vs ICE ══ -->
+<div class="page" id="page-evcar">
+  <div class="page-header"><div class="page-title">รถ EV กับรถน้ำมัน</div><div class="page-sub">EV vs Gasoline — ต้นทุนรวมตลอดเวลาที่ถือรถ และต้องขับกี่ กม./ปี ถึงจะคุ้ม</div></div>
+  <div class="pc-row dl-wide">
+<div class="card pc-calc" style="margin:0">
+    <div class="grid2">
+      <div class="fg"><label>ขับกี่ กม. ต่อปี</label><input type="number" id="evc-km" step="any" min="0" placeholder="เช่น 15000"></div>
+      <div class="fg"><label>ถือรถกี่ปีก่อนขายต่อ</label><input type="number" id="evc-n" step="1" min="0" placeholder="เช่น 5"></div>
+    </div>
+    <div class="dl-row2"><div style="font-weight:700;margin-bottom:8px">🔋 รถ EV</div><div class="grid2">
+      <div class="fg"><label>ราคารถ</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="evc-ep" step="0.01" min="0" placeholder="เช่น 900000"></div></div>
+      <div class="fg"><label>ราคาขายต่อเมื่อครบกำหนด (% ของราคาซื้อ)</label><div class="iw sfx"><input type="number" id="evc-er" step="any" min="0" placeholder="เช่น 45"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>กินไฟกี่ kWh ต่อ 100 กม. <span style="color:var(--text3);font-size:.78rem">ค่าที่วัดจากปลั๊ก (รวมไฟสูญเสียตอนชาร์จ ~10–15%)</span></label><input type="number" id="evc-ec" step="any" min="0" placeholder="เช่น 16"></div>
+      <div class="fg"><label>ค่าไฟชาร์จที่บ้าน (฿/หน่วย)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="evc-eh" step="0.01" min="0" placeholder="เช่น 4.5"></div></div>
+      <div class="fg"><label>ชาร์จนอกบ้านกี่ % <span style="color:var(--text3);font-size:.78rem">ว่าง = 0</span></label><div class="iw sfx"><input type="number" id="evc-es" step="any" min="0" placeholder="เช่น 20"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>ค่าไฟชาร์จนอกบ้าน (฿/หน่วย)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="evc-eb" step="0.01" min="0" placeholder="ถ้าชาร์จนอกบ้าน"></div></div>
+      <div class="fg"><label>ประกันต่อปี <span style="color:var(--text3);font-size:.78rem">ว่าง = 0</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="evc-ei" step="0.01" min="0" placeholder="เช่น 15000"></div></div>
+      <div class="fg"><label>ซ่อมบำรุงต่อปี <span style="color:var(--text3);font-size:.78rem">ว่าง = 0</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="evc-em" step="0.01" min="0" placeholder="เช่น 3000"></div></div>
+      <div class="fg"><label>ภาษี/ทะเบียนต่อปี <span style="color:var(--text3);font-size:.78rem">ว่าง = 0</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="evc-et" step="0.01" min="0" placeholder="ตามจริง"></div></div>
+      <div class="fg"><label>ค่าใช้จ่ายครั้งเดียว <span style="color:var(--text3);font-size:.78rem">เช่น ติดตั้งที่ชาร์จ/เปลี่ยนแบตฯ</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="evc-eo" step="0.01" min="0" placeholder="เช่น 30000"></div></div>
+    </div></div>
+    <div class="dl-row2"><div style="font-weight:700;margin-bottom:8px">⛽ รถน้ำมัน</div><div class="grid2">
+      <div class="fg"><label>ราคารถ</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="evc-gp" step="0.01" min="0" placeholder="เช่น 700000"></div></div>
+      <div class="fg"><label>ราคาขายต่อเมื่อครบกำหนด (% ของราคาซื้อ)</label><div class="iw sfx"><input type="number" id="evc-gr" step="any" min="0" placeholder="เช่น 50"><span class="isfx">%</span></div></div>
+      <div class="fg"><label>วิ่งได้กี่ กม. ต่อลิตร</label><input type="number" id="evc-gc" step="any" min="0" placeholder="เช่น 14"></div>
+      <div class="fg"><label>ราคาน้ำมัน (฿/ลิตร)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="evc-gf" step="0.01" min="0" placeholder="ตามที่เติมจริง"></div></div>
+      <div class="fg"><label>ประกันต่อปี <span style="color:var(--text3);font-size:.78rem">ว่าง = 0</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="evc-gi" step="0.01" min="0" placeholder="เช่น 12000"></div></div>
+      <div class="fg"><label>ซ่อมบำรุงต่อปี <span style="color:var(--text3);font-size:.78rem">ว่าง = 0</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="evc-gm" step="0.01" min="0" placeholder="เช่น 8000"></div></div>
+      <div class="fg"><label>ภาษี/ทะเบียนต่อปี <span style="color:var(--text3);font-size:.78rem">ว่าง = 0</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="evc-gt" step="0.01" min="0" placeholder="เช่น 3000"></div></div>
+      <div class="fg"><label>ค่าใช้จ่ายครั้งเดียว <span style="color:var(--text3);font-size:.78rem">ว่าง = 0</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="evc-go" step="0.01" min="0" placeholder=""></div></div>
+    </div></div>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcEVC()">เปรียบเทียบ</button><button class="btn btn-s" type="button" onclick="resetFields('evc')">ล้างค่า</button></div>
+    <div class="rbox" id="evc-res"><div class="rgrid">
+      <div class="ri"><div class="rl">ต้นทุนรวม EV</div><div class="rv g" id="evc-ev">—</div></div>
+      <div class="ri"><div class="rl">ต้นทุนรวมรถน้ำมัน</div><div class="rv a" id="evc-ice">—</div></div>
+      <div class="ri"><div class="rl">ผลเทียบ</div><div class="rv o" id="evc-df">—</div></div>
+      <div class="ri"><div class="rl">ส่วนต่างเฉลี่ยต่อปี</div><div class="rv" id="evc-dy">—</div></div>
+    </div>
+    <div id="evc-be" style="margin-top:12px;font-size:.88rem;color:var(--text);line-height:1.7"></div>
+    <div id="evc-tw"></div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  ตัดสินใจระหว่างรถไฟฟ้ากับรถน้ำมัน — EV แพงกว่าตอนซื้อแต่ค่าพลังงานต่อ กม. ถูกกว่า เครื่องนี้รวมทุกอย่างตลอดเวลาที่ถือรถ แล้วบอกว่าต้องขับกี่ กม./ปี ถึงจะเริ่มคุ้ม<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง — ขับ 15,000 กม./ปี ถือ 5 ปี</div>
+  EV ฿900,000 (ขายต่อ 45%) กิน 16 kWh/100 กม. ไฟบ้าน ฿4.5 · ประกัน ฿15,000 · ซ่อม ฿3,000/ปี · ติดตั้งที่ชาร์จ ฿30,000<br>
+  รถน้ำมัน ฿700,000 (ขายต่อ 50%) 14 กม./ลิตร น้ำมัน ฿38 · ประกัน ฿12,000 · ซ่อม ฿8,000 · ภาษี ฿3,000/ปี<br>
+  → <b class="pc-ans">EV ฿669,000 · รถน้ำมัน ฿668,571.43 → รถน้ำมันถูกกว่า ฿428.57 (ใกล้เคียงกันมาก) · EV เริ่มถูกกว่าเมื่อขับเกิน ~15,043 กม./ปี</b><br><br>
+  <span style="color:var(--text3)">ต้นทุนรวม = ราคาซื้อ + ค่าใช้จ่ายครั้งเดียว + ปี × (ค่าพลังงาน + ประกัน + ซ่อม + ภาษี) − ราคาขายต่อ · ค่าพลังงานต่อ กม.: EV = kWh/100 กม. ÷ 100 × ค่าไฟเฉลี่ย (ถ่วงน้ำหนักบ้าน/นอกบ้าน) · น้ำมัน = ราคา/ลิตร ÷ กม./ลิตร</span><br><br>
+  <div class="pc-tip-ex">⚠️ หมายเหตุ</div>
+  <span style="color:var(--text3)">• ราคาขายต่อเป็น % ที่คุณประมาณเอง ซึ่งเป็นตัวแปรที่กระทบผลมากที่สุด (EV ยังไม่มีข้อมูลราคามือสองระยะยาวที่ชัด) ลองปรับหลายค่า<br>
+  • ไม่รวมดอกเบี้ยเงินกู้/ค่าเสียโอกาสของเงินดาวน์ ราคาพลังงานที่เปลี่ยนในอนาคต ค่าเปลี่ยนแบตเตอรี่นอกประกัน (ใส่ใน "ค่าใช้จ่ายครั้งเดียว" เองได้) ส่วนลด/เงินอุดหนุน และภาษีรถประจำปี (ต้องกรอกเองตามจริง ไม่ได้ฝังอัตราไว้)<br>
+  • ใช้ราคาพลังงานคงที่ตลอดช่วงที่ถือรถ</span>
+</div>
+</div>
+</div>
+
+<!-- ══ EOQ ══ -->
+<div class="page" id="page-eoq">
+  <div class="page-header"><div class="page-title">จุดสั่งซื้อสต็อก (EOQ)</div><div class="page-sub">Economic Order Quantity — สั่งครั้งละเท่าไรถูกที่สุด · สั่งซ้ำเมื่อเหลือเท่าไร · สต็อกสำรองกันของขาด</div></div>
+  <div class="pc-row dl-wide">
+<div class="card pc-calc" style="margin:0">
+    <div class="grid2">
+      <div class="fg"><label>ขายได้/ใช้ไปปีละกี่หน่วย</label><input type="number" id="eoq-d" step="any" min="0" placeholder="เช่น 12000"></div>
+      <div class="fg"><label>ค่าใช้จ่ายต่อการสั่งซื้อ 1 ครั้ง <span style="color:var(--text3);font-size:.78rem">ค่าส่ง ค่าเอกสาร แรงงานรับของ</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="eoq-s" step="0.01" min="0" placeholder="เช่น 500"></div></div>
+      <div class="fg"><label>ราคาซื้อต่อหน่วย</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="eoq-c" step="0.01" min="0" placeholder="เช่น 100"></div></div>
+      <div class="fg"><label>กรอกค่าเก็บรักษาเป็น</label>
+        <select id="eoq-hm" data-default="0" onchange="eoqHm()"><option value="pct" selected>% ของราคาสินค้าต่อปี</option><option value="abs">บาทต่อหน่วยต่อปี</option></select>
+      </div>
+      <div class="fg"><label id="eoq-hl">ค่าเก็บรักษา (% ของราคาสินค้าต่อปี)</label><input type="number" id="eoq-h" step="any" min="0" placeholder="เช่น 20 (ค่าเช่าที่ ดอกเบี้ย ของเสีย ฯลฯ)"></div>
+      <div class="fg"><label>ขายกี่วันต่อปี</label><input type="number" id="eoq-days" step="any" min="0" placeholder="" value="365"></div>
+      <div class="fg"><label>ใช้เวลาของมาส่งกี่วัน (Lead time) <span style="color:var(--text3);font-size:.78rem">นับวันแบบเดียวกับ "ขายกี่วันต่อปี"</span></label><input type="number" id="eoq-l" step="any" min="0" placeholder="เช่น 7"></div>
+      <div class="fg"><label>สต็อกสำรองกันของขาด</label>
+        <select id="eoq-sm" data-default="0" onchange="eoqSm()"><option value="none" selected>ไม่คิดสต็อกสำรอง</option><option value="days">สำรองเป็นจำนวนวัน</option><option value="svc">ตามระดับบริการ (ใช้ความผันผวนของยอดขาย)</option></select>
+      </div>
+      <div class="fg" id="eoq-fgsv" style="display:none"><label id="eoq-svl">สำรองไว้กี่วัน</label><input type="number" id="eoq-sv" step="any" min="0" placeholder="เช่น 3"></div>
+      <div class="fg" id="eoq-fgsvc" style="display:none"><label>ระดับบริการที่ต้องการ</label>
+        <select id="eoq-svc" data-default="1"><option value="90">90% (ของขาด 1 ใน 10 รอบ)</option><option value="95" selected>95%</option><option value="97.5">97.5%</option><option value="99">99%</option><option value="99.5">99.5%</option></select>
+      </div>
+      <div class="fg"><label>สั่งเป็นแพ็ก/ลังละกี่หน่วย <span style="color:var(--text3);font-size:.78rem">ไม่บังคับ — ว่าง = สั่งทีละ 1 หน่วยได้</span></label><input type="number" id="eoq-pk" step="1" min="0" placeholder="เช่น 24"></div>
+      <div class="fg"><label>ตอนนี้สั่งครั้งละกี่หน่วย <span style="color:var(--text3);font-size:.78rem">ไม่บังคับ — ใส่เพื่อดูว่าประหยัดได้เท่าไร</span></label><input type="number" id="eoq-cur" step="any" min="0" placeholder="เช่น 1000"></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcEOQ()">คำนวณ</button><button class="btn btn-s" type="button" onclick="eoqReset()">ล้างค่า</button></div>
+    <div class="rbox" id="eoq-res"><div class="rgrid">
+      <div class="ri"><div class="rl">สั่งครั้งละ</div><div class="rv g" id="eoq-q">—</div></div>
+      <div class="ri"><div class="rl">ค่า EOQ ตามสูตร (ก่อนปัดเป็นแพ็ก)</div><div class="rv" id="eoq-qq">—</div></div>
+      <div class="ri"><div class="rl">สั่งกี่ครั้งต่อปี</div><div class="rv a" id="eoq-ord">—</div></div>
+      <div class="ri"><div class="rl">สั่งซ้ำเมื่อสต็อกเหลือ (ROP)</div><div class="rv o" id="eoq-rop">—</div></div>
+    </div>
+    <div id="eoq-note" style="margin-top:12px;font-size:.84rem;color:var(--text);line-height:1.7"></div>
+    <div id="eoq-tw"></div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  สั่งทีละมากก็เปลืองที่เก็บ สั่งทีละน้อยก็เสียค่าสั่งบ่อย — EOQ คือจำนวนต่อครั้งที่ทำให้ค่าสั่งซื้อ + ค่าเก็บรวมกันถูกที่สุด และ ROP บอกว่าสต็อกเหลือเท่าไรต้องสั่งรอบใหม่ เพื่อไม่ให้ของขาดระหว่างรอของมาส่ง<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง</div>
+  ขายปีละ 12,000 หน่วย · ค่าสั่งครั้งละ ฿500 · ราคา ฿100 · ค่าเก็บ 20%/ปี (= ฿20/หน่วย) · ขาย 365 วัน · ของมาส่ง 7 วัน · สำรอง 3 วัน · ตอนนี้สั่งครั้งละ 1,000<br>
+  → <b class="pc-ans">EOQ 774.6 → สั่งครั้งละ 775 หน่วย (15.5 ครั้ง/ปี ทุก ~23.6 วัน) · สั่งซ้ำเมื่อเหลือ 329 หน่วย · ประหยัดจากที่สั่งอยู่ ฿508.06/ปี</b><br><br>
+  <span style="color:var(--text3)">EOQ = √(2 × ความต้องการต่อปี × ค่าสั่งต่อครั้ง ÷ ค่าเก็บต่อหน่วยต่อปี) · ROP = ยอดขายเฉลี่ยต่อวัน × Lead time + สต็อกสำรอง · สต็อกสำรองแบบระดับบริการ = z × ส่วนเบี่ยงเบนมาตรฐานของยอดขายต่อวัน × √Lead time (ใช้ค่า z มาตรฐาน: 90% = 1.2816, 95% = 1.6449, 97.5% = 1.96, 99% = 2.3263, 99.5% = 2.5758)</span><br><br>
+  <div class="pc-tip-ex">⚠️ หมายเหตุ</div>
+  <span style="color:var(--text3)">• โมเดล EOQ สมมติยอดขายสม่ำเสมอ ราคาไม่เปลี่ยนตามปริมาณที่สั่ง (ไม่รวมส่วนลดปริมาณ) ของมาส่งครบในครั้งเดียว และไม่ขาดสต็อก — ถ้ามีส่วนลดปริมาณ ให้ลองใส่ราคาทีละช่วงแล้วเทียบ "รวมทั้งหมดรวมค่าสินค้า"<br>
+  • ค่าเก็บรักษาควรรวมดอกเบี้ยของเงินที่จมในสต็อก ค่าที่เก็บ ประกัน และของเสีย/หมดอายุ — ที่นิยมใช้คือ 15–30% ของราคาต่อปี แต่ต้องประเมินจากธุรกิจของคุณเอง<br>
+  • ค่า z ใช้ได้เมื่อยอดขายต่อวันกระจายแบบปกติโดยประมาณและอิสระต่อกัน</span>
+</div>
+</div>
+</div>
+
+<!-- ══ SPLIT BILL ══ -->
+<div class="page" id="page-splitbill">
+  <div class="page-header"><div class="page-title">หารค่าอาหาร</div><div class="page-sub">Split Bill — คนไม่ดื่มจ่ายค่าอาหาร · คนดื่มจ่ายค่าอาหาร + ค่าเหล้า</div></div>
+  <div class="pc-row">
+<div class="card pc-calc" style="margin:0">
+    <div class="grid2">
+      <div class="fg"><label>จำนวนคนทั้งหมด</label><input type="number" id="sb-n" min="1" step="1" placeholder="เช่น 6"></div>
+      <div class="fg"><label>จำนวนคนที่ดื่มเหล้า</label><input type="number" id="sb-d" min="0" step="1" placeholder="เช่น 4 (ไม่มี = 0)"></div>
+      <div class="fg"><label>ค่าอาหาร <span style="color:var(--text3);font-size:.78rem">(หารเท่ากันทุกคน)</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="sb-f" step="0.01" min="0" placeholder="เช่น 2400"></div></div>
+      <div class="fg"><label>ค่าเหล้า/เครื่องดื่ม <span style="color:var(--text3);font-size:.78rem">(หารเฉพาะคนดื่ม)</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="sb-w" step="0.01" min="0" placeholder="เช่น 1600"></div></div>
+      <div class="fg"><label>ค่าบริการ (%)</label><input type="number" id="sb-sc" step="0.1" min="0" value="0" placeholder="ร้านส่วนใหญ่ 10 หรือ 0"></div>
+      <div class="fg"><label>VAT (%)</label><input type="number" id="sb-vat" step="0.1" min="0" value="0" placeholder="7 หรือ 0 ถ้ารวมในราคาแล้ว"></div>
+      <div class="fg"><label>ปัดเศษขึ้นเป็น</label>
+        <select id="sb-r" data-default="0"><option value="1" selected>สตางค์ (ไม่ปัดเป็นบาท)</option><option value="100">บาท</option><option value="500">5 บาท</option><option value="1000">10 บาท</option></select>
+      </div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" onclick="calcSB()">คำนวณ</button><button class="btn btn-s" onclick="resetFields('sb')">ล้างค่า</button></div>
+    <div class="rbox" id="sb-res"><div class="rgrid">
+      <div class="ri"><div class="rl" id="sb-nd-l">คนที่ไม่ดื่ม จ่ายคนละ</div><div class="rv g" id="sb-nd">—</div></div>
+      <div class="ri"><div class="rl" id="sb-dr-l">คนที่ดื่ม จ่ายคนละ</div><div class="rv a" id="sb-dr">—</div></div>
+      <div class="ri"><div class="rl">คนดื่มจ่ายมากกว่าคนไม่ดื่ม</div><div class="rv o" id="sb-diff">—</div></div>
+      <div class="ri"><div class="rl">ยอดบิลรวม (หลังค่าบริการ + VAT)</div><div class="rv" id="sb-bill">—</div></div>
+      <div class="ri"><div class="rl">ยอดที่เก็บได้รวม</div><div class="rv" id="sb-col">—</div></div>
+      <div class="ri"><div class="rl">ส่วนเกินจากการปัดเศษ</div><div class="rv r" id="sb-over">—</div></div>
+    </div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  โต๊ะที่ครึ่งหนึ่งดื่ม อีกครึ่งไม่ดื่ม — ค่าอาหารหารเท่ากันทุกคน ส่วนค่าเหล้าให้คนดื่มหารกันเอง คนไม่ดื่มจะไม่ต้องช่วยจ่าย<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 1 — 6 คน ดื่ม 4 คน</div>
+  ค่าอาหาร ฿2,400 · ค่าเหล้า ฿1,600<br>
+  → <b class="pc-ans">คนไม่ดื่ม ฿400 · คนดื่ม ฿800 (อาหาร ฿400 + เหล้า ฿400)</b>
+  <br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 2 — มีค่าบริการและ VAT</div>
+  5 คน ดื่ม 3 คน · อาหาร ฿1,500 · เหล้า ฿900 · ค่าบริการ 10% + VAT 7%<br>
+  → <b class="pc-ans">คนไม่ดื่ม ฿353.10 · คนดื่ม ฿706.20 · รวม ฿2,824.80</b><br>
+  <span style="color:var(--text3)">สูตรของเครื่องนี้: คิดค่าบริการก่อน แล้ว VAT คิดบน (ราคา + ค่าบริการ) — ถ้าบิลของร้านคิดต่างจากนี้ ให้ใส่ 0 ทั้งสองช่อง แล้วกรอกยอดตามบิลจริงในค่าอาหาร/ค่าเหล้า</span><br><br>
+  <span style="color:var(--text3)">ถ้าเลือกปัดเศษ ยอดต่อคนจะปัด<b>ขึ้น</b>เสมอ ยอดเก็บรวมจึงไม่ต่ำกว่าบิล (ส่วนต่างแสดงเป็น "ส่วนเกินจากการปัดเศษ")</span>
+</div>
+</div>
+</div>
+
+<!-- ══ EVERYDAY: UNIT PRICE ══ -->
+<div class="page" id="page-unitprice">
+  <div class="page-header"><div class="page-title">เปรียบเทียบราคาต่อหน่วย</div><div class="page-sub">Unit Price — ห่อไหนถูกกว่ากันจริง ๆ (ต่อ 100 ก. / 100 มล. / 1 ชิ้น)</div></div>
+  <div class="pc-row dl-wide">
+<div class="card pc-calc" style="margin:0">
+    <div class="fg"><label>ประเภทสินค้า</label>
+      <div class="rg" id="up-cat"><div class="rb on" data-c="wt" onclick="upSetCat('wt')">⚖️ น้ำหนัก</div><div class="rb" data-c="vol" onclick="upSetCat('vol')">🧴 ปริมาตร</div><div class="rb" data-c="pc" onclick="upSetCat('pc')">🔢 ชิ้น</div><div class="rb" data-c="len" onclick="upSetCat('len')">📏 ความยาว</div></div>
+    </div>
+    <div id="up-rows"></div>
+    <div class="btn-row"><button class="btn btn-s" type="button" id="up-add" onclick="upAdd()">＋ เพิ่มสินค้า (สูงสุด 8)</button></div>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcUP()">เปรียบเทียบ</button><button class="btn btn-s" type="button" onclick="upReset()">ล้างค่า</button></div>
+    <div class="rbox" id="up-res"><div id="up-sum" style="text-align:center;font-size:1rem;color:var(--text)"></div><div id="up-tw"></div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  ยืนอยู่หน้าชั้นวางแล้วไม่แน่ใจว่าขวดใหญ่ถูกกว่าจริงไหม — ใส่ราคาและปริมาณของแต่ละชิ้น เครื่องจะแปลงเป็นราคาต่อหน่วยเดียวกันให้<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง — น้ำยาซักผ้า</div>
+  ขวด A ฿189 / 1.8 ลิตร · ถุงเติม B ฿299 / 3 ลิตร<br>
+  → <b class="pc-ans">A ฿10.50 · B ฿9.9667 ต่อ 100 มล. — B ถูกกว่า (A แพงกว่า 5.4%)</b><br><br>
+  <span style="color:var(--text3)">ถ้าเป็นแพ็ก เช่น 6 ขวด ขวดละ 330 มล. ให้ใส่ปริมาณ 330 และจำนวนห่อ 6 · ช่องที่ไม่กรอกราคา/ปริมาณจะถูกข้าม · ราคาต่อหน่วยไม่ได้บอกเรื่องคุณภาพ ความสด หรือว่าใช้หมดก่อนเสียไหม</span>
+</div>
+</div>
+</div>
+
+<!-- ══ EVERYDAY: PROMO ══ -->
+<div class="page" id="page-promo">
+  <div class="page-header"><div class="page-title">โปรโมชั่นคุ้มไหม</div><div class="page-sub">Promotion Compare — ซื้อ 1 แถม 1 · ลด % · ชิ้นที่ 2 ลด · ชุดราคาพิเศษ · ซื้อครบลดบาท</div></div>
+  <div class="pc-row dl-wide">
+<div class="card pc-calc" style="margin:0">
+    <div class="grid2">
+      <div class="fg"><label>ราคาปกติต่อชิ้น</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="pm-p" step="0.01" min="0" placeholder="เช่น 100"></div></div>
+      <div class="fg"><label>ต้องการซื้อกี่ชิ้น</label><input type="number" id="pm-q" step="1" min="1" placeholder="เช่น 6"></div>
+    </div>
+    <div id="pm-rows"></div>
+    <div class="btn-row"><button class="btn btn-s" type="button" id="pm-add" onclick="pmAdd()">＋ เพิ่มโปร (สูงสุด 4)</button></div>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcPM()">เปรียบเทียบ</button><button class="btn btn-s" type="button" onclick="pmReset()">ล้างค่า</button></div>
+    <div class="rbox" id="pm-res"><div id="pm-sum" style="text-align:center;font-size:1rem;color:var(--text)"></div><div id="pm-tw"></div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  ร้านเดียวกันมีโปรหลายแบบ หรือสองร้านโปรไม่เหมือนกัน — ใส่จำนวนที่ต้องการซื้อจริง แล้วดูว่าจ่ายรวมเท่าไหร่ ไม่ใช่ดูแค่ตัวเลข % สวย ๆ<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง — สินค้าชิ้นละ ฿100 ซื้อ 6 ชิ้น</div>
+  ซื้อ 2 แถม 1 / ชิ้นที่ 2 ลด 50% / ลด 30% / 3 ชิ้น ฿250<br>
+  → <b class="pc-ans">ซื้อ 2 แถม 1 ถูกสุด จ่าย ฿400 (฿66.67 ต่อชิ้น) · ลด 30% ฿420 · ชิ้นที่ 2 ลด 50% ฿450 · 3 ชิ้น ฿250 = ฿500</b><br><br>
+  <span style="color:var(--text3)">คิดจากจำนวนที่ต้องการพอดี ไม่ซื้อเกินเพื่อเอาชุดที่ถูกกว่า · ชุด N ชิ้น ส่วนที่เหลือไม่ครบชุดคิดราคาปกติ · ไม่ซ้อนโปรกัน (ตัวเลือกละ 1 โปร)</span>
+</div>
+</div>
+</div>
+
+<!-- ══ EVERYDAY: DATE ══ -->
+<div class="page" id="page-datecalc">
+  <div class="page-header"><div class="page-title">นับวัน / อายุ</div><div class="page-sub">Date Calculator — ระหว่างสองวันที่ · บวก/ลบวัน · อายุและวันเกิดครั้งหน้า</div></div>
+  <div class="pc-row">
+<div class="card pc-calc" style="margin:0">
+    <div class="fg"><label>ต้องการ</label>
+      <div class="rg" id="dcal-mode"><div class="rb on" data-m="between" onclick="dcSetMode('between')">📆 นับระหว่างวันที่</div><div class="rb" data-m="add" onclick="dcSetMode('add')">➕ บวก/ลบวัน</div><div class="rb" data-m="age" onclick="dcSetMode('age')">🎂 อายุ</div></div>
+    </div>
+    <div class="dcal-sec on" data-m="between">
+      <div class="grid2">
+        <div class="fg"><label>วันที่เริ่มต้น</label><input type="date" id="dcal-a" min="1900-01-01" max="2200-12-31" style="color:#dde4f0;-webkit-text-fill-color:#dde4f0;background:#181c28"></div>
+        <div class="fg"><label>วันที่สิ้นสุด <a href="javascript:void(0)" style="font-size:.74rem;color:var(--accent)" onclick="dcSetToday('dcal-b')">ใช้วันนี้</a></label><input type="date" id="dcal-b" min="1900-01-01" max="2200-12-31" style="color:#dde4f0;-webkit-text-fill-color:#dde4f0;background:#181c28"></div>
+      </div>
+      <label style="display:flex;gap:8px;align-items:center;font-size:.85rem;color:var(--text2);margin-bottom:14px;cursor:pointer"><input type="checkbox" id="dcal-inc"> นับรวมวันสิ้นสุดด้วย (เช่น พักวันที่ 1–3 = 3 วัน)</label>
+    </div>
+    <div class="dcal-sec" data-m="add">
+      <div class="grid2">
+        <div class="fg"><label>วันที่เริ่มต้น <a href="javascript:void(0)" style="font-size:.74rem;color:var(--accent)" onclick="dcSetToday('dcal-s')">ใช้วันนี้</a></label><input type="date" id="dcal-s" min="1900-01-01" max="2200-12-31" style="color:#dde4f0;-webkit-text-fill-color:#dde4f0;background:#181c28"></div>
+        <div class="fg"><label>บวก หรือ ลบ</label><select id="dcal-sg"><option value="+" selected>บวก (นับไปข้างหน้า)</option><option value="-">ลบ (ย้อนหลัง)</option></select></div>
+        <div class="fg"><label>จำนวน</label><input type="number" id="dcal-n" step="1" min="0" placeholder="เช่น 90"></div>
+        <div class="fg"><label>หน่วย</label><select id="dcal-un"><option value="d" selected>วัน</option><option value="w">สัปดาห์</option><option value="m">เดือน</option><option value="y">ปี</option></select></div>
+      </div>
+    </div>
+    <div class="dcal-sec" data-m="age">
+      <div class="grid2">
+        <div class="fg"><label>วันเกิด</label><input type="date" id="dcal-bd" min="1900-01-01" max="2200-12-31" style="color:#dde4f0;-webkit-text-fill-color:#dde4f0;background:#181c28"></div>
+        <div class="fg"><label>คิดอายุ ณ วันที่ <a href="javascript:void(0)" style="font-size:.74rem;color:var(--accent)" onclick="dcSetToday('dcal-rf')">ใช้วันนี้</a></label><input type="date" id="dcal-rf" min="1900-01-01" max="2200-12-31" style="color:#dde4f0;-webkit-text-fill-color:#dde4f0;background:#181c28"></div>
+      </div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcDC()">คำนวณ</button><button class="btn btn-s" type="button" onclick="dcReset()">ล้างค่า</button></div>
+    <div class="rbox" id="dcal-res"><div class="rgrid" id="dcal-grid"></div><div class="dl-note" id="dcal-note"></div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  นับว่าผ่านมา/เหลืออีกกี่วัน (ครบกำหนดชำระ, สัญญา, วันลา, ทดลองงาน) · หาวันที่หลังจากนี้ 90 วัน · อายุเป็นปี-เดือน-วัน<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 1 — ทั้งปี</div>
+  1 ม.ค. – 31 ธ.ค. 2569 (ค.ศ. 2026)<br>
+  → <b class="pc-ans">364 วัน · ติ๊ก "นับรวมวันสิ้นสุด" = 365 วัน = 1 ปีพอดี</b>
+  <br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 2 — บวกเดือนสิ้นเดือน</div>
+  31 ม.ค. 2569 + 1 เดือน<br>
+  → <b class="pc-ans">28 กุมภาพันธ์ 2569</b> (เดือนปลายทางไม่มีวันที่ 31 ใช้วันสุดท้ายของเดือน)<br><br>
+  <span style="color:var(--text3)">แสดงผลเป็นปี พ.ศ. · รับวันที่ ค.ศ. 1900–2200 · วันทำการ = จันทร์–ศุกร์ ไม่หักวันหยุดนักขัตฤกษ์</span>
+</div>
+</div>
+</div>
+
+<!-- ══ EVERYDAY: ITEM BILL ══ -->
+<div class="page" id="page-itembill">
+  <div class="page-header"><div class="page-title">หารบิลแบบรายการ</div><div class="page-sub">Split by Item — ใครกินอะไร หารกันเฉพาะรายการนั้น (รวมค่าบริการ/VAT)</div></div>
+  <div class="pc-row dl-wide">
+<div class="card pc-calc" style="margin:0">
+    <div class="fg"><label>คนในกลุ่ม (2–12 คน)</label><div class="dl-people" id="ib-people"></div><div class="btn-row" style="margin-top:0"><button class="btn btn-s" type="button" id="ib-addp" onclick="mxAddP('ib')">＋ เพิ่มคน</button></div></div>
+    <div class="fg"><label>รายการบนบิล — ติ๊กชื่อคนที่หารรายการนั้น</label><div id="ib-rows"></div><div class="btn-row" style="margin-top:0"><button class="btn btn-s" type="button" id="ib-addr" onclick="mxAddR('ib')">＋ เพิ่มรายการ (สูงสุด 30)</button></div></div>
+    <div class="grid2">
+      <div class="fg"><label>ค่าบริการ (%)</label><input type="number" id="ib-sc" step="0.1" min="0" value="0"></div>
+      <div class="fg"><label>VAT (%)</label><input type="number" id="ib-vat" step="0.1" min="0" value="0"></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcIB()">คำนวณ</button><button class="btn btn-s" type="button" onclick="ibReset()">ล้างค่า</button></div>
+    <div class="rbox" id="ib-res"><div style="text-align:center;margin-bottom:6px"><div class="rl" id="ib-bl">ยอดบิลรวม</div><div class="rv a" id="ib-bill">—</div></div><div id="ib-tw"></div><div class="btn-row"><button class="btn btn-s" type="button" id="ib-copy" onclick="dlCopy('ib','ib-copy')">📋 คัดลอกสรุป</button></div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  โต๊ะที่สั่งไม่เหมือนกัน — จานกลางหารทุกคน เครื่องดื่มหารเฉพาะคนที่สั่ง ส่วนค่าบริการ/VAT คิดตามสัดส่วนของแต่ละคน<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง — 3 คน (ก, ข, ค)</div>
+  ต้มยำ ฿300 หารทั้ง 3 · เบียร์ ฿120 หารเฉพาะ ก กับ ข<br>
+  → <b class="pc-ans">ก ฿160 · ข ฿160 · ค ฿100 รวม ฿420</b><br><br>
+  <span style="color:var(--text3)">คิดเป็นสตางค์ ผลรวมรายคนเท่ากับยอดบิลเป๊ะ — เศษสตางค์ที่หารไม่ลงตัวให้คนที่มีเศษมากสุด (เท่ากันให้คนลำดับก่อน) · ค่าบริการคิดก่อน แล้ว VAT คิดบน (ราคา + ค่าบริการ) ถ้าบิลร้านคิดต่างจากนี้ ใส่ 0 แล้วกรอกราคาตามบิลเอง · ถ้าเป็นแค่ 2 กลุ่ม (ดื่ม/ไม่ดื่ม) ใช้เมนู "หารค่าอาหาร" เร็วกว่า</span>
+</div>
+</div>
+</div>
+
+<!-- ══ EVERYDAY: TRIP SETTLE ══ -->
+<div class="page" id="page-tripsettle">
+  <div class="page-header"><div class="page-title">สรุปทริป: ใครจ่ายใคร</div><div class="page-sub">Trip Settle-Up — หลายคนสลับกันออกเงิน สรุปว่าใครโอนให้ใคร</div></div>
+  <div class="pc-row dl-wide">
+<div class="card pc-calc" style="margin:0">
+    <div class="fg"><label>คนในกลุ่ม (2–12 คน)</label><div class="dl-people" id="ts-people"></div><div class="btn-row" style="margin-top:0"><button class="btn btn-s" type="button" id="ts-addp" onclick="mxAddP('ts')">＋ เพิ่มคน</button></div></div>
+    <div class="fg"><label>ค่าใช้จ่าย — เลือกคนที่ออกเงิน และติ๊กคนที่ต้องหาร</label><div id="ts-rows"></div><div class="btn-row" style="margin-top:0"><button class="btn btn-s" type="button" id="ts-addr" onclick="mxAddR('ts')">＋ เพิ่มรายการ (สูงสุด 30)</button></div></div>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcTS()">สรุปยอด</button><button class="btn btn-s" type="button" onclick="tsReset()">ล้างค่า</button></div>
+    <div class="rbox" id="ts-res"><div class="rgrid"><div class="ri"><div class="rl">ค่าใช้จ่ายรวม</div><div class="rv a" id="ts-total">—</div></div><div class="ri"><div class="rl">ต้องโอน</div><div class="rv o" id="ts-cnt">—</div></div></div><div id="ts-tw"></div><div class="btn-row"><button class="btn btn-s" type="button" id="ts-copy" onclick="dlCopy('ts','ts-copy')">📋 คัดลอกสรุป</button></div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  เที่ยวกันหลายคน ใครสะดวกก็จ่ายไปก่อน (ที่พัก ค่าน้ำมัน มื้ออาหาร) — ใส่ทุกรายการ แล้วสรุปว่าสุดท้ายใครต้องโอนให้ใครเท่าไหร่<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง — 3 คน (A, B, C) หารเท่ากันทุกรายการ</div>
+  A จ่ายที่พัก ฿3,000 · B จ่ายอาหาร ฿900 → ส่วนของแต่ละคน ฿1,300<br>
+  → <b class="pc-ans">C โอนให้ A ฿1,300 · B โอนให้ A ฿400</b><br><br>
+  <span style="color:var(--text3)">แต่ละรายการหารเท่ากันในกลุ่มคนหาร (ติ๊กเฉพาะคนที่เกี่ยวข้องได้) · เศษสตางค์หมุนเวียนระหว่างคนหารไม่ให้คนเดียวเสียเปรียบ · วิธีจับคู่ผู้ติดลบมากสุดกับผู้ได้คืนมากสุด ได้ไม่เกิน (คน − 1) ครั้ง แต่ไม่รับประกันว่าน้อยที่สุดในทุกกรณี</span>
+</div>
+</div>
+</div>
+
+<!-- ══ EVERYDAY: FUEL ══ -->
+<div class="page" id="page-fuelcost">
+  <div class="page-header"><div class="page-title">ค่าน้ำมัน / ค่าเดินทาง</div><div class="page-sub">Trip Fuel Cost — ค่าเดินทางต่อทริป หารกับเพื่อนร่วมรถ · อัตราสิ้นเปลืองจริงของรถ</div></div>
+  <div class="pc-row">
+<div class="card pc-calc" style="margin:0">
+    <div class="grid2">
+      <div class="fg"><label>ระยะทาง (กม.)</label><input type="number" id="fu-km" step="any" min="0" placeholder="เช่น 300"></div>
+      <div class="fg"><label>เส้นทาง</label><select id="fu-rt"><option value="1" selected>ไปอย่างเดียว</option><option value="2">ไป-กลับ (คูณ 2)</option></select></div>
+      <div class="fg"><label>หน่วยอัตราสิ้นเปลือง</label><select id="fu-em" onchange="fuMode()"><option value="kmL" selected>กม./ลิตร</option><option value="l100">ลิตร/100 กม.</option></select></div>
+      <div class="fg"><label id="fu-eco-l">อัตราสิ้นเปลือง (กม./ลิตร)</label><input type="number" id="fu-eco" step="any" min="0" placeholder="เช่น 12"></div>
+      <div class="fg"><label>ราคาน้ำมัน</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="fu-pr" step="0.01" min="0" placeholder="บาท/ลิตร เช่น 40"></div></div>
+      <div class="fg"><label>ค่าทางด่วน / ค่าจอด (รวม)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="fu-ex" step="0.01" min="0" value="0"></div></div>
+      <div class="fg"><label>จำนวนคนร่วมรถ</label><input type="number" id="fu-n" step="1" min="1" value="1"></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcFU()">คำนวณ</button><button class="btn btn-s" type="button" onclick="resetFields('fu');fuMode()">ล้างค่า</button></div>
+    <div class="rbox" id="fu-res"><div class="rgrid">
+      <div class="ri"><div class="rl">ระยะทางรวม</div><div class="rv" id="fu-dist">—</div></div>
+      <div class="ri"><div class="rl">น้ำมันที่ใช้</div><div class="rv" id="fu-l">—</div></div>
+      <div class="ri"><div class="rl">ค่าน้ำมัน</div><div class="rv o" id="fu-fuel">—</div></div>
+      <div class="ri"><div class="rl">ค่าเดินทางรวม</div><div class="rv a" id="fu-tot">—</div></div>
+      <div class="ri"><div class="rl">ต่อกิโลเมตร</div><div class="rv" id="fu-km1">—</div></div>
+      <div class="ri"><div class="rl">หารต่อคน</div><div class="rv g" id="fu-pp">—</div></div>
+    </div></div>
+    <hr class="div">
+    <div class="card-title">อัตราสิ้นเปลืองจริงของรถ (เติมเต็มถังทุกครั้ง)</div>
+    <div class="grid2">
+      <div class="fg"><label>วิ่งมากี่ กม. ตั้งแต่เติมครั้งก่อน</label><input type="number" id="fu-e-km" step="any" min="0" placeholder="เช่น 540"></div>
+      <div class="fg"><label>เติมเต็มถังครั้งนี้ (ลิตร)</label><input type="number" id="fu-e-l" step="any" min="0" placeholder="เช่น 42.5"></div>
+      <div class="fg"><label>ราคาน้ำมัน (ไม่บังคับ)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="fu-e-pr" step="0.01" min="0" placeholder="บาท/ลิตร"></div></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcFE()">หาอัตราสิ้นเปลือง</button></div>
+    <div class="rbox" id="fu-e-res"><div class="rgrid">
+      <div class="ri"><div class="rl">กม./ลิตร</div><div class="rv a" id="fu-e-a">—</div></div>
+      <div class="ri"><div class="rl">ลิตร/100 กม.</div><div class="rv" id="fu-e-b">—</div></div>
+      <div class="ri"><div class="rl">ค่าน้ำมันต่อ กม.</div><div class="rv o" id="fu-e-c">—</div></div>
+    </div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  วางแผนไปเที่ยวต่างจังหวัด ไปรับ-ส่ง หรือจะหารค่าน้ำมันกับเพื่อนในรถคันเดียวกัน<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง — ไป-กลับ 300 กม.</div>
+  12 กม./ลิตร · น้ำมัน ฿40/ลิตร · ทางด่วน ฿150 · 3 คน<br>
+  → <b class="pc-ans">ใช้น้ำมัน 50 ลิตร ฿2,000 + ทางด่วน = ฿2,150 · หารต่อคน ฿716.67 · ฿3.5833 ต่อ กม.</b><br><br>
+  <span style="color:var(--text3)">อัตราสิ้นเปลืองที่ผู้ผลิตแจ้งมักดีกว่าการใช้จริง (ติดแอร์ รถติด บรรทุกหนัก) — ใช้ช่องด้านล่างวัดของรถตัวเองจากการเติมเต็มถัง 2 ครั้งติดกัน · ไม่รวมค่าเสื่อมสภาพ ค่าบำรุงรักษา ประกัน</span>
+</div>
+</div>
+</div>
+
+<!-- ══ EVERYDAY: COST PER USE ══ -->
+<div class="page" id="page-costuse">
+  <div class="page-header"><div class="page-title">ของแพงคุ้มไหม</div><div class="page-sub">Cost per Use — ต้นทุนต่อครั้งที่ใช้ และต้องใช้กี่ครั้งถึงจะคุ้ม</div></div>
+  <div class="pc-row">
+<div class="card pc-calc" style="margin:0">
+    <div class="grid2">
+      <div class="fg"><label>ราคาซื้อ</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="cu-pr" step="0.01" min="0" placeholder="เช่น 12000"></div></div>
+      <div class="fg"><label>ขายต่อได้ตอนเลิกใช้ (ซาก)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="cu-sv" step="0.01" min="0" value="0"></div></div>
+      <div class="fg"><label>ค่าบำรุงรักษาต่อปี</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="cu-mt" step="0.01" min="0" value="0"></div></div>
+      <div class="fg"><label>ใช้งานได้กี่ปี</label><input type="number" id="cu-y" step="any" min="0" placeholder="เช่น 5"></div>
+      <div class="fg"><label>ใช้กี่ครั้งต่อปี</label><input type="number" id="cu-u" step="any" min="0" placeholder="เช่น 100"></div>
+      <div class="fg"><label>ค่าใช้ต่อครั้ง (ค่าไฟ/ค่าเข้า ฯลฯ)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="cu-v" step="0.01" min="0" value="0"></div></div>
+      <div class="fg"><label>เทียบกับทางเลือก: จ่ายครั้งละ (ไม่บังคับ)</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="cu-alt" step="0.01" min="0" placeholder="เช่น 50 (ค่าเช่า/ค่าเข้า)"></div></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcCU()">คำนวณ</button><button class="btn btn-s" type="button" onclick="resetFields('cu')">ล้างค่า</button></div>
+    <div class="rbox" id="cu-res"><div class="rgrid">
+      <div class="ri"><div class="rl">ต้นทุนต่อครั้ง</div><div class="rv a" id="cu-per">—</div></div>
+      <div class="ri"><div class="rl">ต้นทุนรวมตลอดอายุ</div><div class="rv" id="cu-tot">—</div></div>
+      <div class="ri"><div class="rl">ใช้ทั้งหมด</div><div class="rv" id="cu-n">—</div></div>
+      <div class="ri"><div class="rl">ต่อเดือน</div><div class="rv o" id="cu-mo">—</div></div>
+      <div class="ri"><div class="rl">ต่อปี</div><div class="rv o" id="cu-yr">—</div></div>
+    </div><div id="cu-msg" style="display:none;margin-top:14px;font-size:.9rem;line-height:1.7;text-align:center;color:var(--text2)"></div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  ซื้อของชิ้นใหญ่ที่ใช้ซ้ำ (จักรยาน เครื่องชงกาแฟ เครื่องออกกำลังกาย สมาชิกรายปี) แล้วสงสัยว่าซื้อดีกว่าเช่า/จ่ายรายครั้งไหม<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง — จักรยาน</div>
+  ซื้อ ฿12,000 · ขายต่อ ฿3,000 · บำรุงรักษา ฿500/ปี · ใช้ 5 ปี ปีละ 100 ครั้ง · เทียบกับเช่าครั้งละ ฿50<br>
+  → <b class="pc-ans">ต้นทุน ฿11,500 / 500 ครั้ง = ฿23 ต่อครั้ง · ต้องใช้ ≥ 230 ครั้งถึงจะถูกกว่าเช่า → คุ้ม ประหยัด ฿13,500</b><br><br>
+  <span style="color:var(--text3)">ค่าบำรุงรักษาถือว่าเท่ากันทุกปี และไม่ขึ้นกับจำนวนครั้ง · ไม่คิดดอกเบี้ยของเงินที่จ่ายไปก่อน · ตัวเลขคุ้ม/ไม่คุ้มขึ้นกับว่าใช้จริงตามที่ตั้งใจไหม (ของที่ซื้อแล้วไม่ได้ใช้ ไม่คุ้มทุกกรณี)</span>
+</div>
+</div>
+</div>
+
+<!-- ══ EVERYDAY: LATTE ══ -->
+<div class="page" id="page-latte">
+  <div class="page-header"><div class="page-title">รายจ่ายเล็ก ๆ ต่อวัน → ต่อปี</div><div class="page-sub">Latte Factor — กาแฟ ขนม ค่าส่ง ฯลฯ สะสมเป็นเท่าไหร่ ถ้านำไปลงทุนได้เท่าไหร่</div></div>
+  <div class="pc-row">
+<div class="card pc-calc" style="margin:0">
+    <div class="grid2">
+      <div class="fg"><label>จ่ายครั้งละ</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="lt-a" step="0.01" min="0" placeholder="เช่น 80"></div></div>
+      <div class="fg"><label>ช่วงเวลา</label><select id="lt-per" onchange="ltMode()"><option value="d" selected>ต่อวัน</option><option value="w">ต่อสัปดาห์</option><option value="m">ต่อเดือน</option></select></div>
+      <div class="fg"><label id="lt-times-l">จำนวนครั้งต่อวัน</label><input type="number" id="lt-t" step="any" min="0" value="1"></div>
+      <div class="fg"><label>ดูผลกี่ปี</label><input type="number" id="lt-y" step="1" min="1" value="10"></div>
+      <div class="fg"><label>ผลตอบแทนถ้านำไปลงทุน (%/ปี)</label><input type="number" id="lt-r" step="0.1" min="0" value="5"></div>
+    </div>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcLT()">คำนวณ</button><button class="btn btn-s" type="button" onclick="resetFields('lt');ltMode()">ล้างค่า</button></div>
+    <div class="rbox" id="lt-res"><div class="rgrid">
+      <div class="ri"><div class="rl">เฉลี่ยต่อวัน</div><div class="rv" id="lt-d">—</div></div>
+      <div class="ri"><div class="rl">ต่อเดือน</div><div class="rv o" id="lt-m">—</div></div>
+      <div class="ri"><div class="rl">ต่อปี</div><div class="rv a" id="lt-yr">—</div></div>
+      <div class="ri"><div class="rl" id="lt-tl">รวม (จ่ายจริง)</div><div class="rv r" id="lt-tot">—</div></div>
+      <div class="ri"><div class="rl" id="lt-fl">ถ้าเก็บลงทุน</div><div class="rv g" id="lt-fv">—</div></div>
+      <div class="ri"><div class="rl">ส่วนที่งอกเพิ่มจากผลตอบแทน</div><div class="rv g" id="lt-gain">—</div></div>
+    </div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  ดูว่ารายจ่ายเล็ก ๆ ที่จ่ายจนเป็นนิสัยรวมแล้วเท่าไหร่ — ไม่ได้บอกให้เลิกกิน แค่ให้เห็นตัวเลขจริง<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง — กาแฟแก้วละ ฿80 วันละแก้ว</div>
+  → <b class="pc-ans">เดือนละ ฿2,433.33 · ปีละ ฿29,200 · 10 ปี ฿292,000 · ถ้าเก็บลงทุน 5%/ปี จะได้ ฿377,853.55 (งอกเพิ่ม ฿85,853.55)</b><br><br>
+  <span style="color:var(--text3)">ปีละ = จำนวนเงิน × ครั้ง × (365 วัน / 52 สัปดาห์ / 12 เดือน) · ส่วนลงทุนสมมติฝากทุกสิ้นเดือน (ปีละ ÷ 12) ทบต้นรายเดือน ผลตอบแทนคงที่ ไม่หักภาษี ค่าธรรมเนียม หรือเงินเฟ้อ — ผลตอบแทนจริงขึ้นลงได้ และอาจขาดทุน</span>
+</div>
+</div>
+</div>
+
+<!-- ══ EVERYDAY: SAVING CHALLENGE ══ -->
+<div class="page" id="page-savechal">
+  <div class="page-header"><div class="page-title">ออมเงินแบบท้าทาย</div><div class="page-sub">Saving Challenge — ออมเพิ่มขึ้นเรื่อย ๆ ทุกสัปดาห์/วัน/เดือน (เช่น 52 สัปดาห์)</div></div>
+  <div class="pc-row">
+<div class="card pc-calc" style="margin:0">
+    <div class="fg"><label>ลองแบบสำเร็จรูป</label>
+      <div class="rg"><div class="rb" onclick="svcPreset(10,10,52,'สัปดาห์')">52 สัปดาห์ (฿10 +฿10)</div><div class="rb" onclick="svcPreset(1,1,52,'สัปดาห์')">52 สัปดาห์ (฿1 +฿1)</div><div class="rb" onclick="svcPreset(1,1,365,'วัน')">365 วัน (฿1 +฿1)</div></div>
+    </div>
+    <div class="grid2">
+      <div class="fg"><label>โหมด</label><select id="svc-m" onchange="svcMode()"><option value="plan" selected>รู้เงินเริ่มต้น → ดูว่าได้เท่าไหร่</option><option value="goal">รู้เป้าหมาย → หาว่าเริ่มเท่าไหร่</option></select></div>
+      <div class="fg"><label>ต่องวด คือ</label><select id="svc-u"><option value="สัปดาห์" selected>สัปดาห์</option><option value="วัน">วัน</option><option value="เดือน">เดือน</option></select></div>
+      <div class="fg" id="svc-a-fg"><label>ออมงวดแรก</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="svc-a" step="0.01" min="0" placeholder="เช่น 10"></div></div>
+      <div class="fg" id="svc-t-fg" style="display:none"><label>เป้าหมายเงินออมรวม</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="svc-t" step="0.01" min="0" placeholder="เช่น 50000"></div></div>
+      <div class="fg"><label>เพิ่มขึ้นงวดละ</label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="svc-b" step="0.01" min="0" placeholder="เช่น 10 (0 = ออมเท่าเดิม)"></div></div>
+      <div class="fg"><label>จำนวนงวด</label><input type="number" id="svc-n" step="1" min="1" placeholder="เช่น 52"></div>
+    </div>
+    <label style="display:flex;gap:8px;align-items:center;font-size:.85rem;color:var(--text2);margin-bottom:14px;cursor:pointer"><input type="checkbox" id="svc-desc"> เรียงจากมากไปน้อย (ออมก้อนใหญ่ก่อน ตอนยังมีกำลังใจ)</label>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcSVC()">คำนวณ</button><button class="btn btn-s" type="button" onclick="svcReset()">ล้างค่า</button></div>
+    <div class="rbox" id="svc-res"><div class="rgrid">
+      <div class="ri"><div class="rl">เงินออมรวม</div><div class="rv a" id="svc-tot">—</div></div>
+      <div class="ri"><div class="rl">งวดแรก</div><div class="rv" id="svc-first">—</div></div>
+      <div class="ri"><div class="rl">งวดสุดท้าย</div><div class="rv o" id="svc-last">—</div></div>
+      <div class="ri"><div class="rl">เฉลี่ยต่องวด</div><div class="rv" id="svc-avg">—</div></div>
+    </div><div class="dl-note" id="svc-note"></div></div>
+    <div id="svc-tw"></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  อยากมีวินัยออม แต่ไม่อยากเริ่มก้อนใหญ่ — ออมน้อย ๆ แล้วค่อยเพิ่มทุกงวด ดูว่าสุดท้ายได้เท่าไหร่ และงวดท้าย ๆ ต้องออมเท่าไหร่ (ต้องไหวจริงไหม)<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 1 — ฿10 แล้วเพิ่มทีละ ฿10 นาน 52 สัปดาห์</div>
+  → <b class="pc-ans">ได้ ฿13,780 · สัปดาห์สุดท้ายออม ฿520</b>
+  <br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 2 — ฿1 แล้วเพิ่มทีละ ฿1 นาน 365 วัน</div>
+  → <b class="pc-ans">ได้ ฿66,795 · วันสุดท้ายออม ฿365</b><br><br>
+  <span style="color:var(--text3)">เงินรวม = จำนวนงวด × งวดแรก + ขั้นเพิ่ม × n(n−1)/2 · ไม่รวมดอกเบี้ย · ลองสลับ "เรียงจากมากไปน้อย" ยอดรวมเท่าเดิม แต่ช่วงแรกต้องออมหนักกว่า</span>
+</div>
+</div>
+</div>
+
+<!-- ══ EVERYDAY: INSTALLMENT VS CASH ══ -->
+<div class="page" id="page-instpay">
+  <div class="page-header"><div class="page-title">ผ่อนหรือจ่ายสด</div><div class="page-sub">Installment vs Cash — ผ่อน 0% / ผ่อนแบบมีดอก เทียบกับจ่ายเงินสด พร้อมดอกเบี้ยแท้จริงต่อปี</div></div>
+  <div class="pc-row dl-wide">
+<div class="card pc-calc" style="margin:0">
+    <div class="grid2">
+      <div class="fg"><label>ราคาจ่ายสด (วันนี้) <span style="color:var(--text3);font-size:.78rem">(หลังส่วนลดเงินสดแล้ว)</span></label><div class="iw pfx"><span class="ipfx">฿</span><input type="number" id="ip-c" step="0.01" min="0" placeholder="เช่น 30000"></div></div>
+      <div class="fg"><label>เงินที่ไม่ได้จ่ายสด เก็บไว้ได้ผลตอบแทน (%/ปี)</label><input type="number" id="ip-r" step="0.1" min="0" value="2"><span class="sub">เช่น ดอกเบี้ยออมทรัพย์/ฝากประจำ — ใส่ 0 ถ้าไม่คิดค่าเสียโอกาส</span></div>
+    </div>
+    <div class="fg"><label>แผนผ่อน — เลือก ผ่อน 0% หรือ ผ่อนแบบมีดอก (เพิ่มได้ถึง 4 แผน)</label><div id="ip-rows"></div><div class="btn-row" style="margin-top:0"><button class="btn btn-s" type="button" id="ip-add" onclick="ipAdd()">＋ เพิ่มแผนผ่อน (สูงสุด 4)</button></div></div>
+    <div class="btn-row"><button class="btn btn-p" type="button" onclick="calcIP()">เปรียบเทียบ</button><button class="btn btn-s" type="button" onclick="ipReset()">ล้างค่า</button></div>
+    <div class="rbox" id="ip-res"><div id="ip-sum" style="text-align:center;font-size:1rem;color:var(--text)"></div><div id="ip-tw"></div></div>
+  </div>
+<div class="pc-tip">
+  <div class="pc-tip-title">📌 ใช้เมื่อไร?</div>
+  สินค้าชิ้นใหญ่ที่เลือกได้ว่าจะจ่ายสดหรือผ่อน — ผ่อน 0% จากบัตร/ร้านค้า หรือผ่อนที่มีดอกเบี้ย (กรอกเป็นยอดผ่อนรายเดือน หรือยอดรวมทั้งหมดก็ได้) เครื่องจะแปลงเป็นดอกเบี้ยแท้จริงต่อปี และเทียบว่าคุ้มกว่าจ่ายสดไหม เมื่อคิดว่าเงินที่ยังไม่ต้องจ่ายสดเอาไปทำผลตอบแทนได้<br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 1 — ผ่อน 0% ราคาเท่ากับจ่ายสด</div>
+  ราคา ฿30,000 · ผ่อน 0% 10 เดือน (฿3,000/เดือน) · เงินที่เก็บไว้ได้ 2%/ปี<br>
+  → <b class="pc-ans">เทียบเท่าจ่ายสด ฿29,726.82 → ผ่อนถูกกว่า ฿273.18</b>
+  <br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 2 — "0%" แต่จ่ายสดลดให้</div>
+  ราคาจ่ายสด ฿27,000 · ผ่อน 0% ราคาป้าย ฿30,000 10 เดือน<br>
+  → <b class="pc-ans">ดอกเบี้ยแท้จริง 23.56%/ปี (Flat 13.33%) — จ่ายสดถูกกว่า ฿2,726.82</b>
+  <br><br>
+  <div class="pc-tip-ex">ตัวอย่าง 3 — ผ่อนแบบมีดอก</div>
+  ราคาจ่ายสด ฿30,000 · ผ่อนเดือนละ ฿3,300 × 10 เดือน (รวม ฿33,000)<br>
+  → <b class="pc-ans">Flat 12%/ปี = ดอกเบี้ยแท้จริง 21.26%/ปี · แพงกว่าจ่ายสด ฿2,699.51</b><br><br>
+  <span style="color:var(--text3)">"ดอกเบี้ยแท้จริง" คือ APR ทบรายเดือน (ผ่อนแผนนี้คุ้มก็ต่อเมื่อเงินที่เก็บไว้ทำผลตอบแทนได้มากกว่าค่านี้) · "Flat/ปี" คือวิธีที่ร้านค้ามักโฆษณา ซึ่งต่ำกว่าดอกเบี้ยแท้จริงเสมอเมื่อผ่อนคืนต้นทุกงวด · สมมติจ่ายงวดแรกสิ้นเดือนที่ 1 และเงินดาวน์จ่ายวันนี้ · ผ่อน 0% ที่มีค่าธรรมเนียม/ค่าดำเนินการ ให้เลือก "ผ่อนแบบมีดอก" แล้วกรอกยอดรวมที่ต้องจ่ายจริง · ไม่รวมภาษี ประกัน หรือสิทธิ์ที่ได้ต่างกัน (เช่น แต้มบัตรเครดิต) · ผลตอบแทนที่ใส่เป็นค่าคงที่ ไม่รวมภาษีและความเสี่ยง</span>
 </div>
 </div>
 </div>
@@ -10684,6 +11320,1330 @@ function calcRw(){
   $('rwy-cut').textContent=burn<=0?'ไม่ต้องลด (กระแสเงินสดเป็นบวก)':(burn<=tn+1e-9?'ถึงเป้าแล้ว':'ลดเงินสดสุทธิที่เผาลง '+fB(burn-tn)+'/เดือน (หรือเพิ่มรายรับ) จึงจะอยู่ได้ '+fN(tg,0)+' เดือน');
   show('rwy-res');
 }
+
+/* ─── หารค่าอาหาร (Split Bill) · เพิ่ม 2026-11-25 ─── */
+// ค่าอาหาร: ทุกคนหารเท่ากัน ; ค่าเหล้า/เครื่องดื่ม: หารเฉพาะคนที่ดื่ม ; ค่าบริการ % และ VAT % คิดบนยอดรวมทั้งสองส่วน
+// ค่าบริการคิดบนราคาก่อน แล้ว VAT คิดบน (ราคา + ค่าบริการ) → ตัวคูณ k = (1+ค่าบริการ)(1+VAT)
+// ปัดขึ้น (ceil) เป็น step สตางค์ ต่อ "ราคาต่อคน" แต่ละกลุ่ม → ยอดเก็บรวมไม่ต่ำกว่ายอดบิล
+/*SB-CORE-BEGIN*/
+function sbCalc(o){
+  const n=o.n,d=o.d,food=o.food,drink=o.drink,sc=o.sc,vat=o.vat,step=o.step;
+  if(![n,d,food,drink,sc,vat,step].every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลขให้ครบ'};
+  if(!Number.isInteger(n)||n<1)return{err:'จำนวนคนทั้งหมดต้องเป็นจำนวนเต็มตั้งแต่ 1 คนขึ้นไป'};
+  if(!Number.isInteger(d)||d<0)return{err:'จำนวนคนที่ดื่มต้องเป็นจำนวนเต็ม (0 ได้ถ้าไม่มีใครดื่ม)'};
+  if(d>n)return{err:'จำนวนคนที่ดื่มต้องไม่มากกว่าจำนวนคนทั้งหมด'};
+  if(food<0||drink<0)return{err:'ค่าอาหารและค่าเหล้าต้องไม่ติดลบ'};
+  if(sc<0||vat<0)return{err:'ค่าบริการและ VAT ต้องไม่ติดลบ'};
+  if(![1,100,500,1000].includes(step))return{err:'ตัวเลือกการปัดไม่ถูกต้อง'};
+  if(drink>0&&d===0)return{err:'มีค่าเหล้าแต่จำนวนคนที่ดื่มเป็น 0 — ใส่จำนวนคนที่ดื่มอย่างน้อย 1 คน'};
+  if(!(food+drink>0))return{err:'ค่าอาหารและค่าเหล้ารวมกันต้องมากกว่า 0'};
+  const k=(1+sc/100)*(1+vat/100);
+  const foodT=food*k,drinkT=drink*k;
+  const rnd=x=>Math.ceil(x*100/step-1e-6)*step/100; // ปัดขึ้นเป็น step สตางค์ (1e-6 กันเศษลอยตัว เช่น 353.1×100 = 35310.000000000004)
+  const share=foodT/n;                                // ส่วนอาหารต่อคน (ทุกคน)
+  const nd=rnd(share);                                // คนไม่ดื่ม
+  const dr=d>0?rnd(share+drinkT/d):null;              // คนดื่ม (ไม่มีคนดื่ม = ไม่มีราคานี้)
+  const bill=(food+drink)*k;
+  const collected=nd*(n-d)+(d>0?dr*d:0);
+  return{nd:nd,dr:dr,cntND:n-d,cntD:d,bill:bill,collected:collected,over:collected-bill,
+         foodT:foodT,drinkT:drinkT,k:k};
+}
+/*SB-CORE-END*/
+
+/*SB-DOM-BEGIN*/
+function calcSB(){
+  const specs=[
+    ['sb-n','จำนวนคนทั้งหมด',{req:1,int:1,gt0:1,max:1000}],
+    ['sb-d','จำนวนคนที่ดื่ม',{req:1,int:1,zeroHint:'กรอก 0 ได้ถ้าไม่มีใครดื่ม',max:1000}],
+    ['sb-f','ค่าอาหาร',{req:1,zeroHint:'กรอก 0 ได้',max:1e7}],
+    ['sb-w','ค่าเหล้า/เครื่องดื่ม',{req:1,zeroHint:'กรอก 0 ได้ถ้าไม่มี',max:1e7}],
+    ['sb-sc','ค่าบริการ (%)',{req:1,zeroHint:'กรอก 0 ได้',max:100}],
+    ['sb-vat','VAT (%)',{req:1,zeroHint:'กรอก 0 ได้',max:100}]];
+  const c=pfCollect(specs);
+  if(c.err){vfail('sb-res',c.err);return;}
+  const x=c.vals;
+  const r=sbCalc({n:x['sb-n'],d:x['sb-d'],food:x['sb-f'],drink:x['sb-w'],sc:x['sb-sc'],vat:x['sb-vat'],step:Number($('sb-r').value)});
+  if(r.err){vfail('sb-res',r.err);return;}
+  if(![r.nd,r.bill,r.collected].every(isFinite)||(r.dr!==null&&!isFinite(r.dr))){vfail('sb-res',PB_BIG);return;}
+  $('sb-nd-l').textContent='คนที่ไม่ดื่ม ('+r.cntND+' คน) จ่ายคนละ';
+  $('sb-nd').textContent=r.cntND>0?fB(r.nd):'— (ไม่มีคนไม่ดื่ม)';
+  $('sb-dr-l').textContent='คนที่ดื่ม ('+r.cntD+' คน) จ่ายคนละ';
+  $('sb-dr').textContent=r.cntD>0?fB(r.dr):'— (ไม่มีคนดื่ม)';
+  $('sb-diff').textContent=r.cntD>0&&r.cntND>0?fB(r.dr-r.nd):'—';
+  $('sb-bill').textContent=fB(r.bill);
+  $('sb-col').textContent=fB(r.collected);
+  $('sb-over').textContent=fB(r.over<0.005?0:r.over);
+  show('sb-res');
+}
+/*SB-DOM-END*/
+
+/* ─── ตั้งราคาขายบนแพลตฟอร์ม (Platform Pricing) · เพิ่ม 2026-11-25 ─── */
+// ราคาขาย P = ราคาที่ลูกค้าจ่าย (รวม VAT ถ้าจดทะเบียน) ต่อ 1 ชิ้น/1 ออเดอร์
+// ค่าธรรมเนียม % (คอมมิชชั่น + ธุรกรรม + โฆษณา) คิดบน P ; VAT ที่รวมอยู่ในราคา = P − P/(1+v)
+// กำไร = P·a − base  โดย a = 1/(1+v) − (com+pay+ads)/100  ,  base = ต้นทุน + บรรจุภัณฑ์ + ค่าส่ง + ค่าธรรมเนียมคงที่
+// เป้าหมาย: 'amt' กำไร ฿ → P=(base+g)/a · 'margin' กำไร=g% ของ P → P=base/(a−g/100) · 'markup' กำไร=g% ของต้นทุนสินค้า C → P=(base+g·C/100)/a
+// ปัดราคาขึ้น (ceil) เสมอ → กำไรจริงไม่ต่ำกว่าเป้า (กำไรเพิ่มตาม P เพราะ a>0)
+/*PL-CORE-BEGIN*/
+function plCalc(o){
+  const nums=[o.C,o.pk,o.sh,o.fx,o.com,o.pay,o.ads,o.vat,o.g];
+  if(!nums.every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลขให้ครบ'};
+  if(o.C<0||o.pk<0||o.sh<0||o.fx<0)return{err:'ต้นทุน ค่าส่ง และค่าธรรมเนียมคงที่ต้องไม่ติดลบ'};
+  if(o.com<0||o.pay<0||o.ads<0||o.vat<0)return{err:'ค่าธรรมเนียม (%) และ VAT ต้องไม่ติดลบ'};
+  if(o.com>100||o.pay>100||o.ads>100||o.vat>100)return{err:'ค่าธรรมเนียม (%) และ VAT ต้องไม่เกิน 100'};
+  if(o.mode!=='amt'&&o.mode!=='margin'&&o.mode!=='markup')return{err:'เลือกวิธีกำหนดกำไรที่ต้องการ'};
+  if(o.g<0)return{err:'กำไรที่ต้องการต้องไม่ติดลบ'};
+  if(![1,100,500,1000,'e9'].includes(o.step))return{err:'ตัวเลือกการปัดไม่ถูกต้อง'};
+  if(o.pset!==null&&o.pset!==undefined&&!(typeof o.pset==='number'&&isFinite(o.pset)&&o.pset>0))return{err:'ราคาที่ตั้งไว้ต้องมากกว่า 0'};
+  const v=o.vat/100,fee=(o.com+o.pay+o.ads)/100;
+  const a=1/(1+v)-fee,base=o.C+o.pk+o.sh+o.fx;
+  if(!(a>1e-9))return{err:'ค่าธรรมเนียม % รวมกับ VAT สูงเกินไป — หักแล้วไม่เหลือรายได้ ขายราคาเท่าไรก็ไม่มีกำไร ตรวจสอบ % ที่กรอก'};
+  let P;
+  if(o.mode==='amt'){
+    if(!(base+o.g>0))return{err:'ต้นทุนรวมกับกำไรที่ต้องการต้องมากกว่า 0'};
+    P=(base+o.g)/a;
+  }else if(o.mode==='margin'){
+    if(!(o.g<100))return{err:'กำไรเป็น % ของราคาขายต้องน้อยกว่า 100'};
+    const d=a-o.g/100;
+    if(!(d>1e-9))return{err:'ต้องการกำไร '+o.g+'% ของราคาขาย แต่หลังหักค่าธรรมเนียมและ VAT แล้วเหลือสูงสุดไม่ถึง '+(a*100).toFixed(2)+'% (ต่อให้ต้นทุนเป็น 0) — ลดเป้าหมายลง'};
+    if(!(base>0))return{err:'ต้นทุนรวมต้องมากกว่า 0'};
+    P=base/d;
+  }else{
+    if(!(o.C>0))return{err:'ต้นทุนสินค้าต้องมากกว่า 0 เมื่อกำหนดกำไรเป็น % ของต้นทุน'};
+    P=(base+o.g/100*o.C)/a;
+  }
+  if(!isFinite(P)||P>1e12)return{err:'ราคาที่คำนวณได้ใหญ่เกินไป กรุณาตรวจสอบค่าที่กรอก'};
+  // ปัดราคาขึ้น (1e-6 กันเศษลอยตัว เช่น 146.74×100 = 14674.000000000002)
+  const rnd=x=>{
+    if(o.step==='e9')return Math.ceil((x-1e-6-9)/10)*10+9;           // ลงท้าย 9 (9, 19, 29, ... 99, 109)
+    return Math.ceil(x*100/o.step-1e-6)*o.step/100;
+  };
+  const sat=x=>Math.ceil(x*100-1e-6)/100;                             // ปัดขึ้นเป็นสตางค์
+  const ev=p=>{
+    const vat=p-p/(1+v),cm=p*o.com/100,py=p*o.pay/100,ad=p*o.ads/100;
+    const profit=p-vat-cm-py-ad-o.fx-o.sh-o.C-o.pk;
+    return{price:p,vat:vat,com:cm,pay:py,ads:ad,fx:o.fx,sh:o.sh,C:o.C,pk:o.pk,profit:profit,
+           margin:profit/p*100,markup:o.C>0?profit/o.C*100:null};
+  };
+  const Pb=base/a;                                                     // ราคาเท่าทุน (กำไร 0)
+  const price=rnd(Math.max(P,0));
+  if(!(price>0)||!isFinite(price))return{err:'ราคาที่คำนวณได้ไม่ถูกต้อง กรุณาตรวจสอบค่าที่กรอก'};
+  const rec=ev(price);
+  const set=(o.pset!==null&&o.pset!==undefined)?ev(o.pset):null;
+  return{a:a,base:base,raw:P,price:price,breakeven:sat(Pb),rec:rec,set:set,
+         headroom:rec.profit>0?(price-Pb)/price*100:0};
+}
+/*PL-CORE-END*/
+
+/*PL-DOM-BEGIN*/
+function pltLabel(){ // ซิงก์ป้าย/placeholder/step ตามตัวเลือก (ไม่ล้างค่า) — เรียกตอนโหลดด้วย เพราะเบราว์เซอร์บางตัวคืนค่าฟอร์มเดิม
+  const m=$('plt-gm').value,g=$('plt-g');
+  $('plt-gl').textContent=m==='amt'?'กำไรที่ต้องการ (฿ ต่อชิ้น)':m==='margin'?'กำไรที่ต้องการ (% ของราคาขาย)':'กำไรที่ต้องการ (% ของต้นทุนสินค้า)';
+  g.placeholder=m==='amt'?'เช่น 30 (0 = แค่เท่าทุน)':m==='margin'?'เช่น 20':'เช่น 50';
+  g.step=m==='amt'?'0.01':'0.1';
+}
+function pltMode(){pltLabel();$('plt-g').value='';$('plt-res').style.display='none';$('plt-tw').innerHTML='';}
+pltLabel();
+function pltReset(){resetFields('plt');pltMode();}
+function calcPLT(){
+  const fail=m=>{$('plt-tw').innerHTML='';vfail('plt-res',m);};
+  const mode=$('plt-gm').value;
+  const specs=[
+    ['plt-c','ต้นทุนสินค้าต่อชิ้น',{req:1,zeroHint:'กรอก 0 ได้',max:1e7}],
+    ['plt-pk','ค่าบรรจุภัณฑ์/ต้นทุนอื่นต่อชิ้น',{max:1e7}],
+    ['plt-sh','ค่าส่งที่ร้านออกเอง',{max:1e7}],
+    ['plt-fx','ค่าธรรมเนียมคงที่ต่อออเดอร์',{max:1e7}],
+    ['plt-com','ค่าคอมมิชชั่น (%)',{req:1,zeroHint:'กรอก 0 ได้ถ้าไม่มี',max:100}],
+    ['plt-pay','ค่าธุรกรรม/ชำระเงิน (%)',{req:1,zeroHint:'กรอก 0 ได้ถ้าไม่มี',max:100}],
+    ['plt-ads','ค่าโฆษณา/โปรแกรมอื่น (%)',{max:100}],
+    ['plt-g',mode==='amt'?'กำไรที่ต้องการ':mode==='margin'?'กำไรที่ต้องการ (% ของราคาขาย)':'กำไรที่ต้องการ (% ของต้นทุน)',
+      {req:1,zeroHint:'กรอก 0 ได้ถ้าแค่ต้องการเท่าทุน',max:mode==='amt'?1e7:(mode==='margin'?100:1e5)}],
+    ['plt-p','ราคาที่ตั้งไว้',{gt0:1,max:1e9}]];
+  const c=pfCollect(specs);
+  if(c.err)return fail(c.err);
+  const x=c.vals;
+  const rv=$('plt-r').value;
+  const pv=$('plt-p').value.trim();
+  const r=plCalc({C:x['plt-c'],pk:x['plt-pk'],sh:x['plt-sh'],fx:x['plt-fx'],com:x['plt-com'],pay:x['plt-pay'],ads:x['plt-ads'],
+    vat:Number($('plt-v').value),mode:mode,g:x['plt-g'],step:rv==='e9'?'e9':Number(rv),pset:pv===''?null:x['plt-p']});
+  if(r.err)return fail(r.err);
+  if(![r.price,r.breakeven,r.rec.profit].every(isFinite)||(r.set&&!isFinite(r.set.profit)))return fail(PB_BIG);
+  $('plt-be').textContent=fB(r.breakeven);
+  $('plt-pr').textContent=fB(r.price);
+  $('plt-pf').textContent=fB(r.rec.profit);
+  $('plt-mg').textContent=fN(r.rec.margin,2)+'%'+(r.rec.markup===null?'':' · '+fN(r.rec.markup,2)+'% ของต้นทุน');
+  $('plt-note').innerHTML=r.rec.profit>0?'ลดราคาลงได้อีกไม่เกิน <b>'+fN(r.headroom,2)+'%</b> จากราคาแนะนำ ก่อนที่จะเริ่มขาดทุน (ที่ราคา '+fB(r.breakeven)+')':'ราคานี้ยังไม่มีกำไร (เท่าทุนเท่านั้น)';
+  const hasSet=!!r.set,cols=hasSet?[r.rec,r.set]:[r.rec];
+  const money=(v,neg)=>(neg?'−':'')+fB(v);
+  const row=(lbl,fn,always)=>{
+    if(!always&&cols.every(cc=>Math.abs(fn(cc))<0.005))return '';
+    return '<tr><td>'+lbl+'</td>'+cols.map(cc=>'<td>'+money(fn(cc),!always&&fn(cc)>0)+'</td>').join('')+'</tr>';
+  };
+  const pc=(lbl,fn)=>'<tr><td>'+lbl+'</td>'+cols.map(cc=>{const v=fn(cc);return '<td'+(v!==null&&v<0?' style="color:var(--red)"':'')+'>'+(v===null?'—':fN(v,2)+'%')+'</td>';}).join('')+'</tr>';
+  let h='<div class="twrap"><div class="tscroll"><table class="uctbl"><thead><tr><th>ต่อ 1 ชิ้น</th><th>ราคาแนะนำ</th>'+(hasSet?'<th>ราคาที่ตั้งไว้</th>':'')+'</tr></thead><tbody>';
+  h+=row('ราคาขาย (ลูกค้าจ่าย)',cc=>cc.price,1);
+  h+=row('VAT ที่ต้องนำส่ง',cc=>cc.vat);
+  h+=row('ค่าคอมมิชชั่น',cc=>cc.com);
+  h+=row('ค่าธุรกรรม/ชำระเงิน',cc=>cc.pay);
+  h+=row('ค่าโฆษณา/โปรแกรมอื่น',cc=>cc.ads);
+  h+=row('ค่าธรรมเนียมคงที่ต่อออเดอร์',cc=>cc.fx);
+  h+=row('ค่าส่งที่ร้านออก',cc=>cc.sh);
+  h+=row('ต้นทุนสินค้า',cc=>cc.C);
+  h+=row('บรรจุภัณฑ์/ต้นทุนอื่น',cc=>cc.pk);
+  h+='<tr class="dl-best"><td>กำไรต่อชิ้น</td>'+cols.map(cc=>'<td'+(cc.profit<0?' style="color:var(--red)"':'')+'>'+fB(cc.profit)+'</td>').join('')+'</tr>';
+  h+=pc('กำไร % ของราคาขาย',cc=>cc.margin);
+  h+=pc('กำไร % ของต้นทุนสินค้า',cc=>cc.markup);
+  $('plt-tw').innerHTML=h+'</tbody></table></div></div>';
+  show('plt-res');
+}
+/*PL-DOM-END*/
+
+/* ─── ค่าไฟเครื่องใช้ไฟฟ้า + โซลาร์เซลล์คุ้มไหม (elc) · เพิ่ม 2026-11-25 ─── */
+// เครื่องใช้ไฟฟ้า: หน่วย(kWh)/เดือน = วัตต์ × จำนวนเครื่อง × ชม./วัน × วัน/เดือน ÷ 1000 ; ค่าไฟ = หน่วย × ค่าไฟเฉลี่ยต่อหน่วยที่ผู้ใช้กรอก
+// โซลาร์: ปีที่ t ผลิต = kWp × yield × (1−เสื่อม)^(t−1) ; ประหยัด = ผลิต × (ใช้เอง% × ค่าไฟ_t + (1−ใช้เอง%) × ราคารับซื้อ) − ค่าบำรุงรักษา ; ค่าไฟ_t = ค่าไฟ × (1+ขึ้น%)^(t−1)
+// คืนทุน = ปีที่ผลรวมสะสมถึงค่าติดตั้งครั้งแรก + สอดแทรกเส้นตรงในปีนั้น
+/*ELC-CORE-BEGIN*/
+function elcAppl(o){
+  if(!(typeof o.rate==='number'&&isFinite(o.rate)))return{err:'กรุณากรอกค่าไฟต่อหน่วย'};
+  if(!(o.rate>0))return{err:'ค่าไฟต่อหน่วยต้องมากกว่า 0'};
+  if(!Array.isArray(o.items)||o.items.length<1)return{err:'กรอกเครื่องใช้ไฟฟ้าอย่างน้อย 1 รายการ'};
+  const rows=[];let tk=0;
+  for(const it of o.items){
+    if(![it.w,it.q,it.h,it.d].every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลขของเครื่องใช้ไฟฟ้าให้ครบ'};
+    if(!(it.w>0))return{err:'กำลังไฟ (วัตต์) ต้องมากกว่า 0'};
+    if(!Number.isInteger(it.q)||it.q<1)return{err:'จำนวนเครื่องต้องเป็นจำนวนเต็มตั้งแต่ 1'};
+    if(!(it.h>0)||it.h>24)return{err:'ชั่วโมงใช้ต่อวันต้องมากกว่า 0 และไม่เกิน 24'};
+    if(!(it.d>0)||it.d>31)return{err:'จำนวนวันใช้ต่อเดือนต้องมากกว่า 0 และไม่เกิน 31'};
+    const kwh=it.w*it.q*it.h*it.d/1000;
+    rows.push({name:it.name||'',kwh:kwh,month:kwh*o.rate,year:kwh*o.rate*12});
+    tk+=kwh;
+  }
+  const tm=tk*o.rate;
+  if(![tk,tm].every(isFinite))return{err:'ตัวเลขใหญ่เกินไป'};
+  rows.forEach(r=>{r.share=tk>0?r.kwh/tk*100:0;});
+  let top=0;rows.forEach((r,i)=>{if(r.kwh>rows[top].kwh)top=i;});
+  return{rows:rows,kwh:tk,month:tm,year:tm*12,top:top};
+}
+function elcSolar(o){
+  const nums=[o.kwp,o.cost,o.yld,o.self,o.rate,o.sell,o.deg,o.esc,o.maint,o.life];
+  if(!nums.every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลขให้ครบ'};
+  if(!(o.kwp>0))return{err:'ขนาดระบบ (kWp) ต้องมากกว่า 0'};
+  if(!(o.cost>0))return{err:'ค่าติดตั้งต้องมากกว่า 0'};
+  if(!(o.yld>0)||o.yld>3000)return{err:'ผลผลิตต่อ kWp ต่อปีต้องมากกว่า 0 และไม่เกิน 3,000 kWh'};
+  if(o.self<0||o.self>100)return{err:'สัดส่วนที่ใช้เองต้องอยู่ระหว่าง 0–100%'};
+  if(o.rate<0||o.sell<0)return{err:'ค่าไฟและราคารับซื้อต้องไม่ติดลบ'};
+  if(o.deg<0||o.deg>=100)return{err:'อัตราเสื่อมต้องอยู่ระหว่าง 0 ถึงน้อยกว่า 100%'};
+  if(o.esc<0||o.esc>100)return{err:'ค่าไฟที่ขึ้นต่อปีต้องอยู่ระหว่าง 0–100%'};
+  if(o.maint<0)return{err:'ค่าบำรุงรักษาต้องไม่ติดลบ'};
+  if(!Number.isInteger(o.life)||o.life<1||o.life>40)return{err:'อายุใช้งานต้องเป็นจำนวนเต็ม 1–40 ปี'};
+  const s=o.self/100,d=o.deg/100,e=o.esc/100;
+  const years=[];let cum=0,pay=null,totalKwh=0;
+  for(let t=1;t<=o.life;t++){
+    const kwh=o.kwp*o.yld*Math.pow(1-d,t-1);
+    const rate=o.rate*Math.pow(1+e,t-1);
+    const gross=kwh*(s*rate+(1-s)*o.sell);
+    const net=gross-o.maint;
+    const prev=cum;cum+=net;totalKwh+=kwh;
+    if(pay===null&&cum>=o.cost-1e-7)pay=(t-1)+(o.cost-prev)/net;
+    years.push({t:t,kwh:kwh,gross:gross,net:net,cum:cum,after:cum-o.cost});
+  }
+  if(![cum,totalKwh].every(isFinite))return{err:'ตัวเลขใหญ่เกินไป'};
+  return{years:years,pay:pay,first:years[0].net,firstKwh:years[0].kwh,total:cum,gain:cum-o.cost,roi:(cum-o.cost)/o.cost*100,
+         totalKwh:totalKwh,lcoe:(o.cost+o.maint*o.life)/totalKwh};
+}
+/*ELC-CORE-END*/
+
+/* ─── รถ EV vs รถน้ำมัน (evc) · เพิ่ม 2026-11-25 ─── */
+// ต้นทุนรวม n ปี = ราคาซื้อ + ค่าใช้จ่ายครั้งเดียว + n × (ค่าพลังงาน + ประกัน + ซ่อมบำรุง + ภาษี) − ราคาขายต่อ (ราคาซื้อ × %)
+// ค่าพลังงาน/กม. : EV = kWh/100กม. ÷ 100 × ค่าไฟเฉลี่ย (ชาร์จบ้าน/สาธารณะถ่วงน้ำหนัก) · น้ำมัน = ราคา/ลิตร ÷ (กม./ลิตร)
+// จุดคุ้มทุนระยะทาง: ส่วนต่าง(EV−น้ำมัน) = A − n·km·k  (A = ส่วนต่างต้นทุนคงที่ทั้งช่วง, k = ค่าพลังงานที่ประหยัดต่อ กม.)
+/*EVC-CORE-BEGIN*/
+function evcCalc(o){
+  const E=o.e,G=o.g,keys=['price','resale','one','ins','mnt','tax'];
+  const all=[o.km,o.n,E.cons,E.home,E.share,E.pub,G.eff,G.fuel].concat(keys.map(k=>E[k])).concat(keys.map(k=>G[k]));
+  if(!all.every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลขให้ครบ'};
+  if(!(o.km>0))return{err:'ระยะทางต่อปีต้องมากกว่า 0'};
+  if(!Number.isInteger(o.n)||o.n<1||o.n>30)return{err:'ระยะเวลาถือครองต้องเป็นจำนวนเต็ม 1–30 ปี'};
+  if(!(E.price>0)||!(G.price>0))return{err:'ราคารถต้องมากกว่า 0'};
+  if(E.resale<0||E.resale>100||G.resale<0||G.resale>100)return{err:'ราคาขายต่อ (%) ต้องอยู่ระหว่าง 0–100'};
+  if(!(E.cons>0))return{err:'อัตราสิ้นเปลืองไฟฟ้าของ EV ต้องมากกว่า 0'};
+  if(!(G.eff>0))return{err:'อัตราสิ้นเปลืองน้ำมัน (กม./ลิตร) ต้องมากกว่า 0'};
+  if(E.share<0||E.share>100)return{err:'สัดส่วนชาร์จสาธารณะต้องอยู่ระหว่าง 0–100%'};
+  for(const k of ['one','ins','mnt','tax'])if(E[k]<0||G[k]<0)return{err:'ค่าใช้จ่ายต้องไม่ติดลบ'};
+  if(E.home<0||E.pub<0||G.fuel<0)return{err:'ราคาพลังงานต้องไม่ติดลบ'};
+  const s=E.share/100,eff=(1-s)*E.home+s*E.pub;
+  const pkE=E.cons/100*eff,pkG=G.fuel/G.eff;
+  const mk=(c,pk)=>{
+    const energy=o.km*pk*o.n,ins=c.ins*o.n,mnt=c.mnt*o.n,tax=c.tax*o.n,resale=c.price*c.resale/100;
+    const total=c.price+c.one+energy+ins+mnt+tax-resale;
+    return{price:c.price,one:c.one,energy:energy,ins:ins,mnt:mnt,tax:tax,resale:resale,total:total,
+           perYear:total/o.n,perMonth:total/o.n/12,perKm:total/(o.km*o.n),perKmEnergy:pk};
+  };
+  const ev=mk(E,pkE),ice=mk(G,pkG);
+  if(![ev.total,ice.total].every(isFinite))return{err:'ตัวเลขใหญ่เกินไป'};
+  // จุดคุ้มทุนระยะทาง/ปี
+  const D=(E.price-E.price*E.resale/100+E.one)-(G.price-G.price*G.resale/100+G.one);
+  const F=(E.ins+E.mnt+E.tax)-(G.ins+G.mnt+G.tax);
+  const A=D+o.n*F,k=pkG-pkE;
+  let be;
+  if(k>0)be=A>0?{type:'above',km:A/(o.n*k)}:{type:'always'};
+  else if(k<0)be=A<0?{type:'below',km:(-A)/(o.n*(-k))}:{type:'never'};
+  else be=A<0?{type:'always'}:{type:'never'};
+  return{ev:ev,ice:ice,diff:ice.total-ev.total,be:be,effRate:eff};
+}
+/*EVC-CORE-END*/
+
+/* ─── จุดสั่งซื้อสต็อก EOQ (eoq) · เพิ่ม 2026-11-25 ─── */
+// EOQ Q* = √(2·D·S ÷ H) ; H = ค่าเก็บรักษาต่อหน่วยต่อปี (บาท) หรือ ราคา×% ; ต้นทุนต่อปี TC(Q) = D/Q·S + Q/2·H (+ D·ราคา)
+// สั่งจริง = ตัวคูณของแพ็กที่ TC ต่ำสุดระหว่างปัดลง/ปัดขึ้น (ขั้นต่ำ 1 แพ็ก) ; จุดสั่งซ้ำ ROP = ใช้ต่อวัน × lead time + สต็อกสำรอง
+// สต็อกสำรอง: จำนวนวัน → ใช้ต่อวัน × วัน ; ระดับบริการ → z × σต่อวัน × √lead time
+/*EOQ-CORE-BEGIN*/
+const EOQ_Z={'90':1.2816,'95':1.6449,'97.5':1.96,'99':2.3263,'99.5':2.5758};
+function eoqCalc(o){
+  const nums=[o.D,o.S,o.C,o.h,o.days,o.L];
+  if(!nums.every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลขให้ครบ'};
+  if(!(o.D>0))return{err:'ความต้องการต่อปีต้องมากกว่า 0'};
+  if(!(o.S>0))return{err:'ค่าใช้จ่ายต่อการสั่งซื้อหนึ่งครั้งต้องมากกว่า 0'};
+  if(o.C<0)return{err:'ราคาต่อหน่วยต้องไม่ติดลบ'};
+  if(o.hMode!=='pct'&&o.hMode!=='abs')return{err:'เลือกวิธีกรอกค่าเก็บรักษา'};
+  if(o.h<0)return{err:'ค่าเก็บรักษาต้องไม่ติดลบ'};
+  if(o.hMode==='pct'&&o.h>1000)return{err:'ค่าเก็บรักษา (%) ต้องไม่เกิน 1,000'};
+  const H=o.hMode==='pct'?o.C*o.h/100:o.h;
+  if(!(H>0))return{err:o.hMode==='pct'?'ค่าเก็บรักษาต่อหน่วยเป็น 0 — ต้องใส่ราคาต่อหน่วยและ % ค่าเก็บรักษามากกว่า 0':'ค่าเก็บรักษาต่อหน่วยต่อปีต้องมากกว่า 0'};
+  if(!(o.days>=1)||o.days>366)return{err:'จำนวนวันที่ขายต่อปีต้องอยู่ระหว่าง 1–366'};
+  if(o.L<0)return{err:'Lead time ต้องไม่ติดลบ'};
+  const pack=(o.pack===null||o.pack===undefined)?1:o.pack;
+  if(!Number.isInteger(pack)||pack<1)return{err:'ขนาดแพ็กต้องเป็นจำนวนเต็มตั้งแต่ 1'};
+  if(o.cur!==null&&o.cur!==undefined&&!(typeof o.cur==='number'&&isFinite(o.cur)&&o.cur>0))return{err:'จำนวนที่สั่งอยู่ปัจจุบันต้องมากกว่า 0'};
+  const tc=q=>o.D/q*o.S+q/2*H;
+  const Q=Math.sqrt(2*o.D*o.S/H);
+  // ปัดเป็นแพ็ก: ตัวเลือกปัดลง/ปัดขึ้น (ขั้นต่ำ 1 แพ็ก) เลือก TC ต่ำกว่า (เท่ากัน = ตัวน้อยกว่า)
+  const lo=Math.floor(Q/pack)*pack,hi=Math.ceil(Q/pack)*pack;
+  let Qr=hi;
+  if(lo>=pack&&tc(lo)<=tc(hi))Qr=lo;
+  if(Qr<pack)Qr=pack;
+  const d=o.D/o.days;
+  let ss=0;
+  if(o.ssMode==='days'){
+    if(!(typeof o.ssv==='number'&&isFinite(o.ssv))||o.ssv<0)return{err:'จำนวนวันสำรองต้องไม่ติดลบ'};
+    ss=d*o.ssv;
+  }else if(o.ssMode==='svc'){
+    if(!(typeof o.ssv==='number'&&isFinite(o.ssv))||o.ssv<0)return{err:'ส่วนเบี่ยงเบนมาตรฐานของยอดใช้ต่อวันต้องไม่ติดลบ'};
+    const z=EOQ_Z[o.svc];if(z===undefined)return{err:'เลือกระดับบริการ'};
+    ss=z*o.ssv*Math.sqrt(o.L);
+  }else if(o.ssMode!=='none')return{err:'เลือกวิธีกำหนดสต็อกสำรอง'};
+  const rop=d*o.L+ss;
+  const ordC=o.D/Qr*o.S,holdC=Qr/2*H,ssC=ss*H,buy=o.D*o.C;
+  const out={H:H,Q:Q,Qr:Qr,orders:o.D/Qr,cycle:Qr/d,d:d,ss:ss,rop:rop,ordC:ordC,holdC:holdC,ssC:ssC,buy:buy,
+             tcOpt:tc(Qr),tcMin:tc(Q),total:ordC+holdC+ssC+buy,maxInv:Qr+ss,avgInv:Qr/2+ss,cur:null};
+  if(o.cur!==null&&o.cur!==undefined){
+    out.cur={q:o.cur,tc:tc(o.cur),orders:o.D/o.cur,save:tc(o.cur)-tc(Qr)};
+  }
+  if(![out.Q,out.Qr,out.rop,out.total].every(isFinite))return{err:'ตัวเลขใหญ่เกินไป'};
+  return out;
+}
+/*EOQ-CORE-END*/
+
+/*ELC-DOM-BEGIN*/
+function elcSync(){
+  const m=$('elc-m').value;
+  $('elc-sa').style.display=m==='a'?'':'none';$('elc-sb').style.display=m==='b'?'':'none';
+  $('elc-resa').style.display='none';$('elc-twa').innerHTML='';$('elc-resb').style.display='none';$('elc-twb').innerHTML='';
+}
+function elcReset(){resetFields('elc');elcSync();}
+elcSync(); // เบราว์เซอร์บางตัวคืนค่าฟอร์มเดิมตอนโหลดซ้ำ : ซิงก์ส่วนที่แสดงให้ตรงกับตัวเลือก
+function calcELA(){
+  const fail=m=>{$('elc-twa').innerHTML='';vfail('elc-resa',m);};
+  const R=pfRead($('elc-rate'),'ค่าไฟเฉลี่ยต่อหน่วย',{req:1,gt0:1,max:1000});if(R.err)return fail(R.err);
+  const items=[];
+  for(let i=0;i<6;i++){
+    const L='เครื่องที่ '+(i+1)+': ',nm=$('elc-n'+i).value.trim();
+    const w=pfRead($('elc-w'+i),L+'กำลังไฟ (วัตต์)',{max:1e6}),h=pfRead($('elc-h'+i),L+'ชั่วโมงต่อวัน',{max:24});
+    if(w.err)return fail(w.err);if(h.err)return fail(h.err);
+    if(w.blank&&h.blank){if(nm)return fail(L+'มีชื่อแล้วแต่ยังไม่กรอกกำลังไฟและชั่วโมงใช้ต่อวัน (ลบชื่อออกถ้าไม่ใช้แถวนี้)');continue;}
+    if(w.blank||!(w.v>0))return fail(L+'กรอกกำลังไฟ (วัตต์) ให้มากกว่า 0');
+    if(h.blank||!(h.v>0))return fail(L+'กรอกชั่วโมงใช้ต่อวันให้มากกว่า 0');
+    const q=pfRead($('elc-q'+i),L+'จำนวนเครื่อง',{req:1,int:1,gt0:1,max:1000});if(q.err)return fail(q.err);
+    const d=pfRead($('elc-d'+i),L+'วันใช้ต่อเดือน',{req:1,gt0:1,max:31});if(d.err)return fail(d.err);
+    items.push({name:nm||('เครื่องที่ '+(i+1)),w:w.v,q:q.v,h:h.v,d:d.v});
+  }
+  if(!items.length)return fail('กรอกเครื่องใช้ไฟฟ้าอย่างน้อย 1 รายการ (กำลังไฟและชั่วโมงใช้ต่อวัน)');
+  const r=elcAppl({rate:R.v,items:items});
+  if(r.err)return fail(r.err);
+  $('elc-ta').textContent=fN(r.kwh,2)+' หน่วย';$('elc-tm').textContent=fB(r.month);$('elc-ty').textContent=fB(r.year);
+  $('elc-tt').textContent=r.rows[r.top].name+' ('+fN(r.rows[r.top].share,1)+'%)';
+  let h='<div class="twrap"><div class="tscroll"><table class="uctbl"><thead><tr><th>เครื่องใช้ไฟฟ้า</th><th>หน่วย/เดือน</th><th>฿/เดือน</th><th>฿/ปี</th><th>สัดส่วน</th></tr></thead><tbody>';
+  r.rows.forEach(x=>{h+='<tr><td>'+dlEsc(x.name)+'</td><td>'+fN(x.kwh,2)+'</td><td>'+fB(x.month)+'</td><td>'+fB(x.year)+'</td><td>'+fN(x.share,1)+'%</td></tr>';});
+  $('elc-twa').innerHTML=h+'</tbody></table></div></div>';
+  show('elc-resa');
+}
+function calcELS(){
+  const fail=m=>{$('elc-twb').innerHTML='';vfail('elc-resb',m);};
+  const c=pfCollect([
+    ['elc-kwp','ขนาดระบบ (kWp)',{req:1,gt0:1,max:100000}],
+    ['elc-cost','ค่าติดตั้งรวม',{req:1,gt0:1,max:1e9}],
+    ['elc-yld','ผลผลิตต่อ kWp ต่อปี',{req:1,gt0:1,max:3000}],
+    ['elc-self','สัดส่วนที่ใช้เอง (%)',{req:1,zeroHint:'กรอก 0 ได้',max:100}],
+    ['elc-r2','ค่าไฟที่ประหยัดได้ต่อหน่วย',{req:1,zeroHint:'กรอก 0 ได้',max:1000}],
+    ['elc-sell','ราคารับซื้อส่วนเกิน',{req:1,zeroHint:'กรอก 0 ได้ถ้าไม่ขายคืน',max:1000}],
+    ['elc-deg','อัตราเสื่อมประสิทธิภาพต่อปี (%)',{req:1,zeroHint:'กรอก 0 ได้',max:99.99}],
+    ['elc-esc','ค่าไฟขึ้นต่อปี (%)',{req:1,zeroHint:'กรอก 0 ได้',max:100}],
+    ['elc-mnt','ค่าบำรุงรักษาต่อปี',{req:1,zeroHint:'กรอก 0 ได้',max:1e8}],
+    ['elc-life','อายุใช้งาน (ปี)',{req:1,int:1,gt0:1,max:40}]]);
+  if(c.err)return fail(c.err);
+  const x=c.vals;
+  const r=elcSolar({kwp:x['elc-kwp'],cost:x['elc-cost'],yld:x['elc-yld'],self:x['elc-self'],rate:x['elc-r2'],sell:x['elc-sell'],
+    deg:x['elc-deg'],esc:x['elc-esc'],maint:x['elc-mnt'],life:x['elc-life']});
+  if(r.err)return fail(r.err);
+  $('elc-pay').textContent=r.pay===null?'ไม่คืนทุนภายใน '+x['elc-life']+' ปี':fN(r.pay,1)+' ปี (~'+fN(Math.round(r.pay*12),0)+' เดือน)';
+  $('elc-f1').textContent=fB(r.first);
+  $('elc-gain').textContent=fB(r.gain)+' ('+fN(r.roi,1)+'% ของค่าติดตั้ง)';
+  $('elc-lc').textContent=fB(r.lcoe)+' /หน่วย (ค่าไฟที่ประหยัดปีแรก '+fB(x['elc-r2'])+')';
+  let h='<div class="twrap"><div class="tscroll"><table class="uctbl"><thead><tr><th>ปีที่</th><th>ผลิตไฟ (kWh)</th><th>ประหยัดสุทธิ</th><th>สะสม − ค่าติดตั้ง</th></tr></thead><tbody>';
+  r.years.forEach(y=>{h+='<tr><td>'+y.t+'</td><td>'+fN(y.kwh,0)+'</td><td>'+fB(y.net)+'</td><td'+(y.after>=0?' style="color:var(--green)"':'')+'>'+fB(y.after)+'</td></tr>';});
+  $('elc-twb').innerHTML=h+'</tbody></table></div></div>';
+  show('elc-resb');
+}
+/*ELC-DOM-END*/
+
+/*EVC-DOM-BEGIN*/
+function calcEVC(){
+  const fail=m=>{$('evc-tw').innerHTML='';vfail('evc-res',m);};
+  const c=pfCollect([
+    ['evc-km','ระยะทางที่ขับต่อปี',{req:1,gt0:1,max:1e6}],['evc-n','ถือครองกี่ปี',{req:1,int:1,gt0:1,max:30}],
+    ['evc-ep','ราคารถ EV',{req:1,gt0:1,max:1e9}],['evc-er','ราคาขายต่อ EV (% ของราคาซื้อ)',{req:1,zeroHint:'กรอก 0 ได้',max:100}],
+    ['evc-ec','EV กิน kWh ต่อ 100 กม.',{req:1,gt0:1,max:1000}],['evc-eh','ค่าไฟชาร์จที่บ้าน (฿/หน่วย)',{req:1,zeroHint:'กรอก 0 ได้',max:1000}],
+    ['evc-es','สัดส่วนชาร์จนอกบ้าน (%)',{max:100}],['evc-eb','ค่าไฟชาร์จนอกบ้าน (฿/หน่วย)',{max:1000}],
+    ['evc-ei','ประกัน EV ต่อปี',{max:1e8}],['evc-em','ซ่อมบำรุง EV ต่อปี',{max:1e8}],['evc-et','ภาษี/ทะเบียน EV ต่อปี',{max:1e8}],['evc-eo','ค่าใช้จ่ายครั้งเดียว EV',{max:1e9}],
+    ['evc-gp','ราคารถน้ำมัน',{req:1,gt0:1,max:1e9}],['evc-gr','ราคาขายต่อรถน้ำมัน (% ของราคาซื้อ)',{req:1,zeroHint:'กรอก 0 ได้',max:100}],
+    ['evc-gc','รถน้ำมันวิ่งกี่ กม./ลิตร',{req:1,gt0:1,max:1000}],['evc-gf','ราคาน้ำมัน (฿/ลิตร)',{req:1,zeroHint:'กรอก 0 ได้',max:1000}],
+    ['evc-gi','ประกันรถน้ำมันต่อปี',{max:1e8}],['evc-gm','ซ่อมบำรุงรถน้ำมันต่อปี',{max:1e8}],['evc-gt','ภาษี/ทะเบียนรถน้ำมันต่อปี',{max:1e8}],['evc-go','ค่าใช้จ่ายครั้งเดียวรถน้ำมัน',{max:1e9}]]);
+  if(c.err)return fail(c.err);
+  const x=c.vals;
+  if(x['evc-es']>0&&!($('evc-eb').value.trim()!==''))return fail('กรอกค่าไฟชาร์จนอกบ้าน (฿/หน่วย) ด้วย เพราะระบุสัดส่วนชาร์จนอกบ้านไว้');
+  const r=evcCalc({km:x['evc-km'],n:x['evc-n'],
+    e:{price:x['evc-ep'],resale:x['evc-er'],cons:x['evc-ec'],home:x['evc-eh'],share:x['evc-es'],pub:x['evc-eb'],ins:x['evc-ei'],mnt:x['evc-em'],tax:x['evc-et'],one:x['evc-eo']},
+    g:{price:x['evc-gp'],resale:x['evc-gr'],eff:x['evc-gc'],fuel:x['evc-gf'],ins:x['evc-gi'],mnt:x['evc-gm'],tax:x['evc-gt'],one:x['evc-go']}});
+  if(r.err)return fail(r.err);
+  const n=x['evc-n'],cheaper=r.diff>=0?'EV':'รถน้ำมัน';
+  $('evc-ev').textContent=fB(r.ev.total);$('evc-ice').textContent=fB(r.ice.total);
+  $('evc-df').textContent=Math.abs(r.diff)<0.005?'เท่ากัน':cheaper+' ถูกกว่า '+fB(Math.abs(r.diff));
+  $('evc-dy').textContent=Math.abs(r.diff)<0.005?'—':fB(Math.abs(r.diff)/n)+' /ปี';
+  const b=r.be,fk=v=>fN(v,0)+' กม./ปี';
+  $('evc-be').innerHTML=b.type==='above'?'EV เริ่มถูกกว่ารถน้ำมันเมื่อขับเกิน <b>'+fk(b.km)+'</b> (ถือครอง '+n+' ปี) — คุณขับ '+fk(x['evc-km'])
+    :b.type==='below'?'ค่าพลังงานต่อ กม. ของ EV แพงกว่ารถน้ำมัน จึงถูกกว่าเฉพาะเมื่อขับน้อยกว่า <b>'+fk(b.km)+'</b> (ถือครอง '+n+' ปี) — คุณขับ '+fk(x['evc-km'])
+    :b.type==='always'?'EV ถูกกว่ารถน้ำมันที่ทุกระยะทาง ภายใต้ค่าที่กรอก'
+    :'EV ไม่ถูกกว่ารถน้ำมันที่ระยะทางใด ๆ ภายใต้ค่าที่กรอก';
+  const rows=[['ราคาซื้อ','price'],['ค่าใช้จ่ายครั้งเดียว (ติดตั้งที่ชาร์จ/เปลี่ยนแบตฯ ฯลฯ)','one'],['ค่าพลังงาน (ไฟ/น้ำมัน) รวม '+n+' ปี','energy'],['ประกัน','ins'],['ซ่อมบำรุง','mnt'],['ภาษี/ทะเบียน','tax']];
+  let h='<div class="twrap"><div class="tscroll"><table class="uctbl"><thead><tr><th>ต้นทุนรวม '+n+' ปี</th><th>🔋 EV</th><th>⛽ รถน้ำมัน</th></tr></thead><tbody>';
+  rows.forEach(q=>{if(Math.abs(r.ev[q[1]])<0.005&&Math.abs(r.ice[q[1]])<0.005)return;h+='<tr><td>'+q[0]+'</td><td>'+fB(r.ev[q[1]])+'</td><td>'+fB(r.ice[q[1]])+'</td></tr>';});
+  if(r.ev.resale>=0.005||r.ice.resale>=0.005)h+='<tr><td>หัก: ราคาขายต่อเมื่อครบ '+n+' ปี</td><td>−'+fB(r.ev.resale)+'</td><td>−'+fB(r.ice.resale)+'</td></tr>';
+  h+='<tr class="dl-best"><td>รวมทั้งหมด</td><td>'+fB(r.ev.total)+'</td><td>'+fB(r.ice.total)+'</td></tr>';
+  h+='<tr><td>เฉลี่ยต่อปี</td><td>'+fB(r.ev.perYear)+'</td><td>'+fB(r.ice.perYear)+'</td></tr>';
+  h+='<tr><td>เฉลี่ยต่อเดือน</td><td>'+fB(r.ev.perMonth)+'</td><td>'+fB(r.ice.perMonth)+'</td></tr>';
+  h+='<tr><td>เฉลี่ยต่อ กม. (รวมทุกอย่าง)</td><td>'+fB(r.ev.perKm)+'</td><td>'+fB(r.ice.perKm)+'</td></tr>';
+  h+='<tr><td>ค่าพลังงานต่อ กม.</td><td>'+fB(r.ev.perKmEnergy)+'</td><td>'+fB(r.ice.perKmEnergy)+'</td></tr>';
+  $('evc-tw').innerHTML=h+'</tbody></table></div></div>';
+  show('evc-res');
+}
+/*EVC-DOM-END*/
+
+/*EOQ-DOM-BEGIN*/
+function eoqLabel(){ // ซิงก์ป้าย/ช่องที่แสดงตามตัวเลือก (ไม่ล้างค่า) — เรียกตอนโหลดด้วย เพราะเบราว์เซอร์บางตัวคืนค่าฟอร์มเดิม
+  const hm=$('eoq-hm').value,sm=$('eoq-sm').value;
+  $('eoq-hl').textContent=hm==='pct'?'ค่าเก็บรักษา (% ของราคาสินค้าต่อปี)':'ค่าเก็บรักษา (฿ ต่อหน่วยต่อปี)';
+  $('eoq-h').placeholder=hm==='pct'?'เช่น 20 (ค่าเช่าที่ ดอกเบี้ย ของเสีย ฯลฯ)':'เช่น 12';
+  $('eoq-fgsv').style.display=sm==='none'?'none':'';$('eoq-fgsvc').style.display=sm==='svc'?'':'none';
+  $('eoq-svl').textContent=sm==='days'?'สำรองไว้กี่วัน (ของที่ขายต่อวัน)':'ส่วนเบี่ยงเบนมาตรฐานของยอดขายต่อวัน (หน่วย)';
+  $('eoq-sv').placeholder=sm==='days'?'เช่น 3':'เช่น 4';
+}
+function eoqHide(){$('eoq-res').style.display='none';$('eoq-tw').innerHTML='';}
+function eoqHm(){eoqLabel();$('eoq-h').value='';eoqHide();}   // เปลี่ยนหน่วยค่าเก็บรักษา → ล้างเฉพาะช่องค่าเก็บ (หน่วยไม่เหมือนกัน)
+function eoqSm(){eoqLabel();$('eoq-sv').value='';eoqHide();}  // เปลี่ยนวิธีสต็อกสำรอง → ล้างเฉพาะช่องสำรอง
+function eoqReset(){resetFields('eoq');eoqLabel();}
+eoqLabel();
+function calcEOQ(){
+  const fail=m=>{$('eoq-tw').innerHTML='';vfail('eoq-res',m);};
+  const hm=$('eoq-hm').value,sm=$('eoq-sm').value;
+  const specs=[
+    ['eoq-d','ความต้องการต่อปี',{req:1,gt0:1,max:1e12}],['eoq-s','ค่าใช้จ่ายต่อการสั่งซื้อ 1 ครั้ง',{req:1,gt0:1,max:1e9}],
+    ['eoq-c',hm==='pct'?'ราคาต่อหน่วย':'ราคาต่อหน่วย',hm==='pct'?{req:1,gt0:1,max:1e9}:{max:1e9}],
+    ['eoq-h',hm==='pct'?'ค่าเก็บรักษา (%)':'ค่าเก็บรักษาต่อหน่วยต่อปี',{req:1,gt0:1,max:hm==='pct'?1000:1e9}],
+    ['eoq-days','จำนวนวันที่ขายต่อปี',{req:1,gt0:1,max:366}],['eoq-l','Lead time (วัน)',{req:1,zeroHint:'กรอก 0 ได้',max:3650}],
+    ['eoq-pk','ขนาดแพ็ก',{int:1,max:1e9}],['eoq-cur','จำนวนที่สั่งอยู่ปัจจุบัน',{gt0:1,max:1e12}]];
+  if(sm!=='none')specs.push(['eoq-sv',sm==='days'?'จำนวนวันสำรอง':'ส่วนเบี่ยงเบนมาตรฐานของยอดขายต่อวัน',{req:1,zeroHint:'กรอก 0 ได้',max:1e9}]);
+  const c=pfCollect(specs);
+  if(c.err)return fail(c.err);
+  const x=c.vals;
+  const r=eoqCalc({D:x['eoq-d'],S:x['eoq-s'],C:x['eoq-c'],hMode:hm,h:x['eoq-h'],days:x['eoq-days'],L:x['eoq-l'],
+    ssMode:sm,ssv:sm==='none'?0:x['eoq-sv'],svc:$('eoq-svc').value,
+    pack:$('eoq-pk').value.trim()===''?null:x['eoq-pk'],cur:$('eoq-cur').value.trim()===''?null:x['eoq-cur']});
+  if(r.err)return fail(r.err);
+  const u=v=>fN(v,v>=100?0:1),qi=v=>fN(v,0);
+  $('eoq-q').textContent=qi(r.Qr)+' หน่วย/ครั้ง';
+  $('eoq-qq').textContent=fN(r.Q,2)+' หน่วย';
+  $('eoq-ord').textContent=fN(r.orders,1)+' ครั้ง/ปี · ทุก ~'+fN(r.cycle,1)+' วัน';
+  $('eoq-rop').textContent=fN(Math.ceil(r.rop-1e-9),0)+' หน่วย';
+  let t='ถึงจุดสั่งซ้ำ = ยอดขายเฉลี่ย '+fN(r.d,2)+' หน่วย/วัน × lead time '+fN(x['eoq-l'],2)+' วัน'+(r.ss>0?' + สต็อกสำรอง '+u(r.ss)+' หน่วย':'')+' · สต็อกสูงสุดหลังของเข้า ≈ '+u(r.maxInv)+' หน่วย';
+  if(r.rop>r.maxInv)t+='<br>⚠️ จุดสั่งซ้ำ ('+fN(Math.ceil(r.rop-1e-9),0)+') สูงกว่าสต็อกสูงสุดที่จะมีในมือ ('+u(r.maxInv)+') เพราะของที่สั่งแล้วยังอยู่ระหว่างทาง — ให้ใช้ "สต็อกในมือ + ที่สั่งไว้แล้วยังไม่มาส่ง" เทียบกับจุดนี้ ไม่ใช่นับเฉพาะของในมือ';
+  if(r.cur)t+='<br>ที่สั่งอยู่ครั้งละ '+qi(r.cur.q)+' หน่วย ('+fN(r.cur.orders,1)+' ครั้ง/ปี) มีต้นทุนสั่ง+เก็บ '+fB(r.cur.tc)+'/ปี → '+(r.cur.save>0.005?'เปลี่ยนมาสั่ง '+qi(r.Qr)+' หน่วย ประหยัด <b>'+fB(r.cur.save)+'/ปี</b>':'ใกล้เคียงหรือดีกว่าจำนวนที่คำนวณได้แล้ว');
+  $('eoq-note').innerHTML=t;
+  let h='<div class="twrap"><div class="tscroll"><table class="uctbl"><thead><tr><th>ต้นทุนต่อปี (สั่งครั้งละ '+qi(r.Qr)+' หน่วย)</th><th>฿/ปี</th></tr></thead><tbody>';
+  h+='<tr><td>ค่าสั่งซื้อ ('+fN(r.orders,1)+' ครั้ง)</td><td>'+fB(r.ordC)+'</td></tr>';
+  h+='<tr><td>ค่าเก็บรักษา (สต็อกเฉลี่ย '+u(r.Qr/2)+' หน่วย)</td><td>'+fB(r.holdC)+'</td></tr>';
+  if(r.ss>0)h+='<tr><td>ค่าเก็บรักษาสต็อกสำรอง ('+u(r.ss)+' หน่วย)</td><td>'+fB(r.ssC)+'</td></tr>';
+  h+='<tr class="dl-best"><td>รวมค่าสั่ง + ค่าเก็บ</td><td>'+fB(r.ordC+r.holdC+r.ssC)+'</td></tr>';
+  if(r.buy>0)h+='<tr><td>ค่าสินค้า ('+fN(x['eoq-d'],0)+' หน่วย)</td><td>'+fB(r.buy)+'</td></tr><tr><td>รวมทั้งหมดรวมค่าสินค้า</td><td>'+fB(r.total)+'</td></tr>';
+  $('eoq-tw').innerHTML=h+'</tbody></table></div></div>';
+  show('eoq-res');
+}
+/*EOQ-DOM-END*/
+
+
+
+/* ─── ชีวิตประจำวัน (Everyday) · เพิ่ม 2026-11-25 ─── */
+// ส่วนกลางของ 9 เมนู: ราคาต่อหน่วย (up) · โปรโมชั่น (pm) · นับวัน/อายุ (dcal) · หารบิลแบบรายการ (ib) · สรุปทริป (ts)
+//                    · ค่าน้ำมัน (fu) · ของแพงคุ้มไหม (cu) · รายจ่ายเล็ก ๆ (lt) · ออมแบบท้าทาย (svc)
+// ฟังก์ชัน *Core ทั้งหมดเป็นฟังก์ชันล้วน (ไม่แตะ DOM) อยู่ระหว่างคอมเมนต์ XX-CORE-BEGIN/END เพื่อสกัดไปทดสอบใน Node
+function dlEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+// เงินต่อหน่วยที่อาจน้อยกว่า 10 บาท (เช่น ฿0.0599 ต่อ มล.) แสดง 4 ทศนิยม ; ตั้งแต่ 10 บาทขึ้นไปแสดง 2 ทศนิยมตามปกติ
+function dlMoney(x){if(typeof x!=='number'||!isFinite(x))return'฿—';return Math.abs(x)>=10?fB(x):(x<0?'-฿':'฿')+fN(Math.abs(x),4);}
+function dlTwoDec(x){return Math.abs(x*100-Math.round(x*100))<1e-6;}
+const DL_TXT={};
+function dlCopy(key,btnId){
+  const b=$(btnId),t=DL_TXT[key];
+  if(!t)return;
+  const done=()=>{b.textContent='✓ คัดลอกแล้ว';},fail=()=>{b.textContent='คัดลอกไม่ได้';};
+  try{navigator.clipboard.writeText(t).then(done,fail);}catch(e){fail();}
+}
+
+/* ── 1) เปรียบเทียบราคาต่อหน่วย ── */
+// ราคาต่อหน่วยฐาน = ราคา ÷ (ปริมาณต่อห่อ × จำนวนห่อ × ตัวคูณเป็นหน่วยฐาน) × หน่วยเทียบของประเภท (100 ก./100 มล./1 ชิ้น/10 ม.)
+// ตัวคูณทั้งหมดเป็นค่านิยามที่แน่นอน (ปอนด์ 453.59237 ก., ออนซ์ 28.349523125 ก., fl oz US 29.5735295625 มล., ฟุต 0.3048 ม.)
+/*UP-CORE-BEGIN*/
+const UP_CAT={
+ wt:{nm:'น้ำหนัก',norm:100,nl:'100 ก.',def:'g',units:[['g','กรัม',1],['kg','กิโลกรัม',1000],['oz','ออนซ์',28.349523125],['lb','ปอนด์',453.59237]]},
+ vol:{nm:'ปริมาตร',norm:100,nl:'100 มล.',def:'ml',units:[['ml','มิลลิลิตร',1],['l','ลิตร',1000],['floz','ออนซ์ของเหลว (US)',29.5735295625]]},
+ pc:{nm:'จำนวนชิ้น',norm:1,nl:'1 ชิ้น',def:'pc',units:[['pc','ชิ้น / ขวด / ซอง',1],['dz','โหล (12 ชิ้น)',12]]},
+ len:{nm:'ความยาว',norm:10,nl:'10 ม.',def:'m',units:[['m','เมตร',1],['cm','เซนติเมตร',0.01],['ft','ฟุต',0.3048]]}
+};
+function upCompare(cid,items){
+  const cat=UP_CAT[cid];
+  if(!cat)return{err:'ประเภทไม่ถูกต้อง'};
+  if(!Array.isArray(items)||items.length<2)return{err:'ต้องมีสินค้าอย่างน้อย 2 ชิ้นเพื่อเปรียบเทียบ'};
+  const rows=[];
+  for(let i=0;i<items.length;i++){
+    const it=items[i],u=cat.units.find(x=>x[0]===it.unit),L='สินค้าที่ '+(i+1);
+    if(!u)return{err:'หน่วยของ'+L+'ไม่ถูกต้อง'};
+    if(![it.price,it.qty,it.packs].every(x=>typeof x==='number'&&isFinite(x)))return{err:L+': กรุณากรอกตัวเลข'};
+    if(!(it.price>0))return{err:L+': ราคาต้องมากกว่า 0'};
+    if(!(it.qty>0))return{err:L+': ปริมาณต้องมากกว่า 0'};
+    if(!Number.isInteger(it.packs)||it.packs<1)return{err:L+': จำนวนห่อต้องเป็นจำนวนเต็มตั้งแต่ 1'};
+    const base=it.qty*it.packs*u[2];
+    const per=it.price/base*cat.norm;
+    if(!isFinite(per)||!(per>0)||!isFinite(base))return{err:'ตัวเลขใหญ่หรือเล็กเกินไป'};
+    rows.push({per:per,base:base});
+  }
+  const min=Math.min.apply(null,rows.map(r=>r.per));
+  rows.forEach(r=>{r.pct=(r.per/min-1)*100;r.best=r.per<=min*(1+1e-9);});
+  return{rows:rows,min:min,nl:cat.nl};
+}
+/*UP-CORE-END*/
+
+/*UP-DOM-BEGIN*/
+let upCat='wt';
+function upRowHtml(i,r){
+  const cat=UP_CAT[upCat],cu=r.u||cat.def;
+  const opts=cat.units.map(u=>'<option value="'+u[0]+'"'+(u[0]===cu?' selected':'')+'>'+u[1]+'</option>').join('');
+  return '<div class="dl-row">'
+   +'<div class="fg dl-w2"><label>สินค้า '+(i+1)+'</label><input type="text" id="up-n'+i+'" maxlength="40" placeholder="ชื่อ/ยี่ห้อ (ไม่บังคับ)" value="'+dlEsc(r.n||'')+'"></div>'
+   +'<div class="fg"><label>ราคา (฿)</label><input type="number" id="up-p'+i+'" step="0.01" min="0" placeholder="เช่น 189" value="'+dlEsc(r.p||'')+'"></div>'
+   +'<div class="fg"><label>ปริมาณต่อห่อ</label><input type="number" id="up-q'+i+'" step="any" min="0" placeholder="เช่น 1.8" value="'+dlEsc(r.q||'')+'"></div>'
+   +'<div class="fg"><label>หน่วย</label><select id="up-u'+i+'">'+opts+'</select></div>'
+   +'<div class="fg"><label>จำนวนห่อ (แพ็ก)</label><input type="number" id="up-k'+i+'" step="1" min="1" value="'+dlEsc(r.k===undefined?'1':r.k)+'"></div>'
+   +'<div class="fg"><button type="button" class="btn btn-s dl-x" onclick="upDel('+i+')" aria-label="ลบสินค้าที่ '+(i+1)+'">✕ ลบ</button></div></div>';
+}
+function upRead(){
+  const out=[];
+  for(let i=0;$('up-n'+i);i++)out.push({n:$('up-n'+i).value,p:$('up-p'+i).value,q:$('up-q'+i).value,u:$('up-u'+i).value,k:$('up-k'+i).value});
+  return out;
+}
+function upRender(rows){$('up-rows').innerHTML=rows.map((r,i)=>upRowHtml(i,r)).join('');$('up-res').style.display='none';$('up-tw').innerHTML='';$('up-add').disabled=rows.length>=8;}
+function upAdd(){const r=upRead();if(r.length>=8)return;r.push({k:'1'});upRender(r);}
+function upDel(i){const r=upRead();if(r.length<=2)return;r.splice(i,1);upRender(r);}
+function upSetCat(c){
+  if(!UP_CAT[c])return;
+  const r=upRead().map(x=>({n:x.n,p:x.p,q:x.q,k:x.k}));
+  upCat=c;
+  document.querySelectorAll('#up-cat .rb').forEach(e=>e.classList.toggle('on',e.dataset.c===c));
+  upRender(r);
+}
+function upReset(){upCat='wt';document.querySelectorAll('#up-cat .rb').forEach(e=>e.classList.toggle('on',e.dataset.c==='wt'));upRender([{k:'1'},{k:'1'},{k:'1'}]);}
+function calcUP(){
+  const cat=UP_CAT[upCat],items=[],names=[],raw=[];
+  for(let i=0;$('up-n'+i);i++){
+    const pe=$('up-p'+i),qe=$('up-q'+i),ke=$('up-k'+i),L='สินค้า '+(i+1);
+    const blank=pe.value.trim()===''&&qe.value.trim()===''&&!pe.validity.badInput&&!qe.validity.badInput;
+    if(blank)continue;
+    const p=pfRead(pe,'ราคา'+L,{req:1,gt0:1,max:1e9}); if(p.err){vfail('up-res',p.err);return;}
+    const q=pfRead(qe,'ปริมาณ'+L,{req:1,gt0:1,max:1e9}); if(q.err){vfail('up-res',q.err);return;}
+    const k=pfRead(ke,'จำนวนห่อ'+L,{int:1,gt0:1,max:10000}); if(k.err){vfail('up-res',k.err);return;}
+    const unit=$('up-u'+i).value,packs=k.blank?1:k.v;
+    items.push({price:p.v,qty:q.v,packs:packs,unit:unit});
+    names.push($('up-n'+i).value.trim()||('สินค้า '+(i+1)));
+    raw.push({qty:q.v,packs:packs,unit:cat.units.find(u=>u[0]===unit)});
+  }
+  if(items.length<2){vfail('up-res','กรอกราคาและปริมาณของสินค้าอย่างน้อย 2 ชิ้นเพื่อเปรียบเทียบ');return;}
+  const r=upCompare(upCat,items);
+  if(r.err){vfail('up-res',r.err);return;}
+  const bi=r.rows.map((x,i)=>x.best?i:-1).filter(i=>i>=0);
+  $('up-sum').innerHTML=bi.length===r.rows.length?'ทุกชิ้นราคาต่อหน่วยเท่ากัน':'ถูกสุด: <b>'+bi.map(i=>dlEsc(names[i])).join(' / ')+'</b> — '+dlMoney(r.min)+' ต่อ '+r.nl;
+  let h='<div class="twrap"><div class="tscroll"><table class="uctbl"><thead><tr><th>สินค้า</th><th>ราคา</th><th>ปริมาณ</th><th>ต่อ '+r.nl+'</th><th>เทียบถูกสุด</th></tr></thead><tbody>';
+  r.rows.forEach((x,i)=>{
+    const it=items[i],rw=raw[i];
+    h+='<tr'+(x.best?' class="dl-best"':'')+'><td>'+dlEsc(names[i])+(x.best?' <span class="badge bg">ถูกสุด</span>':'')+'</td><td>'+fB(it.price)+'</td><td>'+fN(rw.qty,rw.qty%1?2:0)+' '+rw.unit[1]+(rw.packs>1?' × '+rw.packs:'')+'</td><td>'+dlMoney(x.per)+'</td><td>'+(x.best?'—':'แพงกว่า '+fN(x.pct,1)+'%')+'</td></tr>';
+  });
+  $('up-tw').innerHTML=h+'</tbody></table></div></div>';
+  show('up-res');
+}
+upRender([{k:'1'},{k:'1'},{k:'1'}]);
+/*UP-DOM-END*/
+
+/* ── 2) โปรโมชั่นคุ้มไหม ── */
+// ซื้อ X แถม Y: ทุก (X+Y) ชิ้นจ่ายแค่ X ; ชิ้นที่ N ลด p%: ทุก N ชิ้น ชิ้นสุดท้ายของชุดลด p% ; N ชิ้น M บาท: ชุดครบ N ชิ้นราคา M ที่เหลือราคาปกติ
+// ลด D บาทเมื่อซื้อครบ T บาท: ครั้งเดียวต่อบิล ; ลด p% ทั้งหมด ; จำนวนที่ต้องการ Q ชิ้นพอดี (ไม่ซื้อเกินเพื่อเอาชุดที่ถูกกว่า) ; ไม่ซ้อนโปรกัน
+/*PM-CORE-BEGIN*/
+function pmTotal(t,a,b,P,Q){
+  const I=Number.isInteger;
+  if(t==='bogo'){
+    if(!I(a)||a<1||!I(b)||b<1)return{err:'ซื้อ/แถม ต้องเป็นจำนวนเต็มตั้งแต่ 1'};
+    const g=a+b,full=Math.floor(Q/g),rem=Q-full*g;
+    return{total:P*(full*a+Math.min(rem,a))};
+  }
+  if(t==='pct'){
+    if(!(a>0&&a<=100))return{err:'ส่วนลด (%) ต้องมากกว่า 0 และไม่เกิน 100'};
+    return{total:P*Q*(1-a/100)};
+  }
+  if(t==='nth'){
+    if(!I(a)||a<2)return{err:'ชิ้นที่ N ต้องเป็นจำนวนเต็มตั้งแต่ 2'};
+    if(!(b>0&&b<=100))return{err:'ส่วนลด (%) ต้องมากกว่า 0 และไม่เกิน 100'};
+    const full=Math.floor(Q/a),rem=Q-full*a;
+    return{total:P*(full*((a-1)+(1-b/100))+rem)};
+  }
+  if(t==='bundle'){
+    if(!I(a)||a<2)return{err:'จำนวนชิ้นในชุดต้องเป็นจำนวนเต็มตั้งแต่ 2'};
+    if(!(b>0))return{err:'ราคาชุดต้องมากกว่า 0'};
+    const full=Math.floor(Q/a),rem=Q-full*a;
+    return{total:full*b+rem*P};
+  }
+  if(t==='off'){
+    if(!(a>=0))return{err:'ยอดขั้นต่ำต้องไม่ติดลบ'};
+    if(!(b>0))return{err:'ส่วนลด (บาท) ต้องมากกว่า 0'};
+    const t0=P*Q;
+    return{total:t0>=a-1e-9?Math.max(0,t0-b):t0}; // 1e-9: ยอดเท่าเกณฑ์พอดี (เช่น 19.99×3 = 59.97) ต้องได้ส่วนลด แม้ float ได้ 59.96999999999999
+  }
+  return{err:'ชนิดโปรไม่ถูกต้อง'};
+}
+function pmCalc(o){
+  const P=o.P,Q=o.Q,promos=o.promos;
+  if(![P,Q].every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลข'};
+  if(!(P>0))return{err:'ราคาปกติต่อชิ้นต้องมากกว่า 0'};
+  if(!Number.isInteger(Q)||Q<1||Q>100000)return{err:'จำนวนที่ต้องการซื้อต้องเป็นจำนวนเต็ม 1–100,000'};
+  if(!Array.isArray(promos)||promos.length<1)return{err:'ต้องมีโปรอย่างน้อย 1 รายการ'};
+  const base=P*Q,rows=[];
+  for(let i=0;i<promos.length;i++){
+    const pr=promos[i];
+    if(![pr.a,pr.b].every(x=>typeof x==='number'&&isFinite(x)))return{err:'โปรที่ '+(i+1)+': กรุณากรอกตัวเลข'};
+    const r=pmTotal(pr.t,pr.a,pr.b,P,Q);
+    if(r.err)return{err:'โปรที่ '+(i+1)+': '+r.err};
+    if(!isFinite(r.total))return{err:'ตัวเลขใหญ่เกินไป'};
+    rows.push({total:r.total,per:r.total/Q,save:base-r.total,savePct:(base-r.total)/base*100});
+  }
+  const min=Math.min.apply(null,rows.map(r=>r.total));
+  rows.forEach(r=>{r.win=r.total<=min+1e-9*Math.max(1,min);});
+  return{base:base,rows:rows,min:min,beatsBase:min<base-1e-9*Math.max(1,base)};
+}
+/*PM-CORE-END*/
+
+/*PM-DOM-BEGIN*/
+const PM_T={
+ bogo:{nm:'ซื้อ X แถม Y',la:'ซื้อ (ชิ้น)',lb:'แถม (ชิ้น)',pa:'เช่น 2',pb:'เช่น 1'},
+ pct:{nm:'ลด % ทั้งหมด',la:'ลด (%)',lb:'',pa:'เช่น 20',pb:''},
+ nth:{nm:'ชิ้นที่ N ลด %',la:'ชิ้นที่ N',lb:'ลด (%)',pa:'เช่น 2',pb:'เช่น 50'},
+ bundle:{nm:'N ชิ้น ราคาชุด',la:'จำนวนชิ้น',lb:'ราคาชุด (฿)',pa:'เช่น 3',pb:'เช่น 250'},
+ off:{nm:'ซื้อครบ ลดบาท',la:'ซื้อครบ (฿)',lb:'ลด (฿)',pa:'เช่น 500',pb:'เช่น 50'}
+};
+function pmN(x){return fN(x,Number.isInteger(x)?0:2);}
+function pmDesc(t,a,b){
+  if(t==='bogo')return'ซื้อ '+pmN(a)+' แถม '+pmN(b);
+  if(t==='pct')return'ลด '+pmN(a)+'%';
+  if(t==='nth')return'ชิ้นที่ '+pmN(a)+' ลด '+pmN(b)+'%';
+  if(t==='bundle')return pmN(a)+' ชิ้น ฿'+pmN(b);
+  return'ซื้อครบ ฿'+pmN(a)+' ลด ฿'+pmN(b);
+}
+function pmRowHtml(i,r){
+  const T=PM_T[r.t||'bogo'],opts=Object.keys(PM_T).map(k=>'<option value="'+k+'"'+(k===(r.t||'bogo')?' selected':'')+'>'+PM_T[k].nm+'</option>').join('');
+  return '<div class="dl-row">'
+   +'<div class="fg dl-w2"><label>โปรที่ '+(i+1)+'</label><select id="pm-t'+i+'" onchange="pmType('+i+')">'+opts+'</select></div>'
+   +'<div class="fg"><label>'+T.la+'</label><input type="number" id="pm-a'+i+'" step="any" min="0" placeholder="'+T.pa+'" value="'+dlEsc(r.a||'')+'"></div>'
+   +'<div class="fg" style="'+(T.lb?'':'visibility:hidden')+'"><label>'+(T.lb||'&nbsp;')+'</label><input type="number" id="pm-b'+i+'" step="any" min="0" placeholder="'+T.pb+'" value="'+dlEsc(r.b||'')+'"'+(T.lb?'':' tabindex="-1" aria-hidden="true"')+'></div>'
+   +'<div class="fg"><button type="button" class="btn btn-s dl-x" onclick="pmDel('+i+')" aria-label="ลบโปรที่ '+(i+1)+'">✕ ลบ</button></div></div>';
+}
+function pmRead(){const o=[];for(let i=0;$('pm-t'+i);i++)o.push({t:$('pm-t'+i).value,a:$('pm-a'+i).value,b:$('pm-b'+i).value});return o;}
+function pmRender(rows){$('pm-rows').innerHTML=rows.map((r,i)=>pmRowHtml(i,r)).join('');$('pm-res').style.display='none';$('pm-tw').innerHTML='';$('pm-add').disabled=rows.length>=4;}
+function pmAdd(){const r=pmRead();if(r.length>=4)return;r.push({t:'bogo'});pmRender(r);}
+function pmDel(i){const r=pmRead();if(r.length<=1)return;r.splice(i,1);pmRender(r);}
+function pmType(i){const r=pmRead();r[i].a='';r[i].b='';pmRender(r);}
+function pmReset(){$('pm-p').value='';$('pm-q').value='';pmRender([{t:'bogo'},{t:'pct'}]);}
+function calcPM(){
+  const P=pfRead($('pm-p'),'ราคาปกติต่อชิ้น',{req:1,gt0:1,max:1e7}); if(P.err){vfail('pm-res',P.err);return;}
+  const Q=pfRead($('pm-q'),'จำนวนที่ต้องการซื้อ',{req:1,int:1,gt0:1,max:100000}); if(Q.err){vfail('pm-res',Q.err);return;}
+  const promos=[];
+  for(let i=0;$('pm-t'+i);i++){
+    const t=$('pm-t'+i).value,T=PM_T[t],L='โปรที่ '+(i+1)+' ';
+    const a=pfRead($('pm-a'+i),L+T.la,{req:1,max:1e9}); if(a.err){vfail('pm-res',a.err);return;}
+    let b={v:0};
+    if(T.lb){b=pfRead($('pm-b'+i),L+T.lb,{req:1,max:1e9}); if(b.err){vfail('pm-res',b.err);return;}}
+    promos.push({t:t,a:a.v,b:b.v});
+  }
+  const r=pmCalc({P:P.v,Q:Q.v,promos:promos});
+  if(r.err){vfail('pm-res',r.err);return;}
+  const wi=r.rows.map((x,i)=>x.win?i+1:-1).filter(i=>i>0);
+  $('pm-sum').innerHTML=r.beatsBase?'ถูกสุด: <b>โปรที่ '+wi.join(' / ')+'</b> — จ่าย '+fB(r.min)+' ('+dlMoney(r.min/Q.v)+' ต่อชิ้น)':'<b>ไม่มีโปรไหนถูกกว่าราคาปกติ</b> — ซื้อราคาปกติ '+fB(r.base);
+  let h='<div class="twrap"><div class="tscroll"><table class="uctbl"><thead><tr><th>ตัวเลือก</th><th>จ่ายรวม</th><th>ต่อชิ้น</th><th>ประหยัด</th></tr></thead><tbody>';
+  h+='<tr><td>ราคาปกติ (ไม่ใช้โปร)</td><td>'+fB(r.base)+'</td><td>'+dlMoney(P.v)+'</td><td>—</td></tr>';
+  r.rows.forEach((x,i)=>{
+    const pr=promos[i];
+    h+='<tr'+(x.win&&r.beatsBase?' class="dl-best"':'')+'><td>โปรที่ '+(i+1)+': '+pmDesc(pr.t,pr.a,pr.b)+(x.win&&r.beatsBase?' <span class="badge bg">ถูกสุด</span>':'')+'</td><td>'+fB(x.total)+'</td><td>'+dlMoney(x.per)+'</td><td>'+(Math.abs(x.save)<0.005?'ไม่ประหยัด':x.save>0?fB(x.save)+' ('+fN(x.savePct,1)+'%)':'แพงกว่าปกติ '+fB(-x.save))+'</td></tr>';
+  });
+  $('pm-tw').innerHTML=h+'</tbody></table></div></div>';
+  show('pm-res');
+}
+pmRender([{t:'bogo'},{t:'pct'}]);
+/*PM-DOM-END*/
+
+/* ── 3) นับวัน / อายุ / บวก-ลบวัน ── */
+// วันที่เป็น {y,m,d} ปี ค.ศ. 1900–2200 ; นับวันด้วยเลขวัน UTC (ไม่ขึ้นกับเขตเวลา/DST)
+// ปี-เดือน-วัน: เดือนเต็มที่มากที่สุดที่ "วันเริ่ม + k เดือน" ยังไม่เกินวันสิ้นสุด แล้วเศษที่เหลือเป็นวัน ;
+// บวกเดือน/ปี ถ้าวันที่ไม่มีในเดือนปลายทาง (31 ม.ค. + 1 เดือน) ใช้วันสุดท้ายของเดือนนั้น (28/29 ก.พ.)
+// วันทำการ = จันทร์–ศุกร์ ไม่หักวันหยุดนักขัตฤกษ์
+/*DCAL-CORE-BEGIN*/
+const DC_MIN=1900,DC_MAX=2200;
+const DC_MON=['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+const DC_DOW=['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์'];
+function dcLeap(y){return y%4===0&&(y%100!==0||y%400===0);}
+function dcDim(y,m){return[31,dcLeap(y)?29:28,31,30,31,30,31,31,30,31,30,31][m-1];}
+function dcValid(dt){return!!dt&&Number.isInteger(dt.y)&&Number.isInteger(dt.m)&&Number.isInteger(dt.d)&&dt.y>=DC_MIN&&dt.y<=DC_MAX&&dt.m>=1&&dt.m<=12&&dt.d>=1&&dt.d<=dcDim(dt.y,dt.m);}
+function dcNum(dt){return Math.round(Date.UTC(dt.y,dt.m-1,dt.d)/86400000);}
+function dcFrom(n){const t=new Date(n*86400000);return{y:t.getUTCFullYear(),m:t.getUTCMonth()+1,d:t.getUTCDate()};}
+function dcDowN(n){return((n+4)%7+7)%7;} // 1970-01-01 = พฤหัสบดี (4)
+function dcDow(dt){return dcDowN(dcNum(dt));}
+function dcAddMonths(dt,k){const t=dt.y*12+(dt.m-1)+k,y=Math.floor(t/12),m=t-y*12+1;return{y:y,m:m,d:Math.min(dt.d,dcDim(y,m))};}
+function dcDiff(a,b){ // ต้อง a <= b
+  let k=(b.y-a.y)*12+(b.m-a.m),x=dcAddMonths(a,k);
+  while(dcNum(x)>dcNum(b)){k--;x=dcAddMonths(a,k);}
+  return{y:Math.floor(k/12),m:k%12,d:dcNum(b)-dcNum(x)};
+}
+function dcWeekdays(n1,n2){ // จำนวนวันจันทร์–ศุกร์ ในช่วงเลขวัน [n1, n2)
+  const len=n2-n1;if(len<=0)return 0;
+  const full=Math.floor(len/7);let c=full*5;
+  for(let n=n1+full*7;n<n2;n++){const w=dcDowN(n);if(w>=1&&w<=5)c++;}
+  return c;
+}
+function dcBetween(a,b,inclEnd){
+  if(!dcValid(a)||!dcValid(b))return{err:'วันที่ไม่ถูกต้อง (รองรับ ค.ศ. 1900–2200)'};
+  let x=a,y=b,rev=false;
+  if(dcNum(a)>dcNum(b)){x=b;y=a;rev=true;}
+  const n1=dcNum(x),n2=dcNum(y),e=inclEnd?1:0;
+  const days=n2-n1+e;
+  return{days:days,weeks:Math.floor(days/7),rem:days%7,ymd:dcDiff(x,inclEnd?dcFrom(n2+1):y),weekdays:dcWeekdays(n1,n2+e),rev:rev};
+}
+function dcAdd(dt,sign,amt,unit){
+  if(!dcValid(dt))return{err:'วันที่ไม่ถูกต้อง (รองรับ ค.ศ. 1900–2200)'};
+  if(sign!==1&&sign!==-1)return{err:'เลือกบวกหรือลบ'};
+  if(!Number.isInteger(amt)||amt<0||amt>100000)return{err:'จำนวนต้องเป็นจำนวนเต็ม 0–100,000'};
+  let r;
+  if(unit==='d')r=dcFrom(dcNum(dt)+sign*amt);
+  else if(unit==='w')r=dcFrom(dcNum(dt)+sign*amt*7);
+  else if(unit==='m')r=dcAddMonths(dt,sign*amt);
+  else if(unit==='y')r=dcAddMonths(dt,sign*amt*12);
+  else return{err:'หน่วยไม่ถูกต้อง'};
+  if(r.y<DC_MIN||r.y>DC_MAX)return{err:'ผลลัพธ์อยู่นอกช่วง ค.ศ. 1900–2200'};
+  return{date:r,dow:dcDow(r)};
+}
+function dcAge(birth,ref){
+  if(!dcValid(birth)||!dcValid(ref))return{err:'วันที่ไม่ถูกต้อง (รองรับ ค.ศ. 1900–2200)'};
+  if(dcNum(birth)>dcNum(ref))return{err:'วันเกิดต้องไม่อยู่หลังวันที่อ้างอิง'};
+  const ymd=dcDiff(birth,ref),days=dcNum(ref)-dcNum(birth);
+  let nb=dcAddMonths(birth,12*(ref.y-birth.y));
+  if(dcNum(nb)<dcNum(ref))nb=dcAddMonths(birth,12*(ref.y-birth.y+1));
+  return{ymd:ymd,days:days,next:nb,toNext:dcNum(nb)-dcNum(ref),nextAge:nb.y-birth.y,dow:dcDow(nb)};
+}
+function dcFmt(dt){return dt.d+' '+DC_MON[dt.m-1]+' '+(dt.y+543);}
+/*DCAL-CORE-END*/
+
+/*DCAL-DOM-BEGIN*/
+let dcMode='between';
+function dcToday(){const p=isoLocal().split('-').map(Number);return{y:p[0],m:p[1],d:p[2]};}
+function dcSetMode(m){
+  dcMode=m;
+  document.querySelectorAll('#dcal-mode .rb').forEach(e=>e.classList.toggle('on',e.dataset.m===m));
+  document.querySelectorAll('.dcal-sec').forEach(e=>e.classList.toggle('on',e.dataset.m===m));
+  $('dcal-res').style.display='none';
+}
+function dcSetToday(id){$(id).value=isoLocal();}
+function dcRead(id,label){
+  const el=$(id);
+  if(!el)return{err:'ไม่พบช่อง'+label};
+  if(el.validity&&el.validity.badInput)return{err:label+' ไม่ถูกต้อง'};
+  const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(el.value.trim());
+  if(!m)return{err:el.value.trim()===''?'กรุณาเลือก'+label:label+' ไม่ถูกต้อง (รองรับ ค.ศ. 1900–2200)'};
+  const dt={y:Number(m[1]),m:Number(m[2]),d:Number(m[3])};
+  if(!dcValid(dt))return{err:label+' ไม่ถูกต้อง (รองรับ ค.ศ. 1900–2200)'};
+  return{dt:dt};
+}
+function dcFmtL(dt){return dcFmt(dt)+' <span style="color:var(--text3);font-size:.8em">(ค.ศ. '+dt.y+') วัน'+DC_DOW[dcDow(dt)]+'</span>';}
+function dcYMD(x){const p=[];if(x.y)p.push(x.y+' ปี');if(x.m)p.push(x.m+' เดือน');if(x.d||!p.length)p.push(x.d+' วัน');return p.join(' ');}
+function dcOut(items,note){
+  $('dcal-grid').innerHTML=items.map(it=>'<div class="ri"><div class="rl">'+it[0]+'</div><div class="rv '+(it[2]||'')+'" style="'+(it[3]||'')+'">'+it[1]+'</div></div>').join('');
+  $('dcal-note').textContent=note||'';
+  show('dcal-res');
+}
+function calcDC(){
+  const fail=m=>vfail('dcal-res',m);
+  if(dcMode==='between'){
+    const a=dcRead('dcal-a','วันที่เริ่มต้น');if(a.err)return fail(a.err);
+    const b=dcRead('dcal-b','วันที่สิ้นสุด');if(b.err)return fail(b.err);
+    const r=dcBetween(a.dt,b.dt,$('dcal-inc').checked);
+    if(r.err)return fail(r.err);
+    dcOut([['จำนวนวัน',fN(r.days,0)+' วัน','a'],['เป็นสัปดาห์',fN(r.weeks,0)+' สัปดาห์ '+r.rem+' วัน'],['เป็น ปี-เดือน-วัน',dcYMD(r.ymd),'g'],['วันทำการ (จ.–ศ.)',fN(r.weekdays,0)+' วัน','o']],
+      (r.rev?'วันสิ้นสุดอยู่ก่อนวันเริ่มต้น — คำนวณเป็นช่วงเดียวกัน · ':'')+(r.days===0?'วันเดียวกัน · ':'')+'วันทำการนับจันทร์–ศุกร์ ไม่หักวันหยุดนักขัตฤกษ์'+($('dcal-inc').checked?' · นับรวมวันสิ้นสุดด้วย':' · ไม่นับวันสิ้นสุด'));
+  }else if(dcMode==='add'){
+    const s=dcRead('dcal-s','วันที่เริ่มต้น');if(s.err)return fail(s.err);
+    const n=pfRead($('dcal-n'),'จำนวน',{req:1,int:1,max:100000});if(n.err)return fail(n.err);
+    const r=dcAdd(s.dt,$('dcal-sg').value==='-'?-1:1,n.v,$('dcal-un').value);
+    if(r.err)return fail(r.err);
+    dcOut([['วันที่ที่ได้',dcFmtL(r.date),'a','font-size:clamp(.95rem,2.6vw,1.25rem)']],($('dcal-un').value==='m'||$('dcal-un').value==='y')?'ถ้าวันที่ไม่มีในเดือนปลายทาง (เช่น 31 ม.ค. + 1 เดือน) ใช้วันสุดท้ายของเดือนนั้น':'');
+  }else{
+    const b=dcRead('dcal-bd','วันเกิด');if(b.err)return fail(b.err);
+    const rf=dcRead('dcal-rf','วันที่อ้างอิง');if(rf.err)return fail(rf.err);
+    const r=dcAge(b.dt,rf.dt);
+    if(r.err)return fail(r.err);
+    dcOut([['อายุ',dcYMD(r.ymd),'a'],['รวมทั้งหมด',fN(r.days,0)+' วัน'],['วันเกิดครั้งถัดไป (อายุ '+r.nextAge+' ปี)',r.toNext===0?'วันนี้! 🎂':'อีก '+fN(r.toNext,0)+' วัน','g'],['ตรงกับ',dcFmtL(r.next),'','font-size:clamp(.85rem,2.2vw,1.1rem)']],'ถ้าเกิด 29 ก.พ. ในปีที่ไม่ใช่ปีอธิกสุรทิน นับวันเกิดเป็น 28 ก.พ.');
+  }
+}
+function dcReset(){
+  ['dcal-a','dcal-bd'].forEach(id=>{$(id).value='';});
+  ['dcal-b','dcal-s','dcal-rf'].forEach(id=>{$(id).value=isoLocal();});
+  $('dcal-n').value='';$('dcal-sg').selectedIndex=0;$('dcal-un').selectedIndex=0;$('dcal-inc').checked=false;
+  $('dcal-res').style.display='none';
+}
+dcReset();dcSetMode('between');
+/*DCAL-DOM-END*/
+
+/* ── 4) หารบิลแบบรายการ  &  5) สรุปทริป ใครจ่ายใคร ── */
+// เงินคิดเป็นสตางค์จำนวนเต็มทั้งหมด (ราคาที่กรอกต้องไม่เกิน 2 ทศนิยม)
+// หารบิล: ส่วนของแต่ละคน = Σ (ราคารายการ ÷ จำนวนคนหาร) × k  โดย k=(1+ค่าบริการ)(1+VAT) แล้วปัดเป็นสตางค์ด้วยวิธีเศษมากสุด (largest remainder)
+//   เพื่อให้ผลรวมรายคน = ยอดบิล (ปัดครึ่งขึ้น) พอดี ไม่ขาดไม่เกินสตางค์ ; เศษเท่ากันให้คนลำดับก่อน
+// สรุปทริป: แต่ละรายการหารเท่ากันในกลุ่มคนหาร เศษสตางค์ให้คนหารเริ่มจากลำดับที่ (รายการที่ mod จำนวนคนหาร) หมุนเวียนไม่ลำเอียง ;
+//   ยอดสุทธิ = จ่ายไป − ส่วนที่ต้องจ่าย ; โอนด้วยวิธีจับคู่ผู้ติดลบมากสุดกับผู้ได้คืนมากสุด (ได้ไม่เกิน คน−1 ครั้ง ไม่รับประกันว่าน้อยที่สุดในทุกกรณี)
+/*MX-CORE-BEGIN*/
+function ibSplit(o){
+  const n=o.n,items=o.items,sc=o.sc,vat=o.vat;
+  if(!Number.isInteger(n)||n<2||n>12)return{err:'จำนวนคนต้องอยู่ระหว่าง 2–12'};
+  if(![sc,vat].every(x=>typeof x==='number'&&isFinite(x))||sc<0||vat<0)return{err:'ค่าบริการและ VAT ต้องเป็นตัวเลขไม่ติดลบ'};
+  if(!Array.isArray(items)||!items.length)return{err:'ต้องมีรายการอย่างน้อย 1 รายการ'};
+  const k=(1+sc/100)*(1+vat/100),ex=new Array(n).fill(0);
+  let S=0;
+  for(let j=0;j<items.length;j++){
+    const it=items[j],w=it.who;
+    if(!Number.isInteger(it.sat)||it.sat<=0)return{err:'รายการที่ '+(j+1)+': ราคาไม่ถูกต้อง'};
+    if(!Array.isArray(w)||!w.length)return{err:'รายการที่ '+(j+1)+' ยังไม่ได้เลือกคนหาร'};
+    if(new Set(w).size!==w.length||w.some(p=>!Number.isInteger(p)||p<0||p>=n))return{err:'รายการที่ '+(j+1)+': คนหารไม่ถูกต้อง'};
+    S+=it.sat;
+    for(const p of w)ex[p]+=it.sat/w.length;
+  }
+  const T=Math.floor(S*k+0.5+1e-6);
+  const exk=ex.map(x=>x*k),fl=exk.map(x=>Math.floor(x+1e-6));
+  const left=T-fl.reduce((a,b)=>a+b,0);
+  const ord=[];
+  exk.forEach((x,i)=>{if(x>0)ord.push({i:i,f:Math.round(Math.max(0,x-fl[i])*1e6)/1e6});});
+  ord.sort((p,q)=>q.f-p.f||p.i-q.i);
+  if(left<0||left>ord.length)return{err:'คำนวณไม่สำเร็จ'};
+  const tot=fl.slice();
+  for(let j=0;j<left;j++)tot[ord[j].i]++;
+  return{tot:tot,T:T,S:S};
+}
+function tsSettle(o){
+  const n=o.n,exps=o.exps;
+  if(!Number.isInteger(n)||n<2||n>12)return{err:'จำนวนคนต้องอยู่ระหว่าง 2–12'};
+  if(!Array.isArray(exps)||!exps.length)return{err:'ต้องมีรายการค่าใช้จ่ายอย่างน้อย 1 รายการ'};
+  const paid=new Array(n).fill(0),owed=new Array(n).fill(0);
+  for(let e=0;e<exps.length;e++){
+    const x=exps[e],w=x.who;
+    if(!Number.isInteger(x.sat)||x.sat<=0)return{err:'รายการที่ '+(e+1)+': จำนวนเงินไม่ถูกต้อง'};
+    if(!Number.isInteger(x.payer)||x.payer<0||x.payer>=n)return{err:'รายการที่ '+(e+1)+': คนจ่ายไม่ถูกต้อง'};
+    if(!Array.isArray(w)||!w.length)return{err:'รายการที่ '+(e+1)+' ยังไม่ได้เลือกคนหาร'};
+    if(new Set(w).size!==w.length||w.some(p=>!Number.isInteger(p)||p<0||p>=n))return{err:'รายการที่ '+(e+1)+': คนหารไม่ถูกต้อง'};
+    const ws=w.slice().sort((a,b)=>a-b),m=ws.length,base=Math.floor(x.sat/m),r=x.sat-base*m,start=e%m;
+    paid[x.payer]+=x.sat;
+    ws.forEach((p,pos)=>{const extra=((pos-start)%m+m)%m<r?1:0;owed[p]+=base+extra;});
+  }
+  const bal=paid.map((p,i)=>p-owed[i]);
+  const cred=[],debt=[];
+  bal.forEach((b,i)=>{if(b>0)cred.push({i:i,v:b});else if(b<0)debt.push({i:i,v:-b});});
+  const tr=[],byv=(a,b)=>b.v-a.v||a.i-b.i;
+  while(cred.length&&debt.length){
+    cred.sort(byv);debt.sort(byv);
+    const c=cred[0],d=debt[0],t=Math.min(c.v,d.v);
+    tr.push({from:d.i,to:c.i,sat:t});
+    c.v-=t;d.v-=t;
+    if(c.v===0)cred.shift();
+    if(d.v===0)debt.shift();
+  }
+  return{paid:paid,owed:owed,bal:bal,transfers:tr,total:paid.reduce((a,b)=>a+b,0)};
+}
+/*MX-CORE-END*/
+
+/*MX-DOM-BEGIN*/
+const MX={};
+function mxName(p,i){const v=String(MX[p].people[i]||'').trim();return v||('คน '+(i+1));}
+function mxNames(p){return MX[p].people.map((_,i)=>mxName(p,i));}
+function mxSync(p){
+  const s=MX[p];
+  s.people=s.people.map((v,i)=>{const e=$(p+'-pn'+i);return e?e.value:v;});
+  s.rows.forEach((r,j)=>{const a=$(p+'-rn'+j),b=$(p+'-ra'+j),c=$(p+'-rp'+j);if(a)r.n=a.value;if(b)r.a=b.value;if(c)r.p=Number(c.value);});
+}
+function mxRenderP(p){
+  const s=MX[p];
+  $(p+'-people').innerHTML=s.people.map((v,i)=>'<div class="dl-pr"><input type="text" id="'+p+'-pn'+i+'" maxlength="20" value="'+dlEsc(v)+'" placeholder="คน '+(i+1)+'" onchange="mxRenamed(\''+p+'\')" aria-label="ชื่อคนที่ '+(i+1)+'"><button type="button" class="btn btn-s dl-x2" onclick="mxDelP(\''+p+'\','+i+')" aria-label="ลบคนที่ '+(i+1)+'">✕</button></div>').join('');
+  $(p+'-addp').disabled=s.people.length>=12;
+}
+function mxRenderR(p){
+  const s=MX[p],names=mxNames(p);
+  $(p+'-rows').innerHTML=s.rows.map((r,j)=>{
+    let h='<div class="dl-row2"><div class="dl-line"><div class="fg dl-grow"><label>'+s.rowLbl+' '+(j+1)+'</label><input type="text" id="'+p+'-rn'+j+'" maxlength="40" placeholder="'+s.rowPh+'" value="'+dlEsc(r.n||'')+'"></div>'
+      +'<div class="fg" style="width:120px"><label>'+s.amtLbl+'</label><input type="number" id="'+p+'-ra'+j+'" step="0.01" min="0" placeholder="฿" value="'+dlEsc(r.a||'')+'"></div>';
+    if(s.payer)h+='<div class="fg" style="min-width:110px"><label>ใครจ่าย</label><select id="'+p+'-rp'+j+'">'+names.map((nm,i)=>'<option value="'+i+'"'+(i===r.p?' selected':'')+'>'+dlEsc(nm)+'</option>').join('')+'</select></div>';
+    h+='<div class="fg"><button type="button" class="btn btn-s dl-x" onclick="mxDelR(\''+p+'\','+j+')" aria-label="ลบรายการที่ '+(j+1)+'">✕</button></div></div>'
+      +'<div class="dl-chips"><span class="dl-cl">'+s.whoLbl+'</span>'
+      +names.map((nm,i)=>'<label class="dl-chip"><input type="checkbox"'+(r.w[i]?' checked':'')+' onchange="mxChk(\''+p+'\','+j+','+i+',this.checked)"> <span class="dl-cn">'+dlEsc(nm)+'</span></label>').join('')
+      +'<button type="button" class="btn btn-s dl-all" onclick="mxAll(\''+p+'\','+j+')">ทุกคน</button></div></div>';
+    return h;
+  }).join('');
+  $(p+'-addr').disabled=s.rows.length>=30;
+}
+// เปลี่ยนแค่ข้อความชื่อ (ไม่ re-render): ถ้าสร้างแถวใหม่ตอน onchange ซึ่งเกิดตอนเมาส์กดอยู่ที่ช่องติ๊ก การคลิกครั้งแรกจะหายไป
+function mxRenamed(p){
+  mxSync(p);const names=mxNames(p),box=$(p+'-rows');
+  box.querySelectorAll('.dl-chips').forEach(c=>c.querySelectorAll('.dl-cn').forEach((e,i)=>{e.textContent=names[i];}));
+  box.querySelectorAll('select').forEach(s=>Array.prototype.forEach.call(s.options,(o,i)=>{o.textContent=names[i];}));
+}
+function mxChk(p,j,i,v){MX[p].rows[j].w[i]=!!v;}
+function mxAll(p,j){mxSync(p);MX[p].rows[j].w=MX[p].people.map(()=>true);mxRenderR(p);}
+function mxNewRow(s){return{n:'',a:'',p:0,w:s.people.map(()=>true)};}
+function mxAddP(p){const s=MX[p];mxSync(p);if(s.people.length>=12)return;s.people.push('');s.rows.forEach(r=>r.w.push(true));mxRenderP(p);mxRenderR(p);}
+function mxDelP(p,i){
+  const s=MX[p];mxSync(p);if(s.people.length<=2)return;
+  s.people.splice(i,1);
+  s.rows.forEach(r=>{r.w.splice(i,1);if(r.p===i)r.p=0;else if(r.p>i)r.p--;});
+  mxRenderP(p);mxRenderR(p);
+}
+function mxAddR(p){const s=MX[p];mxSync(p);if(s.rows.length>=30)return;s.rows.push(mxNewRow(s));mxRenderR(p);}
+function mxDelR(p,j){const s=MX[p];mxSync(p);if(s.rows.length<=1)return;s.rows.splice(j,1);mxRenderR(p);}
+function mxInit(p,cfg){
+  const s=Object.assign({},cfg);s.people=cfg.people.slice();s.rows=[];
+  MX[p]=s;
+  for(let i=0;i<cfg.nrows;i++)s.rows.push(mxNewRow(s));
+  mxRenderP(p);mxRenderR(p);
+  $(p+'-res').style.display='none';
+}
+// อ่านชื่อคน (ซ้ำกันไม่ได้) ; คืน {names} หรือ {err}
+function mxCheckNames(p){
+  const names=mxNames(p),seen={};
+  for(const nm of names){const k=nm.toLowerCase();if(seen[k])return{err:'ชื่อซ้ำกัน: "'+nm+'" — ตั้งชื่อให้ต่างกัน'};seen[k]=1;}
+  return{names:names};
+}
+// อ่านแถวรายการ → [{j,n,sat,who,payer}] ; แถวที่ไม่ได้กรอกทั้งชื่อและจำนวนเงินจะข้าม
+function mxCollect(p,names){
+  const s=MX[p],out=[];
+  for(let j=0;j<s.rows.length;j++){
+    const ae=$(p+'-ra'+j),nm=$(p+'-rn'+j).value.trim(),L=s.rowLbl+'ที่ '+(j+1);
+    if(ae.value.trim()===''&&!ae.validity.badInput&&nm==='')continue;
+    const a=pfRead(ae,'จำนวนเงินของ'+L,{req:1,gt0:1,max:1e7});
+    if(a.err)return{err:a.err};
+    if(!dlTwoDec(a.v))return{err:'จำนวนเงินของ'+L+' ใส่ได้ไม่เกิน 2 ทศนิยม'};
+    const who=[];s.rows[j].w.forEach((v,i)=>{if(v)who.push(i);});
+    if(!who.length)return{err:L+(nm?' ('+nm+')':'')+' ยังไม่ได้เลือกคนหาร'};
+    out.push({j:j,n:nm||(s.rowLbl+' '+(j+1)),sat:Math.round(a.v*100),who:who,payer:s.payer?Number($(p+'-rp'+j).value):0});
+  }
+  return{items:out};
+}
+function mxFmtSat(x){return fB(x/100);}
+
+function calcIB(){
+  mxSync('ib');
+  const nc=mxCheckNames('ib');if(nc.err){vfail('ib-res',nc.err);return;}
+  const names=nc.names;
+  const c=pfCollect([['ib-sc','ค่าบริการ (%)',{req:1,zeroHint:'กรอก 0 ได้',max:100}],['ib-vat','VAT (%)',{req:1,zeroHint:'กรอก 0 ได้',max:100}]]);
+  if(c.err){vfail('ib-res',c.err);return;}
+  const it=mxCollect('ib',names);if(it.err){vfail('ib-res',it.err);return;}
+  if(!it.items.length){vfail('ib-res','กรอกราคาของรายการอย่างน้อย 1 รายการ');return;}
+  const r=ibSplit({n:names.length,items:it.items.map(x=>({sat:x.sat,who:x.who})),sc:c.vals['ib-sc'],vat:c.vals['ib-vat']});
+  if(r.err){vfail('ib-res',r.err);return;}
+  $('ib-bill').textContent=mxFmtSat(r.T);
+  const hasK=c.vals['ib-sc']>0||c.vals['ib-vat']>0;
+  $('ib-bl').textContent=hasK?'ยอดบิลรวม (หลังค่าบริการ + VAT)':'ยอดบิลรวม';
+  let h='<div class="twrap"><div class="tscroll"><table class="uctbl"><thead><tr><th>ชื่อ</th><th>ต้องจ่าย</th><th>รายการที่หาร</th></tr></thead><tbody>';
+  let txt='สรุปหารบิล (รวม '+mxFmtSat(r.T)+')\n';
+  names.forEach((nm,i)=>{
+    const mine=it.items.filter(x=>x.who.includes(i)).map(x=>x.n);
+    h+='<tr><td>'+dlEsc(nm)+'</td><td><b>'+mxFmtSat(r.tot[i])+'</b></td><td style="text-align:left;white-space:normal">'+(mine.length?dlEsc(mine.join(', ')):'—')+'</td></tr>';
+    txt+=nm+' '+mxFmtSat(r.tot[i])+'\n';
+  });
+  $('ib-tw').innerHTML=h+'</tbody></table></div></div>';
+  DL_TXT.ib=txt.trim();$('ib-copy').textContent='📋 คัดลอกสรุป';
+  show('ib-res');
+}
+function calcTS(){
+  mxSync('ts');
+  const nc=mxCheckNames('ts');if(nc.err){vfail('ts-res',nc.err);return;}
+  const names=nc.names;
+  const it=mxCollect('ts',names);if(it.err){vfail('ts-res',it.err);return;}
+  if(!it.items.length){vfail('ts-res','กรอกจำนวนเงินของรายการอย่างน้อย 1 รายการ');return;}
+  const r=tsSettle({n:names.length,exps:it.items.map(x=>({sat:x.sat,payer:x.payer,who:x.who}))});
+  if(r.err){vfail('ts-res',r.err);return;}
+  $('ts-total').textContent=mxFmtSat(r.total);
+  $('ts-cnt').textContent=r.transfers.length?r.transfers.length+' ครั้ง':'ไม่ต้องโอน';
+  let h='<div class="twrap"><div class="tscroll"><table class="uctbl"><thead><tr><th>ชื่อ</th><th>จ่ายไปแล้ว</th><th>ส่วนที่ต้องจ่าย</th><th>สุทธิ</th></tr></thead><tbody>';
+  names.forEach((nm,i)=>{
+    const b=r.bal[i];
+    h+='<tr><td>'+dlEsc(nm)+'</td><td>'+mxFmtSat(r.paid[i])+'</td><td>'+mxFmtSat(r.owed[i])+'</td><td style="color:'+(b>0?'var(--green)':b<0?'var(--red)':'var(--text2)')+'"><b>'+(b>0?'ได้คืน '+mxFmtSat(b):b<0?'ต้องจ่าย '+mxFmtSat(-b):'พอดี')+'</b></td></tr>';
+  });
+  h+='</tbody></table></div></div>';
+  let txt='สรุปทริป (ค่าใช้จ่ายรวม '+mxFmtSat(r.total)+')\n';
+  if(r.transfers.length){
+    h+='<div style="margin-top:14px;font-size:.9rem;line-height:1.9">'+r.transfers.map(t=>'<div>💸 <b>'+dlEsc(names[t.from])+'</b> โอนให้ <b>'+dlEsc(names[t.to])+'</b> <span style="color:var(--accent);font-weight:700">'+mxFmtSat(t.sat)+'</span></div>').join('')+'</div>';
+    r.transfers.forEach(t=>{txt+=names[t.from]+' โอนให้ '+names[t.to]+' '+mxFmtSat(t.sat)+'\n';});
+  }else{h+='<div style="margin-top:14px">✅ ทุกคนจ่ายพอดีกับส่วนของตัวเอง ไม่ต้องโอนกัน</div>';txt+='ไม่ต้องโอนกัน\n';}
+  $('ts-tw').innerHTML=h;DL_TXT.ts=txt.trim();$('ts-copy').textContent='📋 คัดลอกสรุป';
+  show('ts-res');
+}
+function ibReset(){$('ib-sc').value='0';$('ib-vat').value='0';mxInit('ib',{people:['','',''],nrows:3,rowLbl:'รายการ',rowPh:'เช่น ต้มยำกุ้ง',amtLbl:'ราคา (฿)',whoLbl:'ใครหาร:',payer:false});}
+function tsReset(){mxInit('ts',{people:['','',''],nrows:2,rowLbl:'รายการ',rowPh:'เช่น ค่าที่พัก',amtLbl:'จำนวนเงิน (฿)',whoLbl:'ใครหาร:',payer:true});}
+ibReset();tsReset();
+/*MX-DOM-END*/
+
+/* ── 10) ผ่อนหรือจ่ายสด (ผ่อน 0% / ผ่อนมีดอก) ── */
+// เปรียบเทียบด้วยมูลค่าปัจจุบัน: ถ้าไม่จ่ายสด เงินก้อนนั้นยังฝาก/ลงทุนได้ผลตอบแทน r%/ปี (ทบรายเดือน j=r/1200)
+//   มูลค่าเทียบเท่าจ่ายสดวันนี้ = เงินดาวน์ + ยอดผ่อน × [1−(1+j)^−n]/j   (จ่ายงวดแรกสิ้นเดือนที่ 1)
+//   ถูกกว่าจ่ายสด เมื่อมูลค่านี้ < ราคาจ่ายสด
+// ดอกเบี้ยแท้จริง: หา i (ต่อเดือน) ที่ ยอดผ่อน × [1−(1+i)^−n]/i = ราคาสด − เงินดาวน์ ; แสดง APR = i×12 (ทบรายเดือน)
+//   Flat/ปี = (ยอดผ่อน×n − (ราคาสด − ดาวน์)) ÷ (ราคาสด − ดาวน์) ÷ (n/12)  (วิธีที่ร้านค้ามักโฆษณา)
+// ยอดรวมทั้งหมด = เงินดาวน์ + ยอดผ่อนทุกงวด ; ผ่อน 0% = ยอดรวมทั้งหมดเท่าราคาผ่อนที่กรอก (ว่าง = เท่าราคาสด)
+/*IP-CORE-BEGIN*/
+function ipAnn(n,j){ // ตัวคูณมูลค่าปัจจุบันของเงิน 1 บาท/เดือน n เดือน
+  if(Math.abs(j)<1e-12)return n;
+  return -Math.expm1(-n*Math.log1p(j))/j;
+}
+function ipRate(B,M,n){ // i ต่อเดือน ที่ M×ipAnn(n,i)=B ; null = ไม่มีคำตอบในช่วง −99.99%..10,000% ต่อเดือน
+  let lo=-0.9999,hi=100;
+  const f=i=>M*ipAnn(n,i)-B;
+  if(f(hi)>0||f(lo)<0)return null;
+  for(let k=0;k<200;k++){const mid=(lo+hi)/2;if(f(mid)>0)lo=mid;else hi=mid;}
+  return(lo+hi)/2;
+}
+function ipCalc(o){
+  const C=o.C,r=o.r,plans=o.plans;
+  if(![C,r].every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลข'};
+  if(!(C>0))return{err:'ราคาจ่ายสดต้องมากกว่า 0'};
+  if(r<0||r>50)return{err:'ผลตอบแทนต้องอยู่ระหว่าง 0–50% ต่อปี'};
+  if(!Array.isArray(plans)||plans.length<1||plans.length>4)return{err:'ต้องมีแผนผ่อน 1–4 แผน'};
+  const j=r/1200,rows=[];
+  for(let k=0;k<plans.length;k++){
+    const p=plans[k],L='แผนที่ '+(k+1)+': ';
+    if(![p.amt,p.n,p.down].every(x=>typeof x==='number'&&isFinite(x)))return{err:L+'กรุณากรอกตัวเลข'};
+    if(p.mode!=='monthly'&&p.mode!=='total')return{err:L+'เลือกวิธีกรอก'};
+    if(!Number.isInteger(p.n)||p.n<1||p.n>360)return{err:L+'จำนวนเดือนต้องเป็นจำนวนเต็ม 1–360'};
+    if(p.down<0)return{err:L+'เงินดาวน์ต้องไม่ติดลบ'};
+    if(!(p.amt>0))return{err:L+(p.mode==='monthly'?'ยอดผ่อนต่อเดือน':'ยอดรวมทั้งหมด')+'ต้องมากกว่า 0'};
+    const B=C-p.down;
+    if(!(B>0))return{err:L+'เงินดาวน์ต้องน้อยกว่าราคาจ่ายสด'};
+    let M,total;
+    if(p.mode==='monthly'){M=p.amt;total=p.down+M*p.n;}
+    else{total=p.amt;M=(total-p.down)/p.n;}
+    if(!(M>0))return{err:L+'ยอดรวมทั้งหมดต้องมากกว่าเงินดาวน์'};
+    const i=ipRate(B,M,p.n);
+    if(i===null)return{err:L+'คำนวณอัตราดอกเบี้ยไม่ได้ — ตรวจยอดผ่อนและจำนวนเดือนอีกครั้ง'};
+    const pv=p.down+M*ipAnn(p.n,j);
+    if(![M,total,pv].every(isFinite))return{err:'ตัวเลขใหญ่เกินไป'};
+    rows.push({M:M,total:total,extra:total-C,i:i,apr:i*1200,flat:(M*p.n-B)/B/(p.n/12)*100,pv:pv,save:C-pv});
+  }
+  const minPv=Math.min.apply(null,[C].concat(rows.map(x=>x.pv)));
+  const cashBest=!(minPv<C-0.005);
+  rows.forEach(x=>{x.verdict=x.save>=0.005?'better':x.save<=-0.005?'worse':'same';x.best=!cashBest&&x.pv<=minPv+0.005;});
+  return{rows:rows,cashBest:cashBest,bestSave:C-minPv};
+}
+/*IP-CORE-END*/
+
+/*IP-DOM-BEGIN*/
+function ipRowHtml(i,r){
+  const t=r.t||'z',isI=t==='i',m=r.m||'monthly';
+  let h='<div class="dl-row"><div class="fg dl-w2"><label>แผนที่ '+(i+1)+'</label><select id="ip-t'+i+'" onchange="ipType('+i+')"><option value="z"'+(isI?'':' selected')+'>ผ่อน 0%</option><option value="i"'+(isI?' selected':'')+'>ผ่อนแบบมีดอก</option></select></div>';
+  if(isI)h+='<div class="fg dl-w2"><label>กรอกเป็น</label><select id="ip-m'+i+'" onchange="ipMode('+i+')"><option value="monthly"'+(m==='monthly'?' selected':'')+'>ยอดผ่อนรายเดือน</option><option value="total"'+(m==='total'?' selected':'')+'>ยอดรวมทั้งหมด (รวมเงินดาวน์)</option></select></div>';
+  h+='<div class="fg dl-w2"><label id="ip-al'+i+'">'+(isI?(m==='monthly'?'ยอดผ่อนต่อเดือน (฿)':'ยอดรวมทั้งหมด (฿)'):'ราคาผ่อน (฿) — ว่าง = เท่าราคาจ่ายสด')+'</label><input type="number" id="ip-a'+i+'" step="0.01" min="0" placeholder="'+(isI?(m==='monthly'?'เช่น 3300':'เช่น 33000'):'เช่น 30000')+'" value="'+dlEsc(r.a||'')+'"></div>'
+   +'<div class="fg"><label>ผ่อนกี่เดือน</label><input type="number" id="ip-n'+i+'" step="1" min="1" placeholder="เช่น 10" value="'+dlEsc(r.n||'')+'"></div>'
+   +'<div class="fg"><label>เงินดาวน์ (฿)</label><input type="number" id="ip-d'+i+'" step="0.01" min="0" placeholder="ไม่มี = เว้นว่าง" value="'+dlEsc(r.d||'')+'"></div>'
+   +'<div class="fg"><button type="button" class="btn btn-s dl-x" onclick="ipDel('+i+')" aria-label="ลบแผนที่ '+(i+1)+'">✕ ลบ</button></div></div>';
+  return h;
+}
+function ipRead(){const o=[];for(let i=0;$('ip-t'+i);i++)o.push({t:$('ip-t'+i).value,m:$('ip-m'+i)?$('ip-m'+i).value:'monthly',a:$('ip-a'+i).value,n:$('ip-n'+i).value,d:$('ip-d'+i).value});return o;}
+function ipRender(rows){$('ip-rows').innerHTML=rows.map((r,i)=>ipRowHtml(i,r)).join('');$('ip-res').style.display='none';$('ip-tw').innerHTML='';$('ip-add').disabled=rows.length>=4;}
+function ipAdd(){const r=ipRead();if(r.length>=4)return;r.push({t:'i'});ipRender(r);}
+function ipDel(i){const r=ipRead();if(r.length<=1)return;r.splice(i,1);ipRender(r);}
+function ipType(i){const r=ipRead();r[i].a='';r[i].m='monthly';ipRender(r);}
+function ipMode(i){ // เปลี่ยนวิธีกรอก: เปลี่ยนป้ายและเคลียร์จำนวนเงิน (หน่วยไม่เหมือนกัน กันยอดรายเดือนถูกอ่านเป็นยอดรวม)
+  const m=$('ip-m'+i).value;$('ip-al'+i).textContent=m==='monthly'?'ยอดผ่อนต่อเดือน (฿)':'ยอดรวมทั้งหมด (฿)';
+  $('ip-a'+i).value='';$('ip-a'+i).placeholder=m==='monthly'?'เช่น 3300':'เช่น 33000';$('ip-res').style.display='none';$('ip-tw').innerHTML='';
+}
+function ipReset(){$('ip-c').value='';$('ip-r').value='2';ipRender([{t:'z'},{t:'i'}]);}
+function calcIP(){
+  const fail=m=>{$('ip-tw').innerHTML='';vfail('ip-res',m);};
+  const C=pfRead($('ip-c'),'ราคาจ่ายสด',{req:1,gt0:1,max:1e9});if(C.err)return fail(C.err);
+  const R=pfRead($('ip-r'),'ผลตอบแทนของเงินที่เก็บไว้',{req:1,zeroHint:'กรอก 0 ได้',max:50});if(R.err)return fail(R.err);
+  const plans=[],names=[];
+  for(let i=0;$('ip-t'+i);i++){
+    const t=$('ip-t'+i).value,L='แผนที่ '+(i+1)+' ',isI=t==='i',mode=isI?$('ip-m'+i).value:'total';
+    const a=pfRead($('ip-a'+i),L+(isI?(mode==='monthly'?'ยอดผ่อนต่อเดือน':'ยอดรวมทั้งหมด'):'ราคาผ่อน'),isI?{req:1,gt0:1,max:1e9}:{gt0:0,max:1e9});if(a.err)return fail(a.err);
+    const n=pfRead($('ip-n'+i),L+'จำนวนเดือน',{req:1,int:1,gt0:1,max:360});if(n.err)return fail(n.err);
+    const d=pfRead($('ip-d'+i),L+'เงินดาวน์',{max:1e9});if(d.err)return fail(d.err);
+    plans.push({mode:mode,amt:(!isI&&a.blank)?C.v:a.v,n:n.v,down:d.v});
+    names.push('แผน '+(i+1)+': '+(isI?'ผ่อนมีดอก':'ผ่อน 0%')+' '+n.v+' เดือน');
+  }
+  const r=ipCalc({C:C.v,r:R.v,plans:plans});
+  if(r.err)return fail(r.err);
+  const w=r.rows.map((x,i)=>x.best?i:-1).filter(i=>i>=0);
+  $('ip-sum').innerHTML=r.cashBest?'<b>จ่ายสดคุ้มที่สุด</b> — ไม่มีแผนผ่อนไหนถูกกว่า เมื่อเงินที่เก็บไว้ได้ผลตอบแทน '+fN(R.v,R.v%1?2:0)+'%/ปี':'<b>'+w.map(i=>names[i].split(':')[0]).join(' / ')+'</b> คุ้มที่สุด — ถูกกว่าจ่ายสด '+fB(r.bestSave)+' (คิดเป็นมูลค่าวันนี้)';
+  const vd=x=>x.verdict==='better'?'<span style="color:var(--green)">ถูกกว่า '+fB(x.save)+'</span>':x.verdict==='worse'?'<span style="color:var(--red)">แพงกว่า '+fB(-x.save)+'</span>':'เท่ากัน';
+  let h='<div class="twrap"><div class="tscroll"><table class="uctbl"><thead><tr><th>ตัวเลือก</th><th>ผ่อน/เดือน</th><th>จ่ายรวม</th><th>เกินราคาสด</th><th>ดอกเบี้ยแท้จริง/ปี</th><th>Flat/ปี</th><th>เทียบเท่าจ่ายสด</th><th>เทียบกับจ่ายสด</th></tr></thead><tbody>';
+  h+='<tr'+(r.cashBest?' class="dl-best"':'')+'><td>จ่ายสด'+(r.cashBest?' <span class="badge bg">คุ้มสุด</span>':'')+'</td><td>—</td><td>'+fB(C.v)+'</td><td>—</td><td>—</td><td>—</td><td>'+fB(C.v)+'</td><td>—</td></tr>';
+  r.rows.forEach((x,i)=>{
+    h+='<tr'+(x.best?' class="dl-best"':'')+'><td>'+names[i]+(x.best?' <span class="badge bg">คุ้มสุด</span>':'')+'</td><td>'+fB(x.M)+'</td><td>'+fB(x.total)+'</td><td>'+(Math.abs(x.extra)<0.005?'—':fB(x.extra))+'</td><td>'+fN(x.apr,2)+'%</td><td>'+fN(x.flat,2)+'%</td><td>'+fB(x.pv)+'</td><td>'+vd(x)+'</td></tr>';
+  });
+  $('ip-tw').innerHTML=h+'</tbody></table></div></div>';
+  show('ip-res');
+}
+ipRender([{t:'z'},{t:'i'}]);
+/*IP-DOM-END*/
+
+/* ── 6) ค่าน้ำมัน / ค่าเดินทาง ── */
+// ลิตรที่ใช้ = ระยะทางรวม ÷ (กม./ล.)  หรือ  ระยะทางรวม × (ล./100 กม.) ÷ 100 ; ค่าเดินทาง = ลิตร × ราคา + ค่าทางด่วน/จอด
+/*FU-CORE-BEGIN*/
+function fuTrip(o){
+  const km=o.km,eco=o.eco,price=o.price,extra=o.extra,n=o.n;
+  if(![km,eco,price,extra,n].every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลข'};
+  if(!(km>0))return{err:'ระยะทางต้องมากกว่า 0'};
+  if(!(eco>0))return{err:'อัตราสิ้นเปลืองต้องมากกว่า 0'};
+  if(!(price>0))return{err:'ราคาน้ำมันต้องมากกว่า 0'};
+  if(extra<0)return{err:'ค่าทางด่วน/ค่าจอดต้องไม่ติดลบ'};
+  if(!Number.isInteger(n)||n<1)return{err:'จำนวนคนต้องเป็นจำนวนเต็มตั้งแต่ 1'};
+  if(o.mode!=='kmL'&&o.mode!=='l100')return{err:'เลือกหน่วยอัตราสิ้นเปลือง'};
+  const dist=km*(o.round?2:1);
+  const liters=o.mode==='l100'?dist*eco/100:dist/eco;
+  const fuel=liters*price,total=fuel+extra;
+  if(![liters,fuel,total].every(isFinite))return{err:'ตัวเลขใหญ่เกินไป'};
+  return{dist:dist,liters:liters,fuel:fuel,total:total,perKm:total/dist,perPerson:total/n};
+}
+function fuEcon(o){ // เติมเต็มถังครั้งนี้: อัตราสิ้นเปลืองจริง
+  const km=o.km,liters=o.liters,price=o.price;
+  if(![km,liters,price].every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลข'};
+  if(!(km>0))return{err:'ระยะทางที่วิ่งต้องมากกว่า 0'};
+  if(!(liters>0))return{err:'ปริมาณน้ำมันที่เติมต้องมากกว่า 0'};
+  if(price<0)return{err:'ราคาน้ำมันต้องไม่ติดลบ'};
+  return{kmL:km/liters,l100:liters/km*100,perKm:price>0?liters*price/km:null};
+}
+/*FU-CORE-END*/
+/*FU-DOM-BEGIN*/
+function fuMode(){
+  const l=$('fu-em').value==='l100';
+  $('fu-eco-l').textContent=l?'อัตราสิ้นเปลือง (ลิตร/100 กม.)':'อัตราสิ้นเปลือง (กม./ลิตร)';
+  $('fu-eco').placeholder=l?'เช่น 8':'เช่น 12';
+}
+function calcFU(){
+  const c=pfCollect([['fu-km','ระยะทาง (กม.)',{req:1,gt0:1,max:1e6}],['fu-eco','อัตราสิ้นเปลือง',{req:1,gt0:1,max:1000}],['fu-pr','ราคาน้ำมัน (บาท/ลิตร)',{req:1,gt0:1,max:1000}],
+    ['fu-ex','ค่าทางด่วน/ค่าจอด',{req:1,zeroHint:'กรอก 0 ได้',max:1e7}],['fu-n','จำนวนคนร่วมรถ',{req:1,int:1,gt0:1,max:100}]]);
+  if(c.err){vfail('fu-res',c.err);return;}
+  const x=c.vals;
+  const r=fuTrip({km:x['fu-km'],round:$('fu-rt').value==='2',eco:x['fu-eco'],mode:$('fu-em').value,price:x['fu-pr'],extra:x['fu-ex'],n:x['fu-n']});
+  if(r.err){vfail('fu-res',r.err);return;}
+  $('fu-dist').textContent=fN(r.dist,r.dist%1?1:0)+' กม.';
+  $('fu-l').textContent=fN(r.liters,2)+' ลิตร';
+  $('fu-fuel').textContent=fB(r.fuel);
+  $('fu-tot').textContent=fB(r.total);
+  $('fu-km1').textContent=dlMoney(r.perKm)+' / กม.';
+  $('fu-pp').textContent=fB(r.perPerson);
+  show('fu-res');
+}
+function calcFE(){
+  const c=pfCollect([['fu-e-km','ระยะทางที่วิ่งตั้งแต่เติมครั้งก่อน (กม.)',{req:1,gt0:1,max:1e6}],['fu-e-l','น้ำมันที่เติมเต็มถังครั้งนี้ (ลิตร)',{req:1,gt0:1,max:1e4}],['fu-e-pr','ราคาน้ำมัน (บาท/ลิตร)',{zeroHint:'เว้นว่างได้',max:1000}]]);
+  if(c.err){vfail('fu-e-res',c.err);return;}
+  const x=c.vals,r=fuEcon({km:x['fu-e-km'],liters:x['fu-e-l'],price:x['fu-e-pr']});
+  if(r.err){vfail('fu-e-res',r.err);return;}
+  $('fu-e-a').textContent=fN(r.kmL,2)+' กม./ลิตร';
+  $('fu-e-b').textContent=fN(r.l100,2)+' ลิตร/100 กม.';
+  $('fu-e-c').textContent=r.perKm===null?'—':dlMoney(r.perKm)+' / กม.';
+  show('fu-e-res');
+}
+fuMode();
+/*FU-DOM-END*/
+
+/* ── 11) ของแพงคุ้มไหม (ต้นทุนต่อครั้งที่ใช้) ── */
+// ต้นทุนคงที่ F = ราคาซื้อ − มูลค่าขายต่อ + ค่าบำรุงรักษาต่อปี × ปี ; ครั้งที่ใช้ N = ครั้ง/ปี × ปี ; ต้นทุนต่อครั้ง = F/N + ค่าใช้ต่อครั้ง
+// จุดคุ้มทุนเทียบทางเลือก (จ่ายต่อครั้ง a): F/N' + v = a → N' = F/(a−v)
+/*CU-CORE-BEGIN*/
+function cuCalc(o){
+  const price=o.price,salv=o.salv,maint=o.maint,years=o.years,uses=o.uses,v=o.v,alt=o.alt;
+  if(![price,salv,maint,years,uses,v,alt].every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลข'};
+  if(!(price>0))return{err:'ราคาซื้อต้องมากกว่า 0'};
+  if(salv<0)return{err:'มูลค่าขายต่อต้องไม่ติดลบ'};
+  if(salv>price)return{err:'มูลค่าขายต่อต้องไม่เกินราคาซื้อ'};
+  if(maint<0||v<0||alt<0)return{err:'ค่าใช้จ่ายต้องไม่ติดลบ'};
+  if(!(years>0&&years<=100))return{err:'อายุการใช้งานต้องมากกว่า 0 และไม่เกิน 100 ปี'};
+  if(!(uses>0))return{err:'จำนวนครั้งที่ใช้ต่อปีต้องมากกว่า 0'};
+  const F=price-salv+maint*years,N=uses*years,total=F+v*N;
+  if(![F,N,total].every(isFinite))return{err:'ตัวเลขใหญ่เกินไป'};
+  const r={F:F,N:N,total:total,perUse:F/N+v,perMonth:total/(years*12),perYear:total/years};
+  if(alt>0){
+    r.alt=alt;
+    if(alt>v){
+      r.beReal=F/(alt-v);r.beUses=Math.ceil(r.beReal-1e-9);r.beYear=r.beReal/years;
+      r.worth=N>=r.beReal-1e-9;
+      r.diff=alt*N-total; // + = ใช้ของที่ซื้อถูกกว่าทางเลือก
+    }else{r.never=true;r.diff=alt*N-total;}
+  }
+  return r;
+}
+/*CU-CORE-END*/
+/*CU-DOM-BEGIN*/
+function calcCU(){
+  const c=pfCollect([['cu-pr','ราคาซื้อ',{req:1,gt0:1,max:1e9}],['cu-sv','มูลค่าขายต่อ/ซาก',{req:1,zeroHint:'กรอก 0 ได้',max:1e9}],['cu-mt','ค่าบำรุงรักษาต่อปี',{req:1,zeroHint:'กรอก 0 ได้',max:1e9}],
+    ['cu-y','อายุการใช้งาน (ปี)',{req:1,gt0:1,max:100}],['cu-u','ใช้กี่ครั้งต่อปี',{req:1,gt0:1,max:1e6}],['cu-v','ค่าใช้ต่อครั้ง (ค่าไฟ/ค่าเข้า ฯลฯ)',{req:1,zeroHint:'กรอก 0 ได้',max:1e9}],['cu-alt','ทางเลือก: จ่ายต่อครั้ง',{zeroHint:'เว้นว่างถ้าไม่เทียบ',max:1e9}]]);
+  if(c.err){vfail('cu-res',c.err);return;}
+  const x=c.vals,r=cuCalc({price:x['cu-pr'],salv:x['cu-sv'],maint:x['cu-mt'],years:x['cu-y'],uses:x['cu-u'],v:x['cu-v'],alt:x['cu-alt']});
+  if(r.err){vfail('cu-res',r.err);return;}
+  $('cu-tot').textContent=fB(r.total);
+  $('cu-n').textContent=fN(r.N,r.N%1?1:0)+' ครั้ง';
+  $('cu-per').textContent=dlMoney(r.perUse);
+  $('cu-mo').textContent=fB(r.perMonth);
+  $('cu-yr').textContent=fB(r.perYear);
+  let msg='';
+  if(r.alt!==undefined){
+    if(r.never)msg='ทางเลือกจ่ายครั้งละ '+fB(r.alt)+' ไม่มากกว่าค่าใช้ต่อครั้งของของชิ้นนี้ — ซื้อไม่มีวันคุ้มกว่า';
+    else msg='ต้องใช้อย่างน้อย <b>'+fN(r.beUses,0)+' ครั้ง</b> (~'+fN(r.beYear,1)+' ครั้ง/ปี) จึงจะถูกกว่าจ่ายครั้งละ '+fB(r.alt)+' · ที่คุณวางแผนไว้ '+fN(r.N,r.N%1?1:0)+' ครั้ง → '+(r.worth?'<b style="color:var(--green)">คุ้ม</b> ประหยัดรวม '+fB(r.diff):'<b style="color:var(--red)">ไม่คุ้ม</b> จ่ายเกิน '+fB(-r.diff));
+  }
+  $('cu-msg').innerHTML=msg;$('cu-msg').style.display=msg?'block':'none';
+  show('cu-res');
+}
+/*CU-DOM-END*/
+
+/* ── 12) รายจ่ายเล็ก ๆ ต่อวัน → ต่อปี (Latte Factor) ── */
+// ต่อปี = จำนวนเงิน × ครั้ง × (365 วัน | 52 สัปดาห์ | 12 เดือน) ; ต่อเดือน = ต่อปี ÷ 12
+// ถ้านำไปลงทุน: ฝากทุกสิ้นเดือน เดือนละ (ต่อปี÷12) ทบต้นรายเดือน อัตรา r%/ปี → FV = pmt × ((1+i)^n − 1)/i , i = r/1200 , n = ปี×12
+/*LT-CORE-BEGIN*/
+const LT_PY={d:365,w:52,m:12};
+function ltCalc(o){
+  const amt=o.amt,times=o.times,years=o.years,rate=o.rate;
+  if(![amt,times,years,rate].every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลข'};
+  if(!(amt>0))return{err:'จำนวนเงินต่อครั้งต้องมากกว่า 0'};
+  if(!(times>0))return{err:'จำนวนครั้งต้องมากกว่า 0'};
+  if(!LT_PY[o.per])return{err:'เลือกช่วงเวลา'};
+  if(!Number.isInteger(years)||years<1||years>60)return{err:'จำนวนปีต้องเป็นจำนวนเต็ม 1–60'};
+  if(rate<0||rate>50)return{err:'ผลตอบแทนต้องอยู่ระหว่าง 0–50% ต่อปี'};
+  const perYear=amt*times*LT_PY[o.per],perMonth=perYear/12,n=years*12,i=rate/1200;
+  const total=perYear*years;
+  const fv=i===0?perMonth*n:perMonth*((Math.pow(1+i,n)-1)/i);
+  if(![perYear,total,fv].every(isFinite))return{err:'ตัวเลขใหญ่เกินไป'};
+  return{perYear:perYear,perMonth:perMonth,perDay:perYear/365,total:total,fv:fv,gain:fv-total};
+}
+/*LT-CORE-END*/
+/*LT-DOM-BEGIN*/
+function ltMode(){const p=$('lt-per').value;$('lt-times-l').textContent='จำนวนครั้งต่อ'+(p==='d'?'วัน':p==='w'?'สัปดาห์':'เดือน');}
+function calcLT(){
+  const c=pfCollect([['lt-a','จำนวนเงินต่อครั้ง',{req:1,gt0:1,max:1e7}],['lt-t','จำนวนครั้ง',{req:1,gt0:1,max:1e4}],['lt-y','จำนวนปี',{req:1,int:1,gt0:1,max:60}],['lt-r','ผลตอบแทน (%/ปี)',{req:1,zeroHint:'กรอก 0 ได้',max:50}]]);
+  if(c.err){vfail('lt-res',c.err);return;}
+  const x=c.vals,r=ltCalc({amt:x['lt-a'],times:x['lt-t'],per:$('lt-per').value,years:x['lt-y'],rate:x['lt-r']});
+  if(r.err){vfail('lt-res',r.err);return;}
+  $('lt-d').textContent=fB(r.perDay);$('lt-m').textContent=fB(r.perMonth);$('lt-yr').textContent=fB(r.perYear);
+  $('lt-tl').textContent='รวมใน '+x['lt-y']+' ปี (จ่ายจริง)';$('lt-tot').textContent=fB(r.total);
+  $('lt-fl').textContent='ถ้าเก็บลงทุน '+fN(x['lt-r'],x['lt-r']%1?2:0)+'%/ปี ใน '+x['lt-y']+' ปี';$('lt-fv').textContent=fB(r.fv);
+  $('lt-gain').textContent=fB(r.gain);
+  show('lt-res');
+}
+ltMode();
+/*LT-DOM-END*/
+
+/* ── 13) ออมเงินแบบท้าทาย ── */
+// งวดที่ k (k=1..n) ออม a + b×(k−1) ; รวม = n×a + b×n(n−1)/2 ; โหมดเป้าหมาย: a = (เป้า − b×n(n−1)/2) ÷ n
+/*SVC-CORE-BEGIN*/
+function svcPlan(a,b,n,desc){
+  if(![a,b,n].every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลข'};
+  if(!Number.isInteger(n)||n<1||n>1000)return{err:'จำนวนงวดต้องเป็นจำนวนเต็ม 1–1,000'};
+  if(a<0||b<0)return{err:'เงินออมต้องไม่ติดลบ'};
+  const total=n*a+b*n*(n-1)/2;
+  if(!(total>0))return{err:'ต้องออมมากกว่า 0 (ใส่เงินเริ่มต้นหรือขั้นเพิ่มอย่างน้อยหนึ่งอย่าง)'};
+  if(!isFinite(total))return{err:'ตัวเลขใหญ่เกินไป'};
+  const rows=[];let cum=0;
+  for(let k=1;k<=n;k++){const amt=a+b*(k-1);cum+=amt;rows.push({k:k,amt:amt,cum:cum});}
+  if(desc){ // เรียงจากมากไปน้อย: ยอดสะสมคำนวณใหม่ตามลำดับที่แสดง
+    const am=rows.map(r=>r.amt).reverse();cum=0;
+    am.forEach((x,i)=>{cum+=x;rows[i]={k:i+1,amt:x,cum:cum};});
+  }
+  return{total:total,last:a+b*(n-1),avg:total/n,rows:rows};
+}
+function svcGoal(T,b,n){
+  if(![T,b,n].every(x=>typeof x==='number'&&isFinite(x)))return{err:'กรุณากรอกตัวเลข'};
+  if(!Number.isInteger(n)||n<1||n>1000)return{err:'จำนวนงวดต้องเป็นจำนวนเต็ม 1–1,000'};
+  if(!(T>0))return{err:'เป้าหมายต้องมากกว่า 0'};
+  if(b<0)return{err:'ขั้นเพิ่มต้องไม่ติดลบ'};
+  const step=b*n*(n-1)/2;
+  if(step>T)return{err:'ขั้นเพิ่มสูงเกินไปสำหรับเป้าหมายนี้ (เพิ่มอย่างเดียวก็เกินเป้าแล้ว) ลดขั้นเพิ่มหรือเพิ่มเป้าหมาย'};
+  const a=(T-step)/n,aUp=Math.ceil(a-1e-9);
+  return{a:a,aUp:aUp,totalUp:n*aUp+step};
+}
+/*SVC-CORE-END*/
+/*SVC-DOM-BEGIN*/
+let svcRows=[];
+function svcMode(){const g=$('svc-m').value==='goal';$('svc-a-fg').style.display=g?'none':'';$('svc-t-fg').style.display=g?'':'none';}
+function svcPreset(a,b,n,u){$('svc-m').value='plan';$('svc-a').value=a;$('svc-b').value=b;$('svc-n').value=n;$('svc-u').value=u;$('svc-desc').checked=false;svcMode();calcSVC();}
+function calcSVC(){
+  const fail=m=>{$('svc-tw').innerHTML='';vfail('svc-res',m);}; // ตาราง svc-tw อยู่นอกกล่องผลลัพธ์ ต้องล้างเองกันตัวเลขเก่าค้าง
+  const goal=$('svc-m').value==='goal';
+  const specs=[['svc-b','ขั้นเพิ่มต่องวด',{req:1,zeroHint:'กรอก 0 ได้',max:1e7}],['svc-n','จำนวนงวด',{req:1,int:1,gt0:1,max:1000}]];
+  specs.push(goal?['svc-t','เป้าหมายเงินออมรวม',{req:1,gt0:1,max:1e10}]:['svc-a','เงินออมงวดแรก',{req:1,zeroHint:'กรอก 0 ได้',max:1e7}]);
+  const c=pfCollect(specs);
+  if(c.err){fail(c.err);return;}
+  const x=c.vals,u=$('svc-u').value,n=x['svc-n'],b=x['svc-b'];
+  let a,note='';
+  if(goal){
+    const g=svcGoal(x['svc-t'],b,n);
+    if(g.err){fail(g.err);return;}
+    a=g.aUp;
+    note='ต้องเริ่มออม '+fB(g.a)+' ในงวดแรก (ปัดขึ้นเป็น '+fB(g.aUp)+' → รวม '+fB(g.totalUp)+' ถึงเป้าแน่นอน) ตารางด้านล่างใช้ค่าที่ปัดขึ้น';
+  }else a=x['svc-a'];
+  const r=svcPlan(a,b,n,$('svc-desc').checked);
+  if(r.err){fail(r.err);return;}
+  $('svc-tot').textContent=fB(r.total);
+  $('svc-first').textContent=fB($('svc-desc').checked?r.last:a);
+  $('svc-last').textContent=fB($('svc-desc').checked?a:r.last);
+  $('svc-avg').textContent=fB(r.avg);
+  $('svc-note').textContent=note;
+  let h='<div class="twrap dl-scroll"><table class="uctbl"><thead><tr><th>'+u+'ที่</th><th>ออมงวดนี้</th><th>สะสม</th></tr></thead><tbody>';
+  r.rows.forEach(w=>{h+='<tr><td>'+w.k+'</td><td>'+fB(w.amt)+'</td><td>'+fB(w.cum)+'</td></tr>';});
+  $('svc-tw').innerHTML=h+'</tbody></table></div>';
+  show('svc-res');
+}
+function svcReset(){resetFields('svc');$('svc-desc').checked=false;$('svc-tw').innerHTML='';svcMode();}
+svcMode();
+/*SVC-DOM-END*/
 
 /* ─── แปลงหน่วย (Unit Converter) · เพิ่ม 2026-11-23 ─── */
 // ตารางหน่วย: [id, ชื่อ, ตัวคูณเป็นหน่วยฐานของประเภท | {to,from} (ไม่เป็นเชิงเส้น), สัญลักษณ์]
